@@ -381,10 +381,10 @@
             </objects>
             <point key="canvasLocation" x="-671.25" y="133.09859154929578"/>
         </scene>
-        <!--View Controller-->
+        <!--Player List View Controller-->
         <scene sceneID="b22-1T-F8E">
             <objects>
-                <viewController id="M9s-lY-lLv" sceneMemberID="viewController">
+                <viewController id="M9s-lY-lLv" customClass="PlayerListViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i7a-5c-c5X"/>
                         <viewControllerLayoutGuide type="bottom" id="Hf3-MN-dbW"/>
@@ -458,6 +458,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="nameTextField" destination="VoA-87-juZ" id="PvB-AQ-sCt"/>
+                                            <outlet property="numberLabel" destination="MSl-hm-9Da" id="ewb-fh-KCq"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
