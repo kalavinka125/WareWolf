@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D23613CE1FC09EE200563B8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23613CD1FC09EE200563B8C /* AppDelegate.swift */; };
+		D23613D01FC09EE200563B8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23613CF1FC09EE200563B8C /* ViewController.swift */; };
+		D23613D31FC09EE200563B8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D23613D11FC09EE200563B8C /* Main.storyboard */; };
+		D23613D51FC09EE200563B8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23613D41FC09EE200563B8C /* Assets.xcassets */; };
+		D23613D81FC09EE200563B8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D23613D61FC09EE200563B8C /* LaunchScreen.storyboard */; };
+		D23613E31FC09EE200563B8C /* WareWolfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23613E21FC09EE200563B8C /* WareWolfTests.swift */; };
+		D23613EE1FC09EE200563B8C /* WareWolfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23613ED1FC09EE200563B8C /* WareWolfUITests.swift */; };
+		D23614001FC125D900563B8C /* Geotica_2012.otf in Resources */ = {isa = PBXBuildFile; fileRef = D23613FB1FC125D900563B8C /* Geotica_2012.otf */; };
+		D23614011FC125D900563B8C /* PixelMplus10-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D23613FC1FC125D900563B8C /* PixelMplus10-Bold.ttf */; };
+		D23614021FC125D900563B8C /* PixelMplus10-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D23613FD1FC125D900563B8C /* PixelMplus10-Regular.ttf */; };
+		D23614031FC125D900563B8C /* PixelMplus12-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D23613FE1FC125D900563B8C /* PixelMplus12-Bold.ttf */; };
+		D23614041FC125D900563B8C /* PixelMplus12-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D23613FF1FC125D900563B8C /* PixelMplus12-Regular.ttf */; };
+		D23614081FC1AA6C00563B8C /* NumberOfPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23614071FC1AA6C00563B8C /* NumberOfPlayerViewController.swift */; };
+		D236140A1FC1BD0C00563B8C /* RoleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23614091FC1BD0C00563B8C /* RoleListViewController.swift */; };
+		D236140D1FC1CB3B00563B8C /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D236140C1FC1CB3B00563B8C /* PlayerTableViewCell.swift */; };
+		D236140F1FC1DAC700563B8C /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = D236140E1FC1DAC700563B8C /* Role.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D23613DF1FC09EE200563B8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D23613C21FC09EE200563B8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D23613C91FC09EE200563B8C;
+			remoteInfo = WareWolf;
+		};
+		D23613EA1FC09EE200563B8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D23613C21FC09EE200563B8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D23613C91FC09EE200563B8C;
+			remoteInfo = WareWolf;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D23613CA1FC09EE200563B8C /* WareWolf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WareWolf.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D23613CD1FC09EE200563B8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D23613CF1FC09EE200563B8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D23613D21FC09EE200563B8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D23613D41FC09EE200563B8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D23613D71FC09EE200563B8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D23613D91FC09EE200563B8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D23613DE1FC09EE200563B8C /* WareWolfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WareWolfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D23613E21FC09EE200563B8C /* WareWolfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WareWolfTests.swift; sourceTree = "<group>"; };
+		D23613E41FC09EE200563B8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D23613E91FC09EE200563B8C /* WareWolfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WareWolfUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D23613ED1FC09EE200563B8C /* WareWolfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WareWolfUITests.swift; sourceTree = "<group>"; };
+		D23613EF1FC09EE200563B8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D23613FB1FC125D900563B8C /* Geotica_2012.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Geotica_2012.otf; sourceTree = "<group>"; };
+		D23613FC1FC125D900563B8C /* PixelMplus10-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PixelMplus10-Bold.ttf"; sourceTree = "<group>"; };
+		D23613FD1FC125D900563B8C /* PixelMplus10-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PixelMplus10-Regular.ttf"; sourceTree = "<group>"; };
+		D23613FE1FC125D900563B8C /* PixelMplus12-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PixelMplus12-Bold.ttf"; sourceTree = "<group>"; };
+		D23613FF1FC125D900563B8C /* PixelMplus12-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PixelMplus12-Regular.ttf"; sourceTree = "<group>"; };
+		D23614071FC1AA6C00563B8C /* NumberOfPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberOfPlayerViewController.swift; sourceTree = "<group>"; };
+		D23614091FC1BD0C00563B8C /* RoleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleListViewController.swift; sourceTree = "<group>"; };
+		D236140C1FC1CB3B00563B8C /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		D236140E1FC1DAC700563B8C /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D23613C71FC09EE200563B8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D23613DB1FC09EE200563B8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D23613E61FC09EE200563B8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D23613C11FC09EE200563B8C = {
+			isa = PBXGroup;
+			children = (
+				D23613CC1FC09EE200563B8C /* WareWolf */,
+				D23613E11FC09EE200563B8C /* WareWolfTests */,
+				D23613EC1FC09EE200563B8C /* WareWolfUITests */,
+				D23613CB1FC09EE200563B8C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D23613CB1FC09EE200563B8C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D23613CA1FC09EE200563B8C /* WareWolf.app */,
+				D23613DE1FC09EE200563B8C /* WareWolfTests.xctest */,
+				D23613E91FC09EE200563B8C /* WareWolfUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D23613CC1FC09EE200563B8C /* WareWolf */ = {
+			isa = PBXGroup;
+			children = (
+				D236140B1FC1BD1100563B8C /* Resources */,
+				D23613CD1FC09EE200563B8C /* AppDelegate.swift */,
+				D23613CF1FC09EE200563B8C /* ViewController.swift */,
+				D23613D11FC09EE200563B8C /* Main.storyboard */,
+				D23613D41FC09EE200563B8C /* Assets.xcassets */,
+				D23613D61FC09EE200563B8C /* LaunchScreen.storyboard */,
+				D23613D91FC09EE200563B8C /* Info.plist */,
+				D23614071FC1AA6C00563B8C /* NumberOfPlayerViewController.swift */,
+				D23614091FC1BD0C00563B8C /* RoleListViewController.swift */,
+				D236140C1FC1CB3B00563B8C /* PlayerTableViewCell.swift */,
+				D236140E1FC1DAC700563B8C /* Role.swift */,
+			);
+			path = WareWolf;
+			sourceTree = "<group>";
+		};
+		D23613E11FC09EE200563B8C /* WareWolfTests */ = {
+			isa = PBXGroup;
+			children = (
+				D23613E21FC09EE200563B8C /* WareWolfTests.swift */,
+				D23613E41FC09EE200563B8C /* Info.plist */,
+			);
+			path = WareWolfTests;
+			sourceTree = "<group>";
+		};
+		D23613EC1FC09EE200563B8C /* WareWolfUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D23613ED1FC09EE200563B8C /* WareWolfUITests.swift */,
+				D23613EF1FC09EE200563B8C /* Info.plist */,
+			);
+			path = WareWolfUITests;
+			sourceTree = "<group>";
+		};
+		D236140B1FC1BD1100563B8C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D23613FB1FC125D900563B8C /* Geotica_2012.otf */,
+				D23613FC1FC125D900563B8C /* PixelMplus10-Bold.ttf */,
+				D23613FD1FC125D900563B8C /* PixelMplus10-Regular.ttf */,
+				D23613FE1FC125D900563B8C /* PixelMplus12-Bold.ttf */,
+				D23613FF1FC125D900563B8C /* PixelMplus12-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D23613C91FC09EE200563B8C /* WareWolf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D23613F21FC09EE200563B8C /* Build configuration list for PBXNativeTarget "WareWolf" */;
+			buildPhases = (
+				D23613C61FC09EE200563B8C /* Sources */,
+				D23613C71FC09EE200563B8C /* Frameworks */,
+				D23613C81FC09EE200563B8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WareWolf;
+			productName = WareWolf;
+			productReference = D23613CA1FC09EE200563B8C /* WareWolf.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D23613DD1FC09EE200563B8C /* WareWolfTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D23613F51FC09EE200563B8C /* Build configuration list for PBXNativeTarget "WareWolfTests" */;
+			buildPhases = (
+				D23613DA1FC09EE200563B8C /* Sources */,
+				D23613DB1FC09EE200563B8C /* Frameworks */,
+				D23613DC1FC09EE200563B8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D23613E01FC09EE200563B8C /* PBXTargetDependency */,
+			);
+			name = WareWolfTests;
+			productName = WareWolfTests;
+			productReference = D23613DE1FC09EE200563B8C /* WareWolfTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D23613E81FC09EE200563B8C /* WareWolfUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D23613F81FC09EE200563B8C /* Build configuration list for PBXNativeTarget "WareWolfUITests" */;
+			buildPhases = (
+				D23613E51FC09EE200563B8C /* Sources */,
+				D23613E61FC09EE200563B8C /* Frameworks */,
+				D23613E71FC09EE200563B8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D23613EB1FC09EE200563B8C /* PBXTargetDependency */,
+			);
+			name = WareWolfUITests;
+			productName = WareWolfUITests;
+			productReference = D23613E91FC09EE200563B8C /* WareWolfUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D23613C21FC09EE200563B8C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = NagaoLab;
+				TargetAttributes = {
+					D23613C91FC09EE200563B8C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3BTZN69U72;
+						ProvisioningStyle = Automatic;
+					};
+					D23613DD1FC09EE200563B8C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3BTZN69U72;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D23613C91FC09EE200563B8C;
+					};
+					D23613E81FC09EE200563B8C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3BTZN69U72;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D23613C91FC09EE200563B8C;
+					};
+				};
+			};
+			buildConfigurationList = D23613C51FC09EE200563B8C /* Build configuration list for PBXProject "WareWolf" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D23613C11FC09EE200563B8C;
+			productRefGroup = D23613CB1FC09EE200563B8C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D23613C91FC09EE200563B8C /* WareWolf */,
+				D23613DD1FC09EE200563B8C /* WareWolfTests */,
+				D23613E81FC09EE200563B8C /* WareWolfUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D23613C81FC09EE200563B8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D23614011FC125D900563B8C /* PixelMplus10-Bold.ttf in Resources */,
+				D23614041FC125D900563B8C /* PixelMplus12-Regular.ttf in Resources */,
+				D23613D81FC09EE200563B8C /* LaunchScreen.storyboard in Resources */,
+				D23613D51FC09EE200563B8C /* Assets.xcassets in Resources */,
+				D23614031FC125D900563B8C /* PixelMplus12-Bold.ttf in Resources */,
+				D23614021FC125D900563B8C /* PixelMplus10-Regular.ttf in Resources */,
+				D23613D31FC09EE200563B8C /* Main.storyboard in Resources */,
+				D23614001FC125D900563B8C /* Geotica_2012.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D23613DC1FC09EE200563B8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D23613E71FC09EE200563B8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D23613C61FC09EE200563B8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D236140A1FC1BD0C00563B8C /* RoleListViewController.swift in Sources */,
+				D23613D01FC09EE200563B8C /* ViewController.swift in Sources */,
+				D236140D1FC1CB3B00563B8C /* PlayerTableViewCell.swift in Sources */,
+				D23613CE1FC09EE200563B8C /* AppDelegate.swift in Sources */,
+				D23614081FC1AA6C00563B8C /* NumberOfPlayerViewController.swift in Sources */,
+				D236140F1FC1DAC700563B8C /* Role.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D23613DA1FC09EE200563B8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D23613E31FC09EE200563B8C /* WareWolfTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D23613E51FC09EE200563B8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D23613EE1FC09EE200563B8C /* WareWolfUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D23613E01FC09EE200563B8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D23613C91FC09EE200563B8C /* WareWolf */;
+			targetProxy = D23613DF1FC09EE200563B8C /* PBXContainerItemProxy */;
+		};
+		D23613EB1FC09EE200563B8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D23613C91FC09EE200563B8C /* WareWolf */;
+			targetProxy = D23613EA1FC09EE200563B8C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D23613D11FC09EE200563B8C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D23613D21FC09EE200563B8C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D23613D61FC09EE200563B8C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D23613D71FC09EE200563B8C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D23613F01FC09EE200563B8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D23613F11FC09EE200563B8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D23613F31FC09EE200563B8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3BTZN69U72;
+				INFOPLIST_FILE = WareWolf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.yuge.nagaolab.WareWolf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D23613F41FC09EE200563B8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3BTZN69U72;
+				INFOPLIST_FILE = WareWolf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.yuge.nagaolab.WareWolf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		D23613F61FC09EE200563B8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3BTZN69U72;
+				INFOPLIST_FILE = WareWolfTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.yuge.nagaolab.WareWolfTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WareWolf.app/WareWolf";
+			};
+			name = Debug;
+		};
+		D23613F71FC09EE200563B8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3BTZN69U72;
+				INFOPLIST_FILE = WareWolfTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.yuge.nagaolab.WareWolfTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WareWolf.app/WareWolf";
+			};
+			name = Release;
+		};
+		D23613F91FC09EE200563B8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3BTZN69U72;
+				INFOPLIST_FILE = WareWolfUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.yuge.nagaolab.WareWolfUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = WareWolf;
+			};
+			name = Debug;
+		};
+		D23613FA1FC09EE200563B8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3BTZN69U72;
+				INFOPLIST_FILE = WareWolfUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.yuge.nagaolab.WareWolfUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = WareWolf;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D23613C51FC09EE200563B8C /* Build configuration list for PBXProject "WareWolf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D23613F01FC09EE200563B8C /* Debug */,
+				D23613F11FC09EE200563B8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D23613F21FC09EE200563B8C /* Build configuration list for PBXNativeTarget "WareWolf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D23613F31FC09EE200563B8C /* Debug */,
+				D23613F41FC09EE200563B8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D23613F51FC09EE200563B8C /* Build configuration list for PBXNativeTarget "WareWolfTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D23613F61FC09EE200563B8C /* Debug */,
+				D23613F71FC09EE200563B8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D23613F81FC09EE200563B8C /* Build configuration list for PBXNativeTarget "WareWolfUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D23613F91FC09EE200563B8C /* Debug */,
+				D23613FA1FC09EE200563B8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D23613C21FC09EE200563B8C /* Project object */;
+}
