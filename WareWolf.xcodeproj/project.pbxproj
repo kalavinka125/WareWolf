@@ -23,6 +23,7 @@
 		D236140A1FC1BD0C00563B8C /* RoleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23614091FC1BD0C00563B8C /* RoleListViewController.swift */; };
 		D236140D1FC1CB3B00563B8C /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D236140C1FC1CB3B00563B8C /* PlayerTableViewCell.swift */; };
 		D236140F1FC1DAC700563B8C /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = D236140E1FC1DAC700563B8C /* Role.swift */; };
+		D28646AC1FC1E313002B14BD /* PlayerEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		D23614091FC1BD0C00563B8C /* RoleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleListViewController.swift; sourceTree = "<group>"; };
 		D236140C1FC1CB3B00563B8C /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 		D236140E1FC1DAC700563B8C /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerEditTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				D23614071FC1AA6C00563B8C /* NumberOfPlayerViewController.swift */,
 				D23614091FC1BD0C00563B8C /* RoleListViewController.swift */,
 				D236140C1FC1CB3B00563B8C /* PlayerTableViewCell.swift */,
+				D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */,
 				D236140E1FC1DAC700563B8C /* Role.swift */,
 			);
 			path = WareWolf;
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D236140A1FC1BD0C00563B8C /* RoleListViewController.swift in Sources */,
+				D28646AC1FC1E313002B14BD /* PlayerEditTableViewCell.swift in Sources */,
 				D23613D01FC09EE200563B8C /* ViewController.swift in Sources */,
 				D236140D1FC1CB3B00563B8C /* PlayerTableViewCell.swift in Sources */,
 				D23613CE1FC09EE200563B8C /* AppDelegate.swift in Sources */,
@@ -560,6 +564,7 @@
 				D23613F41FC09EE200563B8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D23613F51FC09EE200563B8C /* Build configuration list for PBXNativeTarget "WareWolfTests" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +573,7 @@
 				D23613F71FC09EE200563B8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D23613F81FC09EE200563B8C /* Build configuration list for PBXNativeTarget "WareWolfUITests" */ = {
 			isa = XCConfigurationList;
@@ -576,6 +582,7 @@
 				D23613FA1FC09EE200563B8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
