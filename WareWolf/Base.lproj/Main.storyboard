@@ -404,6 +404,7 @@
                                     <color key="titleColor" red="0.3655167433" green="0.20999244610000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="tappedNumberOfPlayersButton:" destination="M9s-lY-lLv" eventType="touchUpInside" id="5wL-RH-hUk"/>
                                     <action selector="tappedRoleListButton:" destination="oND-Ih-aKX" eventType="touchUpInside" id="hrE-p5-ISm"/>
                                     <action selector="tappedTitleButton:" destination="QIf-Wc-Tae" eventType="touchUpInside" id="mml-l3-11R"/>
                                 </connections>
@@ -415,7 +416,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tOF-Mw-cwy">
-                                <rect key="frame" x="16" y="88" width="289" height="408"/>
+                                <rect key="frame" x="16" y="88" width="289" height="472"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -465,34 +466,23 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ar6-ph-xH1">
-                                <rect key="frame" x="16" y="504" width="288" height="44"/>
-                                <color key="backgroundColor" red="0.3655167433" green="0.20999244610000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="vUx-Th-fQd"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ar6-ph-xH1" firstAttribute="leading" secondItem="99F-3G-3bq" secondAttribute="leadingMargin" id="7Iy-hx-UsY"/>
                             <constraint firstAttribute="trailing" secondItem="BzJ-IH-75U" secondAttribute="trailing" constant="15" id="AeO-Dr-uSW"/>
-                            <constraint firstItem="tOF-Mw-cwy" firstAttribute="top" secondItem="BzJ-IH-75U" secondAttribute="bottom" constant="8" id="DwJ-UE-Bf3"/>
                             <constraint firstItem="BzJ-IH-75U" firstAttribute="leading" secondItem="99F-3G-3bq" secondAttribute="leading" constant="16" id="Jav-71-NMV"/>
-                            <constraint firstItem="ar6-ph-xH1" firstAttribute="top" secondItem="tOF-Mw-cwy" secondAttribute="bottom" constant="8" id="UxZ-z7-39o"/>
-                            <constraint firstItem="Hf3-MN-dbW" firstAttribute="top" secondItem="ar6-ph-xH1" secondAttribute="bottom" constant="20" id="Z6P-NG-zcN"/>
-                            <constraint firstAttribute="trailing" secondItem="tOF-Mw-cwy" secondAttribute="trailing" constant="15" id="ZM2-KS-K7f"/>
+                            <constraint firstItem="tOF-Mw-cwy" firstAttribute="leading" secondItem="99F-3G-3bq" secondAttribute="leading" constant="16" id="ZkA-0W-cZx"/>
+                            <constraint firstItem="tOF-Mw-cwy" firstAttribute="top" secondItem="BzJ-IH-75U" secondAttribute="bottom" constant="8" id="a6N-aT-FlI"/>
                             <constraint firstItem="8rm-Fv-0t3" firstAttribute="leading" secondItem="99F-3G-3bq" secondAttribute="leadingMargin" id="aXJ-jX-75e"/>
-                            <constraint firstItem="ar6-ph-xH1" firstAttribute="trailing" secondItem="99F-3G-3bq" secondAttribute="trailingMargin" id="g7k-qF-9mG"/>
-                            <constraint firstItem="tOF-Mw-cwy" firstAttribute="leading" secondItem="99F-3G-3bq" secondAttribute="leading" constant="16" id="ibs-mJ-0dq"/>
                             <constraint firstItem="8rm-Fv-0t3" firstAttribute="top" secondItem="i7a-5c-c5X" secondAttribute="bottom" id="mEP-o4-fdF"/>
+                            <constraint firstAttribute="trailing" secondItem="tOF-Mw-cwy" secondAttribute="trailing" constant="15" id="pTz-pu-aTf"/>
+                            <constraint firstItem="Hf3-MN-dbW" firstAttribute="top" secondItem="tOF-Mw-cwy" secondAttribute="bottom" constant="8" id="q8d-9h-bVX"/>
                             <constraint firstItem="BzJ-IH-75U" firstAttribute="top" secondItem="8rm-Fv-0t3" secondAttribute="bottom" constant="8" id="uNO-eF-jyZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="tOF-Mw-cwy" id="Zb0-nx-Mca"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFL-pH-DK9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

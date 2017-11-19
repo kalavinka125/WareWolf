@@ -9,7 +9,9 @@
 import UIKit
 
 class PlayerListViewController: UIViewController {
-
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,9 @@ class PlayerListViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func tappedNumberOfPlayersButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
