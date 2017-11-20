@@ -53,16 +53,22 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
             
             // 人狼がいるかどうか
             var w = 0
-            if self.roleList[1] == nil && self.roleList[1]! <= 0{
-                w = self.roleList[1]!
+            if self.roleList[1] == nil {
                 self.showAlert(viewController: self, message: "人狼がいません", buttonTitle: "OK")
                 return
+            }else{
+                w = self.roleList[1]!
+                if self.roleList[1]! < 1{
+                    self.showAlert(viewController: self, message: "人狼がいません", buttonTitle: "OK")
+                    return
+                }
             }
+
             
             // 人狼以外（今後は大狼も含む）のプレイヤーが１人以上
             var player = 0
             for role in self.appDelegate.roleList {
-                // IDが1以外 かつ IDが18以上20以下
+                // IDが1以外 かつ IDが18以上20以下でない
                 if role.ID != 1 && !(role.ID >= 18 && role.ID <= 20) && self.roleList[role.ID] != nil {
                     player += self.roleList[role.ID]!
                 }
@@ -73,19 +79,21 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
             }
             
             // 人狼以外のプレイヤー > 人狼
-            if player < w {
-                self.showAlert(viewController: self, message: "人狼が市民より多いです", buttonTitle: "OK")
+            if player <= w {
+                self.showAlert(viewController: self, message: "人狼が市民の数以上います", buttonTitle: "OK")
                 return
             }
             
             // 背徳者の判定
             // 背徳者がいるのに、狐がいない判定
             if self.roleList[20] != nil && self.roleList[20]! > 0 {
-                if (self.roleList[18] != nil && self.roleList[18]! <= 0) && (self.roleList[19] != nil && self.roleList[19]! <= 0) {
+                if (self.roleList[18] == nil || self.roleList[18]! <= 0) && (self.roleList[19] == nil || self.roleList[19]! <= 0) {
                     self.showAlert(viewController: self, message: "背徳者がいますが、\n狐がいません", buttonTitle: "OK")
                     return
                 }
             }
+            
+            self.showAlert(viewController: self, message: "ゲームを開始します", buttonTitle: "OK")
             
         }else{
             // プレイヤーの数が一致しなかった
@@ -182,10 +190,19 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
         }
         // もともと設定されていた人数を取得
         if let n = self.roleList[ID] {
-            self.roleList[ID] = (n + 1)
+            if ID == 9 {
+                self.roleList[ID] = (n + 2)
+            }else{
+                self.roleList[ID] = (n + 1)
+            }
         }else{
-            // 新しく設定する必要あり
-            self.roleList[ID] = 1
+            if ID == 9 {
+                self.roleList[ID] = 2
+            }else{
+                // 新しく設定する必要あり
+                self.roleList[ID] = 1
+            }
+
         }
         self.tableView.beginUpdates()
         self.tableView.reloadRows(at: [indexPath], with: .none)
@@ -207,7 +224,11 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
         // もともと設定されていた人数を取得
         if let n = self.roleList[ID] {
             if n > 0 {
-                self.roleList[ID] = (n - 1)
+                if ID == 9 {
+                    self.roleList[ID] = (n - 2)
+                }else{
+                    self.roleList[ID] = (n - 1)
+                }
             }
         }else{
             // 新しく設定する必要あり
