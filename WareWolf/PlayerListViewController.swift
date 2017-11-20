@@ -8,14 +8,23 @@
 
 import UIKit
 
-class PlayerListViewController: UIViewController {
+class PlayerListViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let CELL_ID = "PLAER_EDIT"
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+        // 編集モード
+        self.tableView.isEditing = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,15 +35,56 @@ class PlayerListViewController: UIViewController {
     @IBAction func tappedNumberOfPlayersButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! PlayerEditTableViewCell
+        cell.nameTextField.text = self.appDelegate.playerList[indexPath.row].name
+        cell.nameTextField.returnKeyType = .done
+        cell.nameTextField.tag = indexPath.row
+        cell.nameTextField.delegate = self
+        if (indexPath.row+1) < 10{
+            cell.numberLabel.text = " \(indexPath.row+1)."
+        }else{
+            cell.numberLabel.text = "\(indexPath.row+1)."
+        }
+        return cell
     }
-    */
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.appDelegate.playerList.count
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let target = self.appDelegate.playerList[sourceIndexPath.row]
+        self.appDelegate.playerList.remove(at: sourceIndexPath.row)
+        self.appDelegate.playerList.insert(target, at: destinationIndexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        self.appDelegate.playerList.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.appDelegate.playerList[textField.tag].name = textField.text!
+        textField.resignFirstResponder()
+        return true
+    }
 
 }

@@ -26,6 +26,7 @@ class NumberOfPlayerViewController: UIViewController, UITableViewDelegate, UITab
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.numberOfPlayersLabel.text = "\(self.appDelegate.playerList.count)"
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
