@@ -32,6 +32,7 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
         // デフォルト役職一覧を取得
         self.roleList = self.appDelegate.roleManager.defaultRoleList(numberOfPlayer: self.appDelegate.playerList.count)
         self.tableView.reloadData()
+        self.showSelectRoles()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,10 +45,7 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
     }
     
     @IBAction func tappedGameStartButton(_ sender: Any) {
-        var member = 0
-        for (_, value) in self.roleList {
-            member += value
-        }
+        let member = self.getSelectRoles()
         // ゲームが開始できるかの判定
         if self.appDelegate.playerList.count == member {
             
@@ -207,6 +205,7 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
         self.tableView.beginUpdates()
         self.tableView.reloadRows(at: [indexPath], with: .none)
         self.tableView.endUpdates()
+        self.showSelectRoles()
     }
     
     func tappedMinusButton(indexPath: IndexPath) {
@@ -237,6 +236,23 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
         self.tableView.beginUpdates()
         self.tableView.reloadRows(at: [indexPath], with: .none)
         self.tableView.endUpdates()
+        self.showSelectRoles()
+    }
+    
+    /// 選ばれている役職の数を取得する
+    ///
+    /// - Returns: 選ばれている役職数
+    private func getSelectRoles() -> Int{
+        var member = 0
+        for (_, value) in self.roleList {
+            member += value
+        }
+        return member
+    }
+    
+    /// 選ばれている役職の数をラベルに表示する
+    private func showSelectRoles() {
+        self.titleLabel.text = "役職（\(self.getSelectRoles())名 / \(self.appDelegate.playerList.count)名）"
     }
     
 }
