@@ -107,7 +107,7 @@
 		D23613C11FC09EE200563B8C = {
 			isa = PBXGroup;
 			children = (
-				D23613CC1FC09EE200563B8C /* WareWolf */,
+				D23613CC1FC09EE200563B8C /* WereWolf */,
 				D23613E11FC09EE200563B8C /* WareWolfTests */,
 				D23613EC1FC09EE200563B8C /* WareWolfUITests */,
 				D23613CB1FC09EE200563B8C /* Products */,
@@ -124,7 +124,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D23613CC1FC09EE200563B8C /* WareWolf */ = {
+		D23613CC1FC09EE200563B8C /* WereWolf */ = {
 			isa = PBXGroup;
 			children = (
 				D236140B1FC1BD1100563B8C /* Resources */,
@@ -143,6 +143,7 @@
 				D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */,
 				D28646B11FC1F134002B14BD /* RoleResultViewController.swift */,
 			);
+			name = WereWolf;
 			path = WareWolf;
 			sourceTree = "<group>";
 		};
@@ -504,7 +505,7 @@
 				DEVELOPMENT_TEAM = 3BTZN69U72;
 				INFOPLIST_FILE = WareWolf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.yuge.nagaolab.WareWolf;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.yuge.nagaolab.WereWolf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -517,7 +518,7 @@
 				DEVELOPMENT_TEAM = 3BTZN69U72;
 				INFOPLIST_FILE = WareWolf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.yuge.nagaolab.WareWolf;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.ac.yuge.nagaolab.WereWolf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
