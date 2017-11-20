@@ -8,8 +8,16 @@
 
 import UIKit
 
-class PlayerEditTableViewCell: UITableViewCell {
+protocol PlayerEditTableViewCellDelegate {
+    func tappedChangeButton(row : Int)
+}
 
+class PlayerEditTableViewCell: UITableViewCell {
+    // デリゲート
+    var delegate : PlayerEditTableViewCellDelegate!
+    // 行番号
+    var row = 0
+    
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     
@@ -24,4 +32,9 @@ class PlayerEditTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func tappedChangedButton(_ sender: Any) {
+        if self.delegate != nil {
+            self.delegate.tappedChangeButton(row: self.row)
+        }
+    }
 }

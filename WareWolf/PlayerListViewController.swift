@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayerListViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
+class PlayerListViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,PlayerEditTableViewCellDelegate {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let CELL_ID = "PLAER_EDIT"
     @IBOutlet weak var tableView: UITableView!
@@ -29,25 +29,15 @@ class PlayerListViewController: UIViewController ,UITableViewDelegate,UITableVie
         let action = UIAlertAction(title: "OK", style: .default, handler: { alertAction in
             
         })
-
-        /*
-         // Change font of the title and message
-         let titleFont:[String : AnyObject] = [ NSFontAttributeName : UIFont(name: "AmericanTypewriter", size: 18)! ]
-         let messageFont:[String : AnyObject] = [ NSFontAttributeName : UIFont(name: "HelveticaNeue-Thin", size: 14)! ]
-         let attributedTitle = NSMutableAttributedString(string: "Multiple buttons", attributes: titleFont)
-         let attributedMessage = NSMutableAttributedString(string: "Select an Action", attributes: messageFont)
-         alert.setValue(attributedTitle, forKey: "attributedTitle")
-         alert.setValue(attributedMessage, forKey: "attributedMessage")
-        */
-        /*
+    
         let font = UIFont(name: "PixelMplus10-Regular", size: 18)
         let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
         let attributedMessage = NSMutableAttributedString(string: "Hello", attributes: messageFont)
         alert.setValue(attributedMessage, forKey: "attributedMessage")
+        action.setValue(UIColor.black, forKey: "titleTextColor")
         
         alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-         */
+        //present(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,6 +55,8 @@ class PlayerListViewController: UIViewController ,UITableViewDelegate,UITableVie
         cell.nameTextField.returnKeyType = .done
         cell.nameTextField.tag = indexPath.row
         cell.nameTextField.delegate = self
+        cell.row = indexPath.row
+        cell.delegate = self
         if (indexPath.row+1) < 10{
             cell.numberLabel.text = " \(indexPath.row+1)."
         }else{
@@ -111,5 +103,9 @@ class PlayerListViewController: UIViewController ,UITableViewDelegate,UITableVie
         textField.resignFirstResponder()
         return true
     }
-
+    
+    func tappedChangeButton(row: Int) {
+        print(row)
+    }
+    
 }
