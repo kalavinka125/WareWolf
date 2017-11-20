@@ -349,7 +349,7 @@
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ROLL_CELL" rowHeight="144" id="3Ip-Ec-rU1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ROLL_CELL" rowHeight="144" id="3Ip-Ec-rU1" customClass="RollTableViewCell" customModule="WareWolf" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="288" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Ip-Ec-rU1" id="AJF-fU-ggP">
@@ -414,7 +414,7 @@
                                                         <constraint firstAttribute="height" constant="34" id="Cze-Zc-mMf"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
-                                                    <state key="normal" title="+">
+                                                    <state key="normal" title="-">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                 </button>

@@ -27,6 +27,7 @@
 		D28646AE1FC1E3AF002B14BD /* PlayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */; };
 		D28646B01FC1F124002B14BD /* RoleCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */; };
 		D28646B21FC1F134002B14BD /* RoleResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646B11FC1F134002B14BD /* RoleResultViewController.swift */; };
+		D28646B61FC2A7AE002B14BD /* RollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646B51FC2A7AE002B14BD /* RollTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerListViewController.swift; sourceTree = "<group>"; };
 		D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleCheckViewController.swift; sourceTree = "<group>"; };
 		D28646B11FC1F134002B14BD /* RoleResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleResultViewController.swift; sourceTree = "<group>"; };
+		D28646B51FC2A7AE002B14BD /* RollTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				D236140B1FC1BD1100563B8C /* Resources */,
+				D28646B41FC2A6ED002B14BD /* Model */,
+				D28646B31FC2A6DE002B14BD /* Cell */,
 				D23613CD1FC09EE200563B8C /* AppDelegate.swift */,
 				D23613CF1FC09EE200563B8C /* ViewController.swift */,
 				D23613D11FC09EE200563B8C /* Main.storyboard */,
@@ -135,9 +139,6 @@
 				D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */,
 				D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */,
 				D28646B11FC1F134002B14BD /* RoleResultViewController.swift */,
-				D236140C1FC1CB3B00563B8C /* PlayerTableViewCell.swift */,
-				D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */,
-				D236140E1FC1DAC700563B8C /* Role.swift */,
 			);
 			path = WareWolf;
 			sourceTree = "<group>";
@@ -170,6 +171,24 @@
 				D23613FF1FC125D900563B8C /* PixelMplus12-Regular.ttf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		D28646B31FC2A6DE002B14BD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D236140C1FC1CB3B00563B8C /* PlayerTableViewCell.swift */,
+				D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */,
+				D28646B51FC2A7AE002B14BD /* RollTableViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		D28646B41FC2A6ED002B14BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D236140E1FC1DAC700563B8C /* Role.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +338,7 @@
 				D28646AE1FC1E3AF002B14BD /* PlayerListViewController.swift in Sources */,
 				D28646B21FC1F134002B14BD /* RoleResultViewController.swift in Sources */,
 				D28646AC1FC1E313002B14BD /* PlayerEditTableViewCell.swift in Sources */,
+				D28646B61FC2A7AE002B14BD /* RollTableViewCell.swift in Sources */,
 				D23613D01FC09EE200563B8C /* ViewController.swift in Sources */,
 				D236140D1FC1CB3B00563B8C /* PlayerTableViewCell.swift in Sources */,
 				D23613CE1FC09EE200563B8C /* AppDelegate.swift in Sources */,
