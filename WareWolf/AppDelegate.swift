@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     // 参加者の一覧
     var playerList : [Player] = []
+    // 役職の一覧
+    var roleList : [Role] = []
+    var joinRoleList : [Role] = []
     // テーブル表示用の役職一覧
     var wereWolfRoles : [Role] = []
     var villagerRoles : [Role] = []
@@ -49,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }else if role.side == .Fox {
                     self.foxRoles.append(role)
                 }
-                // self.roleList.append(role)
+                self.roleList.append(role)
             }
         }
         return true
