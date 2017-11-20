@@ -29,6 +29,9 @@
 		D28646B21FC1F134002B14BD /* RoleResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646B11FC1F134002B14BD /* RoleResultViewController.swift */; };
 		D28646B61FC2A7AE002B14BD /* RollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646B51FC2A7AE002B14BD /* RollTableViewCell.swift */; };
 		D28646B81FC2B590002B14BD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646B71FC2B590002B14BD /* UIColorExtension.swift */; };
+		D28646BA1FC30EF5002B14BD /* ExFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646B91FC30EF5002B14BD /* ExFileManager.swift */; };
+		D28646BC1FC30FB7002B14BD /* Jin-Roh.csv in Resources */ = {isa = PBXBuildFile; fileRef = D28646BB1FC30FB7002B14BD /* Jin-Roh.csv */; };
+		D28646BE1FC31412002B14BD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646BD1FC31412002B14BD /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,9 @@
 		D28646B11FC1F134002B14BD /* RoleResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleResultViewController.swift; sourceTree = "<group>"; };
 		D28646B51FC2A7AE002B14BD /* RollTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollTableViewCell.swift; sourceTree = "<group>"; };
 		D28646B71FC2B590002B14BD /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		D28646B91FC30EF5002B14BD /* ExFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExFileManager.swift; sourceTree = "<group>"; };
+		D28646BB1FC30FB7002B14BD /* Jin-Roh.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Jin-Roh.csv"; sourceTree = "<group>"; };
+		D28646BD1FC31412002B14BD /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +148,8 @@
 				D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */,
 				D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */,
 				D28646B11FC1F134002B14BD /* RoleResultViewController.swift */,
+				D28646B91FC30EF5002B14BD /* ExFileManager.swift */,
+				D28646BB1FC30FB7002B14BD /* Jin-Roh.csv */,
 			);
 			name = WereWolf;
 			path = WareWolf;
@@ -190,6 +198,7 @@
 		D28646B41FC2A6ED002B14BD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D28646BD1FC31412002B14BD /* Player.swift */,
 				D236140E1FC1DAC700563B8C /* Role.swift */,
 			);
 			name = Model;
@@ -305,6 +314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D28646BC1FC30FB7002B14BD /* Jin-Roh.csv in Resources */,
 				D23614011FC125D900563B8C /* PixelMplus10-Bold.ttf in Resources */,
 				D23614041FC125D900563B8C /* PixelMplus12-Regular.ttf in Resources */,
 				D23613D81FC09EE200563B8C /* LaunchScreen.storyboard in Resources */,
@@ -339,7 +349,9 @@
 			files = (
 				D28646B01FC1F124002B14BD /* RoleCheckViewController.swift in Sources */,
 				D236140A1FC1BD0C00563B8C /* RoleListViewController.swift in Sources */,
+				D28646BA1FC30EF5002B14BD /* ExFileManager.swift in Sources */,
 				D28646AE1FC1E3AF002B14BD /* PlayerListViewController.swift in Sources */,
+				D28646BE1FC31412002B14BD /* Player.swift in Sources */,
 				D28646B21FC1F134002B14BD /* RoleResultViewController.swift in Sources */,
 				D28646AC1FC1E313002B14BD /* PlayerEditTableViewCell.swift in Sources */,
 				D28646B61FC2A7AE002B14BD /* RollTableViewCell.swift in Sources */,

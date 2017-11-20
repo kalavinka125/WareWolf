@@ -15,16 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // ゲームプレイヤーの人数
     var playerCount = 4
     // 参加者の一覧
-    var playerList : [Role] = []
+    var playerList : [Player] = []
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // 参加者を4名追加
-        let player1 = Role(name: "Player1")
-        let player2 = Role(name: "Player2")
-        let player3 = Role(name: "Player3")
-        let player4 = Role(name: "Player4")
+        let player1 = Player(name: "Player1")
+        let player2 = Player(name: "Player2")
+        let player3 = Player(name: "Player3")
+        let player4 = Player(name: "Player4")
         self.playerList = [player1,player2,player3,player4]
+        
+        let rolls = ExFileManager.readFile(forResource: "Jin-Roh", fileExtension: "csv")
+        for index in 1..<rolls.count {
+            let split = rolls[index].components(separatedBy: ",")
+            print(split)
+        }
         
         return true
     }
