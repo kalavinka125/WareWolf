@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var playerCount = 4
     // 参加者の一覧
     var playerList : [Player] = []
+    var roleList : [Role] = []
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -25,13 +26,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let player3 = Player(name: "Player3")
         let player4 = Player(name: "Player4")
         self.playerList = [player1,player2,player3,player4]
-        
-        let rolls = ExFileManager.readFile(forResource: "Jin-Roh", fileExtension: "csv")
-        for index in 1..<rolls.count {
-            let split = rolls[index].components(separatedBy: ",")
-            print(split)
+        // 役割一覧
+        let roles = ExFileManager.readFile(forResource: "Jin-Roh", fileExtension: "csv")
+        for index in 1..<roles.count {
+            let roleText = roles[index].replacingOccurrences(of: "\r", with: "")
+            if roleText.characters.count > 0 {
+                let split = roleText.components(separatedBy: ",")
+                let ID = Int(split[0])!
+                let name = split[1]
+                let detail = split[2]
+                let side = Int(split[3])!
+                let uranai = Int(split[4])!
+                let reibai = Int(split[5])!
+                let role = Role(ID: ID, name: name, detail: detail, side: side, uranai: uranai, reibai: reibai)
+                self.roleList.append(role)
+            }
         }
-        
         return true
     }
 
