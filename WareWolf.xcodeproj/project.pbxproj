@@ -28,6 +28,7 @@
 		D28646B01FC1F124002B14BD /* RoleCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */; };
 		D28646B21FC1F134002B14BD /* RoleResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646B11FC1F134002B14BD /* RoleResultViewController.swift */; };
 		D28646B61FC2A7AE002B14BD /* RollTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646B51FC2A7AE002B14BD /* RollTableViewCell.swift */; };
+		D28646B81FC2B590002B14BD /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646B71FC2B590002B14BD /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleCheckViewController.swift; sourceTree = "<group>"; };
 		D28646B11FC1F134002B14BD /* RoleResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleResultViewController.swift; sourceTree = "<group>"; };
 		D28646B51FC2A7AE002B14BD /* RollTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollTableViewCell.swift; sourceTree = "<group>"; };
+		D28646B71FC2B590002B14BD /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				D28646B41FC2A6ED002B14BD /* Model */,
 				D28646B31FC2A6DE002B14BD /* Cell */,
 				D23613CD1FC09EE200563B8C /* AppDelegate.swift */,
+				D28646B71FC2B590002B14BD /* UIColorExtension.swift */,
 				D23613CF1FC09EE200563B8C /* ViewController.swift */,
 				D23613D11FC09EE200563B8C /* Main.storyboard */,
 				D23613D41FC09EE200563B8C /* Assets.xcassets */,
@@ -344,6 +347,7 @@
 				D23613CE1FC09EE200563B8C /* AppDelegate.swift in Sources */,
 				D23614081FC1AA6C00563B8C /* NumberOfPlayerViewController.swift in Sources */,
 				D236140F1FC1DAC700563B8C /* Role.swift in Sources */,
+				D28646B81FC2B590002B14BD /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
