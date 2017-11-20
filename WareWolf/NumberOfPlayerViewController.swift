@@ -66,6 +66,7 @@ class NumberOfPlayerViewController: UIViewController, UITableViewDelegate, UITab
             cell.numberLabel.text = "\(indexPath.row + 1)."
         }
         cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name
+        cell.nameLabel.adjustsFontSizeToFitWidth = true
         return cell
     }
     

@@ -441,12 +441,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Player1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VoA-87-juZ">
-                                                    <rect key="frame" x="41" y="6" width="175" height="30"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvA-Nk-eZO">
                                                     <rect key="frame" x="224" y="6" width="46" height="30"/>
                                                     <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -462,23 +456,29 @@
                                                         <action selector="tappedChangedButton:" destination="ZMf-ki-j9m" eventType="touchUpInside" id="bcL-eR-k0K"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mC-17-11o">
+                                                    <rect key="frame" x="36" y="11" width="180" height="21"/>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="MSl-hm-9Da" firstAttribute="top" secondItem="NIo-lF-aS9" secondAttribute="topMargin" constant="3" id="1cy-tJ-kIb"/>
+                                                <constraint firstItem="7mC-17-11o" firstAttribute="leading" secondItem="MSl-hm-9Da" secondAttribute="trailing" constant="2.5" id="4bd-q9-LQk"/>
+                                                <constraint firstItem="cvA-Nk-eZO" firstAttribute="leading" secondItem="7mC-17-11o" secondAttribute="trailing" constant="8" id="505-Si-7pB"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="MSl-hm-9Da" secondAttribute="bottom" constant="3.5" id="GXs-Ra-gbv"/>
                                                 <constraint firstItem="cvA-Nk-eZO" firstAttribute="top" secondItem="NIo-lF-aS9" secondAttribute="top" constant="6" id="N4t-Pu-UP4"/>
                                                 <constraint firstItem="MSl-hm-9Da" firstAttribute="leading" secondItem="NIo-lF-aS9" secondAttribute="leadingMargin" id="Sb4-zv-nNX"/>
-                                                <constraint firstItem="cvA-Nk-eZO" firstAttribute="leading" secondItem="VoA-87-juZ" secondAttribute="trailing" constant="8" id="Ywv-vP-DsT"/>
-                                                <constraint firstItem="VoA-87-juZ" firstAttribute="leading" secondItem="MSl-hm-9Da" secondAttribute="trailing" constant="7.5" id="Z74-zA-YIV"/>
-                                                <constraint firstItem="VoA-87-juZ" firstAttribute="top" secondItem="NIo-lF-aS9" secondAttribute="top" constant="6" id="qBb-7H-jzf"/>
-                                                <constraint firstAttribute="bottom" secondItem="VoA-87-juZ" secondAttribute="bottom" constant="7.5" id="rlj-mI-Ozm"/>
+                                                <constraint firstItem="7mC-17-11o" firstAttribute="top" secondItem="NIo-lF-aS9" secondAttribute="topMargin" constant="3" id="c9s-LR-PK5"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7mC-17-11o" secondAttribute="bottom" constant="3.5" id="mYP-Cp-ZXH"/>
                                                 <constraint firstAttribute="bottom" secondItem="cvA-Nk-eZO" secondAttribute="bottom" constant="7.5" id="vrC-Jv-PVh"/>
                                                 <constraint firstAttribute="trailing" secondItem="cvA-Nk-eZO" secondAttribute="trailing" constant="19" id="wnQ-Kb-f5T"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="nameTextField" destination="VoA-87-juZ" id="PvB-AQ-sCt"/>
+                                            <outlet property="nameLabel" destination="7mC-17-11o" id="8Ej-Nk-Ex9"/>
                                             <outlet property="numberLabel" destination="MSl-hm-9Da" id="ewb-fh-KCq"/>
                                         </connections>
                                     </tableViewCell>

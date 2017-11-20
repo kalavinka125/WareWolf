@@ -20,6 +20,7 @@ class PlayerEditTableViewCell: UITableViewCell {
     
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

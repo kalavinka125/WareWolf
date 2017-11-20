@@ -38,11 +38,8 @@ class PlayerListViewController: UIViewController ,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! PlayerEditTableViewCell
-        cell.nameTextField.text = self.appDelegate.playerList[indexPath.row].name
-        cell.nameTextField.returnKeyType = .done
-        cell.nameTextField.tag = indexPath.row
-        cell.nameTextField.delegate = self
-        cell.nameTextField.adjustsFontSizeToFitWidth = true
+        cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name
+        cell.nameLabel.adjustsFontSizeToFitWidth = true
         cell.row = indexPath.row
         cell.delegate = self
         if (indexPath.row+1) < 10{
