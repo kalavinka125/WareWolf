@@ -14,7 +14,7 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
     private let SEGUE_NAME = "GO_TO_GAME"
     private let sections = [" Villager "," WereWolf "," Fox "]
     
-    private var defaultRoleList : [Int : Int] = [:]
+    private var roleList : [Int : Int] = [:]
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -30,7 +30,7 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
         // タイトルラベル
         self.titleLabel.text = "役職（\(self.appDelegate.playerList.count)名まで）"
         // デフォルト役職一覧を取得
-        self.defaultRoleList = self.appDelegate.roleManager.defaultRoleList(numberOfPlayer: self.appDelegate.playerList.count)
+        self.roleList = self.appDelegate.roleManager.defaultRoleList(numberOfPlayer: self.appDelegate.playerList.count)
         self.tableView.reloadData()
     }
 
@@ -44,10 +44,54 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
     }
     
     @IBAction func tappedGameStartButton(_ sender: Any) {
-        // TODO : 人数 = メンバー
-        // TODO : 人狼 > 0
-        // TODO : 村人 + (狐 or 妖狐) > 0
-        // TODO : 村人 + (狐 or 妖狐) > 人狼
+        var member = 0
+        for (_, value) in self.roleList {
+            member += value
+        }
+        // ゲームが開始できるかの判定
+        if self.appDelegate.playerList.count == member {
+            
+            // 人狼がいるかどうか
+            var w = 0
+            if self.roleList[1] == nil && self.roleList[1]! <= 0{
+                w = self.roleList[1]!
+                self.showAlert(viewController: self, message: "人狼がいません", buttonTitle: "OK")
+                return
+            }
+            
+            // 人狼以外（今後は大狼も含む）のプレイヤーが１人以上
+            var player = 0
+            for role in self.appDelegate.roleList {
+                // IDが1以外 かつ IDが18以上20以下
+                if role.ID != 1 && !(role.ID >= 18 && role.ID <= 20) && self.roleList[role.ID] != nil {
+                    player += self.roleList[role.ID]!
+                }
+            }
+            if player <= 0 {
+                self.showAlert(viewController: self, message: "市民がいません", buttonTitle: "OK")
+                return
+            }
+            
+            // 人狼以外のプレイヤー > 人狼
+            if player < w {
+                self.showAlert(viewController: self, message: "人狼が市民より多いです", buttonTitle: "OK")
+                return
+            }
+            
+            // 背徳者の判定
+            // 背徳者がいるのに、狐がいない判定
+            if self.roleList[20] != nil && self.roleList[20]! > 0 {
+                if (self.roleList[18] != nil && self.roleList[18]! <= 0) && (self.roleList[19] != nil && self.roleList[19]! <= 0) {
+                    self.showAlert(viewController: self, message: "背徳者がいますが、\n狐がいません", buttonTitle: "OK")
+                    return
+                }
+            }
+            
+        }else{
+            // プレイヤーの数が一致しなかった
+            self.showAlert(viewController: self, message: "プレイヤー数が一致しません", buttonTitle: "OK")
+            return
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -99,7 +143,7 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
             cell.nameLabel.text = villager.name
             cell.rollImageView.image = UIImage(named: "\(villager.ID)")!
             cell.detailLabel.text = villager.detail
-            if let role = self.defaultRoleList[villager.ID] {
+            if let role = self.roleList[villager.ID] {
                 cell.numberOfRollLabel.text = "\(role)"
             }
         }else if indexPath.section == 1 {
@@ -107,7 +151,7 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
             cell.nameLabel.text = wereWolf.name
             cell.rollImageView.image = UIImage(named: "\(wereWolf.ID)")
             cell.detailLabel.text = wereWolf.detail
-            if let role = self.defaultRoleList[wereWolf.ID] {
+            if let role = self.roleList[wereWolf.ID] {
                 cell.numberOfRollLabel.text = "\(role)"
             }
         }else if indexPath.section == 2 {
@@ -115,7 +159,7 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
             cell.nameLabel.text = fox.name
             cell.rollImageView.image = UIImage(named: "\(fox.ID)")
             cell.detailLabel.text = fox.detail
-            if let role = self.defaultRoleList[fox.ID] {
+            if let role = self.roleList[fox.ID] {
                 cell.numberOfRollLabel.text = "\(role)"
             }
         }
