@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="PixelMplus10-Bold.ttf">
+            <string>PixelMplus10-Bold</string>
+        </array>
         <array key="PixelMplus10-Regular.ttf">
             <string>PixelMplus10-Regular</string>
         </array>
@@ -212,7 +215,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QS3-z3-zS5">
                                 <rect key="frame" x="57" y="224" width="90" height="44"/>
-                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.87450980392156863" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="F0e-au-Cds"/>
                                     <constraint firstAttribute="width" constant="90" id="bFO-jU-ld3"/>
@@ -227,7 +230,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Evj-Ku-ipL">
                                 <rect key="frame" x="171" y="224" width="90" height="44"/>
-                                <color key="backgroundColor" red="0.0" green="0.98039215690000003" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.87450980392156863" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="kF3-ha-SR1"/>
                                     <constraint firstAttribute="height" constant="44" id="r6O-KC-AuN"/>
@@ -341,17 +344,103 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zld-Lk-iJ5">
+                            <tableView clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="144" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zld-Lk-iJ5">
                                 <rect key="frame" x="16" y="88" width="288" height="408"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3Ip-Ec-rU1">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ROLL_CELL" rowHeight="144" id="3Ip-Ec-rU1">
+                                        <rect key="frame" x="0.0" y="28" width="288" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Ip-Ec-rU1" id="AJF-fU-ggP">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="143.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warewolf-logo" translatesAutoresizingMaskIntoConstraints="NO" id="hkR-BH-CP6">
+                                                    <rect key="frame" x="9" y="8" width="64" height="64"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="64" id="SR7-W0-5WY"/>
+                                                        <constraint firstAttribute="width" constant="64" id="y8S-pu-QXf"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a92-9o-yvw">
+                                                    <rect key="frame" x="8" y="80" width="280" height="61"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="61" id="SJw-Ty-BRL"/>
+                                                    </constraints>
+                                                    <string key="text">市民になりすまし、市民を殺害するプレイヤーです。
+人狼同士は互いが分かります。
+市民の数が人狼の数と同数になった時点で、
+人狼チームの勝利となります。</string>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人狼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLS-ro-pe5">
+                                                    <rect key="frame" x="81" y="8" width="199" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="19" id="03u-xj-Hr6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Bold" family="PixelMplus10" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="By9-S4-0Yw">
+                                                    <rect key="frame" x="129" y="35" width="103" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="Zzj-Hh-ESX"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Bold" family="PixelMplus10" pointSize="32"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktL-a6-9pk">
+                                                    <rect key="frame" x="240" y="35" width="40" height="34"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.87450980392156863" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="YV1-nu-uBc"/>
+                                                        <constraint firstAttribute="width" constant="40" id="cfg-Qa-Svl"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                                    <state key="normal" title="+">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Koh-Ey-Frf">
+                                                    <rect key="frame" x="81" y="35" width="40" height="34"/>
+                                                    <color key="backgroundColor" red="0.87450980392156863" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="5Ye-oY-YBJ"/>
+                                                        <constraint firstAttribute="height" constant="34" id="Cze-Zc-mMf"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                                    <state key="normal" title="+">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MLS-ro-pe5" firstAttribute="top" secondItem="AJF-fU-ggP" secondAttribute="topMargin" id="3Ey-mq-H28"/>
+                                                <constraint firstItem="ktL-a6-9pk" firstAttribute="trailing" secondItem="AJF-fU-ggP" secondAttribute="trailingMargin" id="9RQ-cn-AfR"/>
+                                                <constraint firstItem="Koh-Ey-Frf" firstAttribute="top" secondItem="MLS-ro-pe5" secondAttribute="bottom" constant="8" id="9la-1f-j6p"/>
+                                                <constraint firstItem="ktL-a6-9pk" firstAttribute="leading" secondItem="By9-S4-0Yw" secondAttribute="trailing" constant="8" id="EpD-e5-JSP"/>
+                                                <constraint firstAttribute="trailing" secondItem="a92-9o-yvw" secondAttribute="trailing" id="HTy-hn-Nbq"/>
+                                                <constraint firstAttribute="bottom" secondItem="a92-9o-yvw" secondAttribute="bottom" constant="2.5" id="LXp-p8-0w5"/>
+                                                <constraint firstItem="Koh-Ey-Frf" firstAttribute="leading" secondItem="hkR-BH-CP6" secondAttribute="trailing" constant="8" id="NcQ-ff-ohw"/>
+                                                <constraint firstItem="MLS-ro-pe5" firstAttribute="trailing" secondItem="AJF-fU-ggP" secondAttribute="trailingMargin" id="TTd-6L-cXl"/>
+                                                <constraint firstItem="hkR-BH-CP6" firstAttribute="top" secondItem="AJF-fU-ggP" secondAttribute="topMargin" id="Uzs-D5-H7U"/>
+                                                <constraint firstItem="a92-9o-yvw" firstAttribute="top" secondItem="Koh-Ey-Frf" secondAttribute="bottom" constant="11" id="Wq3-bq-Vpm"/>
+                                                <constraint firstItem="By9-S4-0Yw" firstAttribute="leading" secondItem="Koh-Ey-Frf" secondAttribute="trailing" constant="8" id="aUu-Q6-PTr"/>
+                                                <constraint firstItem="ktL-a6-9pk" firstAttribute="top" secondItem="MLS-ro-pe5" secondAttribute="bottom" constant="8" id="bmy-yD-P9E"/>
+                                                <constraint firstItem="MLS-ro-pe5" firstAttribute="leading" secondItem="hkR-BH-CP6" secondAttribute="trailing" constant="8" id="eNI-2b-IzT"/>
+                                                <constraint firstItem="a92-9o-yvw" firstAttribute="leading" secondItem="AJF-fU-ggP" secondAttribute="leading" constant="8" id="liG-2E-Eff"/>
+                                                <constraint firstItem="hkR-BH-CP6" firstAttribute="leading" secondItem="AJF-fU-ggP" secondAttribute="leadingMargin" constant="1" id="prq-Su-dBa"/>
+                                                <constraint firstItem="a92-9o-yvw" firstAttribute="top" secondItem="ktL-a6-9pk" secondAttribute="bottom" constant="11" id="vlz-3L-rOJ"/>
+                                                <constraint firstItem="a92-9o-yvw" firstAttribute="top" secondItem="By9-S4-0Yw" secondAttribute="bottom" constant="11" id="wYc-kH-K1r"/>
+                                                <constraint firstItem="By9-S4-0Yw" firstAttribute="top" secondItem="MLS-ro-pe5" secondAttribute="bottom" constant="8" id="xZc-hM-lY8"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
