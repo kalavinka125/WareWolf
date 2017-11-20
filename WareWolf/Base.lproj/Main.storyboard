@@ -317,7 +317,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="IyO-v2-kMP" kind="presentation" modalTransitionStyle="crossDissolve" id="CJb-PF-SZS"/>
+                                    <action selector="tappedGameStartButton:" destination="oND-Ih-aKX" eventType="touchUpInside" id="qpb-SI-bFL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csU-VR-myf">
@@ -356,7 +356,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="143.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warewolf-logo" translatesAutoresizingMaskIntoConstraints="NO" id="hkR-BH-CP6">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="hkR-BH-CP6">
                                                     <rect key="frame" x="9" y="8" width="64" height="64"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="64" id="SR7-W0-5WY"/>
@@ -476,6 +476,8 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Zld-Lk-iJ5" id="RYm-1l-mfp"/>
+                        <outlet property="titleLabel" destination="JhI-GH-eMc" id="Ov5-vB-3ZV"/>
+                        <segue destination="IyO-v2-kMP" kind="presentation" identifier="GO_TO_GAME" id="8QH-FP-cD5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b1L-yJ-guo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -760,6 +762,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1" width="512" height="512"/>
         <image name="hatena" width="512" height="512"/>
         <image name="murabito" width="512" height="512"/>
         <image name="warewolf-logo" width="662" height="1024"/>

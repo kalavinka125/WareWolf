@@ -11,11 +11,13 @@ import UIKit
 class RoleListViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let ROLL_CELL = "ROLL_CELL"
+    private let SEGUE_NAME = "GO_TO_GAME"
     private let sections = [" Villager "," WereWolf "," Fox "]
     
     private var defaultRoleList : [Int : Int] = [:]
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,8 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
         super.viewWillAppear(animated)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        // タイトルラベル
+        self.titleLabel.text = "役職（\(self.appDelegate.playerList.count)名まで）"
         // デフォルト役職一覧を取得
         self.defaultRoleList = self.appDelegate.roleManager.defaultRoleList(numberOfPlayer: self.appDelegate.playerList.count)
         self.tableView.reloadData()
@@ -37,6 +41,13 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
     
     @IBAction func tappedRoleListButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func tappedGameStartButton(_ sender: Any) {
+        // TODO : 人数 = メンバー
+        // TODO : 人狼 > 0
+        // TODO : 村人 + (狐 or 妖狐) > 0
+        // TODO : 村人 + (狐 or 妖狐) > 人狼
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

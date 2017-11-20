@@ -12,12 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    // ゲームプレイヤーの人数
-    var playerCount = 4
     // 参加者の一覧
     var playerList : [Player] = []
-    // 選択された役職の一覧
-    var roleList : [Role] = []
     // テーブル表示用の役職一覧
     var wereWolfRoles : [Role] = []
     var villagerRoles : [Role] = []
