@@ -25,6 +25,29 @@ class PlayerListViewController: UIViewController ,UITableViewDelegate,UITableVie
         self.tableView.reloadData()
         // 編集モード
         self.tableView.isEditing = true
+        let alert = UIAlertController(title: nil, message: "test alert", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: { alertAction in
+            
+        })
+
+        /*
+         // Change font of the title and message
+         let titleFont:[String : AnyObject] = [ NSFontAttributeName : UIFont(name: "AmericanTypewriter", size: 18)! ]
+         let messageFont:[String : AnyObject] = [ NSFontAttributeName : UIFont(name: "HelveticaNeue-Thin", size: 14)! ]
+         let attributedTitle = NSMutableAttributedString(string: "Multiple buttons", attributes: titleFont)
+         let attributedMessage = NSMutableAttributedString(string: "Select an Action", attributes: messageFont)
+         alert.setValue(attributedTitle, forKey: "attributedTitle")
+         alert.setValue(attributedMessage, forKey: "attributedMessage")
+        */
+        /*
+        let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+        let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+        let attributedMessage = NSMutableAttributedString(string: "Hello", attributes: messageFont)
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+         */
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,8 +92,10 @@ class PlayerListViewController: UIViewController ,UITableViewDelegate,UITableVie
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        self.appDelegate.playerList.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .automatic)
+        if self.appDelegate.playerList.count > 4 {
+            self.appDelegate.playerList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
