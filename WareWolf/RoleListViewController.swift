@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoleListViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class RoleListViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,RollTableViewCellDelegate {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let ROLL_CELL = "ROLL_CELL"
     private let SEGUE_NAME = "GO_TO_GAME"
@@ -138,6 +138,8 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.ROLL_CELL, for: indexPath) as! RollTableViewCell
         cell.numberOfRollLabel.text = "0"
+        cell.indexPath = indexPath
+        cell.delegate = self
         if indexPath.section == 0 {
             let villager = self.appDelegate.villagerRoles[indexPath.row]
             cell.nameLabel.text = villager.name
@@ -164,6 +166,34 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
             }
         }
         return cell
+    }
+    
+    func tappedPlusButton(indexPath: IndexPath) {
+        var ID = -1
+        if indexPath.section == 0 {
+            // Villager
+            ID = self.appDelegate.villagerRoles[indexPath.row].ID
+        }else if indexPath.section == 1 {
+            // WereWolf
+            ID = self.appDelegate.wereWolfRoles[indexPath.row].ID
+        }else if indexPath.section == 2 {
+            // Fox
+            ID = self.appDelegate.foxRoles[indexPath.row].ID
+        }
+        // もともと設定されていた人数を取得
+        if let n = self.roleList[ID] {
+            self.roleList[ID] = (n + 1)
+        }else{
+            // 新しく設定する必要あり
+            self.roleList[ID] = 1
+        }
+        self.tableView.beginUpdates()
+        self.tableView.reloadRows(at: [indexPath], with: .none)
+        self.tableView.endUpdates()
+    }
+    
+    func tappedMinusButton(indexPath: IndexPath) {
+        
     }
     
 }
