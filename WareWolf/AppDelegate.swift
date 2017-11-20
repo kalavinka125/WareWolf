@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var playerList : [Player] = []
     var roleList : [Role] = []
     
+    var wereWolfRoles : [Role] = []
+    var villagerRoles : [Role] = []
+    var foxRoles : [Role] = []
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // 参加者を4名追加
@@ -29,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 役割一覧
         let roles = ExFileManager.readFile(forResource: "Jin-Roh", fileExtension: "csv")
         for index in 1..<roles.count {
-            let roleText = roles[index].replacingOccurrences(of: "\r", with: "")
+            let roleText = roles[index].replacingOccurrences(of: "\r", with: "").replacingOccurrences(of: "\\n", with: "\n")
             if roleText.characters.count > 0 {
                 let split = roleText.components(separatedBy: ",")
                 let ID = Int(split[0])!
@@ -39,7 +43,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let uranai = Int(split[4])!
                 let reibai = Int(split[5])!
                 let role = Role(ID: ID, name: name, detail: detail, side: side, uranai: uranai, reibai: reibai)
-                self.roleList.append(role)
+                if role.side == .Villager {
+                    self.villagerRoles.append(role)
+                }else if role.side == .WereWolf {
+                    self.wereWolfRoles.append(role)
+                }else if role.side == .Fox {
+                    self.foxRoles.append(role)
+                }
+                // self.roleList.append(role)
             }
         }
         return true

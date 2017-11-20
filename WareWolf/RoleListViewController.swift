@@ -9,6 +9,7 @@
 import UIKit
 
 class RoleListViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let ROLL_CELL = "ROLL_CELL"
     private let sections = [" Villager "," WereWolf "," Fox "]
     
@@ -66,17 +67,33 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 13
+            return self.appDelegate.villagerRoles.count
         }else if section == 1 {
-            return 5
+            return self.appDelegate.wereWolfRoles.count
         }else if section == 2 {
-            return 2
+            return self.appDelegate.foxRoles.count
         }
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.ROLL_CELL, for: indexPath) as! RollTableViewCell
+        if indexPath.section == 0 {
+            let villager = self.appDelegate.villagerRoles[indexPath.row]
+            cell.nameLabel.text = villager.name
+            cell.rollImageView.image = UIImage(named: "\(villager.ID)")!
+            cell.detailLabel.text = villager.detail
+        }else if indexPath.section == 1 {
+            let wereWolf = self.appDelegate.wereWolfRoles[indexPath.row]
+            cell.nameLabel.text = wereWolf.name
+            cell.rollImageView.image = UIImage(named: "\(wereWolf.ID)")
+            cell.detailLabel.text = wereWolf.detail
+        }else if indexPath.section == 2 {
+            let fox = self.appDelegate.foxRoles[indexPath.row]
+            cell.nameLabel.text = fox.name
+            cell.rollImageView.image = UIImage(named: "\(fox.ID)")
+            cell.detailLabel.text = fox.detail
+        }
         return cell
     }
     
