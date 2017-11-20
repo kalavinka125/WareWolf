@@ -136,7 +136,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiM-ue-Sz9">
-                                <rect key="frame" x="16" y="20" width="68" height="30"/>
+                                <rect key="frame" x="16" y="20" width="57" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="RnG-YM-tn3"/>
                                 </constraints>
@@ -149,7 +149,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A7H-gq-TpJ">
-                                <rect key="frame" x="16" y="285" width="288" height="155"/>
+                                <rect key="frame" x="16" y="292.5" width="288" height="147.5"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -199,7 +199,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEt-Or-W6o">
-                                <rect key="frame" x="95" y="88" width="128" height="126.5"/>
+                                <rect key="frame" x="95" y="88" width="128" height="134"/>
                                 <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="115"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -214,7 +214,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QS3-z3-zS5">
-                                <rect key="frame" x="57" y="224" width="90" height="44"/>
+                                <rect key="frame" x="57" y="231.5" width="90" height="44"/>
                                 <color key="backgroundColor" red="0.87450980392156863" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="F0e-au-Cds"/>
@@ -229,7 +229,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Evj-Ku-ipL">
-                                <rect key="frame" x="171" y="224" width="90" height="44"/>
+                                <rect key="frame" x="171" y="231.5" width="90" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.87450980392156863" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="kF3-ha-SR1"/>
@@ -349,7 +349,7 @@
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ROLL_CELL" rowHeight="144" id="3Ip-Ec-rU1" customClass="RollTableViewCell" customModule="WareWolf" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ROLL_CELL" rowHeight="144" id="3Ip-Ec-rU1" customClass="RollTableViewCell" customModule="WareWolf" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="288" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Ip-Ec-rU1" id="AJF-fU-ggP">
@@ -405,6 +405,9 @@
                                                     <state key="normal" title="+">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="tappedPlusButton:" destination="3Ip-Ec-rU1" eventType="touchUpInside" id="Blq-ga-48R"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Koh-Ey-Frf">
                                                     <rect key="frame" x="81" y="35" width="40" height="34"/>
@@ -417,6 +420,9 @@
                                                     <state key="normal" title="-">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="tappedMinusButton:" destination="3Ip-Ec-rU1" eventType="touchUpInside" id="JU9-hZ-bou"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -441,6 +447,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="detailLabel" destination="a92-9o-yvw" id="goh-eM-krW"/>
+                                            <outlet property="nameLabel" destination="MLS-ro-pe5" id="odi-8g-BEb"/>
+                                            <outlet property="numberOfRollLabel" destination="By9-S4-0Yw" id="Dbl-Vs-KnT"/>
+                                            <outlet property="rollImageView" destination="hkR-BH-CP6" id="o0r-Ui-RmL"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>

@@ -8,8 +8,19 @@
 
 import UIKit
 
+protocol RollTableViewCellDelegate {
+    func tappedPlusButton(indexPath : IndexPath)
+    func tappedMinusButton(indexPath : IndexPath)
+}
 class RollTableViewCell: UITableViewCell {
-
+    var delegate : RollTableViewCellDelegate!
+    var indexPath : IndexPath!
+    
+    @IBOutlet weak var rollImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var numberOfRollLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +32,15 @@ class RollTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func tappedMinusButton(_ sender: Any) {
+        if self.delegate != nil {
+            self.delegate.tappedMinusButton(indexPath: self.indexPath)
+        }
+    }
+    
+    @IBAction func tappedPlusButton(_ sender: Any) {
+        if self.delegate != nil {
+            self.delegate.tappedPlusButton(indexPath: self.indexPath)
+        }
+    }
 }
