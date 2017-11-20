@@ -24,7 +24,7 @@
         <!--View Controller-->
         <scene sceneID="gHR-I8-U3M">
             <objects>
-                <viewController id="EPq-67-ecZ" sceneMemberID="viewController">
+                <viewController id="EPq-67-ecZ" customClass="ViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v33-b1-68C"/>
                         <viewControllerLayoutGuide type="bottom" id="ENV-f5-SSb"/>
@@ -78,7 +78,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="QIf-Wc-Tae" kind="presentation" modalTransitionStyle="crossDissolve" id="v0O-VJ-oc3"/>
+                                    <action selector="tappedNewGameButton:" destination="EPq-67-ecZ" eventType="touchUpInside" id="uFy-NR-PDW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -104,6 +104,9 @@
                             <constraint firstItem="YUs-jB-x2B" firstAttribute="top" secondItem="hLO-Zx-fyy" secondAttribute="bottom" constant="8" id="zIo-oC-RNt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="QIf-Wc-Tae" kind="presentation" identifier="GO_TO_NEWGAME" modalTransitionStyle="crossDissolve" id="IZC-3v-c27"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOi-1k-PKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
