@@ -25,19 +25,6 @@ class PlayerListViewController: UIViewController ,UITableViewDelegate,UITableVie
         self.tableView.reloadData()
         // 編集モード
         self.tableView.isEditing = true
-        let alert = UIAlertController(title: nil, message: "test alert", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: { alertAction in
-            
-        })
-    
-        let font = UIFont(name: "PixelMplus10-Regular", size: 18)
-        let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
-        let attributedMessage = NSMutableAttributedString(string: "Hello", attributes: messageFont)
-        alert.setValue(attributedMessage, forKey: "attributedMessage")
-        action.setValue(UIColor.black, forKey: "titleTextColor")
-        
-        alert.addAction(action)
-        //present(alert, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,6 +42,7 @@ class PlayerListViewController: UIViewController ,UITableViewDelegate,UITableVie
         cell.nameTextField.returnKeyType = .done
         cell.nameTextField.tag = indexPath.row
         cell.nameTextField.delegate = self
+        cell.nameTextField.adjustsFontSizeToFitWidth = true
         cell.row = indexPath.row
         cell.delegate = self
         if (indexPath.row+1) < 10{
@@ -105,7 +93,33 @@ class PlayerListViewController: UIViewController ,UITableViewDelegate,UITableVie
     }
     
     func tappedChangeButton(row: Int) {
-        print(row)
+        let alert = UIAlertController(title: nil, message: "", preferredStyle: .alert)
+        let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+        let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+        let attributedMessage = NSMutableAttributedString(string: "名前の変更", attributes: messageFont)
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+        // アクションの設定
+        let action = UIAlertAction(title: "保存", style: .default, handler: { alertAction in
+            if let textFields = alert.textFields {
+                if let textField = textFields.last {
+                    // テキストフィールドが存在する時
+                    self.appDelegate.playerList[row].name = textField.text!
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        })
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: { cancelAction in })
+        action.setValue(UIColor.black, forKey: "titleTextColor")
+        cancel.setValue(UIColor.black, forKey: "titleTextColor")
+        alert.addTextField(configurationHandler: {(textField: UITextField!) -> Void in
+            textField.font = font
+            textField.text = self.appDelegate.playerList[row].name
+            textField.tag = row
+        })
+        alert.addAction(action)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
     }
-    
 }
