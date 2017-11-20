@@ -45,8 +45,8 @@ class NumberOfPlayerViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func tappedPlusButton(_ sender: Any) {
-        // 増やす限界は20まで
-        if self.appDelegate.playerList.count < 16 {
+        // 増やす限界は15まで
+        if self.appDelegate.playerList.count < 15 {
             let player = Player(name: "Player\(self.appDelegate.playerList.count+1)")
             self.appDelegate.playerList.append(player)
         }
