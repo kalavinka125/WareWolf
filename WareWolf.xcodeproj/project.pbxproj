@@ -32,6 +32,7 @@
 		D28646BA1FC30EF5002B14BD /* ExFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646B91FC30EF5002B14BD /* ExFileManager.swift */; };
 		D28646BC1FC30FB7002B14BD /* Jin-Roh.csv in Resources */ = {isa = PBXBuildFile; fileRef = D28646BB1FC30FB7002B14BD /* Jin-Roh.csv */; };
 		D28646BE1FC31412002B14BD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646BD1FC31412002B14BD /* Player.swift */; };
+		D2D4064C1FC3270F00F10994 /* RoleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D4064B1FC3270F00F10994 /* RoleManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		D28646B91FC30EF5002B14BD /* ExFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExFileManager.swift; sourceTree = "<group>"; };
 		D28646BB1FC30FB7002B14BD /* Jin-Roh.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Jin-Roh.csv"; sourceTree = "<group>"; };
 		D28646BD1FC31412002B14BD /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		D2D4064B1FC3270F00F10994 /* RoleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				D28646B11FC1F134002B14BD /* RoleResultViewController.swift */,
 				D28646B91FC30EF5002B14BD /* ExFileManager.swift */,
 				D28646BB1FC30FB7002B14BD /* Jin-Roh.csv */,
+				D2D4064B1FC3270F00F10994 /* RoleManager.swift */,
 			);
 			name = WereWolf;
 			path = WareWolf;
@@ -354,6 +357,7 @@
 				D28646BE1FC31412002B14BD /* Player.swift in Sources */,
 				D28646B21FC1F134002B14BD /* RoleResultViewController.swift in Sources */,
 				D28646AC1FC1E313002B14BD /* PlayerEditTableViewCell.swift in Sources */,
+				D2D4064C1FC3270F00F10994 /* RoleManager.swift in Sources */,
 				D28646B61FC2A7AE002B14BD /* RollTableViewCell.swift in Sources */,
 				D23613D01FC09EE200563B8C /* ViewController.swift in Sources */,
 				D236140D1FC1CB3B00563B8C /* PlayerTableViewCell.swift in Sources */,
