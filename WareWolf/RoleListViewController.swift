@@ -193,7 +193,29 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
     }
     
     func tappedMinusButton(indexPath: IndexPath) {
-        
+        var ID = -1
+        if indexPath.section == 0 {
+            // Villager
+            ID = self.appDelegate.villagerRoles[indexPath.row].ID
+        }else if indexPath.section == 1 {
+            // WereWolf
+            ID = self.appDelegate.wereWolfRoles[indexPath.row].ID
+        }else if indexPath.section == 2 {
+            // Fox
+            ID = self.appDelegate.foxRoles[indexPath.row].ID
+        }
+        // もともと設定されていた人数を取得
+        if let n = self.roleList[ID] {
+            if n > 0 {
+                self.roleList[ID] = (n - 1)
+            }
+        }else{
+            // 新しく設定する必要あり
+            self.roleList[ID] = 0
+        }
+        self.tableView.beginUpdates()
+        self.tableView.reloadRows(at: [indexPath], with: .none)
+        self.tableView.endUpdates()
     }
     
 }
