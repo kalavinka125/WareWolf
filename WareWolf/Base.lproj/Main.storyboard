@@ -132,7 +132,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="oND-Ih-aKX" kind="presentation" modalTransitionStyle="crossDissolve" id="uix-WO-QLZ"/>
+                                    <action selector="tappedRolesButton:" destination="QIf-Wc-Tae" eventType="touchUpInside" id="LN1-YU-3Rj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiM-ue-Sz9">
@@ -288,6 +288,7 @@
                     <connections>
                         <outlet property="numberOfPlayersLabel" destination="gEt-Or-W6o" id="PtU-7h-ryK"/>
                         <outlet property="tableView" destination="A7H-gq-TpJ" id="sjP-qf-xX4"/>
+                        <segue destination="oND-Ih-aKX" kind="presentation" identifier="GO_TO_ROLES" modalTransitionStyle="crossDissolve" id="Hwn-Rc-OIB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAP-Ju-6fu" userLabel="First Responder" sceneMemberID="firstResponder"/>

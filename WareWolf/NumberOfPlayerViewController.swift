@@ -12,6 +12,7 @@ class NumberOfPlayerViewController: UIViewController, UITableViewDelegate, UITab
     
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let PLAYER_CELL = "PLAYER_CELL"
+    private let SEGUE_NAME = "GO_TO_ROLES"
     
     @IBOutlet weak var numberOfPlayersLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -56,6 +57,18 @@ class NumberOfPlayerViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func tappedTitleButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func tappedRolesButton(_ sender: Any) {
+        for index in 0..<self.appDelegate.playerList.count {
+            for searchIndex in (index+1)..<self.appDelegate.playerList.count {
+                if self.appDelegate.playerList[index].name == self.appDelegate.playerList[searchIndex].name {
+                    self.showAlert(viewController: self, message: "同名の人がいます", buttonTitle: "OK")
+                    return
+                }
+            }
+        }
+        self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
