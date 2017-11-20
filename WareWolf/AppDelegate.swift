@@ -16,11 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var playerCount = 4
     // 参加者の一覧
     var playerList : [Player] = []
+    // 選択された役職の一覧
     var roleList : [Role] = []
-    
+    // テーブル表示用の役職一覧
     var wereWolfRoles : [Role] = []
     var villagerRoles : [Role] = []
     var foxRoles : [Role] = []
+    // 役職管理クラス
+    let roleManager = RoleManager()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         

@@ -13,6 +13,8 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
     private let ROLL_CELL = "ROLL_CELL"
     private let sections = [" Villager "," WereWolf "," Fox "]
     
+    private var defaultRoleList : [Int : Int] = [:]
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -23,6 +25,8 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
         super.viewWillAppear(animated)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        // デフォルト役職一覧を取得
+        self.defaultRoleList = self.appDelegate.roleManager.defaultRoleList(numberOfPlayer: self.appDelegate.playerList.count)
         self.tableView.reloadData()
     }
 
@@ -78,21 +82,31 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.ROLL_CELL, for: indexPath) as! RollTableViewCell
+        cell.numberOfRollLabel.text = "0"
         if indexPath.section == 0 {
             let villager = self.appDelegate.villagerRoles[indexPath.row]
             cell.nameLabel.text = villager.name
             cell.rollImageView.image = UIImage(named: "\(villager.ID)")!
             cell.detailLabel.text = villager.detail
+            if let role = self.defaultRoleList[villager.ID] {
+                cell.numberOfRollLabel.text = "\(role)"
+            }
         }else if indexPath.section == 1 {
             let wereWolf = self.appDelegate.wereWolfRoles[indexPath.row]
             cell.nameLabel.text = wereWolf.name
             cell.rollImageView.image = UIImage(named: "\(wereWolf.ID)")
             cell.detailLabel.text = wereWolf.detail
+            if let role = self.defaultRoleList[wereWolf.ID] {
+                cell.numberOfRollLabel.text = "\(role)"
+            }
         }else if indexPath.section == 2 {
             let fox = self.appDelegate.foxRoles[indexPath.row]
             cell.nameLabel.text = fox.name
             cell.rollImageView.image = UIImage(named: "\(fox.ID)")
             cell.detailLabel.text = fox.detail
+            if let role = self.defaultRoleList[fox.ID] {
+                cell.numberOfRollLabel.text = "\(role)"
+            }
         }
         return cell
     }
