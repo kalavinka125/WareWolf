@@ -40,6 +40,13 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.SEGUE_NAME {
+            let next = segue.destination as! CheckViewController
+            next.roleList = self.roleList
+        }
+    }
+    
     @IBAction func tappedRoleListButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
