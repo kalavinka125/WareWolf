@@ -1027,6 +1027,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="detailLabel" destination="H06-h0-A7c" id="wBq-hv-uDt"/>
+                        <outlet property="imageView" destination="NV4-4q-Qaz" id="Uvr-y2-dJQ"/>
+                        <outlet property="roleLabel" destination="nfC-41-rko" id="UPP-ns-tD1"/>
+                        <outlet property="tableView" destination="dcs-B8-syo" id="IMu-tN-xKd"/>
                         <segue destination="dEv-dX-tEH" kind="presentation" identifier="GO_TO_DISCUSSION" modalTransitionStyle="crossDissolve" id="I4A-yc-hua"/>
                     </connections>
                 </viewController>

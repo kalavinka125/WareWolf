@@ -12,6 +12,13 @@ class RoleDetailViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let ROLE_CHECK_VC_ID = "RoleCheckViewController"
     private let SEGUE_NAME = "GO_TO_DISCUSSION"
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var roleLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
