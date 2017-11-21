@@ -34,6 +34,7 @@
 		D28646BE1FC31412002B14BD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646BD1FC31412002B14BD /* Player.swift */; };
 		D2D4064C1FC3270F00F10994 /* RoleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D4064B1FC3270F00F10994 /* RoleManager.swift */; };
 		D2D4064E1FC3491A00F10994 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D4064D1FC3491A00F10994 /* UIViewControllerExtension.swift */; };
+		D2D406501FC3DE3F00F10994 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D4064F1FC3DE3F00F10994 /* CheckViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		D28646BD1FC31412002B14BD /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D2D4064B1FC3270F00F10994 /* RoleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleManager.swift; sourceTree = "<group>"; };
 		D2D4064D1FC3491A00F10994 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		D2D4064F1FC3DE3F00F10994 /* CheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				D23614071FC1AA6C00563B8C /* NumberOfPlayerViewController.swift */,
 				D23614091FC1BD0C00563B8C /* RoleListViewController.swift */,
 				D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */,
+				D2D4064F1FC3DE3F00F10994 /* CheckViewController.swift */,
 				D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */,
 				D28646B11FC1F134002B14BD /* RoleResultViewController.swift */,
 				D28646B91FC30EF5002B14BD /* ExFileManager.swift */,
@@ -364,6 +367,7 @@
 				D2D4064C1FC3270F00F10994 /* RoleManager.swift in Sources */,
 				D28646B61FC2A7AE002B14BD /* RollTableViewCell.swift in Sources */,
 				D23613D01FC09EE200563B8C /* ViewController.swift in Sources */,
+				D2D406501FC3DE3F00F10994 /* CheckViewController.swift in Sources */,
 				D236140D1FC1CB3B00563B8C /* PlayerTableViewCell.swift in Sources */,
 				D23613CE1FC09EE200563B8C /* AppDelegate.swift in Sources */,
 				D23614081FC1AA6C00563B8C /* NumberOfPlayerViewController.swift in Sources */,

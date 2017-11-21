@@ -488,10 +488,10 @@
             </objects>
             <point key="canvasLocation" x="-671.25" y="133.09859154929578"/>
         </scene>
-        <!--View Controller-->
+        <!--Check View Controller-->
         <scene sceneID="miG-lh-8X2">
             <objects>
-                <viewController id="TRF-VI-e9x" sceneMemberID="viewController">
+                <viewController id="TRF-VI-e9x" customClass="CheckViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s84-uv-kBp"/>
                         <viewControllerLayoutGuide type="bottom" id="7fz-SH-bBn"/>
@@ -515,14 +515,82 @@
                                     <action selector="tappedTitleButton:" destination="QIf-Wc-Tae" eventType="touchUpInside" id="qw6-H5-6Nq"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ゲーム前　確認" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tee-Hq-08Y">
+                                <rect key="frame" x="15" y="59" width="289" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="6fe-wd-Ojt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="市民サイド：10名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIg-uc-TR7">
+                                <rect key="frame" x="16" y="146" width="288" height="49"/>
+                                <color key="backgroundColor" red="0.0" green="0.87450980389999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="pgA-KF-911"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="32"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人狼サイド：10名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8E-kz-GIi">
+                                <rect key="frame" x="16" y="203" width="288" height="49"/>
+                                <color key="backgroundColor" red="0.87450980389999999" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="vIL-gS-oxo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="32"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="　狐サイド：10名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDC-Vh-Vzc">
+                                <rect key="frame" x="15" y="260" width="288" height="49"/>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="pop-K8-nEa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="32"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5a8-vw-1WY">
+                                <rect key="frame" x="16" y="504" width="288" height="44"/>
+                                <color key="backgroundColor" red="0.38878055319999999" green="0.2301004857" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Ayq-Qi-9Xl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                <state key="normal" title="GAME START">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="tee-Hq-08Y" firstAttribute="top" secondItem="YyH-4z-jHB" secondAttribute="bottom" constant="8" id="8Dw-Fk-SiH"/>
+                            <constraint firstItem="vIg-uc-TR7" firstAttribute="top" secondItem="tee-Hq-08Y" secondAttribute="bottom" constant="65" id="DJc-rF-luh"/>
+                            <constraint firstItem="5a8-vw-1WY" firstAttribute="leading" secondItem="iQe-cC-Ixb" secondAttribute="leadingMargin" id="HHu-6d-Sht"/>
+                            <constraint firstItem="mDC-Vh-Vzc" firstAttribute="leading" secondItem="iQe-cC-Ixb" secondAttribute="leadingMargin" constant="-1" id="I8S-5z-xQ9"/>
+                            <constraint firstAttribute="trailing" secondItem="tee-Hq-08Y" secondAttribute="trailing" constant="16" id="PUe-5d-cGw"/>
+                            <constraint firstItem="U8E-kz-GIi" firstAttribute="top" secondItem="vIg-uc-TR7" secondAttribute="bottom" constant="8" id="QaV-PP-C7C"/>
+                            <constraint firstItem="7fz-SH-bBn" firstAttribute="top" secondItem="5a8-vw-1WY" secondAttribute="bottom" constant="20" id="T3H-CR-gJs"/>
                             <constraint firstItem="YyH-4z-jHB" firstAttribute="top" secondItem="s84-uv-kBp" secondAttribute="bottom" id="UhC-Bv-M8M"/>
+                            <constraint firstItem="vIg-uc-TR7" firstAttribute="leading" secondItem="iQe-cC-Ixb" secondAttribute="leadingMargin" id="Ut8-79-hLd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mDC-Vh-Vzc" secondAttribute="trailing" constant="1" id="fKb-xQ-YOG"/>
+                            <constraint firstItem="U8E-kz-GIi" firstAttribute="trailing" secondItem="iQe-cC-Ixb" secondAttribute="trailingMargin" id="g1M-vt-TqG"/>
+                            <constraint firstItem="mDC-Vh-Vzc" firstAttribute="top" secondItem="U8E-kz-GIi" secondAttribute="bottom" constant="8" id="jXY-qR-Ucg"/>
+                            <constraint firstItem="tee-Hq-08Y" firstAttribute="leading" secondItem="iQe-cC-Ixb" secondAttribute="leading" constant="15" id="kIW-Nd-VbB"/>
+                            <constraint firstItem="5a8-vw-1WY" firstAttribute="trailing" secondItem="iQe-cC-Ixb" secondAttribute="trailingMargin" id="mTD-Hw-sg6"/>
+                            <constraint firstItem="U8E-kz-GIi" firstAttribute="leading" secondItem="iQe-cC-Ixb" secondAttribute="leadingMargin" id="npq-eE-iTa"/>
                             <constraint firstItem="YyH-4z-jHB" firstAttribute="leading" secondItem="iQe-cC-Ixb" secondAttribute="leadingMargin" id="oVn-ZM-aKM"/>
+                            <constraint firstItem="vIg-uc-TR7" firstAttribute="trailing" secondItem="iQe-cC-Ixb" secondAttribute="trailingMargin" id="xi9-sJ-iDY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="foxLabel" destination="mDC-Vh-Vzc" id="nZa-EI-6Qm"/>
+                        <outlet property="villagerLabel" destination="vIg-uc-TR7" id="Eg6-xG-qQs"/>
+                        <outlet property="wereWolfLabel" destination="U8E-kz-GIi" id="ieq-cP-LAQ"/>
                         <segue destination="IyO-v2-kMP" kind="presentation" identifier="GO_TO_GAME" modalTransitionStyle="crossDissolve" id="hY5-Rh-13P"/>
                     </connections>
                 </viewController>
