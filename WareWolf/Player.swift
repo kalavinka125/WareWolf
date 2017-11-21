@@ -16,4 +16,7 @@ class Player: NSObject {
     init(name : String) {
         self.name = name
     }
+    
+    // 役職
+    var role : Role!
 }

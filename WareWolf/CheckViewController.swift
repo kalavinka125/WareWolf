@@ -56,7 +56,25 @@ class CheckViewController: UIViewController {
     }
     
     @IBAction func tappedRoleButton(_ sender: Any) {
+        self.appDelegate.joinRoleList = []
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func tappedGameStartButton(_ sender: Any) {
+        if self.appDelegate.joinRoleList.count > 0 {
+            for index in 0..<self.appDelegate.playerList.count {
+                let random = Int(arc4random_uniform(UInt32(self.appDelegate.joinRoleList.count)))
+                // ランダムに役職を決定
+                let role = self.appDelegate.joinRoleList[random]
+                self.appDelegate.playerList[index].role = role
+                // 削除
+                self.appDelegate.joinRoleList.remove(at: random)
+            }
+            print(" ")
+            for player in self.appDelegate.playerList {
+                print(player.name + " : " + player.role.name)
+            }
+        }
     }
     
     /// 数字をいれると、「x名」
