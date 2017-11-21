@@ -926,7 +926,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="dEv-dX-tEH" kind="presentation" modalTransitionStyle="crossDissolve" id="I4A-yc-hua"/>
+                        <segue destination="dEv-dX-tEH" kind="presentation" identifier="GO_TO_DISCUSSION" modalTransitionStyle="crossDissolve" id="I4A-yc-hua"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTv-rE-LkA" userLabel="First Responder" sceneMemberID="firstResponder"/>

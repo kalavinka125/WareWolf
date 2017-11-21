@@ -11,6 +11,7 @@ import UIKit
 class RoleDetailViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let ROLE_CHECK_VC_ID = "RoleCheckViewController"
+    private let SEGUE_NAME = "GO_TO_DISCUSSION"
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +29,7 @@ class RoleDetailViewController: UIViewController {
             // 自分で最後、プレイヤーIDを0番に戻して、GO！
             self.appDelegate.playerID = 0
             // とりあえず議論へ
+            self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
             
         }else{
             // 次のプレイヤーがいるので、そちらへ遷移
