@@ -160,11 +160,10 @@
 				D2D4064F1FC3DE3F00F10994 /* CheckViewController.swift */,
 				D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */,
 				D28646B11FC1F134002B14BD /* RoleResultViewController.swift */,
-				D28646B91FC30EF5002B14BD /* ExFileManager.swift */,
-				D28646BB1FC30FB7002B14BD /* Jin-Roh.csv */,
-				D2D4064B1FC3270F00F10994 /* RoleManager.swift */,
 				D2D406511FC3FDC900F10994 /* RoleDetailViewController.swift */,
 				D2D406531FC405CB00F10994 /* DiscussionViewController.swift */,
+				D28646B91FC30EF5002B14BD /* ExFileManager.swift */,
+				D2D4064B1FC3270F00F10994 /* RoleManager.swift */,
 			);
 			name = WereWolf;
 			path = WareWolf;
@@ -191,6 +190,7 @@
 		D236140B1FC1BD1100563B8C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D28646BB1FC30FB7002B14BD /* Jin-Roh.csv */,
 				D23613FB1FC125D900563B8C /* Geotica_2012.otf */,
 				D23613FC1FC125D900563B8C /* PixelMplus10-Bold.ttf */,
 				D23613FD1FC125D900563B8C /* PixelMplus10-Regular.ttf */,

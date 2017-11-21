@@ -55,4 +55,20 @@ class RoleManager: NSObject {
         }
         return nil
     }
+    
+    /// 生存者 or 死んだプレイヤーのインデックスを返す
+    ///
+    /// - Parameters:
+    ///   - target: true:生存,false:死亡
+    ///   - players: プレイヤー一覧
+    /// - Returns: 指定したステータスのプレイヤーインデックスを格納した配列
+    func getList(target : Bool, players : [Player]) -> [Int] {
+        var list : [Int] = []
+        for index in 0..<players.count {
+            if players[index].isLife == target {
+                list.append(index)
+            }
+        }
+        return list
+    }
 }

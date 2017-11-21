@@ -10,7 +10,8 @@ import UIKit
 
 /// 議論中の画面
 class DiscussionViewController: UIViewController {
-
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private var lifeList : [Int] = []
     var time = 0
     // タイマー
     var timer : Timer!
@@ -20,7 +21,6 @@ class DiscussionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -31,6 +31,15 @@ class DiscussionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // 生存者を取得
+        self.lifeList = self.appDelegate.roleManager.getList(target: true, players: self.appDelegate.playerList)
+        // 生存者の数に合わせて、議論時間を変える
+        if self.lifeList.count >= 5 {
+            self.time = (60 * 5)
+        }else{
+            self.time = (60 * self.lifeList.count)
+        }
+        self.timeLabel.text = self.time2Text(time: self.time)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
