@@ -11,7 +11,7 @@ import UIKit
 class RoleListViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,RollTableViewCellDelegate {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let ROLL_CELL = "ROLL_CELL"
-    private let SEGUE_NAME = "GO_TO_GAME"
+    private let SEGUE_NAME = "GO_TO_CHECK"
     private let sections = [" Villager "," WereWolf "," Fox "]
     
     private var roleList : [Int : Int] = [:]
@@ -96,7 +96,8 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
                 }
             }
             
-            self.showAlert(viewController: self, message: "ゲームを開始します", buttonTitle: "OK")
+            // self.showAlert(viewController: self, message: "ゲームを開始します", buttonTitle: "OK")
+            self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
             
         }else{
             // プレイヤーの数が一致しなかった
