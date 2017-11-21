@@ -950,7 +950,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RH-aE-DRX">
-                                                    <rect key="frame" x="15" y="8" width="173" height="21"/>
+                                                    <rect key="frame" x="15" y="8" width="59.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="0t9-FA-Pwa"/>
                                                     </constraints>
@@ -959,7 +959,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="？？？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgn-C4-bOm">
-                                                    <rect key="frame" x="15" y="37" width="173" height="29"/>
+                                                    <rect key="frame" x="15" y="37" width="60" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="29" id="e5c-Sq-fL2"/>
                                                     </constraints>
@@ -971,8 +971,8 @@
                                                     <rect key="frame" x="196" y="8" width="80" height="58"/>
                                                     <color key="backgroundColor" red="0.87450980389999999" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="58" id="fGz-k8-Bhy"/>
-                                                        <constraint firstAttribute="width" constant="80" id="kIi-SF-j23"/>
+                                                        <constraint firstAttribute="width" constant="80" id="BwB-Sy-XVf"/>
+                                                        <constraint firstAttribute="height" constant="58" id="zwd-Qy-6CA"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
                                                     <state key="normal" title="殺害する">
@@ -984,15 +984,13 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="bSz-q3-mig" secondAttribute="bottom" constant="7.5" id="Lib-zn-miq"/>
                                                 <constraint firstItem="2RH-aE-DRX" firstAttribute="leading" secondItem="MkW-24-DGn" secondAttribute="leadingMargin" constant="7" id="OzR-jg-QAL"/>
                                                 <constraint firstAttribute="bottom" secondItem="jgn-C4-bOm" secondAttribute="bottom" constant="7.5" id="PbH-r4-gDo"/>
                                                 <constraint firstItem="2RH-aE-DRX" firstAttribute="top" secondItem="MkW-24-DGn" secondAttribute="topMargin" id="QtV-LH-VxR"/>
-                                                <constraint firstItem="bSz-q3-mig" firstAttribute="leading" secondItem="jgn-C4-bOm" secondAttribute="trailing" constant="8" id="SA4-cN-thu"/>
-                                                <constraint firstItem="bSz-q3-mig" firstAttribute="leading" secondItem="2RH-aE-DRX" secondAttribute="trailing" constant="8" id="WfU-Ph-wNz"/>
+                                                <constraint firstAttribute="trailing" secondItem="bSz-q3-mig" secondAttribute="trailing" constant="8" id="UaH-pt-qAD"/>
                                                 <constraint firstItem="jgn-C4-bOm" firstAttribute="leading" secondItem="MkW-24-DGn" secondAttribute="leading" constant="15" id="Ylf-eU-MaQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="bSz-q3-mig" secondAttribute="trailing" constant="8" id="noV-C0-HCf"/>
-                                                <constraint firstItem="bSz-q3-mig" firstAttribute="top" secondItem="MkW-24-DGn" secondAttribute="top" constant="8" id="sLT-I7-MEc"/>
+                                                <constraint firstItem="bSz-q3-mig" firstAttribute="top" secondItem="MkW-24-DGn" secondAttribute="top" constant="8" id="dhV-at-QDH"/>
+                                                <constraint firstAttribute="bottom" secondItem="bSz-q3-mig" secondAttribute="bottom" constant="7.5" id="xrq-O6-glh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>

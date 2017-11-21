@@ -10,10 +10,11 @@ import UIKit
 
 class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
     private let CELL_ID = "ROLE_JOB_CELL"
     private let ROLE_CHECK_VC_ID = "RoleCheckViewController"
     private let SEGUE_NAME = "GO_TO_DISCUSSION"
+    
+    private var otherList : [Player] = []
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var roleLabel: UILabel!
@@ -47,6 +48,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         }
         
         self.detailLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.detail
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,12 +58,49 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // 試しに1行
-        return 1
+        return self.appDelegate.playerList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! RoleJobTableViewCell
+        if indexPath.row == self.appDelegate.playerID {
+            cell.isHidden = true
+        }else{
+            cell.isHidden = false
+        }
+        cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name
+        let role = self.appDelegate.playerList[self.appDelegate.playerID].role
+        if role?.ID == 1{
+            cell.jobButton.setTitle("殺害する", for: .normal)
+        }else if role?.ID == 2 {
+            cell.jobButton.setTitle("占う", for: .normal)
+        }else if role?.ID == 4 {
+            cell.jobButton.setTitle("守る", for: .normal)
+        }else if role?.ID == 8 {
+            cell.jobButton.setTitle("観る", for: .normal)
+        }else if role?.ID == 13 {
+            cell.jobButton.setTitle("守る", for: .normal)
+        }else{
+            cell.jobButton.setTitle("疑う", for: .normal)
+        }
+        
+        // 生存,死亡判定
+        if self.appDelegate.playerList[indexPath.row].isLife {
+            cell.detailLabel.text = "死亡"
+            cell.detailLabel.textColor = UIColor.red
+            cell.jobButton.isHidden = true
+        }else{
+            cell.detailLabel.textColor = UIColor.black
+            cell.jobButton.isHidden = false
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == self.appDelegate.playerID {
+            return 0.0
+        }
+        return 74.0
     }
     
     @IBAction func tappedNextButton(_ sender: Any) {
