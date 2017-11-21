@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,RoleJobTableViewCellDelegate {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let CELL_ID = "ROLE_JOB_CELL"
     private let ROLE_CHECK_VC_ID = "RoleCheckViewController"
@@ -63,15 +63,25 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! RoleJobTableViewCell
+        cell.indexPath = indexPath
+        cell.delegate = self
         if indexPath.row == self.appDelegate.playerID {
             cell.isHidden = true
         }else{
             cell.isHidden = false
         }
         cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name
+        cell.detailLabel.textColor = UIColor.black
+        cell.detailLabel.text = "？？？"
         let role = self.appDelegate.playerList[self.appDelegate.playerID].role
         if role?.ID == 1{
-            cell.jobButton.setTitle("殺害する", for: .normal)
+            cell.jobButton.setTitle("殺害する\n2票", for: .normal)
+            // 自分が人狼で、表示するセルも人狼なら
+            if self.appDelegate.playerList[indexPath.row].role.ID == 1 {
+                cell.detailLabel.text = "人狼"
+                cell.detailLabel.textColor = self.appDelegate.wereWolfColor
+                cell.jobButton.isHidden = true
+            }
         }else if role?.ID == 2 {
             cell.jobButton.setTitle("占う", for: .normal)
         }else if role?.ID == 4 {
@@ -80,19 +90,24 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             cell.jobButton.setTitle("観る", for: .normal)
         }else if role?.ID == 13 {
             cell.jobButton.setTitle("守る", for: .normal)
+        }else if role?.ID == 15 {
+            cell.jobButton.setTitle("交換する", for: .normal)
         }else{
             cell.jobButton.setTitle("疑う", for: .normal)
         }
         
         // 生存,死亡判定
         if self.appDelegate.playerList[indexPath.row].isLife {
-            cell.detailLabel.text = "死亡"
-            cell.detailLabel.textColor = UIColor.red
-            cell.jobButton.isHidden = true
+            cell.jobButton.isUserInteractionEnabled = true
+            cell.jobButton.backgroundColor = self.appDelegate.wereWolfColor
+            cell.jobButton.setTitleColor(UIColor.white, for: .normal)
         }else{
-            cell.detailLabel.textColor = UIColor.black
-            cell.jobButton.isHidden = false
+            cell.isUserInteractionEnabled = false
+            cell.jobButton.backgroundColor = UIColor.lightGray
+            cell.jobButton.setTitleColor(UIColor.black, for: .normal)
+            cell.jobButton.setTitle("死亡", for: .normal)
         }
+        
         return cell
     }
     
@@ -101,6 +116,12 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             return 0.0
         }
         return 74.0
+    }
+    
+    func tappedRoleJobButton(indexPath: IndexPath) {
+        
+        // 疑い度をタップ
+        self.appDelegate.playerList[indexPath.row].doubt += 1
     }
     
     @IBAction func tappedNextButton(_ sender: Any) {

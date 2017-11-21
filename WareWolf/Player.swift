@@ -16,6 +16,8 @@ class Player: NSObject {
     // 生存フラグ
     // T:生存,F:死
     var isLife = true
+    // 疑い度
+    var doubt = 0
     
     init(name : String) {
         self.name = name
