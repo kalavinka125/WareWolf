@@ -13,6 +13,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     private let CELL_ID = "ROLE_JOB_CELL"
     private let ROLE_CHECK_VC_ID = "RoleCheckViewController"
     private let SEGUE_NAME = "GO_TO_DISCUSSION"
+    private let PINK_COLOR = UIColor.rgb(255, g: 111, b: 207, alpha: 0.8)
     
     private var otherList : [Player] = []
     // 毎日のしごとをしたかどうか
@@ -32,6 +33,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.todayJob = false
         self.imageView.image = UIImage(named: "\(self.appDelegate.playerList[self.appDelegate.playerID].role.ID)")
         self.roleLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.name
         
@@ -78,8 +80,9 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         cell.detailLabel.text = "？？？"
         cell.jobButton.isHidden = false
         cell.jobButton.isUserInteractionEnabled = true
+        cell.jobButton.backgroundColor = self.appDelegate.wereWolfColor
+        cell.jobButton.setTitleColor(UIColor.white, for: .normal)
 
-        
         let role = self.appDelegate.playerList[self.appDelegate.playerID].role
         if role?.ID == 1{
             cell.jobButton.setTitle("殺害する\n2票", for: .normal)
@@ -103,11 +106,14 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             cell.jobButton.setTitle("疑う", for: .normal)
         }
         
-        // 生存,死亡判定
-        if self.appDelegate.playerList[indexPath.row].isLife {
-            cell.jobButton.backgroundColor = self.appDelegate.wereWolfColor
-            cell.jobButton.setTitleColor(UIColor.white, for: .normal)
-        }else{
+        // 仕事済みだったら
+        if self.todayJob {
+            cell.jobButton.isHidden = true
+        }
+        
+        // 死亡判定
+        if !self.appDelegate.playerList[indexPath.row].isLife {
+            cell.jobButton.isHidden = false
             cell.isUserInteractionEnabled = false
             cell.jobButton.backgroundColor = UIColor.lightGray
             cell.jobButton.setTitleColor(UIColor.black, for: .normal)
@@ -134,6 +140,10 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             let ok = UIAlertAction(title: "疑う", style: .default, handler: { okAction in
                 // 疑いの度合いをプラスしていく
                 target.doubt += 1
+                self.todayJob = true
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             })
             ok.setValue(UIColor.black, forKey: "titleTextColor")
             
@@ -146,6 +156,8 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             alert.addAction(cancel)
             alert.addAction(ok)
             present(alert, animated: true, completion: nil)
+        }else if role?.ID == 2 {
+            // 占い師の処理
         }
     }
     
