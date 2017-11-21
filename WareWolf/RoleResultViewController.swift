@@ -10,7 +10,7 @@ import UIKit
 
 class RoleResultViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+    private let SEGUE_NAME = "GO_TO_ROLEDETAIL"
     @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var sideLabel: UILabel!
@@ -51,7 +51,7 @@ class RoleResultViewController: UIViewController {
     }
     
     @IBAction func tappedOKButton(_ sender: Any) {
-        //
+        self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
     }
 
     /*
