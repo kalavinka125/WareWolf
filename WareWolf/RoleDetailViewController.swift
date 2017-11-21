@@ -15,6 +15,8 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     private let SEGUE_NAME = "GO_TO_DISCUSSION"
     
     private var otherList : [Player] = []
+    // 毎日のしごとをしたかどうか
+    private var todayJob : Bool = false
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var roleLabel: UILabel!
@@ -70,9 +72,14 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         }else{
             cell.isHidden = false
         }
+        
         cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name
         cell.detailLabel.textColor = UIColor.black
         cell.detailLabel.text = "？？？"
+        cell.jobButton.isHidden = false
+        cell.jobButton.isUserInteractionEnabled = true
+
+        
         let role = self.appDelegate.playerList[self.appDelegate.playerID].role
         if role?.ID == 1{
             cell.jobButton.setTitle("殺害する\n2票", for: .normal)
@@ -98,7 +105,6 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         
         // 生存,死亡判定
         if self.appDelegate.playerList[indexPath.row].isLife {
-            cell.jobButton.isUserInteractionEnabled = true
             cell.jobButton.backgroundColor = self.appDelegate.wereWolfColor
             cell.jobButton.setTitleColor(UIColor.white, for: .normal)
         }else{
@@ -119,9 +125,28 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     func tappedRoleJobButton(indexPath: IndexPath) {
-        
-        // 疑い度をタップ
-        self.appDelegate.playerList[indexPath.row].doubt += 1
+        let target = self.appDelegate.playerList[indexPath.row]
+        let role = self.appDelegate.playerList[self.appDelegate.playerID].role
+        // 1,2,4,8,13,15
+        if role?.ID != 1 && role?.ID != 2 && role?.ID != 4 && role?.ID != 8 && role?.ID != 13 && role?.ID != 15 {
+            let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            cancel.setValue(UIColor.black, forKey: "titleTextColor")
+            let ok = UIAlertAction(title: "疑う", style: .default, handler: { okAction in
+                // 疑いの度合いをプラスしていく
+                target.doubt += 1
+            })
+            ok.setValue(UIColor.black, forKey: "titleTextColor")
+            
+            let message = target.name + "を\n人狼と疑いますか？"
+            let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+            let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+            let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+            alert.setValue(attributedMessage, forKey: "attributedMessage")
+            alert.addAction(cancel)
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func tappedNextButton(_ sender: Any) {

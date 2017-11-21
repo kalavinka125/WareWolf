@@ -9,6 +9,18 @@
 import UIKit
 
 extension UIViewController {
+    func showAlert(viewController: UIViewController, message: String){
+        let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+        let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+        let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+        
+        DispatchQueue.main.async(execute: {
+        viewController.present(alert, animated: true, completion:nil)
+        })
+    }
     
     func showAlert(viewController: UIViewController, message: String, buttonTitle:String){
         let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
