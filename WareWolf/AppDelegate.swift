@@ -12,6 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    /*
+     >> 村人：0, 223, 86
+     >> 人狼：223, 86, 86
+     >> 狐：240, 240, 86
+    */
+    let villagerColor = UIColor.rgb(0, g: 223, b: 86, alpha: 1.0)
+    let wereWolfColor = UIColor.rgb(223, g: 86, b: 86, alpha: 1.0)
+    let foxColor = UIColor.rgb(240, g: 240, b: 86, alpha: 1.0)
+    
     // 参加者の一覧
     var playerList : [Player] = []
     // 役職の一覧
