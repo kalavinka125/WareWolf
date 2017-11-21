@@ -63,11 +63,16 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
             }
 
             
-            // 人狼以外（今後は大狼も含む）のプレイヤーが１人以上
+            // 村人SIDE（今後は大狼も含む）のプレイヤーが１人以上
             var player = 0
             for role in self.appDelegate.roleList {
+                /*
                 // IDが1以外 かつ IDが18以上20以下でない
                 if role.ID != 1 && !(role.ID >= 18 && role.ID <= 20) && self.roleList[role.ID] != nil {
+                    player += self.roleList[role.ID]!
+                }
+                */
+                if role.side == .Villager && self.roleList[role.ID] != nil && self.roleList[role.ID]! != 0{
                     player += self.roleList[role.ID]!
                 }
             }
