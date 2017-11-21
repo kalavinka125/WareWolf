@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // 役職の一覧
     var roleList : [Role] = []
     var joinRoleList : [Role] = []
+    // ヒント：役職の一覧
+    var hintRoleList : [Int:Int] = [:]
     // テーブル表示用の役職一覧
     var wereWolfRoles : [Role] = []
     var villagerRoles : [Role] = []
