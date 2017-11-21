@@ -10,7 +10,7 @@ import UIKit
 
 class CheckViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    
+    private let SEGUE_NAME = "GO_TO_GAME"
     var villager = 0
     var wereWolf = 0
     var fox = 0
@@ -71,6 +71,7 @@ class CheckViewController: UIViewController {
                 // 削除
                 self.appDelegate.joinRoleList.remove(at: random)
             }
+            self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
         }
     }
     
