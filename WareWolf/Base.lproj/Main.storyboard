@@ -511,6 +511,7 @@
                                     <color key="titleColor" red="0.3655167433" green="0.20999244610000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="tappedRoleButton:" destination="TRF-VI-e9x" eventType="touchUpInside" id="et3-SF-qAb"/>
                                     <action selector="tappedRoleListButton:" destination="oND-Ih-aKX" eventType="touchUpInside" id="Q2b-yY-QoX"/>
                                     <action selector="tappedTitleButton:" destination="QIf-Wc-Tae" eventType="touchUpInside" id="qw6-H5-6Nq"/>
                                 </connections>
