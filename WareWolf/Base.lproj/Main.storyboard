@@ -917,11 +917,112 @@
                                     <action selector="tappedOKButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zrL-YZ-At7"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="NV4-4q-Qaz">
+                                <rect key="frame" x="16" y="58" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="h2x-oO-tbA"/>
+                                    <constraint firstAttribute="height" constant="64" id="rQu-E1-JAw"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H06-h0-A7c">
+                                <rect key="frame" x="20" y="130" width="280" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="cJx-Bn-WrZ"/>
+                                </constraints>
+                                <string key="text">市民になりすまし、市民を殺害するプレイヤーです。
+人狼同士は互いが分かります。
+市民の数が人狼の数と同数になった時点で、
+人狼チームの勝利となります。</string>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dcs-B8-syo">
+                                <rect key="frame" x="16" y="199" width="284" height="297"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="74" id="3Fp-Ga-thB">
+                                        <rect key="frame" x="0.0" y="28" width="284" height="74"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Fp-Ga-thB" id="MkW-24-DGn">
+                                            <rect key="frame" x="0.0" y="0.0" width="284" height="73.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RH-aE-DRX">
+                                                    <rect key="frame" x="15" y="8" width="173" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="0t9-FA-Pwa"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="？？？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgn-C4-bOm">
+                                                    <rect key="frame" x="15" y="37" width="173" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29" id="e5c-Sq-fL2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSz-q3-mig">
+                                                    <rect key="frame" x="196" y="8" width="80" height="58"/>
+                                                    <color key="backgroundColor" red="0.87450980389999999" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="58" id="fGz-k8-Bhy"/>
+                                                        <constraint firstAttribute="width" constant="80" id="kIi-SF-j23"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
+                                                    <state key="normal" title="殺害する">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="bSz-q3-mig" secondAttribute="bottom" constant="7.5" id="Lib-zn-miq"/>
+                                                <constraint firstItem="2RH-aE-DRX" firstAttribute="leading" secondItem="MkW-24-DGn" secondAttribute="leadingMargin" constant="7" id="OzR-jg-QAL"/>
+                                                <constraint firstAttribute="bottom" secondItem="jgn-C4-bOm" secondAttribute="bottom" constant="7.5" id="PbH-r4-gDo"/>
+                                                <constraint firstItem="2RH-aE-DRX" firstAttribute="top" secondItem="MkW-24-DGn" secondAttribute="topMargin" id="QtV-LH-VxR"/>
+                                                <constraint firstItem="bSz-q3-mig" firstAttribute="leading" secondItem="jgn-C4-bOm" secondAttribute="trailing" constant="8" id="SA4-cN-thu"/>
+                                                <constraint firstItem="bSz-q3-mig" firstAttribute="leading" secondItem="2RH-aE-DRX" secondAttribute="trailing" constant="8" id="WfU-Ph-wNz"/>
+                                                <constraint firstItem="jgn-C4-bOm" firstAttribute="leading" secondItem="MkW-24-DGn" secondAttribute="leading" constant="15" id="Ylf-eU-MaQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="bSz-q3-mig" secondAttribute="trailing" constant="8" id="noV-C0-HCf"/>
+                                                <constraint firstItem="bSz-q3-mig" firstAttribute="top" secondItem="MkW-24-DGn" secondAttribute="top" constant="8" id="sLT-I7-MEc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人狼" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfC-41-rko">
+                                <rect key="frame" x="88" y="58" width="212" height="64"/>
+                                <color key="backgroundColor" red="0.87450980389999999" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="ILB-9S-Rfm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="dcs-B8-syo" secondAttribute="trailing" constant="4" id="Aaj-Rc-8E4"/>
+                            <constraint firstItem="H06-h0-A7c" firstAttribute="leading" secondItem="SmG-yn-O4g" secondAttribute="leadingMargin" constant="4" id="Ef3-Zp-4aY"/>
+                            <constraint firstItem="dcs-B8-syo" firstAttribute="leading" secondItem="SmG-yn-O4g" secondAttribute="leadingMargin" id="Lns-Ku-TPS"/>
+                            <constraint firstItem="NV4-4q-Qaz" firstAttribute="leading" secondItem="SmG-yn-O4g" secondAttribute="leadingMargin" id="Pbw-pb-bES"/>
+                            <constraint firstItem="NV4-4q-Qaz" firstAttribute="top" secondItem="h9Q-zv-RyG" secondAttribute="bottom" constant="38" id="SOv-ZD-D92"/>
                             <constraint firstItem="2Qq-ii-61P" firstAttribute="leading" secondItem="SmG-yn-O4g" secondAttribute="leadingMargin" id="SdF-o0-APf"/>
+                            <constraint firstItem="2Qq-ii-61P" firstAttribute="top" secondItem="dcs-B8-syo" secondAttribute="bottom" constant="8" id="aTY-eZ-zFB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="H06-h0-A7c" secondAttribute="trailing" constant="4" id="dpt-y4-G94"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nfC-41-rko" secondAttribute="trailing" constant="4" id="eHT-HI-ruD"/>
+                            <constraint firstItem="H06-h0-A7c" firstAttribute="top" secondItem="nfC-41-rko" secondAttribute="bottom" constant="8" id="fYk-d5-nrH"/>
+                            <constraint firstItem="nfC-41-rko" firstAttribute="leading" secondItem="NV4-4q-Qaz" secondAttribute="trailing" constant="8" id="t2E-uo-Ddu"/>
+                            <constraint firstItem="nfC-41-rko" firstAttribute="top" secondItem="h9Q-zv-RyG" secondAttribute="bottom" constant="38" id="te6-Fb-970"/>
                             <constraint firstItem="7RU-Ur-OdN" firstAttribute="top" secondItem="2Qq-ii-61P" secondAttribute="bottom" constant="20" id="toc-zc-Czh"/>
+                            <constraint firstItem="dcs-B8-syo" firstAttribute="top" secondItem="H06-h0-A7c" secondAttribute="bottom" constant="8" id="wnK-qj-ES8"/>
                             <constraint firstItem="2Qq-ii-61P" firstAttribute="trailing" secondItem="SmG-yn-O4g" secondAttribute="trailingMargin" id="zTn-98-Joq"/>
                         </constraints>
                     </view>
@@ -931,7 +1032,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTv-rE-LkA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2154" y="131"/>
+            <point key="canvasLocation" x="2152.5" y="130.98591549295776"/>
         </scene>
         <!--Discussion View Controller-->
         <scene sceneID="bh0-Kj-puB">
