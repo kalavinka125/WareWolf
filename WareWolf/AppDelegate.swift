@@ -26,6 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // 役職管理クラス
     let roleManager = RoleManager()
     
+    // ゲーム経過ターン
+    var turn = 0
+    // プレイヤー番号
+    var playerID = 0
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // 参加者を4名追加
