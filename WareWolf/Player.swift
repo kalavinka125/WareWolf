@@ -9,14 +9,15 @@
 import UIKit
 
 class Player: NSObject {
+    // ユーザ名
     var name = "Player"
-    // 今後の拡張で画像を格納できるように
-    var imageData : Data!
+    // 役職
+    var role : Role!
+    // 生存フラグ
+    // T:生存,F:死
+    var isLife = true
     
     init(name : String) {
         self.name = name
     }
-    
-    // 役職
-    var role : Role!
 }
