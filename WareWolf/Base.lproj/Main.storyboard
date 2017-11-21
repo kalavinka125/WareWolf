@@ -942,7 +942,7 @@
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="74" id="3Fp-Ga-thB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="74" id="3Fp-Ga-thB" customClass="RoleJobTableViewCell" customModule="WareWolf" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="284" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Fp-Ga-thB" id="MkW-24-DGn">
@@ -978,6 +978,9 @@
                                                     <state key="normal" title="殺害する">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="tappedJobButton:" destination="3Fp-Ga-thB" eventType="touchUpInside" id="6w7-6Q-tvU"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -993,6 +996,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="detailLabel" destination="jgn-C4-bOm" id="jRZ-Q5-zPK"/>
+                                            <outlet property="jobButton" destination="bSz-q3-mig" id="97r-HM-aqc"/>
+                                            <outlet property="nameLabel" destination="2RH-aE-DRX" id="GG2-PZ-vgh"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

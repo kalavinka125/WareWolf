@@ -37,6 +37,7 @@
 		D2D406501FC3DE3F00F10994 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D4064F1FC3DE3F00F10994 /* CheckViewController.swift */; };
 		D2D406521FC3FDC900F10994 /* RoleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D406511FC3FDC900F10994 /* RoleDetailViewController.swift */; };
 		D2D406541FC405CB00F10994 /* DiscussionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D406531FC405CB00F10994 /* DiscussionViewController.swift */; };
+		D2D406561FC417F800F10994 /* RoleJobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D406551FC417F800F10994 /* RoleJobTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		D2D4064F1FC3DE3F00F10994 /* CheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 		D2D406511FC3FDC900F10994 /* RoleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleDetailViewController.swift; sourceTree = "<group>"; };
 		D2D406531FC405CB00F10994 /* DiscussionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionViewController.swift; sourceTree = "<group>"; };
+		D2D406551FC417F800F10994 /* RoleJobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleJobTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 				D236140C1FC1CB3B00563B8C /* PlayerTableViewCell.swift */,
 				D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */,
 				D28646B51FC2A7AE002B14BD /* RollTableViewCell.swift */,
+				D2D406551FC417F800F10994 /* RoleJobTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				D2D406521FC3FDC900F10994 /* RoleDetailViewController.swift in Sources */,
 				D28646BE1FC31412002B14BD /* Player.swift in Sources */,
 				D28646B21FC1F134002B14BD /* RoleResultViewController.swift in Sources */,
+				D2D406561FC417F800F10994 /* RoleJobTableViewCell.swift in Sources */,
 				D28646AC1FC1E313002B14BD /* PlayerEditTableViewCell.swift in Sources */,
 				D2D4064C1FC3270F00F10994 /* RoleManager.swift in Sources */,
 				D28646B61FC2A7AE002B14BD /* RollTableViewCell.swift in Sources */,
