@@ -10,6 +10,8 @@ import UIKit
 
 class RoleDetailViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    private let CELL_ID = "ROLE_JOB_CELL"
     private let ROLE_CHECK_VC_ID = "RoleCheckViewController"
     private let SEGUE_NAME = "GO_TO_DISCUSSION"
     
