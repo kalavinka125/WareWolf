@@ -36,6 +36,7 @@
 		D2D4064E1FC3491A00F10994 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D4064D1FC3491A00F10994 /* UIViewControllerExtension.swift */; };
 		D2D406501FC3DE3F00F10994 /* CheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D4064F1FC3DE3F00F10994 /* CheckViewController.swift */; };
 		D2D406521FC3FDC900F10994 /* RoleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D406511FC3FDC900F10994 /* RoleDetailViewController.swift */; };
+		D2D406541FC405CB00F10994 /* DiscussionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D406531FC405CB00F10994 /* DiscussionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		D2D4064D1FC3491A00F10994 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		D2D4064F1FC3DE3F00F10994 /* CheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckViewController.swift; sourceTree = "<group>"; };
 		D2D406511FC3FDC900F10994 /* RoleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleDetailViewController.swift; sourceTree = "<group>"; };
+		D2D406531FC405CB00F10994 /* DiscussionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				D28646BB1FC30FB7002B14BD /* Jin-Roh.csv */,
 				D2D4064B1FC3270F00F10994 /* RoleManager.swift */,
 				D2D406511FC3FDC900F10994 /* RoleDetailViewController.swift */,
+				D2D406531FC405CB00F10994 /* DiscussionViewController.swift */,
 			);
 			name = WereWolf;
 			path = WareWolf;
@@ -361,6 +364,7 @@
 			files = (
 				D28646B01FC1F124002B14BD /* RoleCheckViewController.swift in Sources */,
 				D236140A1FC1BD0C00563B8C /* RoleListViewController.swift in Sources */,
+				D2D406541FC405CB00F10994 /* DiscussionViewController.swift in Sources */,
 				D28646BA1FC30EF5002B14BD /* ExFileManager.swift in Sources */,
 				D28646AE1FC1E3AF002B14BD /* PlayerListViewController.swift in Sources */,
 				D2D4064E1FC3491A00F10994 /* UIViewControllerExtension.swift in Sources */,

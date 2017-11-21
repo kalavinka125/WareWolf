@@ -933,10 +933,10 @@
             </objects>
             <point key="canvasLocation" x="2154" y="131"/>
         </scene>
-        <!--View Controller-->
+        <!--Discussion View Controller-->
         <scene sceneID="bh0-Kj-puB">
             <objects>
-                <viewController id="dEv-dX-tEH" sceneMemberID="viewController">
+                <viewController id="dEv-dX-tEH" customClass="DiscussionViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cSR-8p-fLQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Xga-km-6f3"/>
@@ -965,6 +965,9 @@
                                 <state key="normal" title="+">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedPlusTimeButton:" destination="dEv-dX-tEH" eventType="touchUpInside" id="0vZ-pB-21A"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hiru" translatesAutoresizingMaskIntoConstraints="NO" id="zwM-2L-KcX">
                                 <rect key="frame" x="240" y="119" width="64" height="64"/>
@@ -1015,6 +1018,10 @@
                             <constraint firstItem="EHp-bh-gWf" firstAttribute="leading" secondItem="Y4U-Rf-gn6" secondAttribute="leadingMargin" id="zWP-Vc-fEr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="timeLabel" destination="u08-Vj-YmT" id="wac-ts-fOL"/>
+                        <outlet property="titleLabel" destination="EHp-bh-gWf" id="jcc-yl-moP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDb-lF-HWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
