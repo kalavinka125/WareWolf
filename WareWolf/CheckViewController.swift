@@ -38,6 +38,10 @@ class CheckViewController: UIViewController {
                 }else if role!.side == .Fox {
                     self.fox += value
                 }
+                // 選択中役職を入れていく
+                for _ in 0..<value {
+                    self.appDelegate.joinRoleList.append(role!)
+                }
             }
         }
         
