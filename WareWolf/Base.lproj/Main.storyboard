@@ -794,6 +794,9 @@
                             <constraint firstItem="zRd-Pf-fAN" firstAttribute="leading" secondItem="PWz-iQ-e62" secondAttribute="leadingMargin" id="wxE-9g-EU3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="zRd-Pf-fAN" id="CTA-HX-efm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L6N-rT-8Wl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
