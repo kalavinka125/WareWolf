@@ -730,7 +730,7 @@
         <!--Role Check View Controller-->
         <scene sceneID="jj1-BS-NPC">
             <objects>
-                <viewController id="IyO-v2-kMP" customClass="RoleCheckViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoleCheckViewController" id="IyO-v2-kMP" customClass="RoleCheckViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MBC-BN-yre"/>
                         <viewControllerLayoutGuide type="bottom" id="Zkn-h9-ofo"/>
@@ -890,10 +890,10 @@
             </objects>
             <point key="canvasLocation" x="1433" y="132"/>
         </scene>
-        <!--View Controller-->
+        <!--Role Detail View Controller-->
         <scene sceneID="sZ0-ed-jfl">
             <objects>
-                <viewController id="1OM-AQ-tb9" sceneMemberID="viewController">
+                <viewController id="1OM-AQ-tb9" customClass="RoleDetailViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h9Q-zv-RyG"/>
                         <viewControllerLayoutGuide type="bottom" id="7RU-Ur-OdN"/>
@@ -913,6 +913,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="tappedNextButton:" destination="1OM-AQ-tb9" eventType="touchUpInside" id="QD6-dp-WLL"/>
                                     <action selector="tappedOKButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zrL-YZ-At7"/>
                                 </connections>
                             </button>
