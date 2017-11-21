@@ -14,9 +14,9 @@ class RoleResultViewController: UIViewController {
     @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var sideLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -25,6 +25,34 @@ class RoleResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.roleLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.name
+        self.imageView.image = UIImage(named: "\(self.appDelegate.playerList[self.appDelegate.playerID].role.ID)")
+        self.sideLabel.textColor = UIColor.black
+        /*
+         >> 村人：0, 223, 86
+         >> 人狼：223, 86, 86
+         >> 狐：240, 240, 86
+        */
+        if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .Villager {
+            self.roleLabel.backgroundColor = UIColor.rgb(0, g: 223, b: 86, alpha: 1.0)
+            self.sideLabel.textColor = UIColor.rgb(0, g: 223, b: 86, alpha: 1.0)
+            self.sideLabel.text = "市民サイド"
+        }else if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .WereWolf {
+            self.roleLabel.backgroundColor = UIColor.rgb(223, g: 86, b: 86, alpha: 1.0)
+            self.sideLabel.textColor = UIColor.rgb(223, g: 86, b: 86, alpha: 1.0)
+            self.sideLabel.text = "人狼サイド"
+        }else if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .Fox {
+            self.roleLabel.backgroundColor = UIColor.rgb(240, g: 240, b: 86, alpha: 1.0)
+            self.sideLabel.textColor = UIColor.rgb(240, g: 240, b: 86, alpha: 1.0)
+            self.sideLabel.text = "狐サイド"
+        }
+    }
+    
+    @IBAction func tappedOKButton(_ sender: Any) {
+        //
+    }
 
     /*
     // MARK: - Navigation
