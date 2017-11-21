@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoleDetailViewController: UIViewController {
+class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     private let CELL_ID = "ROLE_JOB_CELL"
@@ -23,13 +23,45 @@ class RoleDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.imageView.image = UIImage(named: "\(self.appDelegate.playerList[self.appDelegate.playerID].role.ID)")
+        self.roleLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.name
+        
+        if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .Villager {
+            self.roleLabel.backgroundColor = self.appDelegate.villagerColor
+            
+        }else if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .WereWolf {
+            self.roleLabel.backgroundColor = self.appDelegate.wereWolfColor
+            
+        }else if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .Fox {
+            self.roleLabel.backgroundColor = self.appDelegate.foxColor
+            
+        }else {
+            self.roleLabel.backgroundColor = UIColor.clear
+            
+        }
+        
+        self.detailLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.detail
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // 試しに1行
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! RoleJobTableViewCell
+        return cell
     }
     
     @IBAction func tappedNextButton(_ sender: Any) {
