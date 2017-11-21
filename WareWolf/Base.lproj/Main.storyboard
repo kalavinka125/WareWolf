@@ -876,6 +876,11 @@
                             <constraint firstItem="Kvt-Ci-pqS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="vAG-WQ-Y6d"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="ejO-PC-Mf6" id="L9f-wQ-o2N"/>
+                        <outlet property="roleLabel" destination="HES-lk-wce" id="U3L-gF-m4W"/>
+                        <outlet property="sideLabel" destination="Kvt-Ci-pqS" id="eB4-P5-7D1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

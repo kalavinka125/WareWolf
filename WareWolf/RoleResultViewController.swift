@@ -11,6 +11,9 @@ import UIKit
 class RoleResultViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
+    @IBOutlet weak var roleLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var sideLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
