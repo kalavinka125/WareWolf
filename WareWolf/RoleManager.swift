@@ -40,4 +40,19 @@ class RoleManager: NSObject {
             return [:]
         }
     }
+    
+    /// IDから役職を求める
+    ///
+    /// - Parameters:
+    ///   - ID: ID
+    ///   - roleList: 役職一覧
+    /// - Returns: IDに該当する役職
+    func ID2Role(ID : Int , roleList : [Role]) -> Role? {
+        for role in roleList {
+            if role.ID == ID {
+                return role
+            }
+        }
+        return nil
+    }
 }
