@@ -177,7 +177,56 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             alert.addAction(ok)
             present(alert, animated: true, completion: nil)
         }else if role?.ID == 1 {
+            // 能力ターゲットを記憶する
+            self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+            
             // 人狼の処理
+            let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            cancel.setValue(UIColor.black, forKey: "titleTextColor")
+            
+            let ok1 = UIAlertAction(title: "とりあえず殺す：1票", style: .default, handler: { okAction in
+                // 能力ターゲットを記憶する
+                self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+                target.role.wereWolf += 1
+                self.todayJob = true
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+            let ok2 = UIAlertAction(title: "あえて殺す：2票", style: .default, handler: { okAction in
+                // 能力ターゲットを記憶する
+                self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+                target.role.wereWolf += 2
+                self.todayJob = true
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+            let ok3 = UIAlertAction(title: "絶対殺す：3票", style: .default, handler: { okAction in
+                // 能力ターゲットを記憶する
+                self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+                target.role.wereWolf += 3
+                self.todayJob = true
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+            ok1.setValue(self.appDelegate.wereWolfColor, forKey: "titleTextColor")
+            ok2.setValue(self.appDelegate.wereWolfColor, forKey: "titleTextColor")
+            ok3.setValue(self.appDelegate.wereWolfColor, forKey: "titleTextColor")
+            // アラートの設定
+            let message = target.name + "を\n殺害しますか？"
+            let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+            let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+            let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+            alert.setValue(attributedMessage, forKey: "attributedMessage")
+            alert.addAction(cancel)
+            alert.addAction(ok1)
+            alert.addAction(ok2)
+            alert.addAction(ok3)
+            present(alert, animated: true, completion: nil)
+            
         }else if role?.ID == 2 {
             // 占い師の処理
             self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
