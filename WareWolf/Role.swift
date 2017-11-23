@@ -30,6 +30,7 @@ class Role: NSObject {
     // 死亡フラグ
     var deadEndFlag = false
     // 人狼襲撃フラグ
+    var wereWolf = 0
     var wereWolfFlag = false
     // 防御フラグ
     var guardFlag = false
