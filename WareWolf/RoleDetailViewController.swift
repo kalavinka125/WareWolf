@@ -85,7 +85,14 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
 
         let role = self.appDelegate.playerList[self.appDelegate.playerID].role
         if role?.ID == 1{
-            cell.jobButton.setTitle("殺害する\n2票", for: .normal)
+            cell.jobButton.setTitle("殺害する", for: .normal)
+            cell.detailLabel.text = self.appDelegate.roleManager.generateWereWolfFlagTxt(wereWolf: self.appDelegate.playerList[indexPath.row].role.wereWolf)
+            if self.appDelegate.playerList[indexPath.row].role.wereWolf > 0 {
+                cell.detailLabel.textColor = self.appDelegate.wereWolfColor
+            }else{
+                cell.detailLabel.textColor = UIColor.black
+            }
+
             // 自分が人狼で、表示するセルも人狼なら
             if self.appDelegate.playerList[indexPath.row].role.ID == 1 {
                 cell.detailLabel.text = "人狼"
