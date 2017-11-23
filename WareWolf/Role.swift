@@ -29,6 +29,8 @@ class Role: NSObject {
     var uranaiResult : [Int : Side] = [:]
     // 死亡フラグ
     var deadEndFlag = false
+    // 人狼襲撃フラグ
+    var wereWolfFlag = false
     // 防御フラグ
     var guardFlag = false
     
