@@ -26,6 +26,8 @@ class Role: NSObject {
     var uranai = Side.None
     var reibai = Side.None
     
+    var uranaiResult : [Int : Side] = [:]
+    
     /// 初期化
     ///
     /// - Parameters:

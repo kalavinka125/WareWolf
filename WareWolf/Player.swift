@@ -20,7 +20,6 @@ class Player: NSObject {
     var doubt = 0
     // 能力のターゲット
     var target = -1
-    
     init(name : String) {
         self.name = name
     }
