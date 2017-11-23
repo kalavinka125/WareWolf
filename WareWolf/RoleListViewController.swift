@@ -204,7 +204,11 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
             if ID == 9 {
                 self.roleList[ID] = (n + 2)
             }else{
-                self.roleList[ID] = (n + 1)
+                if n >= 1 && ID == 15 {
+                    return
+                }else{
+                    self.roleList[ID] = (n + 1)
+                }
             }
         }else{
             if ID == 9 {
