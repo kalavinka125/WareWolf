@@ -71,4 +71,21 @@ class RoleManager: NSObject {
         }
         return list
     }
+    
+
+    /// 人狼の殺害ターゲットを表現する!!!テキストの生成
+    ///
+    /// - Parameter wereWolf: 人狼からの票の集まり具合
+    /// - Returns: 「！！！」で表現されたテキスト
+    func generateWereWolfFlagTxt(wereWolf : Int) -> String{
+        var txt = ""
+        if wereWolf == 0 {
+            txt = "？？？"
+        }else{
+            for _ in 0..<wereWolf {
+                txt += "！"
+            }
+        }
+        return txt
+    }
 }
