@@ -1043,10 +1043,10 @@
             </objects>
             <point key="canvasLocation" x="2152.5" y="130.98591549295776"/>
         </scene>
-        <!--View Controller-->
+        <!--Info View Controller-->
         <scene sceneID="mhK-jX-Gy2">
             <objects>
-                <viewController id="WCO-6r-f1F" sceneMemberID="viewController">
+                <viewController id="WCO-6r-f1F" customClass="InfoViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="57h-V1-5cb"/>
                         <viewControllerLayoutGuide type="bottom" id="cuc-Yo-vyY"/>
@@ -1088,14 +1088,14 @@
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VICTIM_CELL" id="Kf9-qI-Dq5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VICTIM_CELL" id="Kf9-qI-Dq5" customClass="VictimTableViewCell" customModule="WareWolf" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="288" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kf9-qI-Dq5" id="O8W-rk-rta">
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGY-n8-cEz">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGY-n8-cEz">
                                                     <rect key="frame" x="15" y="11" width="31" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="31" id="0Dx-18-yEd"/>
@@ -1105,7 +1105,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdi-fs-XPT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdi-fs-XPT">
                                                     <rect key="frame" x="54" y="12" width="226" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="8qW-2F-KzR"/>
@@ -1126,6 +1126,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="pdi-fs-XPT" id="4tR-hp-9d3"/>
+                                            <outlet property="numberLabel" destination="UGY-n8-cEz" id="KMl-LX-Nv1"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1139,6 +1143,9 @@
                                 <state key="normal" title="議論開始">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedDiscussionStartButton:" destination="WCO-6r-f1F" eventType="touchUpInside" id="Qfw-yf-1JP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現在、最も疑われている人" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdN-8j-A6Y">
                                 <rect key="frame" x="16" y="422" width="289" height="22"/>
@@ -1174,7 +1181,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="dEv-dX-tEH" kind="presentation" modalTransitionStyle="crossDissolve" id="gtG-kr-dk5"/>
+                        <outlet property="doubtLabel" destination="FCj-cc-EbS" id="iqU-e7-Dxe"/>
+                        <outlet property="tableView" destination="Ziz-2J-oBt" id="lNI-4G-QFu"/>
+                        <outlet property="timeLabel" destination="00y-WL-RbN" id="4Xw-zy-pds"/>
+                        <outlet property="victimLabel" destination="Qyh-hc-Tnb" id="Phj-Lk-M4v"/>
+                        <segue destination="dEv-dX-tEH" kind="presentation" identifier="GO_TO_DISCUSSION" modalTransitionStyle="crossDissolve" id="gtG-kr-dk5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmU-Rk-Afk" userLabel="First Responder" sceneMemberID="firstResponder"/>
