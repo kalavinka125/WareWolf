@@ -18,6 +18,8 @@ class Player: NSObject {
     var isLife = true
     // 疑い度
     var doubt = 0
+    // 能力のターゲット
+    var target = -1
     
     init(name : String) {
         self.name = name

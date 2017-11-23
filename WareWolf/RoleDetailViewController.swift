@@ -104,6 +104,11 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             cell.jobButton.setTitle("交換する", for: .normal)
         }else{
             cell.jobButton.setTitle("疑う", for: .normal)
+            // ターゲット
+            if indexPath.row == self.appDelegate.playerList[self.appDelegate.playerID].target {
+                cell.detailLabel.text = "疑った"
+                cell.detailLabel.textColor = self.appDelegate.wereWolfColor
+            }
         }
         
         // 仕事済みだったら
@@ -138,6 +143,8 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
             cancel.setValue(UIColor.black, forKey: "titleTextColor")
             let ok = UIAlertAction(title: "疑う", style: .default, handler: { okAction in
+                // 能力ターゲットを記憶する
+                self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
                 // 疑いの度合いをプラスしていく
                 target.doubt += 1
                 self.todayJob = true
@@ -145,7 +152,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
                     self.tableView.reloadData()
                 }
             })
-            ok.setValue(UIColor.black, forKey: "titleTextColor")
+            ok.setValue(self.appDelegate.wereWolfColor, forKey: "titleTextColor")
             
             let message = target.name + "を\n人狼と疑いますか？"
             let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
