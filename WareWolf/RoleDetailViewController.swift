@@ -176,6 +176,8 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             alert.addAction(cancel)
             alert.addAction(ok)
             present(alert, animated: true, completion: nil)
+        }else if role?.ID == 1 {
+            // 人狼の処理
         }else if role?.ID == 2 {
             // 占い師の処理
             self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
@@ -203,9 +205,6 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
                             target.role.deadEndFlag = true
                         }
                     }
-                    
-                    // TODO:狐の殺害判定
-                    // TODO:サイコキラーの判定
                     self.tableView.reloadData()
                 }
             })
