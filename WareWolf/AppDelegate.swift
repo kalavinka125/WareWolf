@@ -29,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var joinRoleList : [Role] = []
     // ヒント：役職の一覧
     var hintRoleList : [Int:Int] = [:]
+    // 狼のポイントテーブル
+    // ID - ポイント数
+    var wolfPointList : [Int:Int] = [:]
     // テーブル表示用の役職一覧
     var wereWolfRoles : [Role] = []
     var villagerRoles : [Role] = []

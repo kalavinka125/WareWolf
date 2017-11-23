@@ -29,11 +29,11 @@ class Role: NSObject {
     var uranaiResult : [Int : Side] = [:]
     // 死亡フラグ
     var deadEndFlag = false
-    // 人狼襲撃フラグ
-    var wereWolf = 0
-    var wereWolfFlag = false
     // 防御フラグ
     var guardFlag = false
+    //
+    var wereWolfFlag = false
+    
     
     /// 初期化
     ///

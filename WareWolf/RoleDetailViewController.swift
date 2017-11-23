@@ -69,11 +69,6 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! RoleJobTableViewCell
         cell.indexPath = indexPath
         cell.delegate = self
-        if indexPath.row == self.appDelegate.playerID {
-            cell.isHidden = true
-        }else{
-            cell.isHidden = false
-        }
         
         cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name
         cell.detailLabel.textColor = UIColor.black
@@ -82,16 +77,25 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         cell.jobButton.isUserInteractionEnabled = true
         cell.jobButton.backgroundColor = self.appDelegate.wereWolfColor
         cell.jobButton.setTitleColor(UIColor.white, for: .normal)
-
+        
+        if indexPath.row == self.appDelegate.playerID {
+            cell.isHidden = true
+        }else{
+            cell.isHidden = false
+        }
+        
         let role = self.appDelegate.playerList[self.appDelegate.playerID].role
         if role?.ID == 1{
             cell.jobButton.setTitle("殺害する", for: .normal)
-            cell.detailLabel.text = self.appDelegate.roleManager.generateWereWolfFlagTxt(wereWolf: self.appDelegate.playerList[indexPath.row].role.wereWolf)
-            if self.appDelegate.playerList[indexPath.row].role.wereWolf > 0 {
-                cell.detailLabel.textColor = self.appDelegate.wereWolfColor
-            }else{
-                cell.detailLabel.textColor = UIColor.black
+            // print(self.appDelegate.playerList[indexPath.row].role.wereWolf)
+            // print("\(indexPath.row) : \(self.appDelegate.playerList[indexPath.row].role.wolfPoint)")
+            if self.appDelegate.wolfPointList[indexPath.row] != nil {
+                cell.detailLabel.text = self.appDelegate.roleManager.generateWereWolfFlagTxt(wereWolf: self.appDelegate.wolfPointList[indexPath.row]!)
+                if self.appDelegate.wolfPointList[indexPath.row]! > 0 {
+                    cell.detailLabel.textColor = self.appDelegate.wereWolfColor
+                }
             }
+
 
             // 自分が人狼で、表示するセルも人狼なら
             if self.appDelegate.playerList[indexPath.row].role.ID == 1 {
@@ -191,31 +195,48 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
             cancel.setValue(UIColor.black, forKey: "titleTextColor")
             
-            let ok1 = UIAlertAction(title: "とりあえず殺す：1票", style: .default, handler: { okAction in
-                // 能力ターゲットを記憶する
-                self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
-                target.role.wereWolf += 1
-                self.todayJob = true
+            let ok1 = UIAlertAction(title: "とりあえず殺す：1票", style: .default, handler: { okAction1 in
                 DispatchQueue.main.async {
+                    // 能力ターゲットを記憶する
+                    self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+                    // target.role.wolfPoint += 1
+                    if self.appDelegate.wolfPointList[indexPath.row] != nil {
+                        self.appDelegate.wolfPointList[indexPath.row] = (self.appDelegate.wolfPointList[indexPath.row]! + 1)
+                    }else{
+                        self.appDelegate.wolfPointList[indexPath.row] = 1
+                    }
+                    self.todayJob = true
                     self.tableView.reloadData()
                 }
             })
-            let ok2 = UIAlertAction(title: "あえて殺す：2票", style: .default, handler: { okAction in
-                // 能力ターゲットを記憶する
-                self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
-                target.role.wereWolf += 2
-                self.todayJob = true
+            let ok2 = UIAlertAction(title: "あえて殺す：2票", style: .default, handler: { okAction2 in
                 DispatchQueue.main.async {
+                    // 能力ターゲットを記憶する
+                    self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+                    if self.appDelegate.wolfPointList[indexPath.row] != nil {
+                        self.appDelegate.wolfPointList[indexPath.row] = (self.appDelegate.wolfPointList[indexPath.row]! + 2)
+                    }else{
+                        self.appDelegate.wolfPointList[indexPath.row] = 2
+                    }
+                    self.todayJob = true
+                    
                     self.tableView.reloadData()
                 }
             })
-            let ok3 = UIAlertAction(title: "絶対殺す：3票", style: .default, handler: { okAction in
-                // 能力ターゲットを記憶する
-                self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
-                target.role.wereWolf += 3
-                self.todayJob = true
+            let ok3 = UIAlertAction(title: "絶対殺す：3票", style: .default, handler: { okAction3 in
                 DispatchQueue.main.async {
+                    // 能力ターゲットを記憶する
+                    self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+                    //target.role.wolfPoint += 3
+                    if self.appDelegate.wolfPointList[indexPath.row] != nil {
+                        self.appDelegate.wolfPointList[indexPath.row] = (self.appDelegate.wolfPointList[indexPath.row]! + 3)
+                    }else{
+                        self.appDelegate.wolfPointList[indexPath.row] = 3
+                    }
+                    self.todayJob = true
+                    
                     self.tableView.reloadData()
+
                 }
             })
             ok1.setValue(self.appDelegate.wereWolfColor, forKey: "titleTextColor")
@@ -233,7 +254,6 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             alert.addAction(ok2)
             alert.addAction(ok3)
             present(alert, animated: true, completion: nil)
-            
         }else if role?.ID == 2 {
             // 占い師の処理
             self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
