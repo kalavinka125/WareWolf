@@ -122,4 +122,41 @@ class RoleManager: NSObject {
             return maxIndex
         }
     }
+    
+    /// 本日の犠牲者を一覧で取得する
+    ///
+    /// - Parameters:
+    ///   - players: 参加プレイヤー
+    ///   - wereWolfPointTable: 人狼のターゲットテーブル
+    /// - Returns: 犠牲者リスト
+    func getVictimList(players : [Player] , wereWolfPointTable : [Int:Int]) -> [Int]{
+        var list : [Int] = []
+        var maxValue = 0
+        var maxKey = 0
+        for (key , value) in wereWolfPointTable {
+            if value > maxValue {
+                // 最大値を覚える
+                maxValue = value
+                maxKey = key
+            }
+        }
+        for index in 0..<players.count {
+            let player = players[index]
+            // 生存している人を対象に
+            if player.isLife {
+                if index == maxKey {
+                    if !player.role.guardFlag {
+                        // player.isLife = false
+                        list.append(index)
+                    }
+                }
+                // 死亡フラグが立っている場合
+                if player.role.deadEndFlag {
+                    // player.isLife = false
+                    list.append(index)
+                }
+            }
+        }
+        return list
+    }
 }
