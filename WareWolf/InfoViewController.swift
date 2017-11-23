@@ -20,7 +20,7 @@ class InfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         // Do any additional setup after loading the view.
     }
 
@@ -32,6 +32,16 @@ class InfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "\(self.appDelegate.turn)日目 の 朝です"
+        // TODO:被害者の判定
+        let doubtIndex = self.appDelegate.roleManager.getDoubtTopPlayer(players: self.appDelegate.playerList)
+        print(doubtIndex)
+        if doubtIndex == -1 {
+            self.doubtLabel.textColor = self.appDelegate.villagerColor
+            self.doubtLabel.text = "---"
+        }else{
+            self.doubtLabel.textColor = self.appDelegate.wereWolfColor
+            self.doubtLabel.text = self.appDelegate.playerList[doubtIndex].name
+        }
     }
     
     @IBAction func tappedDiscussionStartButton(_ sender: Any) {

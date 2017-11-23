@@ -96,22 +96,20 @@ class RoleManager: NSObject {
     /// - Returns: 最も疑われている人のインデックス
     func getDoubtTopPlayer(players : [Player]) -> Int {
         // 最大を求める
-        var doubt = 0
         var max = 0
         var maxIndex = 0
         for index in 0..<players.count {
             let player = players[index]
-            if player.doubt >= doubt {
+            if player.doubt >= max {
                 max = player.doubt
                 maxIndex = index
             }
         }
         // 最小を求める
-        doubt = 0
-        var min = 0
+        var min = 100
         for index in 0..<players.count {
             let player = players[index]
-            if player.doubt <= doubt {
+            if player.doubt <= min {
                 min = player.doubt
             }
         }
