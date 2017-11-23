@@ -190,11 +190,20 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
                 DispatchQueue.main.async {
                     if target.role.uranai == .Villager {
                         role?.uranaiResult[indexPath.row] = .Villager
+                        // ターゲットがサイコキラーなら
+                        if target.role.ID == 6 {
+                            role?.deadEndFlag = true
+                        }
                     }else if target.role.uranai == .WereWolf {
                         role?.uranaiResult[indexPath.row] = .WereWolf
                     }else if target.role.uranai == .Fox {
                         role?.uranaiResult[indexPath.row] = .Fox
+                        // ターゲットが妖狐なら
+                        if target.role.ID == 18 {
+                            target.role.deadEndFlag = true
+                        }
                     }
+                    
                     // TODO:狐の殺害判定
                     // TODO:サイコキラーの判定
                     self.tableView.reloadData()
