@@ -94,6 +94,18 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             }
         }else if role?.ID == 2 {
             cell.jobButton.setTitle("占う", for: .normal)
+            if role?.uranaiResult[indexPath.row] != nil {
+                if role?.uranaiResult[indexPath.row] == .Villager {
+                    cell.detailLabel.text = "市民"
+                    cell.detailLabel.textColor = self.appDelegate.villagerColor
+                }else if role?.uranaiResult[indexPath.row] == .WereWolf {
+                    cell.detailLabel.text = "人狼"
+                    cell.detailLabel.textColor = self.appDelegate.wereWolfColor
+                }else if role?.uranaiResult[indexPath.row] == .Fox {
+                    cell.detailLabel.text = "狐"
+                    cell.detailLabel.textColor = self.appDelegate.foxColor
+                }
+            }
         }else if role?.ID == 4 {
             cell.jobButton.setTitle("守る", for: .normal)
         }else if role?.ID == 8 {
@@ -138,6 +150,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     func tappedRoleJobButton(indexPath: IndexPath) {
         let target = self.appDelegate.playerList[indexPath.row]
         let role = self.appDelegate.playerList[self.appDelegate.playerID].role
+        
         // 1,2,4,8,13,15
         if role?.ID != 1 && role?.ID != 2 && role?.ID != 4 && role?.ID != 8 && role?.ID != 13 && role?.ID != 15 {
             let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
@@ -165,10 +178,64 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             present(alert, animated: true, completion: nil)
         }else if role?.ID == 2 {
             // 占い師の処理
+            self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+            
+            let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            cancel.setValue(UIColor.black, forKey: "titleTextColor")
+            let ok = UIAlertAction(title: "占う", style: .default, handler: { okAction in
+                // 能力ターゲットを記憶する
+                self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+                
+                self.todayJob = true
+                DispatchQueue.main.async {
+                    if target.role.uranai == .Villager {
+                        role?.uranaiResult[indexPath.row] = .Villager
+                    }else if target.role.uranai == .WereWolf {
+                        role?.uranaiResult[indexPath.row] = .WereWolf
+                    }else if target.role.uranai == .Fox {
+                        role?.uranaiResult[indexPath.row] = .Fox
+                    }
+                    // TODO:狐の殺害判定
+                    // TODO:サイコキラーの判定
+                    self.tableView.reloadData()
+                }
+            })
+            ok.setValue(self.appDelegate.wereWolfColor, forKey: "titleTextColor")
+            let message = target.name + "を\n占いますか？"
+            let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+            let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+            let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+            alert.setValue(attributedMessage, forKey: "attributedMessage")
+            alert.addAction(cancel)
+            alert.addAction(ok)
+            // アラートの表示
+            present(alert, animated: true, completion: nil)
         }
     }
     
     @IBAction func tappedNextButton(_ sender: Any) {
+        /*
+        if self.todayJob {
+            // 次のプレイヤーがいるか
+            if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1) {
+                // 自分で最後、プレイヤーIDを0番に戻して、GO！
+                self.appDelegate.playerID = 0
+                // とりあえず議論へ
+                self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
+                
+            }else{
+                // 次のプレイヤーがいるので、そちらへ遷移
+                self.appDelegate.playerID += 1
+                // 端末渡しの画面に遷移
+                let next = self.storyboard?.instantiateViewController(withIdentifier: self.ROLE_CHECK_VC_ID) as! RoleCheckViewController
+                next.modalTransitionStyle = .crossDissolve
+                present(next, animated: true, completion: nil)
+            }
+        }else{
+            self.showAlert(viewController: self, message: "今夜、何もしていません", buttonTitle: "ゲームに戻る")
+        }
+        */
         // 次のプレイヤーがいるか
         if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1) {
             // 自分で最後、プレイヤーIDを0番に戻して、GO！
