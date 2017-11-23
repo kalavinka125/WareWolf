@@ -9,6 +9,7 @@
 import UIKit
 
 class InfoViewController: UIViewController {
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let SEGUE_NAME = "GO_TO_DISCUSSION"
     private let CELL_ID = "VICTIM_CELL"
     
@@ -26,6 +27,11 @@ class InfoViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "\(self.appDelegate.turn)日目 の 朝です"
     }
     
     @IBAction func tappedDiscussionStartButton(_ sender: Any) {
