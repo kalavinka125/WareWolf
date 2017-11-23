@@ -88,4 +88,40 @@ class RoleManager: NSObject {
         }
         return txt
     }
+    
+    /// 最も疑われている人を調べる
+    /// 同表の場合、-1を返す。
+    ///
+    /// - Parameter players: プレイヤー一覧
+    /// - Returns: 最も疑われている人のインデックス
+    func getDoubtTopPlayer(players : [Player]) -> Int {
+        // 最大を求める
+        var doubt = 0
+        var max = 0
+        var maxIndex = 0
+        for index in 0..<players.count {
+            let player = players[index]
+            if player.doubt >= doubt {
+                max = player.doubt
+                maxIndex = index
+            }
+        }
+        // 最小を求める
+        doubt = 0
+        var min = 0
+        for index in 0..<players.count {
+            let player = players[index]
+            if player.doubt <= doubt {
+                min = player.doubt
+            }
+        }
+        // 最大と最小の比較
+        if max == min {
+            // 同表
+            return -1
+        }else{
+            // 疑われている人あり
+            return maxIndex
+        }
+    }
 }
