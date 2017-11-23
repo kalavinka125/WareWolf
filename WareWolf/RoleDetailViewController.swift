@@ -12,7 +12,8 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let CELL_ID = "ROLE_JOB_CELL"
     private let ROLE_CHECK_VC_ID = "RoleCheckViewController"
-    private let SEGUE_NAME = "GO_TO_DISCUSSION"
+    //private let SEGUE_NAME = "GO_TO_DISCUSSION"
+    private let SEGUE_NAME = "GO_TO_INFO"
     private let PINK_COLOR = UIColor.rgb(255, g: 111, b: 207, alpha: 0.8)
     
     private var otherList : [Player] = []
