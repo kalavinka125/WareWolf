@@ -40,10 +40,12 @@ class DiscussionViewController: UIViewController {
         }else{
             self.time = (60 * self.lifeList.count)
         }
-        self.time = 3
+        self.time = 10
         self.timeLabel.textColor = UIColor.black
         self.timeLabel.text = self.time2Text(time: self.time)
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        
+        self.appDelegate.soundPlay(fileName: "bgm1", numberOfLoop: -1)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -56,8 +58,19 @@ class DiscussionViewController: UIViewController {
         self.timeLabel.textColor = UIColor.black
         self.timeLabel.text = self.time2Text(time: self.time)
         
-        if self.appDelegate.soundPlayer.isPlaying {
+        /*
+        if self.appDelegate.soundPlayer.isPlaying{
+            // 停止
             self.appDelegate.soundPlayer.stop()
+            // BGM再開
+            self.appDelegate.soundPlay(fileName: "bgm1", numberOfLoop: -1)
+        }
+        */
+        // BGM停止中
+        if self.appDelegate.isPause {
+            self.appDelegate.isPause = false
+            self.appDelegate.soundPlayer.stop()
+            self.appDelegate.soundPlay(fileName: "bgm1", numberOfLoop: -1)
         }
     }
 
@@ -68,8 +81,9 @@ class DiscussionViewController: UIViewController {
         }else{
             if !self.isLimit {
                 self.isLimit = true
-                // TODO:SE再生
-                self.appDelegate.soundPlay(fileName: "kaneOto", numberOfLoop: 0)
+                self.appDelegate.soundPlayer.stop()
+                self.appDelegate.isPause = true
+                self.appDelegate.soundPlay(fileName: "kaneOto", numberOfLoop: -1)
             }
             self.timeLabel.textColor = self.appDelegate.wereWolfColor
         }

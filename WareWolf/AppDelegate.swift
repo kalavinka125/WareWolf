@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var playerID = 0
     // 音楽再生クラス
     var soundPlayer : AVAudioPlayer!
-
+    var isPause = false
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -121,9 +121,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.soundPlayer = try AVAudioPlayer(contentsOf: audioFileURL)
                 self.soundPlayer.currentTime = 0
                 self.soundPlayer.numberOfLoops = numberOfLoop
-                if(!self.soundPlayer.isPlaying){
-                    self.soundPlayer.play()
-                }
+                self.soundPlayer.play()
+//                if(!self.soundPlayer.isPlaying){
+//                    self.soundPlayer.play()
+//                }
             }catch{}
         }
     }
