@@ -562,7 +562,7 @@
                                     <constraint firstAttribute="height" constant="44" id="Ayq-Qi-9Xl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
-                                <state key="normal" title="GAME START">
+                                <state key="normal" title="ゲームスタート">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -796,6 +796,7 @@
                     </view>
                     <connections>
                         <outlet property="button" destination="zcG-uA-HJ1" id="yhf-mj-vG2"/>
+                        <outlet property="imageView" destination="evM-Lo-el6" id="8jP-UX-gcv"/>
                         <outlet property="nameLabel" destination="zRd-Pf-fAN" id="CTA-HX-efm"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="GO_TO_ROLE_RESULT" modalTransitionStyle="flipHorizontal" id="i3n-nZ-MGw"/>
                         <segue destination="C6t-w5-dxp" kind="presentation" identifier="GO_TO_VOTE" modalTransitionStyle="crossDissolve" id="tTt-Re-OV6"/>
@@ -1265,10 +1266,10 @@
             </objects>
             <point key="canvasLocation" x="3549" y="131"/>
         </scene>
-        <!--View Controller-->
+        <!--Vote Top View Controller-->
         <scene sceneID="u7W-rh-EFj">
             <objects>
-                <viewController id="c51-ta-A3J" sceneMemberID="viewController">
+                <viewController id="c51-ta-A3J" customClass="VoteTopViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C8w-5X-jXx"/>
                         <viewControllerLayoutGuide type="bottom" id="lui-Tr-V5O"/>
@@ -1288,7 +1289,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="finger" translatesAutoresizingMaskIntoConstraints="NO" id="SSi-ZW-j0j">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="finger2" translatesAutoresizingMaskIntoConstraints="NO" id="SSi-ZW-j0j">
                                 <rect key="frame" x="32" y="156" width="256" height="256"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="256" id="Cow-JI-4R5"/>
@@ -1305,6 +1306,9 @@
                                 <state key="normal" title="投票開始">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedStartButton:" destination="c51-ta-A3J" eventType="touchUpInside" id="KJg-5w-hRY"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oth-Mb-RY5">
                                 <rect key="frame" x="16" y="443" width="288" height="53"/>
@@ -1363,7 +1367,7 @@
         <image name="-1" width="512" height="512"/>
         <image name="0" width="512" height="512"/>
         <image name="1" width="512" height="512"/>
-        <image name="finger" width="512" height="512"/>
+        <image name="finger2" width="512" height="512"/>
         <image name="hiru" width="400" height="370"/>
         <image name="warewolf-logo" width="662" height="1024"/>
     </resources>

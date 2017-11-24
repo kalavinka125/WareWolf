@@ -19,10 +19,11 @@ class RoleCheckViewController: UIViewController {
     
     private let RESULT_SEGUE = "GO_TO_ROLE_RESULT"
     private let VOTE_SEGUE = "GO_TO_VOTE"
-    private let flag : RoleCheckVC = .check
+    var flag : RoleCheckVC = .check
     
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,10 @@ class RoleCheckViewController: UIViewController {
         self.nameLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].name
         if flag == .check {
             self.button.setTitle("確認", for: .normal)
+            self.imageView.image = UIImage(named: "-1")
         }else if flag == .vote{
             self.button.setTitle("投票", for: .normal)
+            self.imageView.image = UIImage(named: "finger2")
         }
     }
 

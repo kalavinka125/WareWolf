@@ -44,6 +44,7 @@
 		D2EC1D811FC7C15400F68F53 /* bird6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2EC1D801FC7C15400F68F53 /* bird6.mp3 */; };
 		D2EC1D831FC7C21800F68F53 /* bgm1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2EC1D821FC7C21800F68F53 /* bgm1.mp3 */; };
 		D2EC1D851FC7FA7900F68F53 /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EC1D841FC7FA7900F68F53 /* VoteViewController.swift */; };
+		D2EC1D871FC8043700F68F53 /* VoteTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EC1D861FC8043700F68F53 /* VoteTopViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		D2EC1D801FC7C15400F68F53 /* bird6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird6.mp3; sourceTree = "<group>"; };
 		D2EC1D821FC7C21800F68F53 /* bgm1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm1.mp3; sourceTree = "<group>"; };
 		D2EC1D841FC7FA7900F68F53 /* VoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
+		D2EC1D861FC8043700F68F53 /* VoteTopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteTopViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				D2D406511FC3FDC900F10994 /* RoleDetailViewController.swift */,
 				D2D406591FC7371000F10994 /* InfoViewController.swift */,
 				D2D406531FC405CB00F10994 /* DiscussionViewController.swift */,
+				D2EC1D861FC8043700F68F53 /* VoteTopViewController.swift */,
 				D2EC1D841FC7FA7900F68F53 /* VoteViewController.swift */,
 				D28646B91FC30EF5002B14BD /* ExFileManager.swift */,
 				D2D4064B1FC3270F00F10994 /* RoleManager.swift */,
@@ -408,6 +411,7 @@
 				D23613CE1FC09EE200563B8C /* AppDelegate.swift in Sources */,
 				D23614081FC1AA6C00563B8C /* NumberOfPlayerViewController.swift in Sources */,
 				D236140F1FC1DAC700563B8C /* Role.swift in Sources */,
+				D2EC1D871FC8043700F68F53 /* VoteTopViewController.swift in Sources */,
 				D28646B81FC2B590002B14BD /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

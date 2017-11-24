@@ -55,6 +55,13 @@ class CheckViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.SEGUE_NAME {
+            let next = segue.destination as! RoleCheckViewController
+            next.flag = .check
+        }
+    }
+    
     @IBAction func tappedRoleButton(_ sender: Any) {
         self.appDelegate.joinRoleList = []
         self.dismiss(animated: true, completion: nil)
