@@ -77,19 +77,31 @@ class DiscussionViewController: UIViewController {
     }
 
     @IBAction func tappedDiscussionButton(_ sender: Any) {
-        // BGMの再生を停止する
-        self.appDelegate.soundPlayer.stop()
-        self.appDelegate.isPause = false
-        // タイマーの停止
-        self.timer.invalidate()
-        self.timer = nil
-        self.time = 0
-        self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
-        /*
-        let next = self.storyboard?.instantiateViewController(withIdentifier: self.NEXT_VC) as! RoleCheckViewController
-        next.modalTransitionStyle = .crossDissolve
-        self.present(next, animated: true, completion: nil)
-        */
+        let message = "投票に移りますか？"
+        let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+        let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+        let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+        let action : UIAlertAction = UIAlertAction(title: "はい", style: .default, handler: { okAction in
+            DispatchQueue.main.async {
+                // BGMの再生を停止する
+                self.appDelegate.soundPlayer.stop()
+                self.appDelegate.isPause = false
+                // タイマーの停止
+                self.timer.invalidate()
+                self.timer = nil
+                self.time = 0
+                self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
+            }
+        })
+        action.setValue(UIColor.black, forKey: "titleTextColor")
+        let cancel = UIAlertAction(title: "いいえ", style: .cancel, handler: nil)
+        cancel.setValue(UIColor.black, forKey: "titleTextColor")
+        alert.addAction(cancel)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
     func update(timer : Timer) {
