@@ -13,6 +13,7 @@ class DiscussionViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var lifeList : [Int] = []
     private let NEXT_VC = "RoleCheckViewController"
+    private let SEGUE_NAME = "GO_TO_VOTE_TOP"
     var time = 0
     var isLimit = false
     // タイマー
@@ -83,10 +84,12 @@ class DiscussionViewController: UIViewController {
         self.timer.invalidate()
         self.timer = nil
         self.time = 0
-        // 
+        self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
+        /*
         let next = self.storyboard?.instantiateViewController(withIdentifier: self.NEXT_VC) as! RoleCheckViewController
         next.modalTransitionStyle = .crossDissolve
         self.present(next, animated: true, completion: nil)
+        */
     }
     
     func update(timer : Timer) {
