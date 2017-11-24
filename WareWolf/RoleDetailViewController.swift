@@ -127,12 +127,15 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         }else if role?.ID == 15 {
             cell.jobButton.setTitle("交換する", for: .normal)
         }else{
+            cell.jobButton.isHidden = true
+            /*
             cell.jobButton.setTitle("疑う", for: .normal)
             // ターゲット
             if indexPath.row == self.appDelegate.playerList[self.appDelegate.playerID].target {
                 cell.detailLabel.text = "疑った"
                 cell.detailLabel.textColor = self.appDelegate.wereWolfColor
             }
+            */
         }
         
         // 仕事済みだったら
@@ -165,6 +168,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         
         // 1,2,4,8,13,15
         if role?.ID != 1 && role?.ID != 2 && role?.ID != 4 && role?.ID != 8 && role?.ID != 13 && role?.ID != 15 {
+            /*
             let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
             cancel.setValue(UIColor.black, forKey: "titleTextColor")
             let ok = UIAlertAction(title: "疑う", style: .default, handler: { okAction in
@@ -188,6 +192,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             alert.addAction(cancel)
             alert.addAction(ok)
             present(alert, animated: true, completion: nil)
+            */
         }else if role?.ID == 1 {
             // 能力ターゲットを記憶する
             self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row

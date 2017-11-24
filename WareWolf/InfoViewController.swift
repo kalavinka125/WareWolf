@@ -16,7 +16,7 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var victimLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var doubtLabel: UILabel!
+    // @IBOutlet weak var doubtLabel: UILabel!
     
     private var victimList : [String] = []
     
@@ -53,7 +53,7 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
         self.tableView.reloadData()
         // 人狼ポイントテーブルの初期化
         self.appDelegate.wolfPointList = [:]
-        // TODO:疑わしい人の判定方法を変える
+        /*
         let doubtIndex = self.appDelegate.roleManager.getDoubtTopPlayer(players: self.appDelegate.playerList)
         if doubtIndex == -1 {
             self.doubtLabel.textColor = self.appDelegate.villagerColor
@@ -62,11 +62,12 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
             self.doubtLabel.textColor = self.appDelegate.wereWolfColor
             self.doubtLabel.text = self.appDelegate.playerList[doubtIndex].name
         }
+        */
         // 疑わしい人のリセット
         // 全員の死亡フラグを元に戻す
         // 全員の騎士フラグを元に戻す
         for player in self.appDelegate.playerList {
-            player.doubt = 0
+            // player.doubt = 0
             player.role.guardFlag = false
             player.role.deadEndFlag = false
         }
