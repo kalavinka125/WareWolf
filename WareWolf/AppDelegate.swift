@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -43,6 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var turn = 0
     // プレイヤー番号
     var playerID = 0
+    // 音楽再生クラス
+    var soundPlayer : AVAudioPlayer!
+
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -102,6 +106,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    /**
+     * 音楽ファイルを再生する
+     * numberOfLoop : 繰り返し回数 , 0を基準(1回再生した後 , 停止)とする. -1は無限ループ
+     * [重要]拡張子は必要無い
+     * [重要]エラーチェック無し , ただしファイルが存在しなくても処理が継続される
+     * wav ファイルのみ対応
+     */
+    func soundPlay(fileName : String , numberOfLoop : Int){
+        let audioFilePath = Bundle.main.path(forResource: fileName, ofType: "mp3")
+        if(audioFilePath != nil){
+            let audioFileURL = NSURL.fileURL(withPath: audioFilePath!)
+            do{
+                self.soundPlayer = try AVAudioPlayer(contentsOf: audioFileURL)
+                self.soundPlayer.currentTime = 0
+                self.soundPlayer.numberOfLoops = numberOfLoop
+                if(!self.soundPlayer.isPlaying){
+                    self.soundPlayer.play()
+                }
+            }catch{}
+        }
+    }
 }
 

@@ -13,6 +13,7 @@ class DiscussionViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var lifeList : [Int] = []
     var time = 0
+    var isLimit = false
     // タイマー
     var timer : Timer!
     
@@ -39,7 +40,10 @@ class DiscussionViewController: UIViewController {
         }else{
             self.time = (60 * self.lifeList.count)
         }
+        self.time = 3
+        self.timeLabel.textColor = UIColor.black
         self.timeLabel.text = self.time2Text(time: self.time)
+        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,7 +51,28 @@ class DiscussionViewController: UIViewController {
     }
     
     @IBAction func tappedPlusTimeButton(_ sender: Any) {
+        self.isLimit = false
         self.time += 60
+        self.timeLabel.textColor = UIColor.black
+        self.timeLabel.text = self.time2Text(time: self.time)
+        
+        if self.appDelegate.soundPlayer.isPlaying {
+            self.appDelegate.soundPlayer.stop()
+        }
+    }
+
+    func update(timer : Timer) {
+        if self.time > 0 {
+            self.time -= 1
+            self.timeLabel.textColor = UIColor.black
+        }else{
+            if !self.isLimit {
+                self.isLimit = true
+                // TODO:SE再生
+                self.appDelegate.soundPlay(fileName: "kaneOto", numberOfLoop: 0)
+            }
+            self.timeLabel.textColor = self.appDelegate.wereWolfColor
+        }
         self.timeLabel.text = self.time2Text(time: self.time)
     }
     
