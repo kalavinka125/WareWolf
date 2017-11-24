@@ -128,6 +128,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             cell.jobButton.setTitle("交換する", for: .normal)
         }else{
             cell.jobButton.isHidden = true
+            self.todayJob = true
             /*
             cell.jobButton.setTitle("疑う", for: .normal)
             // ターゲット
@@ -305,7 +306,6 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     @IBAction func tappedNextButton(_ sender: Any) {
-        /*
         if self.todayJob {
             // 次のプレイヤーがいるか
             if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1) {
@@ -325,7 +325,8 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         }else{
             self.showAlert(viewController: self, message: "今夜、何もしていません", buttonTitle: "ゲームに戻る")
         }
-        */
+ 
+        /*
         // 次のプレイヤーがいるか
         if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1) {
             // 自分で最後、プレイヤーIDを0番に戻して、GO！
@@ -341,5 +342,6 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             next.modalTransitionStyle = .crossDissolve
             present(next, animated: true, completion: nil)
         }
+        */
     }
 }
