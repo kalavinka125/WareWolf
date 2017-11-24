@@ -76,8 +76,17 @@ class DiscussionViewController: UIViewController {
     }
 
     @IBAction func tappedDiscussionButton(_ sender: Any) {
-        let next = self.storyboard?.instantiateViewController(withIdentifier: self.NEXT_VC)
-        self.present(next!, animated: true, completion: nil)
+        // BGMの再生を停止する
+        self.appDelegate.soundPlayer.stop()
+        self.appDelegate.isPause = false
+        // タイマーの停止
+        self.timer.invalidate()
+        self.timer = nil
+        self.time = 0
+        // 
+        let next = self.storyboard?.instantiateViewController(withIdentifier: self.NEXT_VC) as! RoleCheckViewController
+        next.modalTransitionStyle = .crossDissolve
+        self.present(next, animated: true, completion: nil)
     }
     
     func update(timer : Timer) {
