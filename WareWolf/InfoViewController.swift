@@ -71,13 +71,17 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
             player.role.guardFlag = false
             player.role.deadEndFlag = false
         }
-
+        // サウンドロゴを流す
+        self.appDelegate.soundPlay(fileName: "bird6", numberOfLoop: 0)
     }
     
     @IBAction func tappedDiscussionStartButton(_ sender: Any) {
         let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         cancel.setValue(UIColor.black, forKey: "titleTextColor")
         let ok = UIAlertAction(title: "はい", style: .default, handler: { okAction in
+            if self.appDelegate.soundPlayer.isPlaying {
+                self.appDelegate.soundPlayer.stop()
+            }
             self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
         })
         ok.setValue(self.appDelegate.wereWolfColor, forKey: "titleTextColor")
