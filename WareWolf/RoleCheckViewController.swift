@@ -49,11 +49,29 @@ class RoleCheckViewController: UIViewController {
     }
     
     @IBAction func tappedCheckButton(_ sender: Any) {
-        if flag == .check {
-            self.performSegue(withIdentifier: self.RESULT_SEGUE, sender: self)
-        }else if flag == .vote {
-            self.performSegue(withIdentifier: self.VOTE_SEGUE, sender: self)
-        }
+        let name = self.appDelegate.playerList[self.appDelegate.playerID].name
+        let message = name + " さん で\n間違いありませんか？"
+        let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+        let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+        let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+        let action : UIAlertAction = UIAlertAction(title: "はい", style: .default, handler: { okAction in
+            DispatchQueue.main.async {
+                if self.flag == .check {
+                    self.performSegue(withIdentifier: self.RESULT_SEGUE, sender: self)
+                }else if self.flag == .vote {
+                    self.performSegue(withIdentifier: self.VOTE_SEGUE, sender: self)
+                }
+            }
+        })
+        action.setValue(UIColor.black, forKey: "titleTextColor")
+        let cancel = UIAlertAction(title: "いいえ", style: .cancel, handler: nil)
+        cancel.setValue(UIColor.black, forKey: "titleTextColor")
+        alert.addAction(cancel)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 
     /*
