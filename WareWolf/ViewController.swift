@@ -29,6 +29,12 @@ class ViewController: UIViewController {
         let player4 = Player(name: "Player4")
         self.appDelegate.playerList = [player1,player2,player3,player4]
         self.appDelegate.joinRoleList = []
+        self.appDelegate.hintRoleList = [:]
+        self.appDelegate.wolfPointList = [:]
+        self.appDelegate.votePointList = [:]
+        self.appDelegate.turn = 0
+        self.appDelegate.playerID = 0
+        self.appDelegate.isPause = false
         self.performSegue(withIdentifier: self.NEWGAME_SEGUE, sender: self)
     }
 

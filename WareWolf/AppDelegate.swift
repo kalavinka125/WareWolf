@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // 狼のポイントテーブル
     // ID - ポイント数
     var wolfPointList : [Int:Int] = [:]
+    // 投票のポイントテーブル
+    var votePointList : [Int:Int] = [:]
     // テーブル表示用の役職一覧
     var wereWolfRoles : [Role] = []
     var villagerRoles : [Role] = []
