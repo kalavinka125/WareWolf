@@ -120,6 +120,10 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             }
         }else if role?.ID == 4 {
             cell.jobButton.setTitle("守る", for: .normal)
+            if self.appDelegate.playerList[self.appDelegate.playerID].target == indexPath.row {
+                cell.detailLabel.text = "守った"
+                cell.detailLabel.textColor = self.appDelegate.villagerColor
+            }
         }else if role?.ID == 8 {
             cell.jobButton.setTitle("観る", for: .normal)
         }else if role?.ID == 13 {
@@ -291,8 +295,38 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
                     self.tableView.reloadData()
                 }
             })
-            ok.setValue(self.appDelegate.wereWolfColor, forKey: "titleTextColor")
+            ok.setValue(self.appDelegate.villagerColor, forKey: "titleTextColor")
             let message = target.name + "を\n占いますか？"
+            let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+            let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+            let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+            alert.setValue(attributedMessage, forKey: "attributedMessage")
+            alert.addAction(cancel)
+            alert.addAction(ok)
+            // アラートの表示
+            present(alert, animated: true, completion: nil)
+        }else if role?.ID == 4 {
+            // 騎士の処理
+            self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+            
+            let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            cancel.setValue(UIColor.black, forKey: "titleTextColor")
+            let ok = UIAlertAction(title: "守る", style: .default, handler: { okAction in
+                DispatchQueue.main.async {
+                    // 能力ターゲットを記憶する
+                    self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+                    self.todayJob = true
+                    target.role.guardFlag = true
+                    // サイコキラーの場合
+                    if target.role.ID == 6 {
+                        role?.deadEndFlag = true
+                    }
+                    self.tableView.reloadData()
+                }
+            })
+            ok.setValue(self.appDelegate.villagerColor, forKey: "titleTextColor")
+            let message = target.name + "を\n守りますか？"
             let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
             let font = UIFont(name: "PixelMplus10-Regular", size: 18)
             let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
