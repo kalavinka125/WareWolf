@@ -752,6 +752,9 @@
                                 <state key="normal" title="確認">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedCheckButton:" destination="IyO-v2-kMP" eventType="touchUpInside" id="dcW-xz-fwQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRd-Pf-fAN">
                                 <rect key="frame" x="16" y="452" width="288" height="44"/>
@@ -792,6 +795,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="button" destination="zcG-uA-HJ1" id="yhf-mj-vG2"/>
                         <outlet property="nameLabel" destination="zRd-Pf-fAN" id="CTA-HX-efm"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="GO_TO_ROLE_RESULT" modalTransitionStyle="flipHorizontal" id="i3n-nZ-MGw"/>
                         <segue destination="C6t-w5-dxp" kind="presentation" identifier="GO_TO_VOTE" modalTransitionStyle="crossDissolve" id="tTt-Re-OV6"/>
@@ -1228,6 +1232,9 @@
                                 <state key="normal" title="議論終了">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedDiscussionButton:" destination="dEv-dX-tEH" eventType="touchUpInside" id="iDM-ck-eIQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>

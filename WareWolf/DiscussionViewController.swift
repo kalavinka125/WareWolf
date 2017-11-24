@@ -12,6 +12,7 @@ import UIKit
 class DiscussionViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var lifeList : [Int] = []
+    private let NEXT_VC = "RoleCheckViewController"
     var time = 0
     var isLimit = false
     // タイマー
@@ -74,6 +75,11 @@ class DiscussionViewController: UIViewController {
         }
     }
 
+    @IBAction func tappedDiscussionButton(_ sender: Any) {
+        let next = self.storyboard?.instantiateViewController(withIdentifier: self.NEXT_VC)
+        self.present(next!, animated: true, completion: nil)
+    }
+    
     func update(timer : Timer) {
         if self.time > 0 {
             self.time -= 1
