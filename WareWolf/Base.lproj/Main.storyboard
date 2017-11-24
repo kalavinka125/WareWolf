@@ -1078,7 +1078,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="HWO-Mh-34m"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="28"/>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.8862745098" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1147,7 +1147,7 @@
                                     <action selector="tappedDiscussionStartButton:" destination="WCO-6r-f1F" eventType="touchUpInside" id="Qfw-yf-1JP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現在、最も疑われている人" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdN-8j-A6Y">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現在、疑われている人" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdN-8j-A6Y">
                                 <rect key="frame" x="16" y="422" width="289" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="5OG-Je-oTi"/>
