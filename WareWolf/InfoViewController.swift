@@ -62,12 +62,34 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
             self.doubtLabel.textColor = self.appDelegate.wereWolfColor
             self.doubtLabel.text = self.appDelegate.playerList[doubtIndex].name
         }
-        // TODO:疑わしい人のリセット
-        // TODO:全員の死亡フラグを元に戻す
-        // TODO:全員の騎士フラグを元に戻す
+        // 疑わしい人のリセット
+        // 全員の死亡フラグを元に戻す
+        // 全員の騎士フラグを元に戻す
+        for player in self.appDelegate.playerList {
+            player.doubt = 0
+            player.role.guardFlag = false
+            player.role.deadEndFlag = false
+        }
+
     }
     
     @IBAction func tappedDiscussionStartButton(_ sender: Any) {
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        cancel.setValue(UIColor.black, forKey: "titleTextColor")
+        let ok = UIAlertAction(title: "はい", style: .default, handler: { okAction in
+            self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
+        })
+        ok.setValue(self.appDelegate.wereWolfColor, forKey: "titleTextColor")
+        
+        let message = "議論を開始しますか？"
+        let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+        let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+        let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
