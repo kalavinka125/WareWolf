@@ -1355,12 +1355,115 @@
                     <view key="view" contentMode="scaleToFill" id="yLL-Go-zZY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投票" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfw-BG-Pp7">
+                                <rect key="frame" x="15" y="59" width="289" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="HJw-bF-nXU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32t-kc-UFg">
+                                <rect key="frame" x="16" y="504" width="288" height="44"/>
+                                <color key="backgroundColor" red="0.38878055319999999" green="0.2301004857" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Jfu-Pf-2cE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                <state key="normal" title="次へ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="18W-AO-sYg">
+                                <rect key="frame" x="18" y="89" width="284" height="407"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ROLE_VOTE_CELL" rowHeight="74" id="Xex-PS-qM8" customClass="RoleJobTableViewCell" customModule="WareWolf" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="284" height="74"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xex-PS-qM8" id="20W-vh-ceT">
+                                            <rect key="frame" x="0.0" y="0.0" width="284" height="73.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aJ-3d-75x">
+                                                    <rect key="frame" x="15" y="8" width="59.5" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="kxQ-6w-4b1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="？？？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuL-si-Y7y">
+                                                    <rect key="frame" x="15" y="37" width="60" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29" id="rdE-rz-CHF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0t-oq-wek">
+                                                    <rect key="frame" x="196" y="8" width="80" height="58"/>
+                                                    <color key="backgroundColor" red="0.87450980389999999" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="58" id="RIb-SN-3CO"/>
+                                                        <constraint firstAttribute="width" constant="80" id="rZY-qW-OzQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
+                                                    <state key="normal" title="投票する">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="tappedJobButton:" destination="Xex-PS-qM8" eventType="touchUpInside" id="Nvc-zF-L4f"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="F0t-oq-wek" firstAttribute="top" secondItem="20W-vh-ceT" secondAttribute="top" constant="8" id="Hxd-Zu-i2N"/>
+                                                <constraint firstItem="6aJ-3d-75x" firstAttribute="top" secondItem="20W-vh-ceT" secondAttribute="topMargin" id="Kft-8p-Atd"/>
+                                                <constraint firstItem="6aJ-3d-75x" firstAttribute="leading" secondItem="20W-vh-ceT" secondAttribute="leadingMargin" constant="7" id="P36-sn-DbX"/>
+                                                <constraint firstAttribute="bottom" secondItem="F0t-oq-wek" secondAttribute="bottom" constant="7.5" id="XTg-V9-94D"/>
+                                                <constraint firstItem="fuL-si-Y7y" firstAttribute="leading" secondItem="20W-vh-ceT" secondAttribute="leading" constant="15" id="oas-Kp-Dol"/>
+                                                <constraint firstAttribute="trailing" secondItem="F0t-oq-wek" secondAttribute="trailing" constant="8" id="qvn-y5-bb3"/>
+                                                <constraint firstAttribute="bottom" secondItem="fuL-si-Y7y" secondAttribute="bottom" constant="7.5" id="z3S-xb-RKJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="detailLabel" destination="fuL-si-Y7y" id="DxC-kD-bN8"/>
+                                            <outlet property="jobButton" destination="F0t-oq-wek" id="VeA-lj-Nhi"/>
+                                            <outlet property="nameLabel" destination="6aJ-3d-75x" id="yTe-Un-5ck"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Cfw-BG-Pp7" secondAttribute="trailing" constant="16" id="1gV-7T-acA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="18W-AO-sYg" secondAttribute="trailing" constant="2" id="7l7-OQ-bo6"/>
+                            <constraint firstItem="Cfw-BG-Pp7" firstAttribute="top" secondItem="pf1-jG-GZL" secondAttribute="bottom" constant="39" id="F74-PR-wBP"/>
+                            <constraint firstItem="32t-kc-UFg" firstAttribute="leading" secondItem="yLL-Go-zZY" secondAttribute="leadingMargin" id="HHz-cR-kVC"/>
+                            <constraint firstItem="32t-kc-UFg" firstAttribute="trailing" secondItem="yLL-Go-zZY" secondAttribute="trailingMargin" id="Vch-n9-1B6"/>
+                            <constraint firstItem="32t-kc-UFg" firstAttribute="top" secondItem="18W-AO-sYg" secondAttribute="bottom" constant="8" id="bZy-oJ-GQh"/>
+                            <constraint firstItem="18W-AO-sYg" firstAttribute="leading" secondItem="yLL-Go-zZY" secondAttribute="leadingMargin" constant="2" id="dMs-kJ-xiU"/>
+                            <constraint firstItem="Qzv-hx-8du" firstAttribute="top" secondItem="32t-kc-UFg" secondAttribute="bottom" constant="20" id="l5T-kL-vHN"/>
+                            <constraint firstItem="Cfw-BG-Pp7" firstAttribute="leading" secondItem="yLL-Go-zZY" secondAttribute="leading" constant="15" id="lAe-Jp-o64"/>
+                            <constraint firstItem="18W-AO-sYg" firstAttribute="top" secondItem="Cfw-BG-Pp7" secondAttribute="bottom" constant="8" id="m1T-04-Nt6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="18W-AO-sYg" id="xrF-vR-U4G"/>
+                        <outlet property="titleLabel" destination="Cfw-BG-Pp7" id="bN8-bn-4zL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N54-0K-jeN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1433" y="791"/>
+            <point key="canvasLocation" x="1432.5" y="790.14084507042253"/>
         </scene>
     </scenes>
     <resources>
