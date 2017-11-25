@@ -122,6 +122,11 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         if self.isJob {
             // 終了条件
             if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1) {
+                
+                // TODO:処刑の処理
+                // TODO:決戦投票
+                // TODO:全員が1票ずつ
+                
                 // 最後の画面に遷移する
                 let next = self.storyboard?.instantiateViewController(withIdentifier: self.NEXT_VC_ID) as! RoleCheckViewController
                 next.flag = .check
@@ -131,7 +136,6 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // 画面遷移
                 present(next, animated: true, completion: nil)
             }else{
-                // 
                 self.appDelegate.playerID += 1
                 // ネクスト生存プレイヤーに渡す
                 for index in self.appDelegate.playerID..<self.appDelegate.playerList.count {
@@ -142,34 +146,6 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
                 self.dismiss(animated: true, completion: nil)
             }
-            /*
-            if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1){
-                // 最後の画面に遷移する
-                let next = self.storyboard?.instantiateViewController(withIdentifier: self.NEXT_VC_ID) as! RoleCheckViewController
-                next.flag = .check
-                next.modalTransitionStyle = .crossDissolve
-                // ターンを増やす
-                self.appDelegate.turn += 1
-                // ネクスト生存プレイヤーに渡す
-                self.appDelegate.playerID = 0
-                for index in 0..<self.appDelegate.playerList.count {
-                    if self.appDelegate.playerList[index].isLife{
-                        self.appDelegate.playerID = index
-                        break
-                    }
-                }
-            }else{
-                self.appDelegate.playerID += 1
-                // ネクスト生存プレイヤーに渡す
-                for index in self.appDelegate.playerID..<self.appDelegate.playerList.count {
-                    if self.appDelegate.playerList[index].isLife{
-                        self.appDelegate.playerID = index
-                        break
-                    }
-                }
-                self.dismiss(animated: true, completion: nil)
-            }
-            */
         }else{
             self.showAlert(viewController: self, message: "今夜、何もしていません", buttonTitle: "ゲームに戻る")
         }
