@@ -9,6 +9,7 @@
 import UIKit
 
 class VoteTopViewController: UIViewController {
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let NEXT_VC = "RoleCheckViewController"
     
     override func viewDidLoad() {
@@ -26,6 +27,13 @@ class VoteTopViewController: UIViewController {
         let next = self.storyboard?.instantiateViewController(withIdentifier: self.NEXT_VC) as! RoleCheckViewController
         next.modalTransitionStyle = .crossDissolve
         next.flag = .vote
+        // ネクスト生存プレイヤーに渡す
+        for index in 0..<self.appDelegate.playerList.count {
+            if self.appDelegate.playerList[index].isLife{
+                self.appDelegate.playerID = index
+                break
+            }
+        }
         self.present(next, animated: true, completion: nil)
     }
 

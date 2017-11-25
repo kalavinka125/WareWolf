@@ -38,6 +38,7 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
         self.victimList = []
         let victimIDList = self.appDelegate.roleManager.getVictimList(players: self.appDelegate.playerList, wereWolfPointTable: self.appDelegate.wolfPointList)
         for vID in victimIDList {
+            print(vID)
             // 死亡判定に変更
             self.appDelegate.playerList[vID].isLife = false
             self.victimList.append(self.appDelegate.playerList[vID].name)

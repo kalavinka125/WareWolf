@@ -1375,6 +1375,9 @@
                                 <state key="normal" title="次へ">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedNextButton:" destination="C6t-w5-dxp" eventType="touchUpInside" id="b9c-YN-JoN"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="18W-AO-sYg">
                                 <rect key="frame" x="18" y="89" width="284" height="407"/>
