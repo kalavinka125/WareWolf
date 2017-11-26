@@ -27,6 +27,7 @@ class Role: NSObject {
     var reibai = Side.None
     
     var uranaiResult : [Int : Side] = [:]
+    var reibaiResult : [Int : Side] = [:]
     // 死亡フラグ
     var deadEndFlag = false
     // 防御フラグ
