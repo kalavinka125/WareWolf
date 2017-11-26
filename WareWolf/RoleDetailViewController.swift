@@ -94,16 +94,12 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         let role = self.appDelegate.playerList[self.appDelegate.playerID].role
         if role?.ID == 1{
             cell.jobButton.setTitle("殺害する", for: .normal)
-            // print(self.appDelegate.playerList[indexPath.row].role.wereWolf)
-            // print("\(indexPath.row) : \(self.appDelegate.playerList[indexPath.row].role.wolfPoint)")
             if self.appDelegate.wolfPointList[indexPath.row] != nil {
                 cell.detailLabel.text = self.appDelegate.roleManager.generateWereWolfFlagTxt(wereWolf: self.appDelegate.wolfPointList[indexPath.row]!)
                 if self.appDelegate.wolfPointList[indexPath.row]! > 0 {
                     cell.detailLabel.textColor = self.appDelegate.wereWolfColor
                 }
             }
-
-
             // 自分が人狼で、表示するセルも人狼なら
             if self.appDelegate.playerList[indexPath.row].role.ID == 1 {
                 cell.detailLabel.text = "人狼"
@@ -114,7 +110,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             cell.jobButton.setTitle("占う", for: .normal)
             if role?.uranaiResult[indexPath.row] != nil {
                 if role?.uranaiResult[indexPath.row] == .Villager {
-                    cell.detailLabel.text = "市民"
+                    cell.detailLabel.text = "人間"
                     cell.detailLabel.textColor = self.appDelegate.villagerColor
                 }else if role?.uranaiResult[indexPath.row] == .WereWolf {
                     cell.detailLabel.text = "人狼"
@@ -124,6 +120,25 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
                     cell.detailLabel.textColor = self.appDelegate.foxColor
                 }
             }
+        }else if role?.ID == 3 {
+            // 霊媒師
+            // 死んでいる人なら
+            if !self.appDelegate.playerList[indexPath.row].isLife {
+                let reibai = self.appDelegate.playerList[indexPath.row].role.reibai
+                cell.detailLabel.text = "？？？"
+                cell.detailLabel.textColor = UIColor.black
+                if reibai == .Villager {
+                    cell.detailLabel.text = "人間"
+                    cell.detailLabel.textColor = self.appDelegate.villagerColor
+                }else if reibai == .WereWolf {
+                    cell.detailLabel.text = "人狼"
+                    cell.detailLabel.textColor = self.appDelegate.wereWolfColor
+                }else if reibai == .Fox {
+                    cell.detailLabel.text = "狐"
+                    cell.detailLabel.textColor = self.appDelegate.foxColor
+                }
+            }
+            self.todayJob = true
         }else if role?.ID == 4 {
             cell.jobButton.setTitle("守る", for: .normal)
             if self.appDelegate.playerList[self.appDelegate.playerID].target == indexPath.row {
@@ -139,14 +154,6 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         }else{
             cell.jobButton.isHidden = true
             self.todayJob = true
-            /*
-            cell.jobButton.setTitle("疑う", for: .normal)
-            // ターゲット
-            if indexPath.row == self.appDelegate.playerList[self.appDelegate.playerID].target {
-                cell.detailLabel.text = "疑った"
-                cell.detailLabel.textColor = self.appDelegate.wereWolfColor
-            }
-            */
         }
         
         // 仕事済みだったら
@@ -178,33 +185,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         let role = self.appDelegate.playerList[self.appDelegate.playerID].role
         
         // 1,2,4,8,13,15
-        if role?.ID != 1 && role?.ID != 2 && role?.ID != 4 && role?.ID != 8 && role?.ID != 13 && role?.ID != 15 {
-            /*
-            let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
-            cancel.setValue(UIColor.black, forKey: "titleTextColor")
-            let ok = UIAlertAction(title: "疑う", style: .default, handler: { okAction in
-                // 能力ターゲットを記憶する
-                self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
-                // 疑いの度合いをプラスしていく
-                target.doubt += 1
-                self.todayJob = true
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            })
-            ok.setValue(self.appDelegate.wereWolfColor, forKey: "titleTextColor")
-            
-            let message = target.name + "を\n人狼と疑いますか？"
-            let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            let font = UIFont(name: "PixelMplus10-Regular", size: 18)
-            let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
-            let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
-            alert.setValue(attributedMessage, forKey: "attributedMessage")
-            alert.addAction(cancel)
-            alert.addAction(ok)
-            present(alert, animated: true, completion: nil)
-            */
-        }else if role?.ID == 1 {
+        if role?.ID == 1 {
             // 能力ターゲットを記憶する
             self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
             
