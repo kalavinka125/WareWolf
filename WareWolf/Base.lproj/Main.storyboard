@@ -1699,39 +1699,50 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDB-5W-xIz">
-                                                    <rect key="frame" x="64" y="12" width="217" height="21"/>
+                                                    <rect key="frame" x="64" y="12" width="161" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="PGi-e0-yDq"/>
+                                                        <constraint firstAttribute="height" constant="21" id="Whg-s5-TEh"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeJ-0V-FiO">
-                                                    <rect key="frame" x="64" y="41" width="217" height="21"/>
+                                                    <rect key="frame" x="64" y="41" width="161" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="xEg-Zk-jyS"/>
+                                                        <constraint firstAttribute="height" constant="21" id="NOf-qq-LzV"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophy_gold" translatesAutoresizingMaskIntoConstraints="NO" id="vdz-EB-G2Q">
+                                                    <rect key="frame" x="233" y="12" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="1fh-jc-umO"/>
+                                                        <constraint firstAttribute="width" constant="48" id="AAU-9y-hRV"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xDB-5W-xIz" firstAttribute="leading" secondItem="mlt-5l-5Uc" secondAttribute="trailing" constant="8" id="8Zc-ru-vv6"/>
-                                                <constraint firstItem="PeJ-0V-FiO" firstAttribute="trailing" secondItem="fPd-so-vt4" secondAttribute="trailingMargin" id="R5J-xE-jb5"/>
+                                                <constraint firstItem="vdz-EB-G2Q" firstAttribute="leading" secondItem="PeJ-0V-FiO" secondAttribute="trailing" constant="8" id="PRB-rp-UF9"/>
+                                                <constraint firstItem="vdz-EB-G2Q" firstAttribute="leading" secondItem="xDB-5W-xIz" secondAttribute="trailing" constant="8" id="V4S-Ra-IPN"/>
+                                                <constraint firstItem="xDB-5W-xIz" firstAttribute="top" secondItem="fPd-so-vt4" secondAttribute="topMargin" constant="4" id="VuO-m7-Cec"/>
+                                                <constraint firstItem="vdz-EB-G2Q" firstAttribute="top" secondItem="fPd-so-vt4" secondAttribute="topMargin" constant="4" id="aWR-rc-zCP"/>
                                                 <constraint firstItem="mlt-5l-5Uc" firstAttribute="top" secondItem="fPd-so-vt4" secondAttribute="topMargin" constant="4" id="e53-9k-kyW"/>
-                                                <constraint firstItem="xDB-5W-xIz" firstAttribute="trailing" secondItem="fPd-so-vt4" secondAttribute="trailingMargin" id="eXY-9Z-iZx"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="PeJ-0V-FiO" secondAttribute="bottom" constant="3.5" id="hep-6o-zTX"/>
-                                                <constraint firstItem="xDB-5W-xIz" firstAttribute="top" secondItem="fPd-so-vt4" secondAttribute="topMargin" constant="4" id="lVi-bQ-GDL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="vdz-EB-G2Q" secondAttribute="bottom" constant="5.5" id="fun-yx-zqQ"/>
+                                                <constraint firstItem="PeJ-0V-FiO" firstAttribute="leading" secondItem="mlt-5l-5Uc" secondAttribute="trailing" constant="8" id="p2j-JT-28p"/>
                                                 <constraint firstItem="mlt-5l-5Uc" firstAttribute="leading" secondItem="fPd-so-vt4" secondAttribute="leadingMargin" id="qYY-VD-kyk"/>
-                                                <constraint firstItem="PeJ-0V-FiO" firstAttribute="leading" secondItem="mlt-5l-5Uc" secondAttribute="trailing" constant="8" id="tKw-3M-kRs"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="PeJ-0V-FiO" secondAttribute="bottom" constant="3.5" id="rET-YC-P7f"/>
+                                                <constraint firstItem="xDB-5W-xIz" firstAttribute="leading" secondItem="mlt-5l-5Uc" secondAttribute="trailing" constant="8" id="sKG-67-FbR"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="mlt-5l-5Uc" secondAttribute="bottom" constant="5.5" id="vYB-HI-ETZ"/>
+                                                <constraint firstItem="vdz-EB-G2Q" firstAttribute="trailing" secondItem="fPd-so-vt4" secondAttribute="trailingMargin" id="zVQ-JZ-s8y"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="nameLabel" destination="xDB-5W-xIz" id="xBk-Ma-r3M"/>
+                                            <outlet property="resultImageView" destination="vdz-EB-G2Q" id="5fi-Fb-Fvt"/>
                                             <outlet property="roleImageView" destination="mlt-5l-5Uc" id="Zf9-7q-X5T"/>
                                             <outlet property="roleLabel" destination="PeJ-0V-FiO" id="aph-Qd-1yL"/>
                                         </connections>
@@ -1775,6 +1786,7 @@
         <image name="1" width="512" height="512"/>
         <image name="finger2" width="512" height="512"/>
         <image name="hiru" width="400" height="370"/>
+        <image name="trophy_gold" width="362" height="400"/>
         <image name="warewolf-logo" width="662" height="1024"/>
         <image name="yoru" width="400" height="370"/>
     </resources>

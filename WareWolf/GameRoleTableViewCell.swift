@@ -13,6 +13,8 @@ class GameRoleTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var roleImageView: UIImageView!
     @IBOutlet weak var roleLabel: UILabel!
+    @IBOutlet weak var resultImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

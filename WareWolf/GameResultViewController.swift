@@ -61,6 +61,12 @@ class GameResultViewController: UIViewController,UITableViewDelegate,UITableView
         cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name
         cell.roleLabel.text = self.appDelegate.playerList[indexPath.row].role.name
         cell.roleImageView.image = UIImage(named: "\(self.appDelegate.playerList[indexPath.row].role.ID)")
+        
+        if self.side == self.appDelegate.playerList[indexPath.row].role.side {
+            cell.resultImageView.isHidden = false
+        }else{
+            cell.resultImageView.isHidden = true
+        }
         return cell
     }
     
