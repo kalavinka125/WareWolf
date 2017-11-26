@@ -13,7 +13,9 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     private let CELL_ID = "ROLE_VOTE_CELL"
     private let NEXT_VC_ID = "RoleCheckViewController"
     private let VOTE_TOP = "VOTE_TOP_VC"
+    private let VOTE_RESUL_SEGUE = "GO_VOTE_RESULT"
     
+    private var voteTarget = -1
     private var isJob = false
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -35,6 +37,13 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.reloadData()
         self.isJob = false
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.VOTE_RESUL_SEGUE {
+            let next = segue.destination as! VoteResultViewController
+            next.voteTarget = self.voteTarget
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -167,12 +176,10 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if keys.count > 1 {
                     // TODO:決戦投票
                 }else{
-                    // 
-                    
+                    self.voteTarget = maxKey
                     // ターンを増やす
                     self.appDelegate.turn += 1
-                    // 画面遷移
-                    present(next, animated: true, completion: nil)
+                    self.performSegue(withIdentifier: self.VOTE_RESUL_SEGUE, sender: self)
                 }
                 
                 // 最後の画面に遷移する

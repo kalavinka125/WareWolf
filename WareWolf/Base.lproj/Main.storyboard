@@ -1462,17 +1462,17 @@
                     <connections>
                         <outlet property="tableView" destination="18W-AO-sYg" id="xrF-vR-U4G"/>
                         <outlet property="titleLabel" destination="Cfw-BG-Pp7" id="bN8-bn-4zL"/>
-                        <segue destination="sKu-Ja-3yv" kind="presentation" modalTransitionStyle="crossDissolve" id="ebx-gl-qFQ"/>
+                        <segue destination="sKu-Ja-3yv" kind="presentation" identifier="GO_VOTE_RESULT" modalTransitionStyle="crossDissolve" id="ebx-gl-qFQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N54-0K-jeN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1432.5" y="790.14084507042253"/>
         </scene>
-        <!--View Controller-->
+        <!--Vote Result View Controller-->
         <scene sceneID="p28-Sf-6OO">
             <objects>
-                <viewController id="sKu-Ja-3yv" sceneMemberID="viewController">
+                <viewController id="sKu-Ja-3yv" customClass="VoteResultViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xhv-xT-JiJ"/>
                         <viewControllerLayoutGuide type="bottom" id="STS-Pp-8o6"/>
@@ -1502,11 +1502,14 @@
                                 <state key="normal" title="次へ">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedNextButton:" destination="sKu-Ja-3yv" eventType="touchUpInside" id="tTY-Tf-u6g"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SA1-Vt-gyq">
                                 <rect key="frame" x="32" y="156" width="256" height="256"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiI-6a-yEZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiI-6a-yEZ">
                                 <rect key="frame" x="15" y="460" width="289" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="lOk-th-GUe"/>
@@ -1533,6 +1536,10 @@
                             <constraint firstItem="RNX-1o-nZg" firstAttribute="top" secondItem="XiI-6a-yEZ" secondAttribute="bottom" constant="8" id="zbW-YM-sMR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="SA1-Vt-gyq" id="vAa-1W-KjD"/>
+                        <outlet property="nameLabel" destination="XiI-6a-yEZ" id="Jk7-3m-mIv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdG-5g-sVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
