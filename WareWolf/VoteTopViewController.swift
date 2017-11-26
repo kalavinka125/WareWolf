@@ -8,14 +8,29 @@
 
 import UIKit
 
+enum VoteFlag {
+    case normal
+    case retry
+    case battle
+}
+
 class VoteTopViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let NEXT_VC = "RoleCheckViewController"
+    
+    var flag : VoteFlag = .normal
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.flag == .retry {
+            self.showAlert(viewController: self, message: "処刑する人物を\n1名決めてください", buttonTitle: "OK")
+        }
     }
 
     override func didReceiveMemoryWarning() {

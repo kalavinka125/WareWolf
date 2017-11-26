@@ -54,6 +54,13 @@ class DiscussionViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.SEGUE_NAME {
+            let next = segue.destination as! VoteTopViewController
+            next.flag = .normal
+        }
+    }
+    
     @IBAction func tappedPlusTimeButton(_ sender: Any) {
         self.isLimit = false
         self.time += 60
