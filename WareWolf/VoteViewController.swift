@@ -185,7 +185,7 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
         }else{
-            self.showAlert(viewController: self, message: "今夜、何もしていません", buttonTitle: "ゲームに戻る")
+            self.showAlert(viewController: self, message: "投票していません", buttonTitle: "ゲームに戻る")
         }
     }
     
