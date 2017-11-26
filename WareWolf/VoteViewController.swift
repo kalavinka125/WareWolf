@@ -17,6 +17,7 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     private var voteTarget = -1
     private var isJob = false
+    var voteFlag : VoteFlag = .normal
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -143,6 +144,8 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
                         self.appDelegate.votePointList[key] = 0
                     }
                 }
+                print(self.appDelegate.votePointList)
+
                 var isAllOne = false
                 for (_,value) in self.appDelegate.votePointList {
                     if value == 1 {
@@ -159,13 +162,13 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
                     self.appDelegate.playerID = 0
                     // 投票のやり直し
                     self.appDelegate.votePointList = [:]
-                    let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_TOP) as! VoteTopViewController
-                    next.modalTransitionStyle = .crossDissolve
-                    next.flag = .retry
                     // 投票ターゲットを初期化
                     for player in self.appDelegate.playerList {
                         player.voteTarget = -1
                     }
+                    let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_TOP) as! VoteTopViewController
+                    next.modalTransitionStyle = .crossDissolve
+                    next.flag = self.voteFlag
                     present(next, animated: true, completion: nil)
                 }
                 
@@ -188,27 +191,45 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // １人より多く居た場合
                 if keys.count > 1 {
                     // TODO:決戦投票
+                    self.appDelegate.playerID = 0
+                    self.appDelegate.votePointList = [:]
+                    let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_TOP) as! VoteTopViewController
+                    next.modalTransitionStyle = .crossDissolve
+                    next.flag = .battle
+                    // 投票ターゲットを初期化
+                    for index in 0..<self.appDelegate.playerList.count {
+                        if keys.contains(index) {
+                            self.appDelegate.playerList[index].isBattleVote = true
+                        }
+                        self.appDelegate.playerList[index].voteTarget = -1
+                    }
+                    present(next, animated: true, completion: nil)
                 }else{
                     self.voteTarget = maxKey
+                    // 決選投票のフラグを戻す
+                    for player in self.appDelegate.playerList {
+                        player.isBattleVote = false
+                    }
                     // ターンを増やす
                     self.appDelegate.turn += 1
                     self.performSegue(withIdentifier: self.VOTE_RESUL_SEGUE, sender: self)
                 }
-                
-                // 最後の画面に遷移する
-                /*
-                let next = self.storyboard?.instantiateViewController(withIdentifier: self.NEXT_VC_ID) as! RoleCheckViewController
-                next.flag = .check
-                next.modalTransitionStyle = .crossDissolve
-                */
             }else{
                 self.appDelegate.playerID += 1
                 // ネクスト生存プレイヤーに渡す
                 for index in self.appDelegate.playerID..<self.appDelegate.playerList.count {
-                    if self.appDelegate.playerList[index].isLife{
-                        self.appDelegate.playerID = index
-                        break
+                    if self.voteFlag == .battle {
+                        if self.appDelegate.playerList[index].isLife && self.appDelegate.playerList[index].isBattleVote{
+                            self.appDelegate.playerID = index
+                            break
+                        }
+                    }else{
+                        if self.appDelegate.playerList[index].isLife {
+                            self.appDelegate.playerID = index
+                            break
+                        }
                     }
+
                 }
                 self.dismiss(animated: true, completion: nil)
             }

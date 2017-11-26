@@ -22,6 +22,8 @@ class Player: NSObject {
     var target = -1
     // 投票のターゲット
     var voteTarget = -1
+    // 決選投票の対象か
+    var isBattleVote = false
     init(name : String) {
         self.name = name
     }

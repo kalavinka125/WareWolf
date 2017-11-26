@@ -30,6 +30,8 @@ class VoteTopViewController: UIViewController {
         super.viewWillAppear(animated)
         if self.flag == .retry {
             self.showAlert(viewController: self, message: "処刑する人物を\n1名決めてください", buttonTitle: "OK")
+        }else if self.flag == .battle {
+            self.showAlert(viewController: self, message: "決戦投票\n指定された人物から\n再度投票を行ってください", buttonTitle: "OK")
         }
     }
 
@@ -42,12 +44,22 @@ class VoteTopViewController: UIViewController {
         let next = self.storyboard?.instantiateViewController(withIdentifier: self.NEXT_VC) as! RoleCheckViewController
         next.modalTransitionStyle = .crossDissolve
         next.flag = .vote
+        next.voteFlag = self.flag
         // ネクスト生存プレイヤーに渡す
         for index in 0..<self.appDelegate.playerList.count {
-            if self.appDelegate.playerList[index].isLife{
-                self.appDelegate.playerID = index
-                break
+            if self.flag == .normal || self.flag == .retry {
+                if self.appDelegate.playerList[index].isLife{
+                    self.appDelegate.playerID = index
+                    break
+                }
+            }else{
+                // 生きていて、決選投票対象なら
+                if self.appDelegate.playerList[index].isLife && self.appDelegate.playerList[index].isBattleVote{
+                    self.appDelegate.playerID = index
+                    break
+                }
             }
+
         }
         self.present(next, animated: true, completion: nil)
     }

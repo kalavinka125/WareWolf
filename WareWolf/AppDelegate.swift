@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // 音楽再生クラス
     var soundPlayer : AVAudioPlayer!
     var isPause = false
+    var isBattleVote = false
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         

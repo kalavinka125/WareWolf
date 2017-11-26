@@ -20,6 +20,7 @@ class RoleCheckViewController: UIViewController {
     private let RESULT_SEGUE = "GO_TO_ROLE_RESULT"
     private let VOTE_SEGUE = "GO_TO_VOTE"
     var flag : RoleCheckVC = .check
+    var voteFlag : VoteFlag = .normal
     
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
@@ -46,6 +47,13 @@ class RoleCheckViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.VOTE_SEGUE {
+            let next = segue.destination as! VoteViewController
+            next.voteFlag = self.voteFlag
+        }
     }
     
     @IBAction func tappedCheckButton(_ sender: Any) {
