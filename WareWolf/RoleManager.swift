@@ -159,4 +159,50 @@ class RoleManager: NSObject {
         }
         return list
     }
+    
+    /// ゲームの勝敗を調べる
+    ///
+    /// - Parameter players: 全プレイヤー
+    /// - Returns: 勝ったサイド、Noneならまだ決着付いていない
+    func isGameOver(players : [Player]) -> Side {
+        var villager = 0
+        var wolf = 0
+        var fox = 0
+        let lifeList = self.getList(target: true, players: players)
+        for life in lifeList {
+            let player = players[life]
+            if player.isLife {
+                // 人狼
+                // 狐
+                // 市民
+                if player.role.side == .Villager {
+                    villager += 1
+                }else if player.role.side == .WereWolf {
+                    if player.role.ID == 1 {
+                        wolf += 1
+                    }else{
+                        villager += 1
+                    }
+                }else if player.role.side == .Fox {
+                    if player.role.ID == 18 && player.role.ID == 19 {
+                        fox += 1
+                    }else{
+                        villager += 1
+                    }
+                }
+            }
+        }
+        if wolf >= villager {
+            if fox > 0 {
+                return .Fox
+            }
+            return .WereWolf
+        }else if wolf == 0{
+            if fox > 0 {
+                return .Fox
+            }
+            return .Villager
+        }
+        return .None
+    }
 }

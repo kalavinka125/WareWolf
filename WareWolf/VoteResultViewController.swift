@@ -12,6 +12,9 @@ class VoteResultViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let NIGHT_SEGUE = "GO_GAME_NIGHT"
     private let RESULT_SEGUE = "GO_GAME_RESULT"
+    
+    private var side : Side = .None
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
 
@@ -35,9 +38,20 @@ class VoteResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.RESULT_SEGUE {
+            let next = segue.destination as! GameResultViewController
+            next.side = self.side
+        }
+    }
+    
     @IBAction func tappedNextButton(_ sender: Any) {
-        // TODO:ゲーム終了条件の判定
-        
+        self.side = self.appDelegate.roleManager.isGameOver(players: self.appDelegate.playerList)
+        if self.side == .None {
+            self.performSegue(withIdentifier: self.NIGHT_SEGUE, sender: self)
+        }else{
+            self.performSegue(withIdentifier: self.RESULT_SEGUE, sender: self)
+        }
     }
 
     /*
