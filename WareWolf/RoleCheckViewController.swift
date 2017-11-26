@@ -19,6 +19,9 @@ class RoleCheckViewController: UIViewController {
     
     private let RESULT_SEGUE = "GO_TO_ROLE_RESULT"
     private let VOTE_SEGUE = "GO_TO_VOTE"
+    
+    private let DETAIL_VC_ID = "RoleDetailViewController"
+    
     var flag : RoleCheckVC = .check
     var voteFlag : VoteFlag = .normal
     
@@ -35,7 +38,7 @@ class RoleCheckViewController: UIViewController {
         super.viewWillAppear(animated)
         self.nameLabel.adjustsFontSizeToFitWidth = true
         self.nameLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].name
-        if flag == .check {
+        if flag == .check || flag == .none {
             self.button.setTitle("確認", for: .normal)
             self.imageView.image = UIImage(named: "-1")
         }else if flag == .vote{
@@ -71,6 +74,10 @@ class RoleCheckViewController: UIViewController {
                     self.performSegue(withIdentifier: self.RESULT_SEGUE, sender: self)
                 }else if self.flag == .vote {
                     self.performSegue(withIdentifier: self.VOTE_SEGUE, sender: self)
+                }else if self.flag == .none {
+                    let next = self.storyboard?.instantiateViewController(withIdentifier: self.DETAIL_VC_ID) as! RoleDetailViewController
+                    next.modalTransitionStyle = .crossDissolve
+                    self.present(next, animated: true, completion: nil)
                 }
             }
         })

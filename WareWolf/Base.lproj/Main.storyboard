@@ -897,7 +897,7 @@
         <!--Role Detail View Controller-->
         <scene sceneID="sZ0-ed-jfl">
             <objects>
-                <viewController id="1OM-AQ-tb9" customClass="RoleDetailViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoleDetailViewController" id="1OM-AQ-tb9" customClass="RoleDetailViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h9Q-zv-RyG"/>
                         <viewControllerLayoutGuide type="bottom" id="7RU-Ur-OdN"/>
@@ -1589,19 +1589,34 @@
                                     <action selector="tappedNextButton:" destination="IBx-LH-Fsq" eventType="touchUpInside" id="xqD-3S-c4L"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNf-h8-Eby">
+                                <rect key="frame" x="17" y="420" width="288" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="lO9-RE-vl2"/>
+                                </constraints>
+                                <string key="text">恐ろしい夜です
+皆さん、生き延びるために
+精一杯、考え行動して下さい</string>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="oeD-pb-CvS" firstAttribute="leading" secondItem="R83-3k-Gii" secondAttribute="leading" constant="16" id="1JF-0h-yHi"/>
-                            <constraint firstItem="hLL-js-GnV" firstAttribute="leading" secondItem="R83-3k-Gii" secondAttribute="leadingMargin" constant="16" id="Aal-Mn-9sc"/>
-                            <constraint firstItem="0dy-2Q-Ozg" firstAttribute="top" secondItem="hLL-js-GnV" secondAttribute="bottom" constant="92" id="AsH-MS-kJ6"/>
+                            <constraint firstItem="hLL-js-GnV" firstAttribute="top" secondItem="oeD-pb-CvS" secondAttribute="bottom" constant="3" id="3sz-qP-AYV"/>
                             <constraint firstItem="0dy-2Q-Ozg" firstAttribute="leading" secondItem="R83-3k-Gii" secondAttribute="leading" constant="17" id="D0y-yg-17T"/>
                             <constraint firstItem="oeD-pb-CvS" firstAttribute="top" secondItem="QOb-xI-XFY" secondAttribute="bottom" constant="39" id="FpR-If-ESr"/>
-                            <constraint firstItem="hLL-js-GnV" firstAttribute="top" secondItem="oeD-pb-CvS" secondAttribute="bottom" constant="3" id="NvL-fX-786"/>
                             <constraint firstAttribute="trailing" secondItem="0dy-2Q-Ozg" secondAttribute="trailing" constant="15" id="S0a-oP-DTl"/>
+                            <constraint firstItem="BNf-h8-Eby" firstAttribute="top" secondItem="hLL-js-GnV" secondAttribute="bottom" constant="8" id="W6c-jf-Ika"/>
                             <constraint firstItem="gq7-7Y-kPB" firstAttribute="top" secondItem="0dy-2Q-Ozg" secondAttribute="bottom" constant="20" id="WZp-fD-5PI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hLL-js-GnV" secondAttribute="trailing" constant="16" id="f78-Iu-bQu"/>
+                            <constraint firstItem="0dy-2Q-Ozg" firstAttribute="top" secondItem="BNf-h8-Eby" secondAttribute="bottom" constant="8" id="gGd-gG-fz3"/>
+                            <constraint firstItem="BNf-h8-Eby" firstAttribute="leading" secondItem="R83-3k-Gii" secondAttribute="leading" constant="17" id="hXs-Y6-8FJ"/>
+                            <constraint firstItem="hLL-js-GnV" firstAttribute="leading" secondItem="R83-3k-Gii" secondAttribute="leadingMargin" constant="16" id="jj5-qb-twt"/>
                             <constraint firstAttribute="trailing" secondItem="oeD-pb-CvS" secondAttribute="trailing" constant="15" id="kmW-n8-SUj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hLL-js-GnV" secondAttribute="trailing" constant="16" id="uZR-a4-jc7"/>
+                            <constraint firstAttribute="trailing" secondItem="BNf-h8-Eby" secondAttribute="trailing" constant="15" id="xmc-7R-1gi"/>
                         </constraints>
                     </view>
                 </viewController>
