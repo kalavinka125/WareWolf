@@ -74,7 +74,7 @@
                                     <constraint firstAttribute="height" constant="44" id="ZyS-1S-X8k"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
-                                <state key="normal" title="New game">
+                                <state key="normal" title="New Game">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -1627,7 +1627,7 @@
         <!--GameResultViewController-->
         <scene sceneID="UKL-3j-09X">
             <objects>
-                <viewController title="GameResultViewController" id="wrG-Jd-3at" customClass="GameResultViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameResultViewController" title="GameResultViewController" id="wrG-Jd-3at" customClass="GameResultViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dw0-0R-bCM"/>
                         <viewControllerLayoutGuide type="bottom" id="MHa-LL-QJS"/>

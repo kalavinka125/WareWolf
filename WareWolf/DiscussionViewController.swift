@@ -42,7 +42,6 @@ class DiscussionViewController: UIViewController {
         }else{
             self.time = (60 * self.lifeList.count)
         }
-        self.time = 10
         self.timeLabel.textColor = UIColor.black
         self.timeLabel.text = self.time2Text(time: self.time)
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)

@@ -56,6 +56,9 @@ class RoleCheckViewController: UIViewController {
         if segue.identifier == self.VOTE_SEGUE {
             let next = segue.destination as! VoteViewController
             next.voteFlag = self.voteFlag
+        }else if segue.identifier == self.RESULT_SEGUE {
+            let next = segue.destination as! RoleResultViewController
+            next.flag = self.flag
         }
     }
     
@@ -77,6 +80,7 @@ class RoleCheckViewController: UIViewController {
                 }else if self.flag == .none {
                     let next = self.storyboard?.instantiateViewController(withIdentifier: self.DETAIL_VC_ID) as! RoleDetailViewController
                     next.modalTransitionStyle = .crossDissolve
+                    next.flag = self.flag
                     self.present(next, animated: true, completion: nil)
                 }
             }

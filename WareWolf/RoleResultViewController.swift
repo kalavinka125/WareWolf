@@ -15,6 +15,8 @@ class RoleResultViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var sideLabel: UILabel!
     
+    var flag : RoleCheckVC = .none
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,6 +25,13 @@ class RoleResultViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.SEGUE_NAME {
+            let next = segue.destination as! RoleDetailViewController
+            next.flag = self.flag
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

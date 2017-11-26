@@ -12,13 +12,13 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let CELL_ID = "ROLE_JOB_CELL"
     private let ROLE_CHECK_VC_ID = "RoleCheckViewController"
-    //private let SEGUE_NAME = "GO_TO_DISCUSSION"
     private let SEGUE_NAME = "GO_TO_INFO"
     private let PINK_COLOR = UIColor.rgb(255, g: 111, b: 207, alpha: 0.8)
     
     private var otherList : [Player] = []
     // 毎日のしごとをしたかどうか
     private var todayJob : Bool = false
+    var flag : RoleCheckVC = .check
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var roleLabel: UILabel!
@@ -349,39 +349,39 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         if self.todayJob {
             // 次のプレイヤーがいるか
             if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1) {
-                // 自分で最後、プレイヤーIDを0番に戻して、GO！
-                self.appDelegate.playerID = 0
-                // とりあえず議論へ
-                self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
-                
+                self.endRoleDetail()
             }else{
                 // 次のプレイヤーがいるので、そちらへ遷移
                 self.appDelegate.playerID += 1
-                // 端末渡しの画面に遷移
-                let next = self.storyboard?.instantiateViewController(withIdentifier: self.ROLE_CHECK_VC_ID) as! RoleCheckViewController
-                next.modalTransitionStyle = .crossDissolve
-                present(next, animated: true, completion: nil)
+                var endFlag = false
+                for index in self.appDelegate.playerID..<self.appDelegate.playerList.count {
+                    if self.appDelegate.playerList[index].isLife {
+                        self.appDelegate.playerID = index
+                        endFlag = true
+                        break
+                    }
+                }
+                if endFlag {
+                    // 端末渡しの画面に遷移
+                    let next = self.storyboard?.instantiateViewController(withIdentifier: self.ROLE_CHECK_VC_ID) as! RoleCheckViewController
+                    next.modalTransitionStyle = .crossDissolve
+                    next.flag = self.flag
+                    present(next, animated: true, completion: nil)
+                }else{
+                    self.endRoleDetail()
+                }
             }
+            
         }else{
             self.showAlert(viewController: self, message: "今夜、何もしていません", buttonTitle: "ゲームに戻る")
         }
- 
-        /*
-        // 次のプレイヤーがいるか
-        if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1) {
-            // 自分で最後、プレイヤーIDを0番に戻して、GO！
-            self.appDelegate.playerID = 0
-            // とりあえず議論へ
-            self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
-            
-        }else{
-            // 次のプレイヤーがいるので、そちらへ遷移
-            self.appDelegate.playerID += 1
-            // 端末渡しの画面に遷移
-            let next = self.storyboard?.instantiateViewController(withIdentifier: self.ROLE_CHECK_VC_ID) as! RoleCheckViewController
-            next.modalTransitionStyle = .crossDissolve
-            present(next, animated: true, completion: nil)
-        }
-        */
+    }
+    
+    /// 役割画面のループを終わらせる処理
+    private func endRoleDetail() {
+        // 自分で最後、プレイヤーIDを0番に戻して、GO！
+        self.appDelegate.playerID = 0
+        // とりあえず議論へ
+        self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
     }
 }
