@@ -155,6 +155,18 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             self.todayJob = true
         }else if role?.ID == 8 {
             cell.jobButton.setTitle("観る", for: .normal)
+            if role?.uranaiResult[indexPath.row] != nil {
+                if role?.uranaiResult[indexPath.row] == .Villager {
+                    cell.detailLabel.text = "人間"
+                    cell.detailLabel.textColor = self.appDelegate.villagerColor
+                }else if role?.uranaiResult[indexPath.row] == .WereWolf {
+                    cell.detailLabel.text = "人狼"
+                    cell.detailLabel.textColor = self.appDelegate.wereWolfColor
+                }else if role?.uranaiResult[indexPath.row] == .Fox {
+                    cell.detailLabel.text = "狐"
+                    cell.detailLabel.textColor = self.appDelegate.foxColor
+                }
+            }
         }else if role?.ID == 13 {
             cell.jobButton.setTitle("守る", for: .normal)
         }else if role?.ID == 15 {
@@ -322,6 +334,47 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             })
             ok.setValue(self.appDelegate.villagerColor, forKey: "titleTextColor")
             let message = target.name + "を\n守りますか？"
+            let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+            let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+            let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+            alert.setValue(attributedMessage, forKey: "attributedMessage")
+            alert.addAction(cancel)
+            alert.addAction(ok)
+            // アラートの表示
+            present(alert, animated: true, completion: nil)
+        }else if role?.ID == 8 {
+            // パパラッチの処理
+            self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+            
+            let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            cancel.setValue(UIColor.black, forKey: "titleTextColor")
+            let ok = UIAlertAction(title: "観る", style: .default, handler: { okAction in
+                // 能力ターゲットを記憶する
+                self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+                
+                self.todayJob = true
+                DispatchQueue.main.async {
+                    if target.role.uranai == .Villager {
+                        role?.uranaiResult[indexPath.row] = .Villager
+                        // ターゲットがサイコキラーなら
+                        if target.role.ID == 6 {
+                            role?.deadEndFlag = true
+                        }
+                    }else if target.role.uranai == .WereWolf {
+                        role?.uranaiResult[indexPath.row] = .WereWolf
+                    }else if target.role.uranai == .Fox {
+                        role?.uranaiResult[indexPath.row] = .Fox
+                        // ターゲットが妖狐なら
+                        if target.role.ID == 18 {
+                            target.role.deadEndFlag = true
+                        }
+                    }
+                    self.tableView.reloadData()
+                }
+            })
+            ok.setValue(self.appDelegate.wereWolfColor, forKey: "titleTextColor")
+            let message = target.name + "を\n観ますか？"
             let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
             let font = UIFont(name: "PixelMplus10-Regular", size: 18)
             let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
