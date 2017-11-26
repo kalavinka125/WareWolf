@@ -145,6 +145,14 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
                 cell.detailLabel.text = "守った"
                 cell.detailLabel.textColor = self.appDelegate.villagerColor
             }
+        }else if role?.ID == 7 {
+            // 狂信者
+            if self.appDelegate.playerList[indexPath.row].role.ID == 1 {
+                cell.detailLabel.text = "人狼"
+                cell.detailLabel.textColor = self.appDelegate.wereWolfColor
+            }
+            // 仕事は無い
+            self.todayJob = true
         }else if role?.ID == 8 {
             cell.jobButton.setTitle("観る", for: .normal)
         }else if role?.ID == 13 {
