@@ -35,7 +35,8 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "\(self.appDelegate.turn)日目 の 朝です"
+        // self.title = "\(self.appDelegate.turn)日目 の 朝です"
+        self.timeLabel.text = "\(self.appDelegate.turn+1)日目 の 朝です"
         self.victimList = []
         let victimIDList = self.appDelegate.roleManager.getVictimList(players: self.appDelegate.playerList, wereWolfPointTable: self.appDelegate.wolfPointList)
         for vID in victimIDList {

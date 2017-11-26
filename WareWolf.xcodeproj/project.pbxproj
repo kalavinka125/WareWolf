@@ -46,6 +46,7 @@
 		D2DFD1FA1FCAD61600395713 /* buki.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2DFD1F91FCAD61600395713 /* buki.mp3 */; };
 		D2DFD1FC1FCAD62200395713 /* win.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2DFD1FB1FCAD62200395713 /* win.mp3 */; };
 		D2DFD1FE1FCAD63D00395713 /* soundLogo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2DFD1FD1FCAD63D00395713 /* soundLogo.mp3 */; };
+		D2DFD2001FCAEAA900395713 /* TurnEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DFD1FF1FCAEAA900395713 /* TurnEndViewController.swift */; };
 		D2EC1D7D1FC7BDA400F68F53 /* kaneOto.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2EC1D7C1FC7BDA400F68F53 /* kaneOto.mp3 */; };
 		D2EC1D811FC7C15400F68F53 /* bird6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2EC1D801FC7C15400F68F53 /* bird6.mp3 */; };
 		D2EC1D831FC7C21800F68F53 /* bgm1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2EC1D821FC7C21800F68F53 /* bgm1.mp3 */; };
@@ -116,6 +117,7 @@
 		D2DFD1F91FCAD61600395713 /* buki.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buki.mp3; sourceTree = "<group>"; };
 		D2DFD1FB1FCAD62200395713 /* win.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = win.mp3; sourceTree = "<group>"; };
 		D2DFD1FD1FCAD63D00395713 /* soundLogo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundLogo.mp3; sourceTree = "<group>"; };
+		D2DFD1FF1FCAEAA900395713 /* TurnEndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnEndViewController.swift; sourceTree = "<group>"; };
 		D2EC1D7C1FC7BDA400F68F53 /* kaneOto.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = kaneOto.mp3; sourceTree = "<group>"; };
 		D2EC1D801FC7C15400F68F53 /* bird6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird6.mp3; sourceTree = "<group>"; };
 		D2EC1D821FC7C21800F68F53 /* bgm1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm1.mp3; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				D2EC1D841FC7FA7900F68F53 /* VoteViewController.swift */,
 				D2DFD1F31FCA80C100395713 /* VoteResultViewController.swift */,
 				D2DFD1F51FCAA3E300395713 /* GameResultViewController.swift */,
+				D2DFD1FF1FCAEAA900395713 /* TurnEndViewController.swift */,
 				D28646B91FC30EF5002B14BD /* ExFileManager.swift */,
 				D2D4064B1FC3270F00F10994 /* RoleManager.swift */,
 			);
@@ -415,6 +418,7 @@
 				D2DFD1F41FCA80C100395713 /* VoteResultViewController.swift in Sources */,
 				D2D406541FC405CB00F10994 /* DiscussionViewController.swift in Sources */,
 				D28646BA1FC30EF5002B14BD /* ExFileManager.swift in Sources */,
+				D2DFD2001FCAEAA900395713 /* TurnEndViewController.swift in Sources */,
 				D2DFD1F81FCAA9B300395713 /* GameRoleTableViewCell.swift in Sources */,
 				D28646AE1FC1E3AF002B14BD /* PlayerListViewController.swift in Sources */,
 				D2D4064E1FC3491A00F10994 /* UIViewControllerExtension.swift in Sources */,
