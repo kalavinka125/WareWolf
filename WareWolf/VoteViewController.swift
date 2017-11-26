@@ -112,6 +112,11 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // 投票ターゲットを記憶する
                 self.isJob = true
                 self.appDelegate.playerList[self.appDelegate.playerID].voteTarget = indexPath.row
+                if self.appDelegate.votePointList[indexPath.row] == nil {
+                    self.appDelegate.votePointList[indexPath.row] = 1
+                }else{
+                    self.appDelegate.votePointList[indexPath.row] = self.appDelegate.votePointList[indexPath.row]! + 1
+                }
                 self.tableView.reloadData()
             }
         })
@@ -147,12 +152,20 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
                         break
                     }
                 }
+                // print(self.appDelegate.votePointList)
+                
                 // 全員の投票数が1
                 if isAllOne {
                     self.appDelegate.playerID = 0
                     // 投票のやり直し
                     self.appDelegate.votePointList = [:]
                     let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_TOP) as! VoteTopViewController
+                    next.modalTransitionStyle = .crossDissolve
+                    next.flag = .retry
+                    // 投票ターゲットを初期化
+                    for player in self.appDelegate.playerList {
+                        player.voteTarget = -1
+                    }
                     present(next, animated: true, completion: nil)
                 }
                 
