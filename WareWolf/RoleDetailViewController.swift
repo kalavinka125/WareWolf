@@ -9,6 +9,8 @@
 import UIKit
 
 class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,RoleJobTableViewCellDelegate {
+    var flag : RoleCheckVC = .check
+
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let CELL_ID = "ROLE_JOB_CELL"
     private let ROLE_CHECK_VC_ID = "RoleCheckViewController"
@@ -18,7 +20,6 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     private var otherList : [Player] = []
     // 毎日のしごとをしたかどうか
     private var todayJob : Bool = false
-    var flag : RoleCheckVC = .check
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var roleLabel: UILabel!
@@ -182,6 +183,13 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             }
         }else if role?.ID == 15 {
             cell.jobButton.setTitle("交換する", for: .normal)
+        }else if role?.ID == 16 {
+            cell.jobButton.setTitle("識る", for: .normal)
+            if self.appDelegate.playerList[self.appDelegate.playerID].target == indexPath.row {
+                let satoriResult = self.appDelegate.playerList[self.appDelegate.playerID].role.satoriResult
+                let satoriTarget = self.appDelegate.playerList[satoriResult]
+                cell.detailLabel.text = "前回 "+satoriTarget.name + " に投票"
+            }
         }else{
             cell.jobButton.isHidden = true
             self.todayJob = true
@@ -397,7 +405,6 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             present(alert, animated: true, completion: nil)
         }else if role?.ID == 13 {
             // コスプレイヤー
-            // 騎士の処理
             self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
             let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
             cancel.setValue(UIColor.black, forKey: "titleTextColor")
@@ -416,6 +423,36 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             })
             ok.setValue(self.appDelegate.villagerColor, forKey: "titleTextColor")
             let message = target.name + "を\n守りますか？"
+            let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+            let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+            let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+            alert.setValue(attributedMessage, forKey: "attributedMessage")
+            alert.addAction(cancel)
+            alert.addAction(ok)
+            // アラートの表示
+            present(alert, animated: true, completion: nil)
+        }else if role?.ID == 16 {
+            // サトリ
+            self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+            let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            cancel.setValue(UIColor.black, forKey: "titleTextColor")
+            let ok = UIAlertAction(title: "識る", style: .default, handler: { okAction in
+                DispatchQueue.main.async {
+                    // 能力ターゲットを記憶する
+                    self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+                    //
+                    role?.satoriResult = target.voteTarget
+                    self.todayJob = true
+                    // サイコキラーの場合
+                    if target.role.ID == 6 {
+                        role?.deadEndFlag = true
+                    }
+                    self.tableView.reloadData()
+                }
+            })
+            ok.setValue(self.appDelegate.villagerColor, forKey: "titleTextColor")
+            let message = target.name + "を\n識りますか？"
             let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
             let font = UIFont(name: "PixelMplus10-Regular", size: 18)
             let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
