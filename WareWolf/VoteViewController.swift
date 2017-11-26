@@ -220,7 +220,7 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
             */
             let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_TOP) as! VoteTopViewController
             next.modalTransitionStyle = .crossDissolve
-            next.flag = self.voteFlag
+            next.flag = .retry
             present(next, animated: true, completion: nil)
         }
         
