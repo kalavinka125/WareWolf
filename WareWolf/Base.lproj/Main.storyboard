@@ -1269,7 +1269,7 @@
         <!--Vote Top View Controller-->
         <scene sceneID="u7W-rh-EFj">
             <objects>
-                <viewController id="c51-ta-A3J" customClass="VoteTopViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VOTE_TOP_VC" id="c51-ta-A3J" customClass="VoteTopViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C8w-5X-jXx"/>
                         <viewControllerLayoutGuide type="bottom" id="lui-Tr-V5O"/>
@@ -1462,11 +1462,81 @@
                     <connections>
                         <outlet property="tableView" destination="18W-AO-sYg" id="xrF-vR-U4G"/>
                         <outlet property="titleLabel" destination="Cfw-BG-Pp7" id="bN8-bn-4zL"/>
+                        <segue destination="sKu-Ja-3yv" kind="presentation" modalTransitionStyle="crossDissolve" id="ebx-gl-qFQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N54-0K-jeN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1432.5" y="790.14084507042253"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="p28-Sf-6OO">
+            <objects>
+                <viewController id="sKu-Ja-3yv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xhv-xT-JiJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="STS-Pp-8o6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UWT-Td-Hh2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5A-3x-LTD">
+                                <rect key="frame" x="16" y="59" width="289" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="RJn-Cm-kEX"/>
+                                </constraints>
+                                <string key="text">投票の結果
+処刑されるのは</string>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNX-1o-nZg">
+                                <rect key="frame" x="17" y="504" width="288" height="44"/>
+                                <color key="backgroundColor" red="0.38878055319999999" green="0.2301004857" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="W1u-1t-DUB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                <state key="normal" title="次へ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SA1-Vt-gyq">
+                                <rect key="frame" x="32" y="156" width="256" height="256"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiI-6a-yEZ">
+                                <rect key="frame" x="15" y="460" width="289" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="lOk-th-GUe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="32"/>
+                                <color key="textColor" red="0.87450980389999999" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="SA1-Vt-gyq" secondAttribute="trailing" constant="16" id="0Kj-Zi-bcm"/>
+                            <constraint firstItem="SA1-Vt-gyq" firstAttribute="top" secondItem="r5A-3x-LTD" secondAttribute="bottom" constant="39" id="1hV-d0-OXK"/>
+                            <constraint firstItem="SA1-Vt-gyq" firstAttribute="leading" secondItem="UWT-Td-Hh2" secondAttribute="leadingMargin" constant="16" id="43e-yf-fN4"/>
+                            <constraint firstItem="r5A-3x-LTD" firstAttribute="leading" secondItem="UWT-Td-Hh2" secondAttribute="leading" constant="16" id="6dS-f3-SKO"/>
+                            <constraint firstAttribute="trailing" secondItem="r5A-3x-LTD" secondAttribute="trailing" constant="15" id="CJI-dm-qvU"/>
+                            <constraint firstAttribute="trailing" secondItem="XiI-6a-yEZ" secondAttribute="trailing" constant="16" id="GQQ-8p-jT9"/>
+                            <constraint firstItem="XiI-6a-yEZ" firstAttribute="top" secondItem="SA1-Vt-gyq" secondAttribute="bottom" constant="48" id="JGB-2c-API"/>
+                            <constraint firstItem="RNX-1o-nZg" firstAttribute="leading" secondItem="UWT-Td-Hh2" secondAttribute="leading" constant="17" id="K2y-fa-BLZ"/>
+                            <constraint firstItem="STS-Pp-8o6" firstAttribute="top" secondItem="RNX-1o-nZg" secondAttribute="bottom" constant="20" id="Qly-qe-gnh"/>
+                            <constraint firstAttribute="trailing" secondItem="RNX-1o-nZg" secondAttribute="trailing" constant="15" id="cEW-vL-DQX"/>
+                            <constraint firstItem="r5A-3x-LTD" firstAttribute="top" secondItem="Xhv-xT-JiJ" secondAttribute="bottom" constant="39" id="mkW-4Q-Dch"/>
+                            <constraint firstItem="XiI-6a-yEZ" firstAttribute="leading" secondItem="UWT-Td-Hh2" secondAttribute="leading" constant="15" id="r3h-Zm-qva"/>
+                            <constraint firstItem="RNX-1o-nZg" firstAttribute="top" secondItem="XiI-6a-yEZ" secondAttribute="bottom" constant="8" id="zbW-YM-sMR"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YdG-5g-sVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2152.5" y="790.14084507042253"/>
         </scene>
     </scenes>
     <resources>

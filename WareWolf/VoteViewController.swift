@@ -12,6 +12,7 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let CELL_ID = "ROLE_VOTE_CELL"
     private let NEXT_VC_ID = "RoleCheckViewController"
+    private let VOTE_TOP = "VOTE_TOP_VC"
     
     private var isJob = false
     
@@ -122,19 +123,64 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         if self.isJob {
             // 終了条件
             if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1) {
+                // nilのところを0に
+                for (key,_) in self.appDelegate.votePointList {
+                    if self.appDelegate.votePointList[key] == nil {
+                        self.appDelegate.votePointList[key] = 0
+                    }
+                }
+                var isAllOne = false
+                for (_,value) in self.appDelegate.votePointList {
+                    if value == 1 {
+                        isAllOne = true
+                    }else{
+                        isAllOne = false
+                        break
+                    }
+                }
+                // 全員の投票数が1
+                if isAllOne {
+                    self.appDelegate.playerID = 0
+                    // 投票のやり直し
+                    self.appDelegate.votePointList = [:]
+                    let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_TOP) as! VoteTopViewController
+                    present(next, animated: true, completion: nil)
+                }
                 
-                // TODO:処刑の処理
-                // TODO:決戦投票
-                // TODO:全員が1票ずつ
+                var maxValue = 0
+                var maxKey = 0
+                var keys : [Int] = []
+                for (key , value) in self.appDelegate.votePointList {
+                    // 最大値を求める
+                    if value > maxValue {
+                        maxValue = value
+                        maxKey = key
+                    }
+                }
+                keys.append(maxKey)
+                for (key , value) in self.appDelegate.votePointList {
+                    if value == maxValue && maxKey != key {
+                        keys.append(key)
+                    }
+                }
+                // １人より多く居た場合
+                if keys.count > 1 {
+                    // TODO:決戦投票
+                }else{
+                    // 
+                    
+                    // ターンを増やす
+                    self.appDelegate.turn += 1
+                    // 画面遷移
+                    present(next, animated: true, completion: nil)
+                }
                 
                 // 最後の画面に遷移する
+                /*
                 let next = self.storyboard?.instantiateViewController(withIdentifier: self.NEXT_VC_ID) as! RoleCheckViewController
                 next.flag = .check
                 next.modalTransitionStyle = .crossDissolve
-                // ターンを増やす
-                self.appDelegate.turn += 1
-                // 画面遷移
-                present(next, animated: true, completion: nil)
+                */
             }else{
                 self.appDelegate.playerID += 1
                 // ネクスト生存プレイヤーに渡す
