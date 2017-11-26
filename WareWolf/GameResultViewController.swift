@@ -8,21 +8,39 @@
 
 import UIKit
 
-class GameResultViewController: UIViewController {
+class GameResultViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+    private let CELL_ID = "GAME_ROLE_CELL"
+    private let TOP_ID = "VIEW_CONTROLLER"
+    var side : Side = .None
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var sideLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // 0,1,19
+        if self.side == .Villager {
+            self.sideLabel.backgroundColor = self.appDelegate.villagerColor
+            self.sideLabel.text = "市民サイド"
+            self.imageView.image = UIImage(named: "0")!
+        }else if self.side == .WereWolf {
+            self.sideLabel.backgroundColor = self.appDelegate.wereWolfColor
+            self.sideLabel.text = "人狼サイド"
+            self.imageView.image = UIImage(named: "1")!
+        }else if self.side == .Fox {
+            self.sideLabel.backgroundColor = self.appDelegate.foxColor
+            self.sideLabel.text = "　狐サイド"
+            self.imageView.image = UIImage(named: "19")!
+        }
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +48,22 @@ class GameResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.appDelegate.playerList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! GameRoleTableViewCell
+        cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name
+        cell.roleLabel.text = self.appDelegate.playerList[indexPath.row].role.name
+        cell.roleImageView.image = UIImage(named: "\(self.appDelegate.playerList[indexPath.row].role.ID)")
+        return cell
+    }
+    
     @IBAction func tappedEndButton(_ sender: Any) {
+        let next = self.storyboard?.instantiateViewController(withIdentifier: self.TOP_ID) as! ViewController
+        next.modalTransitionStyle = .crossDissolve
+        present(next, animated: true, completion: nil)
     }
 
     /*

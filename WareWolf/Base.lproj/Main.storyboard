@@ -24,7 +24,7 @@
         <!--View Controller-->
         <scene sceneID="gHR-I8-U3M">
             <objects>
-                <viewController id="EPq-67-ecZ" customClass="ViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VIEW_CONTROLLER" id="EPq-67-ecZ" customClass="ViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v33-b1-68C"/>
                         <viewControllerLayoutGuide type="bottom" id="ENV-f5-SSb"/>
@@ -1666,7 +1666,7 @@
                                 <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="fbN-Jp-Oa8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GAME_ROLE_CELL" rowHeight="74" id="fbN-Jp-Oa8" customClass="GameRoleTableViewCell" customModule="WareWolf" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="289" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fbN-Jp-Oa8" id="fPd-so-vt4">
@@ -1680,7 +1680,7 @@
                                                         <constraint firstAttribute="height" constant="48" id="tR5-1P-gMP"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDB-5W-xIz">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDB-5W-xIz">
                                                     <rect key="frame" x="64" y="12" width="217" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="PGi-e0-yDq"/>
@@ -1689,7 +1689,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeJ-0V-FiO">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PeJ-0V-FiO">
                                                     <rect key="frame" x="64" y="41" width="217" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="xEg-Zk-jyS"/>
@@ -1712,6 +1712,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="xDB-5W-xIz" id="xBk-Ma-r3M"/>
+                                            <outlet property="roleImageView" destination="mlt-5l-5Uc" id="Zf9-7q-X5T"/>
+                                            <outlet property="roleLabel" destination="PeJ-0V-FiO" id="aph-Qd-1yL"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
