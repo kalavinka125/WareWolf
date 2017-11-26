@@ -197,7 +197,7 @@ class RoleManager: NSObject {
                         villager += 1
                     }
                 }else if player.role.side == .Fox {
-                    if player.role.ID == 18 && player.role.ID == 19 {
+                    if player.role.ID == 18 || player.role.ID == 19 {
                         fox += 1
                     }else{
                         villager += 1
