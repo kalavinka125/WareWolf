@@ -1,5 +1,5 @@
 //
-//  VoteResultViewController.swift
+//  GameResultViewController.swift
 //  WareWolf
 //
 //  Created by falcon@mac on H29/11/26.
@@ -8,14 +8,12 @@
 
 import UIKit
 
-class VoteResultViewController: UIViewController {
+class GameResultViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    private let NIGHT_SEGUE = "GO_GAME_NIGHT"
-    private let RESULT_SEGUE = "GO_GAME_RESULT"
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
 
-    var voteTarget = -1
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var sideLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +23,6 @@ class VoteResultViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // 投票で選ばれた人物を処刑
-        self.appDelegate.playerList[self.voteTarget].isLife = false
-        self.nameLabel.text = self.appDelegate.playerList[self.voteTarget].name
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,9 +30,7 @@ class VoteResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func tappedNextButton(_ sender: Any) {
-        // TODO:ゲーム終了条件の判定
-        
+    @IBAction func tappedEndButton(_ sender: Any) {
     }
 
     /*
