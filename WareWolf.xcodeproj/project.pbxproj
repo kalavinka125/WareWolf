@@ -42,6 +42,7 @@
 		D2D4065A1FC7371000F10994 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D406591FC7371000F10994 /* InfoViewController.swift */; };
 		D2DFD1F41FCA80C100395713 /* VoteResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DFD1F31FCA80C100395713 /* VoteResultViewController.swift */; };
 		D2DFD1F61FCAA3E300395713 /* GameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DFD1F51FCAA3E300395713 /* GameResultViewController.swift */; };
+		D2DFD1F81FCAA9B300395713 /* GameRoleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DFD1F71FCAA9B300395713 /* GameRoleTableViewCell.swift */; };
 		D2EC1D7D1FC7BDA400F68F53 /* kaneOto.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2EC1D7C1FC7BDA400F68F53 /* kaneOto.mp3 */; };
 		D2EC1D811FC7C15400F68F53 /* bird6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2EC1D801FC7C15400F68F53 /* bird6.mp3 */; };
 		D2EC1D831FC7C21800F68F53 /* bgm1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D2EC1D821FC7C21800F68F53 /* bgm1.mp3 */; };
@@ -108,6 +109,7 @@
 		D2D406591FC7371000F10994 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		D2DFD1F31FCA80C100395713 /* VoteResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteResultViewController.swift; sourceTree = "<group>"; };
 		D2DFD1F51FCAA3E300395713 /* GameResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResultViewController.swift; sourceTree = "<group>"; };
+		D2DFD1F71FCAA9B300395713 /* GameRoleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRoleTableViewCell.swift; sourceTree = "<group>"; };
 		D2EC1D7C1FC7BDA400F68F53 /* kaneOto.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = kaneOto.mp3; sourceTree = "<group>"; };
 		D2EC1D801FC7C15400F68F53 /* bird6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bird6.mp3; sourceTree = "<group>"; };
 		D2EC1D821FC7C21800F68F53 /* bgm1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm1.mp3; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				D28646B51FC2A7AE002B14BD /* RollTableViewCell.swift */,
 				D2D406551FC417F800F10994 /* RoleJobTableViewCell.swift */,
 				D2D406571FC7366C00F10994 /* VictimTableViewCell.swift */,
+				D2DFD1F71FCAA9B300395713 /* GameRoleTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				D2DFD1F41FCA80C100395713 /* VoteResultViewController.swift in Sources */,
 				D2D406541FC405CB00F10994 /* DiscussionViewController.swift in Sources */,
 				D28646BA1FC30EF5002B14BD /* ExFileManager.swift in Sources */,
+				D2DFD1F81FCAA9B300395713 /* GameRoleTableViewCell.swift in Sources */,
 				D28646AE1FC1E3AF002B14BD /* PlayerListViewController.swift in Sources */,
 				D2D4064E1FC3491A00F10994 /* UIViewControllerExtension.swift in Sources */,
 				D2D406521FC3FDC900F10994 /* RoleDetailViewController.swift in Sources */,
