@@ -53,8 +53,8 @@ class VoteTopViewController: UIViewController {
                     break
                 }
             }else{
-                // 生きていて、決選投票対象なら
-                if self.appDelegate.playerList[index].isLife && self.appDelegate.playerList[index].isBattleVote{
+                // 生きていて、決選投票じゃないなら
+                if self.appDelegate.playerList[index].isLife && !self.appDelegate.playerList[index].isBattleVote{
                     self.appDelegate.playerID = index
                     break
                 }

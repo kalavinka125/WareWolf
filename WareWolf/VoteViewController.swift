@@ -64,6 +64,15 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.isHidden = false
         }
         
+        if self.voteFlag == .battle {
+            // 決選投票対象以外
+            if !self.appDelegate.playerList[indexPath.row].isBattleVote {
+                cell.isHidden = true
+            }else{
+                cell.isHidden = false
+            }
+        }
+        
         if self.isJob {
             cell.jobButton.isHidden = true
         }else{
@@ -102,6 +111,13 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         if indexPath.row == self.appDelegate.playerID {
             return 0.0
         }
+        if self.voteFlag == .battle {
+            if !self.appDelegate.playerList[indexPath.row].isBattleVote {
+                return 0.0
+            }else{
+                return 74.0
+            }
+        }
         return 74.0
     }
     
@@ -138,103 +154,111 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         if self.isJob {
             // 終了条件
             if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1) {
-                // nilのところを0に
-                for (key,_) in self.appDelegate.votePointList {
-                    if self.appDelegate.votePointList[key] == nil {
-                        self.appDelegate.votePointList[key] = 0
-                    }
-                }
-                print(self.appDelegate.votePointList)
-
-                var isAllOne = false
-                for (_,value) in self.appDelegate.votePointList {
-                    if value == 1 {
-                        isAllOne = true
-                    }else{
-                        isAllOne = false
-                        break
-                    }
-                }
-                // print(self.appDelegate.votePointList)
-                
-                // 全員の投票数が1
-                if isAllOne {
-                    self.appDelegate.playerID = 0
-                    // 投票のやり直し
-                    self.appDelegate.votePointList = [:]
-                    // 投票ターゲットを初期化
-                    for player in self.appDelegate.playerList {
-                        player.voteTarget = -1
-                    }
-                    let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_TOP) as! VoteTopViewController
-                    next.modalTransitionStyle = .crossDissolve
-                    next.flag = self.voteFlag
-                    present(next, animated: true, completion: nil)
-                }
-                
-                var maxValue = 0
-                var maxKey = 0
-                var keys : [Int] = []
-                for (key , value) in self.appDelegate.votePointList {
-                    // 最大値を求める
-                    if value > maxValue {
-                        maxValue = value
-                        maxKey = key
-                    }
-                }
-                keys.append(maxKey)
-                for (key , value) in self.appDelegate.votePointList {
-                    if value == maxValue && maxKey != key {
-                        keys.append(key)
-                    }
-                }
-                // １人より多く居た場合
-                if keys.count > 1 {
-                    // TODO:決戦投票
-                    self.appDelegate.playerID = 0
-                    self.appDelegate.votePointList = [:]
-                    let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_TOP) as! VoteTopViewController
-                    next.modalTransitionStyle = .crossDissolve
-                    next.flag = .battle
-                    // 投票ターゲットを初期化
-                    for index in 0..<self.appDelegate.playerList.count {
-                        if keys.contains(index) {
-                            self.appDelegate.playerList[index].isBattleVote = true
-                        }
-                        self.appDelegate.playerList[index].voteTarget = -1
-                    }
-                    present(next, animated: true, completion: nil)
-                }else{
-                    self.voteTarget = maxKey
-                    // 決選投票のフラグを戻す
-                    for player in self.appDelegate.playerList {
-                        player.isBattleVote = false
-                    }
-                    // ターンを増やす
-                    self.appDelegate.turn += 1
-                    self.performSegue(withIdentifier: self.VOTE_RESUL_SEGUE, sender: self)
-                }
+                self.endVote()
             }else{
                 self.appDelegate.playerID += 1
+                var endFlag = false
                 // ネクスト生存プレイヤーに渡す
                 for index in self.appDelegate.playerID..<self.appDelegate.playerList.count {
                     if self.voteFlag == .battle {
-                        if self.appDelegate.playerList[index].isLife && self.appDelegate.playerList[index].isBattleVote{
+                        if self.appDelegate.playerList[index].isLife && !self.appDelegate.playerList[index].isBattleVote{
                             self.appDelegate.playerID = index
+                            endFlag = true
                             break
                         }
                     }else{
                         if self.appDelegate.playerList[index].isLife {
                             self.appDelegate.playerID = index
+                            endFlag = true
                             break
                         }
                     }
-
                 }
-                self.dismiss(animated: true, completion: nil)
+                if endFlag {
+                    self.dismiss(animated: true, completion: nil)
+                }else{
+                    self.endVote()
+                }
             }
         }else{
             self.showAlert(viewController: self, message: "今夜、何もしていません", buttonTitle: "ゲームに戻る")
+        }
+    }
+    
+    private func endVote() {
+        // nilのところを0に
+        for (key,_) in self.appDelegate.votePointList {
+            if self.appDelegate.votePointList[key] == nil {
+                self.appDelegate.votePointList[key] = 0
+            }
+        }
+        var isAllOne = false
+        for (_,value) in self.appDelegate.votePointList {
+            if value == 1 {
+                isAllOne = true
+            }else{
+                isAllOne = false
+                break
+            }
+        }
+        // print(self.appDelegate.votePointList)
+        
+        // 全員の投票数が1
+        if self.voteFlag != .battle && isAllOne {
+            self.appDelegate.playerID = 0
+            // 投票のやり直し
+            self.appDelegate.votePointList = [:]
+            // 投票ターゲットを初期化
+            for player in self.appDelegate.playerList {
+                player.voteTarget = -1
+            }
+            let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_TOP) as! VoteTopViewController
+            next.modalTransitionStyle = .crossDissolve
+            next.flag = self.voteFlag
+            present(next, animated: true, completion: nil)
+        }
+        
+        var maxValue = 0
+        var maxKey = 0
+        var keys : [Int] = []
+        for (key , value) in self.appDelegate.votePointList {
+            // 最大値を求める
+            if value > maxValue {
+                maxValue = value
+                maxKey = key
+            }
+        }
+        keys.append(maxKey)
+        for (key , value) in self.appDelegate.votePointList {
+            if value == maxValue && maxKey != key {
+                keys.append(key)
+            }
+        }
+        // １人より多く居た場合
+        if keys.count > 1 {
+            // TODO:決戦投票
+            self.appDelegate.playerID = 0
+            self.appDelegate.votePointList = [:]
+            let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_TOP) as! VoteTopViewController
+            next.modalTransitionStyle = .crossDissolve
+            next.flag = .battle
+            // 投票ターゲットを初期化
+            for index in 0..<self.appDelegate.playerList.count {
+                if keys.contains(index) {
+                    self.appDelegate.playerList[index].isBattleVote = true
+                }
+                self.appDelegate.playerList[index].voteTarget = -1
+            }
+            present(next, animated: true, completion: nil)
+        }else{
+            self.voteTarget = maxKey
+            // 決選投票のフラグを戻す
+            for player in self.appDelegate.playerList {
+                player.isBattleVote = false
+            }
+            // ターンを増やす
+            self.appDelegate.turn += 1
+            self.performSegue(withIdentifier: self.VOTE_RESUL_SEGUE, sender: self)
         }
     }
 }

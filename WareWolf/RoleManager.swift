@@ -133,6 +133,19 @@ class RoleManager: NSObject {
         var list : [Int] = []
         var maxValue = 0
         var maxKey = 0
+        // すべてゼロなら
+        var isAllZero = false
+        for (key, value) in wereWolfPointTable {
+            if value == 0 || wereWolfPointTable[key] == nil {
+                isAllZero = true
+            }else{
+                isAllZero = false
+                break
+            }
+        }
+        if wereWolfPointTable.count == 0 || isAllZero {
+            return []
+        }
         for (key , value) in wereWolfPointTable {
             if value > maxValue {
                 // 最大値を覚える

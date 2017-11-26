@@ -52,6 +52,12 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             
         }
         
+        // 初夜の場合、仕事は完了済みとする
+        // TODO:マジシャンの場合は別
+        if self.appDelegate.turn <= 0 {
+            self.todayJob = true
+        }
+        
         self.detailLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.detail
         self.tableView.reloadData()
     }
