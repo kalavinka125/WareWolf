@@ -1540,7 +1540,7 @@
                         <outlet property="imageView" destination="SA1-Vt-gyq" id="vAa-1W-KjD"/>
                         <outlet property="nameLabel" destination="XiI-6a-yEZ" id="Jk7-3m-mIv"/>
                         <segue destination="IBx-LH-Fsq" kind="presentation" identifier="GO_GAME_NIGHT" modalTransitionStyle="crossDissolve" id="AIU-sV-nPo"/>
-                        <segue destination="wrG-Jd-3at" kind="presentation" identifier="GO_GAME_RESULT" modalTransitionStyle="crossDissolve" id="mHo-3g-tJw"/>
+                        <segue destination="wrG-Jd-3at" kind="presentation" identifier="GO_GAME_RESULT" modalTransitionStyle="flipHorizontal" id="mHo-3g-tJw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdG-5g-sVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1606,10 +1606,10 @@
             </objects>
             <point key="canvasLocation" x="2868.75" y="790.14084507042253"/>
         </scene>
-        <!--Game Result View Controller-->
+        <!--GameResultViewController-->
         <scene sceneID="UKL-3j-09X">
             <objects>
-                <viewController id="wrG-Jd-3at" customClass="GameResultViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="GameResultViewController" id="wrG-Jd-3at" customClass="GameResultViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dw0-0R-bCM"/>
                         <viewControllerLayoutGuide type="bottom" id="MHa-LL-QJS"/>

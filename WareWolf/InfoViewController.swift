@@ -12,6 +12,7 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let SEGUE_NAME = "GO_TO_DISCUSSION"
     private let CELL_ID = "VICTIM_CELL"
+    private let GAME_RESULT_VC = "GameResultViewController"
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var victimLabel: UILabel!
@@ -80,10 +81,18 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
         let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         cancel.setValue(UIColor.black, forKey: "titleTextColor")
         let ok = UIAlertAction(title: "はい", style: .default, handler: { okAction in
-            if self.appDelegate.soundPlayer.isPlaying {
-                self.appDelegate.soundPlayer.stop()
+            let side = self.appDelegate.roleManager.isGameOver(players: self.appDelegate.playerList)
+            if side == .None {
+                if self.appDelegate.soundPlayer.isPlaying {
+                    self.appDelegate.soundPlayer.stop()
+                }
+                self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
+            }else{
+                let next = self.storyboard?.instantiateViewController(withIdentifier: self.GAME_RESULT_VC) as! GameResultViewController
+                next.side = side
+                next.modalTransitionStyle = .flipHorizontal
+                self.present(next, animated: true, completion: nil)
             }
-            self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
         })
         ok.setValue(self.appDelegate.wereWolfColor, forKey: "titleTextColor")
         

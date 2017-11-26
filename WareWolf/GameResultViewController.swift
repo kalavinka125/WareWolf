@@ -60,6 +60,10 @@ class GameResultViewController: UIViewController,UITableViewDelegate,UITableView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 74.0
+    }
+    
     @IBAction func tappedEndButton(_ sender: Any) {
         let next = self.storyboard?.instantiateViewController(withIdentifier: self.TOP_ID) as! ViewController
         next.modalTransitionStyle = .crossDissolve
