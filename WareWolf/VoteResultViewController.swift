@@ -31,6 +31,7 @@ class VoteResultViewController: UIViewController {
         // 投票で選ばれた人物を処刑
         self.appDelegate.playerList[self.voteTarget].isLife = false
         self.nameLabel.text = self.appDelegate.playerList[self.voteTarget].name
+        self.appDelegate.soundPlay(fileName: "buki", numberOfLoop: 0)
     }
 
     override func didReceiveMemoryWarning() {

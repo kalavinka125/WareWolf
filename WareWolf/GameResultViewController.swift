@@ -31,14 +31,18 @@ class GameResultViewController: UIViewController,UITableViewDelegate,UITableView
             self.sideLabel.backgroundColor = self.appDelegate.villagerColor
             self.sideLabel.text = "市民サイド"
             self.imageView.image = UIImage(named: "0")!
+            
+            self.appDelegate.soundPlay(fileName: "win", numberOfLoop: 0)
         }else if self.side == .WereWolf {
             self.sideLabel.backgroundColor = self.appDelegate.wereWolfColor
             self.sideLabel.text = "人狼サイド"
             self.imageView.image = UIImage(named: "1")!
+            self.appDelegate.soundPlay(fileName: "soundLogo", numberOfLoop: 0)
         }else if self.side == .Fox {
             self.sideLabel.backgroundColor = self.appDelegate.foxColor
             self.sideLabel.text = "　狐サイド"
-            self.imageView.image = UIImage(named: "19")!
+            self.imageView.image = UIImage(named: "18")!
+            self.appDelegate.soundPlay(fileName: "soundLogo", numberOfLoop: 0)
         }
         self.tableView.reloadData()
     }
