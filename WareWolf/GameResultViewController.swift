@@ -58,7 +58,11 @@ class GameResultViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! GameRoleTableViewCell
-        cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name
+        if self.appDelegate.playerList[indexPath.row].isLife {
+            cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name
+        }else{
+            cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name + "（死亡）"
+        }
         cell.roleLabel.text = self.appDelegate.playerList[indexPath.row].role.name
         cell.roleImageView.image = UIImage(named: "\(self.appDelegate.playerList[indexPath.row].role.ID)")
         
@@ -66,6 +70,15 @@ class GameResultViewController: UIViewController,UITableViewDelegate,UITableView
             cell.resultImageView.isHidden = false
         }else{
             cell.resultImageView.isHidden = true
+        }
+        
+        cell.roleLabel.textColor = UIColor.black
+        if self.appDelegate.playerList[indexPath.row].role.side == .Villager {
+            cell.roleLabel.textColor = self.appDelegate.villagerColor
+        }else if self.appDelegate.playerList[indexPath.row].role.side == .WereWolf {
+            cell.roleLabel.textColor = self.appDelegate.wereWolfColor
+        }else if self.appDelegate.playerList[indexPath.row].role.side == .Fox {
+            cell.roleLabel.textColor = self.appDelegate.foxColor
         }
         return cell
     }

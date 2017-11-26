@@ -81,7 +81,11 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         // 投票ターゲット = 表示行
         if player.voteTarget == indexPath.row {
             cell.detailLabel.textColor = self.appDelegate.wereWolfColor
-            cell.detailLabel.text = "投票した"
+            if self.isJob {
+                cell.detailLabel.text = "今回：投票した"
+            }else{
+                cell.detailLabel.text = "前回：投票した"
+            }
         }else{
             cell.detailLabel.textColor = UIColor.black
             cell.detailLabel.text = "？？？"
@@ -209,9 +213,11 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
             // 投票のやり直し
             self.appDelegate.votePointList = [:]
             // 投票ターゲットを初期化
+            /*
             for player in self.appDelegate.playerList {
                 player.voteTarget = -1
             }
+            */
             let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_TOP) as! VoteTopViewController
             next.modalTransitionStyle = .crossDissolve
             next.flag = self.voteFlag
@@ -247,7 +253,7 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if keys.contains(index) {
                     self.appDelegate.playerList[index].isBattleVote = true
                 }
-                self.appDelegate.playerList[index].voteTarget = -1
+                // self.appDelegate.playerList[index].voteTarget = -1
             }
             present(next, animated: true, completion: nil)
         }else{
@@ -255,7 +261,10 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
             // 決選投票のフラグを戻す
             for player in self.appDelegate.playerList {
                 player.isBattleVote = false
+                // player.voteTarget = -1
             }
+            // 投票結果のリセット
+            self.appDelegate.votePointList = [:]
             // ターンを増やす
             self.appDelegate.turn += 1
             self.performSegue(withIdentifier: self.VOTE_RESUL_SEGUE, sender: self)

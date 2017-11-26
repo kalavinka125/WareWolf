@@ -75,7 +75,7 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
             player.role.deadEndFlag = false
         }
         // サウンドロゴを流す
-        self.appDelegate.soundPlay(fileName: "bird6", numberOfLoop: 0)
+        self.appDelegate.soundPlay(fileName: "bird6", numberOfLoop: -1)
     }
     
     @IBAction func tappedDiscussionStartButton(_ sender: Any) {
