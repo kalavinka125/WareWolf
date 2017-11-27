@@ -63,6 +63,23 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
         for vID in victimIDList {
             // 死亡判定に変更
             self.appDelegate.playerList[vID].isLife = false
+            // 死んだ役職が猫又のとき
+            if self.appDelegate.playerList[vID].role.ID == 10 {
+                // 生存者確認
+                let liveIDList = self.appDelegate.roleManager.getList(target: true, players: self.appDelegate.playerList)
+                var wolfIDList : [Int] = []
+                // その中から人狼のみを抽出
+                for liveID in liveIDList {
+                    if self.appDelegate.playerList[liveID].role.ID == 1 {
+                        wolfIDList.append(liveID)
+                    }
+                }
+                // 乱数発生
+                let randomID = Int(arc4random_uniform(UInt32(wolfIDList.count)))
+                // 選ばれた人狼を処刑
+                self.appDelegate.playerList[wolfIDList[randomID]].isLife = false
+                self.victimList.append(self.appDelegate.playerList[vID].name)
+            }
             self.victimList.append(self.appDelegate.playerList[vID].name)
         }
         // 犠牲者が１人でも居た場合
