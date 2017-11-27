@@ -35,6 +35,10 @@ class ViewController: UIViewController {
         self.appDelegate.turn = 0
         self.appDelegate.playerID = 0
         self.appDelegate.isPause = false
+        // 初期化
+        for player in self.appDelegate.playerList {
+            player.role = nil
+        }
         self.performSegue(withIdentifier: self.NEWGAME_SEGUE, sender: self)
     }
 
