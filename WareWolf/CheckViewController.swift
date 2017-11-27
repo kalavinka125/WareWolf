@@ -40,7 +40,8 @@ class CheckViewController: UIViewController {
                 }
                 // 選択中役職を入れていく
                 for _ in 0..<value {
-                    self.appDelegate.joinRoleList.append(role!)
+                    let tmpRole = Role(ID: (role?.ID)!, name: (role?.name)!, detail: (role?.detail)!, side: (role?.side)!, uranai: (role?.uranai)!, reibai: (role?.reibai)!)
+                    self.appDelegate.joinRoleList.append(tmpRole)
                 }
             }
         }
