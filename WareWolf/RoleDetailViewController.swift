@@ -54,8 +54,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         }
         
         // 初夜の場合、仕事は完了済みとする
-        // TODO:マジシャンの場合は別
-        if self.appDelegate.turn <= 0 {
+        if self.appDelegate.turn <= 0 && (self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 1 || self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 4 || self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 13 || self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 16) {
             self.todayJob = true
         }
         
