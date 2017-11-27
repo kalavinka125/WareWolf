@@ -168,8 +168,8 @@ class RoleManager: NSObject {
             if player.isLife {
                 // 人狼の殺害ターゲット
                 if index == maxKey {
-                    // 妖狐以外なら
-                    if player.role.ID != 18 {
+                    // 妖狐とサイコキラー以外なら
+                    if (player.role.ID != 18) || (player.role.ID != 6) {
                         if !player.role.guardFlag {
                             // 騎士やコスプレイヤーに守られていないタフガイ
                             if player.role.ID == 12 {
@@ -231,6 +231,12 @@ class RoleManager: NSObject {
                     }
                 }
             }
+        }
+        if wolf == 0 && villager == 0 {
+            if fox > 0 {
+                return .Fox
+            }
+            return .Villager
         }
         if wolf >= villager {
             if fox > 0 {
