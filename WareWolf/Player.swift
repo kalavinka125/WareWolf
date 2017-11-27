@@ -14,6 +14,7 @@ class Player: NSObject {
     // 役職
     var prevRole : Role!
     var role : Role!
+    var newRole : Role!
     // 生存フラグ
     // T:生存,F:死
     var isLife = true

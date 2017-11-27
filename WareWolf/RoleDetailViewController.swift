@@ -36,6 +36,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.todayJob = false
+        /*
         self.imageView.image = UIImage(named: "\(self.appDelegate.playerList[self.appDelegate.playerID].role.ID)")
         self.roleLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.name
         
@@ -52,6 +53,9 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             self.roleLabel.backgroundColor = UIColor.clear
             
         }
+        self.detailLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.detail
+        */
+        self.updateRoleView()
         
         // 初夜の場合、仕事は完了済みとする
         if self.appDelegate.turn <= 0 && (self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 1 || self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 4 || self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 13 || self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 16) {
@@ -61,7 +65,6 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             self.todayJob = true
         }
         
-        self.detailLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.detail
         self.tableView.reloadData()
     }
 
@@ -223,7 +226,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tappedRoleJobButton(indexPath: IndexPath) {
         let target = self.appDelegate.playerList[indexPath.row]
-        let role = self.appDelegate.playerList[self.appDelegate.playerID].role
+        var role = self.appDelegate.playerList[self.appDelegate.playerID].role
         
         // 1,2,4,8,13,15
         if role?.ID == 1 {
@@ -442,6 +445,8 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             // アラートの表示
             present(alert, animated: true, completion: nil)
         }else if role?.ID == 15 {
+            let message = target.name + "を\n交換しますか？"
+            let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
             // マジシャン
             let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
             cancel.setValue(UIColor.black, forKey: "titleTextColor")
@@ -450,20 +455,23 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
                     // 能力ターゲットを記憶する
                     self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
                     self.todayJob = true
+                    // 交換対象のフラグをセット
+                    target.isChange = true
+                    target.prevRole = target.role
+                    // 新しい役職
+                    self.appDelegate.playerList[self.appDelegate.playerID].newRole = target.role
+                    self.updateRoleView(role: target.role)
                     // サイコキラーの場合
                     if target.role.ID == 6 {
                         role?.deadEndFlag = true
-                    }else{
-                        // 
-                        target.role = role
-                        
+                        // サイコキラーは交換できない
+                        target.isChange = false
                     }
                     self.tableView.reloadData()
                 }
             })
             ok.setValue(self.appDelegate.villagerColor, forKey: "titleTextColor")
-            let message = target.name + "を\n交換しますか？"
-            let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+
             let font = UIFont(name: "PixelMplus10-Regular", size: 18)
             let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
             let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
@@ -543,5 +551,46 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         self.appDelegate.playerID = 0
         // とりあえず議論へ
         self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
+    }
+    
+    /// 役職についての説明を表示するためのページ
+    private func updateRoleView() {
+        self.imageView.image = UIImage(named: "\(self.appDelegate.playerList[self.appDelegate.playerID].role.ID)")
+        self.roleLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.name
+        
+        if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .Villager {
+            self.roleLabel.backgroundColor = self.appDelegate.villagerColor
+            
+        }else if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .WereWolf {
+            self.roleLabel.backgroundColor = self.appDelegate.wereWolfColor
+            
+        }else if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .Fox {
+            self.roleLabel.backgroundColor = self.appDelegate.foxColor
+            
+        }else {
+            self.roleLabel.backgroundColor = UIColor.clear
+            
+        }
+        self.detailLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.detail
+    }
+    
+    private func updateRoleView(role : Role) {
+        self.imageView.image = UIImage(named: "\(role.ID)")
+        self.roleLabel.text = role.name
+        
+        if role.side == .Villager {
+            self.roleLabel.backgroundColor = self.appDelegate.villagerColor
+            
+        }else if role.side == .WereWolf {
+            self.roleLabel.backgroundColor = self.appDelegate.wereWolfColor
+            
+        }else if role.side == .Fox {
+            self.roleLabel.backgroundColor = self.appDelegate.foxColor
+            
+        }else {
+            self.roleLabel.backgroundColor = UIColor.clear
+            
+        }
+        self.detailLabel.text = role.detail
     }
 }

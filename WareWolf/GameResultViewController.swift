@@ -63,7 +63,14 @@ class GameResultViewController: UIViewController,UITableViewDelegate,UITableView
         }else{
             cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name + "（死亡）"
         }
-        cell.roleLabel.text = self.appDelegate.playerList[indexPath.row].role.name
+        
+        if self.appDelegate.playerList[indexPath.row].prevRole != nil {
+            let prevRole = self.appDelegate.playerList[indexPath.row].prevRole
+            let role = self.appDelegate.playerList[indexPath.row].role
+            cell.roleLabel.text = (prevRole?.name)! + " => " + (role?.name)!
+        }else{
+            cell.roleLabel.text = self.appDelegate.playerList[indexPath.row].role.name
+        }
         cell.roleImageView.image = UIImage(named: "\(self.appDelegate.playerList[indexPath.row].role.ID)")
         
         if self.side == self.appDelegate.playerList[indexPath.row].role.side {

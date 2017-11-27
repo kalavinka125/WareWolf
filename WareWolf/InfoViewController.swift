@@ -39,8 +39,28 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
         self.timeLabel.text = "\(self.appDelegate.turn+1)日目 の 朝です"
         self.victimList = []
         let victimIDList = self.appDelegate.roleManager.getVictimList(players: self.appDelegate.playerList, wereWolfPointTable: self.appDelegate.wolfPointList)
+        
+        // 1日目の夜は限定
+        if self.appDelegate.turn <= 0 {
+            // マジシャンの交換処理を行う
+            for player in self.appDelegate.playerList {
+                // 新しい役職を持っている = マジシャン（or 怪盗）
+                if player.newRole != nil {
+                    player.prevRole = player.role
+                    player.role = player.newRole
+                }
+                // 交換対象
+                if player.isChange {
+                    // 交換された人物は「市民」になる
+                    let base = self.appDelegate.roleManager.ID2Role(ID: 0, roleList: self.appDelegate.roleList)
+                    let simin = Role(ID: (base?.ID)!, name: (base?.name)!, detail: (base?.detail)!, side: (base?.side)!, uranai: (base?.uranai)!, reibai: (base?.reibai)!)
+                    // 市民に変更
+                    player.role = simin
+                    player.isChange = false
+                }
+            }
+        }
         for vID in victimIDList {
-            print(vID)
             // 死亡判定に変更
             self.appDelegate.playerList[vID].isLife = false
             self.victimList.append(self.appDelegate.playerList[vID].name)
