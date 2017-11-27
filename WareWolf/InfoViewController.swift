@@ -38,7 +38,7 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
         // self.title = "\(self.appDelegate.turn)日目 の 朝です"
         self.timeLabel.text = "\(self.appDelegate.turn+1)日目 の 朝です"
         self.victimList = []
-        let victimIDList = self.appDelegate.roleManager.getVictimList(players: self.appDelegate.playerList, wereWolfPointTable: self.appDelegate.wolfPointList)
+        let victimIDList = self.appDelegate.roleManager.getVictimList(players: self.appDelegate.playerList, wereWolfPointTable: self.appDelegate.wolfPointList, turn: self.appDelegate.turn)
         
         // 1日目の夜は限定
         if self.appDelegate.turn <= 0 {

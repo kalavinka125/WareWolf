@@ -129,7 +129,7 @@ class RoleManager: NSObject {
     ///   - players: 参加プレイヤー
     ///   - wereWolfPointTable: 人狼のターゲットテーブル
     /// - Returns: 犠牲者リスト
-    func getVictimList(players : [Player] , wereWolfPointTable : [Int:Int]) -> [Int]{
+    func getVictimList(players : [Player] , wereWolfPointTable : [Int:Int],turn : Int) -> [Int]{
         var list : [Int] = []
         var maxValue = 0
         var maxKey = 0
@@ -166,7 +166,15 @@ class RoleManager: NSObject {
                 // 死亡フラグが立っている場合
                 if player.role.deadEndFlag {
                     // player.isLife = false
-                    list.append(index)
+                    // タフガイは
+                    if player.role.ID == 12 {
+                        // 死ぬターン == 現在のターン
+                        if player.endTurn == turn {
+                            list.append(index)
+                        }
+                    }else{
+                        list.append(index)
+                    }
                 }
             }
         }
