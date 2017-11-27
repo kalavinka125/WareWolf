@@ -12,6 +12,7 @@ class Player: NSObject {
     // ユーザ名
     var name = "Player"
     // 役職
+    var prevRole : Role!
     var role : Role!
     // 生存フラグ
     // T:生存,F:死
@@ -24,6 +25,8 @@ class Player: NSObject {
     var voteTarget = -1
     // 決選投票の対象か
     var isBattleVote = false
+    // マジシャンの交換対象になってないか
+    var isChange = false
     init(name : String) {
         self.name = name
     }
