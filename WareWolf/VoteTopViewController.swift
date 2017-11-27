@@ -31,7 +31,7 @@ class VoteTopViewController: UIViewController {
         if self.flag == .retry {
             self.showAlert(viewController: self, message: "処刑する人物を\n1名決めてください", buttonTitle: "OK")
         }else if self.flag == .battle {
-            self.showAlert(viewController: self, message: "決戦投票\n指定された人物から\n再度投票を行ってください", buttonTitle: "OK")
+            self.showAlert(viewController: self, message: "決選投票\n指定された人物から\n再度投票を行ってください", buttonTitle: "OK")
         }
     }
 
