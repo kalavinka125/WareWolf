@@ -12,7 +12,7 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let ROLL_CELL = "ROLL_CELL"
     private let SEGUE_NAME = "GO_TO_CHECK"
-    private let sections = [" Villager "," WereWolf "," Fox "]
+    private let sections = [" 市民 "," 人狼 "," 狐 "]
     
     private var roleList : [Int : Int] = [:]
     
