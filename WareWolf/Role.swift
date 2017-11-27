@@ -53,6 +53,33 @@ class Role: NSObject {
         self.side = Role.number2Side(number: side)
         self.uranai = Role.number2Side(number: uranai)
         self.reibai = Role.number2Side(number: reibai)
+        self.uranaiResult = [:]
+        self.reibaiResult = [:]
+        self.satoriResult = -1
+        // 死亡フラグ
+        self.deadEndFlag = false
+        // 防御フラグ
+        self.guardFlag = false
+        //
+        self.wereWolfFlag = false
+    }
+    
+    init(ID:Int,name:String,detail:String,side:Side,uranai:Side,reibai:Side){
+        self.ID = ID
+        self.name = name
+        self.detail = detail
+        self.side = side
+        self.uranai = uranai
+        self.reibai = reibai
+        self.uranaiResult = [:]
+        self.reibaiResult = [:]
+        self.satoriResult = -1
+        // 死亡フラグ
+        self.deadEndFlag = false
+        // 防御フラグ
+        self.guardFlag = false
+        //
+        self.wereWolfFlag = false
     }
     
     /// 何陣営かを判定する
