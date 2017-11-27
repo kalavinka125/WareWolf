@@ -56,6 +56,9 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         // 初夜の場合、仕事は完了済みとする
         if self.appDelegate.turn <= 0 && (self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 1 || self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 4 || self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 13 || self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 16) {
             self.todayJob = true
+        }else if self.appDelegate.turn >= 1 && self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 15{
+            // 初夜以降、マジシャンは仕事できない
+            self.todayJob = true
         }
         
         self.detailLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.detail
@@ -236,10 +239,14 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
                     // 能力ターゲットを記憶する
                     self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
                     // target.role.wolfPoint += 1
+
                     if self.appDelegate.wolfPointList[indexPath.row] != nil {
                         self.appDelegate.wolfPointList[indexPath.row] = (self.appDelegate.wolfPointList[indexPath.row]! + 1)
                     }else{
                         self.appDelegate.wolfPointList[indexPath.row] = 1
+                    }
+                    if target.role.ID == 6 {
+                        role?.deadEndFlag = true
                     }
                     self.todayJob = true
                     self.tableView.reloadData()
@@ -254,8 +261,10 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
                     }else{
                         self.appDelegate.wolfPointList[indexPath.row] = 2
                     }
+                    if target.role.ID == 6 {
+                        role?.deadEndFlag = true
+                    }
                     self.todayJob = true
-                    
                     self.tableView.reloadData()
                 }
             })
@@ -269,10 +278,11 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
                     }else{
                         self.appDelegate.wolfPointList[indexPath.row] = 3
                     }
+                    if target.role.ID == 6 {
+                        role?.deadEndFlag = true
+                    }
                     self.todayJob = true
-                    
                     self.tableView.reloadData()
-
                 }
             })
             ok1.setValue(self.appDelegate.wereWolfColor, forKey: "titleTextColor")
@@ -422,6 +432,37 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             })
             ok.setValue(self.appDelegate.villagerColor, forKey: "titleTextColor")
             let message = target.name + "を\n守りますか？"
+            let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+            let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+            let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+            alert.setValue(attributedMessage, forKey: "attributedMessage")
+            alert.addAction(cancel)
+            alert.addAction(ok)
+            // アラートの表示
+            present(alert, animated: true, completion: nil)
+        }else if role?.ID == 15 {
+            // マジシャン
+            let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            cancel.setValue(UIColor.black, forKey: "titleTextColor")
+            let ok = UIAlertAction(title: "交換する", style: .default, handler: { okAction in
+                DispatchQueue.main.async {
+                    // 能力ターゲットを記憶する
+                    self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+                    self.todayJob = true
+                    // サイコキラーの場合
+                    if target.role.ID == 6 {
+                        role?.deadEndFlag = true
+                    }else{
+                        // 
+                        target.role = role
+                        
+                    }
+                    self.tableView.reloadData()
+                }
+            })
+            ok.setValue(self.appDelegate.villagerColor, forKey: "titleTextColor")
+            let message = target.name + "を\n交換しますか？"
             let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
             let font = UIFont(name: "PixelMplus10-Regular", size: 18)
             let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
