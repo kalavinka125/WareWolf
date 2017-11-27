@@ -28,6 +28,10 @@ class Player: NSObject {
     var isBattleVote = false
     // マジシャンの交換対象になってないか
     var isChange = false
+    // 死ぬターンを決める
+    // 基本タフガイ用
+    var endTurn = -1
+    
     init(name : String) {
         self.name = name
     }
