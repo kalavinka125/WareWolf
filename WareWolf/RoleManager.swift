@@ -157,24 +157,31 @@ class RoleManager: NSObject {
             let player = players[index]
             // 生存している人を対象に
             if player.isLife {
+                // 人狼の殺害ターゲット
                 if index == maxKey {
                     if !player.role.guardFlag {
-                        // player.isLife = false
-                        list.append(index)
+                        // 騎士やコスプレイヤーに守られていないタフガイ
+                        if player.role.ID == 12 {
+                            // 死ぬターンが設定されていない場合
+                            if player.endTurn == -1 {
+                                player.endTurn = turn + 1
+                            }else if player.endTurn == turn{
+                                // 死亡するターンなら
+                                list.append(index)
+                            }
+                        }else{
+                            // タフガイ以外なら、即死
+                            list.append(index)
+                        }
                     }
                 }
                 // 死亡フラグが立っている場合
-                if player.role.deadEndFlag {
-                    // player.isLife = false
-                    // タフガイは
-                    if player.role.ID == 12 {
-                        // 死ぬターン == 現在のターン
-                        if player.endTurn == turn {
-                            list.append(index)
-                        }
-                    }else{
-                        list.append(index)
-                    }
+                else if player.role.deadEndFlag {
+                    list.append(index)
+                }
+                // タフガイの判定
+                else if player.role.ID == 12 && player.endTurn == turn {
+                    list.append(index)
                 }
             }
         }

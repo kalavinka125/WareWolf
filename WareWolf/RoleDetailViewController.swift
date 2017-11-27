@@ -226,8 +226,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     
     func tappedRoleJobButton(indexPath: IndexPath) {
         let target = self.appDelegate.playerList[indexPath.row]
-        var role = self.appDelegate.playerList[self.appDelegate.playerID].role
-        
+        let role = self.appDelegate.playerList[self.appDelegate.playerID].role
         // 1,2,4,8,13,15
         if role?.ID == 1 {
             // 能力ターゲットを記憶する
