@@ -144,39 +144,51 @@ class RoleManager: NSObject {
             }
         }
         if wereWolfPointTable.count == 0 || isAllZero {
-            return []
+            // 呪殺やサイコキラーで死んだ役職の対応
+            for index in 0..<players.count {
+                if players[index].role.deadEndFlag {
+                    players[index].isLife = false
+                    list.append(index)
+                }
+            }
+            return list
         }
         for (key , value) in wereWolfPointTable {
             if value > maxValue {
                 // 最大値を覚える
                 maxValue = value
                 maxKey = key
+
             }
         }
+        
         for index in 0..<players.count {
             let player = players[index]
             // 生存している人を対象に
             if player.isLife {
                 // 人狼の殺害ターゲット
                 if index == maxKey {
-                    if !player.role.guardFlag {
-                        // 騎士やコスプレイヤーに守られていないタフガイ
-                        if player.role.ID == 12 {
-                            // 死ぬターンが設定されていない場合
-                            if player.endTurn == -1 {
-                                player.endTurn = turn + 1
-                            }else if player.endTurn == turn{
-                                // 死亡するターンなら
+                    // 妖狐以外なら
+                    if player.role.ID != 18 {
+                        if !player.role.guardFlag {
+                            // 騎士やコスプレイヤーに守られていないタフガイ
+                            if player.role.ID == 12 {
+                                // 死ぬターンが設定されていない場合
+                                if player.endTurn == -1 {
+                                    player.endTurn = turn + 1
+                                }else if player.endTurn == turn{
+                                    // 死亡するターンなら
+                                    list.append(index)
+                                }
+                            }else{
+                                // タフガイ以外なら、即死
                                 list.append(index)
                             }
-                        }else{
-                            // タフガイ以外なら、即死
-                            list.append(index)
                         }
                     }
                 }
                 // 死亡フラグが立っている場合
-                else if player.role.deadEndFlag {
+                if player.role.deadEndFlag {
                     list.append(index)
                 }
                 // タフガイの判定
@@ -232,5 +244,14 @@ class RoleManager: NSObject {
             return .Villager
         }
         return .None
+    }
+    
+    func nekomata(players : [Player], nekomataID : Int) {
+        for player in players {
+            // 発動した猫又以外の
+            if player.isLife && player.role.ID != nekomataID {
+                
+            }
+        }
     }
 }
