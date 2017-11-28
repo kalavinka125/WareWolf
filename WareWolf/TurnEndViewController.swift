@@ -8,14 +8,23 @@
 
 import UIKit
 
-class TurnEndViewController: UIViewController {
+class TurnEndViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let NEXT_VC = "RoleCheckViewController"
+    private let CELL_ID = "PLAYER_LIFE_CELL"
     
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +45,32 @@ class TurnEndViewController: UIViewController {
             }
         }
         present(next, animated: true, completion: nil)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.appDelegate.playerList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! PlayerLifeTableViewCell
+        cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name
+        if (indexPath.row + 1) < 10 {
+            cell.numberLabel.text = " \(indexPath.row + 1)"
+        }else{
+            cell.numberLabel.text = "\(indexPath.row + 1)"
+        }
+        if self.appDelegate.playerList[indexPath.row].isLife {
+            cell.statusLabel.text = "生存"
+            cell.statusLabel.textColor = self.appDelegate.villagerColor
+        }else{
+            cell.statusLabel.text = "死亡"
+            cell.statusLabel.textColor = self.appDelegate.wereWolfColor
+        }
+        return cell
     }
 
     /*
