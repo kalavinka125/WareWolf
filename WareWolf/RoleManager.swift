@@ -169,7 +169,7 @@ class RoleManager: NSObject {
                 // 人狼の殺害ターゲット
                 if index == maxKey {
                     // 妖狐とサイコキラー以外なら
-                    if (player.role.ID != 18) || (player.role.ID != 6) {
+                    if (player.role.ID != 18) && (player.role.ID != 6) {
                         if !player.role.guardFlag {
                             // 騎士やコスプレイヤーに守られていないタフガイ
                             if player.role.ID == 12 {
