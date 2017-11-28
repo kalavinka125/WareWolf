@@ -103,7 +103,18 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
             self.doubtLabel.text = self.appDelegate.playerList[doubtIndex].name
         }
         */
-        // 疑わしい人のリセット
+        
+        // 復活者の処理
+        if self.appDelegate.rebornList.count > 0 {
+            for reborn in self.appDelegate.rebornList {
+                // 蘇生処理
+                self.appDelegate.playerList[reborn].isLife = true
+            }
+            self.showAlert(viewController: self, message: "昨夜の間に\n蘇生されたユーザが\n存在します\n（\(self.appDelegate.rebornList.count)名）", buttonTitle: "OK")
+            // 復活者のリストをクリア
+            self.appDelegate.rebornList = []
+        }
+        
         // 全員の死亡フラグを元に戻す
         // 全員の騎士フラグを元に戻す
         for player in self.appDelegate.playerList {

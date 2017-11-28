@@ -56,11 +56,11 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         self.detailLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.detail
         */
         self.updateRoleView()
-        
+        let player = self.appDelegate.playerList[self.appDelegate.playerID]
         // 初夜の場合、仕事は完了済みとする
-        if self.appDelegate.turn <= 0 && (self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 1 || self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 4 || self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 13 || self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 16) {
+        if self.appDelegate.turn <= 0 && (player.role.ID == 1 || player.role.ID == 4 || player.role.ID == 11 || player.role.ID == 13 || player.role.ID == 14 || player.role.ID == 16 || player.role.ID == 17) {
             self.todayJob = true
-        }else if self.appDelegate.turn >= 1 && self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 15{
+        }else if self.appDelegate.turn >= 1 && player.role.ID == 15{
             // 初夜以降、マジシャンは仕事できない
             self.todayJob = true
         }
@@ -186,8 +186,31 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
                 cell.detailLabel.text = "守った"
                 cell.detailLabel.textColor = self.appDelegate.villagerColor
             }
+        }else if role?.ID == 14 {
+            cell.jobButton.setTitle("蘇生させる", for: .normal)
+            if self.appDelegate.playerList[self.appDelegate.playerID].target == indexPath.row {
+                cell.detailLabel.text = "蘇生済み"
+                cell.detailLabel.textColor = self.appDelegate.villagerColor
+            }
+
         }else if role?.ID == 15 {
             cell.jobButton.setTitle("交換する", for: .normal)
+            if self.appDelegate.playerList[self.appDelegate.playerID].target == indexPath.row {
+                if self.appDelegate.playerList[self.appDelegate.playerID].newRole != nil {
+                    // 新しい役職に応じて、文字色変更
+                    if self.appDelegate.playerList[self.appDelegate.playerID].newRole.side == .Villager {
+                        cell.detailLabel.textColor = self.appDelegate.villagerColor
+                    }else if self.appDelegate.playerList[self.appDelegate.playerID].newRole.side == .WereWolf {
+                        cell.detailLabel.textColor = self.appDelegate.wereWolfColor
+                    }else if self.appDelegate.playerList[self.appDelegate.playerID].newRole.side == .Fox {
+                        cell.detailLabel.textColor = self.appDelegate.foxColor
+                    }else {
+                        cell.detailLabel.textColor = UIColor.black
+                    }
+                    // 「交換済み」を表示する
+                    cell.detailLabel.text = "交換済み"
+                }
+            }
         }else if role?.ID == 16 {
             cell.jobButton.setTitle("識る", for: .normal)
             if self.appDelegate.playerList[self.appDelegate.playerID].target == indexPath.row {
@@ -205,13 +228,35 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             cell.jobButton.isHidden = true
         }
         
-        // 死亡判定
-        if !self.appDelegate.playerList[indexPath.row].isLife {
-            cell.jobButton.isHidden = false
-            cell.isUserInteractionEnabled = false
-            cell.jobButton.backgroundColor = UIColor.lightGray
-            cell.jobButton.setTitleColor(UIColor.black, for: .normal)
-            cell.jobButton.setTitle("死亡", for: .normal)
+        // 蘇生させる系の役職の判定
+        if role?.ID == 14 {
+            // 死亡判定
+            // 能力行使可能
+            if !self.appDelegate.playerList[indexPath.row].isLife {
+
+                if self.appDelegate.playerList[self.appDelegate.playerID].target == indexPath.row {
+                    // 能力行使後
+                    cell.jobButton.isHidden = true
+                    cell.isUserInteractionEnabled = false
+                }else{
+                    // 能力行使前
+                    cell.jobButton.isHidden = false
+                    cell.isUserInteractionEnabled = true
+                }
+            }else{
+                // 生きている場合
+                cell.jobButton.isHidden = true
+                cell.isUserInteractionEnabled = false
+            }
+        }else{
+            // 死亡判定
+            if !self.appDelegate.playerList[indexPath.row].isLife {
+                cell.jobButton.isHidden = false
+                cell.isUserInteractionEnabled = false
+                cell.jobButton.backgroundColor = UIColor.lightGray
+                cell.jobButton.setTitleColor(UIColor.black, for: .normal)
+                cell.jobButton.setTitle("死亡", for: .normal)
+            }
         }
         
         return cell
@@ -434,6 +479,39 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             })
             ok.setValue(self.appDelegate.villagerColor, forKey: "titleTextColor")
             let message = target.name + "を\n守りますか？"
+            let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+            let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+            let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+            alert.setValue(attributedMessage, forKey: "attributedMessage")
+            alert.addAction(cancel)
+            alert.addAction(ok)
+            // アラートの表示
+            present(alert, animated: true, completion: nil)
+        }else if role?.ID == 14 {
+            // ヒロイン
+            self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+            let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            cancel.setValue(UIColor.black, forKey: "titleTextColor")
+            let ok = UIAlertAction(title: "蘇生させる", style: .default, handler: { okAction in
+                DispatchQueue.main.async {
+                    // 能力ターゲットを記憶する
+                    self.appDelegate.playerList[self.appDelegate.playerID].target = indexPath.row
+                    self.todayJob = true
+                    // ターゲットを復活させる
+                    // target.isLife = true
+                    if !self.appDelegate.rebornList.contains(indexPath.row) {
+                        self.appDelegate.rebornList.append(indexPath.row)
+                    }
+                    // 自分に死亡フラグを立てる
+                    role?.deadEndFlag = true
+                    // 復活した人が出たことを表す
+                    self.appDelegate.isReborn = true
+                    self.tableView.reloadData()
+                }
+            })
+            ok.setValue(self.appDelegate.villagerColor, forKey: "titleTextColor")
+            let message = target.name + "を\n蘇生させますか？"
             let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
             let font = UIFont(name: "PixelMplus10-Regular", size: 18)
             let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
