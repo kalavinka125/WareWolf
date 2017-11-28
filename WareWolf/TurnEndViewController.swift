@@ -59,9 +59,9 @@ class TurnEndViewController: UIViewController ,UITableViewDelegate,UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! PlayerLifeTableViewCell
         cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name
         if (indexPath.row + 1) < 10 {
-            cell.numberLabel.text = " \(indexPath.row + 1)"
+            cell.numberLabel.text = " \(indexPath.row + 1)."
         }else{
-            cell.numberLabel.text = "\(indexPath.row + 1)"
+            cell.numberLabel.text = "\(indexPath.row + 1)."
         }
         if self.appDelegate.playerList[indexPath.row].isLife {
             cell.statusLabel.text = "生存"
