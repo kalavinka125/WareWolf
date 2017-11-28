@@ -1610,7 +1610,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="289" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7O-4c-9s8">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7O-4c-9s8">
                                                     <rect key="frame" x="48" y="11" width="193" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Zyj-Vf-9dV"/>
@@ -1629,7 +1629,7 @@
                                                     <color key="textColor" red="0.0" green="0.98039215690000003" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M21-Ap-czI">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M21-Ap-czI">
                                                     <rect key="frame" x="14" y="11" width="26" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="SrE-iY-zQG"/>
@@ -1657,6 +1657,7 @@
                                         <connections>
                                             <outlet property="nameLabel" destination="a7O-4c-9s8" id="hm1-Hg-mU3"/>
                                             <outlet property="numberLabel" destination="M21-Ap-czI" id="JlX-9y-aQV"/>
+                                            <outlet property="statusLabel" destination="pW6-Kz-G3f" id="Ikw-iQ-Mmr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
