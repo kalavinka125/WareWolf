@@ -53,17 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // 復活した人がいる場合
     // 例：ヒロインなど
     var isReborn = false
+    var rebornList : [Int] = []
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        // 参加者を4名追加
-        /*
-        let player1 = Player(name: "Player1")
-        let player2 = Player(name: "Player2")
-        let player3 = Player(name: "Player3")
-        let player4 = Player(name: "Player4")
-        self.playerList = [player1,player2,player3,player4]
-        */
+
         // 役割一覧
         let roles = ExFileManager.readFile(forResource: "Jin-Roh", fileExtension: "csv")
         for index in 1..<roles.count {
