@@ -188,7 +188,7 @@ class RoleManager: NSObject {
                     }
                 }
                 // 死亡フラグが立っている場合
-                if player.role.deadEndFlag {
+                else if player.role.deadEndFlag {
                     list.append(index)
                 }
                 // タフガイの判定
@@ -252,12 +252,36 @@ class RoleManager: NSObject {
         return .None
     }
     
-    func nekomata(players : [Player], nekomataID : Int) {
+    /// 猫又が死んだ後に起動すること
+    /// 最悪の場合、無限ループ
+    /// - Parameter players: プレイヤー
+    /// - Returns: ゲームの勝敗
+    func nekomata(players : [Player]) -> Side{
+        var isAllDead = false
         for player in players {
-            // 発動した猫又以外の
-            if player.isLife && player.role.ID != nekomataID {
-                
+            if !player.isLife {
+                isAllDead = true
+            }else{
+                isAllDead = false
+                break
             }
+        }
+        // 全員死んでいる場合
+        if isAllDead {
+            return isGameOver(players: players)
+        }
+        // 生きている人間に当たるまで乱数
+        var random = Int(arc4random_uniform(UInt32(players.count)))
+        while(!players[random].isLife) {
+            random = Int(arc4random_uniform(UInt32(players.count)))
+        }
+        // そのターゲットを殺害
+        players[random].isLife = false
+        // 次の殺害ターゲットになった役職が猫又だった場合
+        if players[random].role.ID == 10 {
+            return nekomata(players: players)
+        }else{
+            return isGameOver(players:players)
         }
     }
 }
