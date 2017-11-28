@@ -4,7 +4,6 @@
 //
 //  Created by falcon@mac on H29/11/24.
 //  Copyright © 平成29年 NagaoLab. All rights reserved.
-//
 
 import UIKit
 
@@ -78,7 +77,8 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
                 let randomID = Int(arc4random_uniform(UInt32(wolfIDList.count)))
                 // 選ばれた人狼を処刑
                 self.appDelegate.playerList[wolfIDList[randomID]].isLife = false
-                self.victimList.append(self.appDelegate.playerList[vID].name)
+                // self.victimList.append(self.appDelegate.playerList[vID].name)
+                self.victimList.append(self.appDelegate.playerList[wolfIDList[randomID]].name)
             }
             self.victimList.append(self.appDelegate.playerList[vID].name)
         }
