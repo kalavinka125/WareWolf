@@ -32,6 +32,10 @@ class VoteResultViewController: UIViewController {
         self.appDelegate.playerList[self.voteTarget].isLife = false
         self.nameLabel.text = self.appDelegate.playerList[self.voteTarget].name
         self.appDelegate.soundPlay(fileName: "buki", numberOfLoop: 0)
+        // 猫又の場合
+        if self.appDelegate.playerList[self.voteTarget].role.ID == 10 {
+            self.side = self.appDelegate.roleManager.nekomata(players: self.appDelegate.playerList)
+        }
     }
 
     override func didReceiveMemoryWarning() {
