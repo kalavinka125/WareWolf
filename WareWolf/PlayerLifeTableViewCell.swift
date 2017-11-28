@@ -10,6 +10,10 @@ import UIKit
 
 class PlayerLifeTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
