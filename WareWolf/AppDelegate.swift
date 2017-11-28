@@ -50,6 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var soundPlayer : AVAudioPlayer!
     var isPause = false
     var isBattleVote = false
+    // 復活した人がいる場合
+    // 例：ヒロインなど
+    var isReborn = false
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
