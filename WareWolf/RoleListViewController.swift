@@ -14,7 +14,7 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
     private let SEGUE_NAME = "GO_TO_CHECK"
     private let sections = [" 市民 "," 人狼 "," 狐 "]
     
-    private var roleList : [Int : Int] = [:]
+    var roleList : [Int : Int] = [:]
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
