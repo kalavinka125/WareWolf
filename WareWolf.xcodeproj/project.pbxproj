@@ -23,6 +23,7 @@
 		D236140A1FC1BD0C00563B8C /* RoleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23614091FC1BD0C00563B8C /* RoleListViewController.swift */; };
 		D236140D1FC1CB3B00563B8C /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D236140C1FC1CB3B00563B8C /* PlayerTableViewCell.swift */; };
 		D236140F1FC1DAC700563B8C /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = D236140E1FC1DAC700563B8C /* Role.swift */; };
+		D23F39E21FCDB343002A38CC /* PlayerLifeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F39E11FCDB343002A38CC /* PlayerLifeTableViewCell.swift */; };
 		D28646AC1FC1E313002B14BD /* PlayerEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */; };
 		D28646AE1FC1E3AF002B14BD /* PlayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */; };
 		D28646B01FC1F124002B14BD /* RoleCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */; };
@@ -94,6 +95,7 @@
 		D23614091FC1BD0C00563B8C /* RoleListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleListViewController.swift; sourceTree = "<group>"; };
 		D236140C1FC1CB3B00563B8C /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 		D236140E1FC1DAC700563B8C /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		D23F39E11FCDB343002A38CC /* PlayerLifeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerLifeTableViewCell.swift; sourceTree = "<group>"; };
 		D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerEditTableViewCell.swift; sourceTree = "<group>"; };
 		D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerListViewController.swift; sourceTree = "<group>"; };
 		D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleCheckViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				D2D406551FC417F800F10994 /* RoleJobTableViewCell.swift */,
 				D2D406571FC7366C00F10994 /* VictimTableViewCell.swift */,
 				D2DFD1F71FCAA9B300395713 /* GameRoleTableViewCell.swift */,
+				D23F39E11FCDB343002A38CC /* PlayerLifeTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D28646B01FC1F124002B14BD /* RoleCheckViewController.swift in Sources */,
+				D23F39E21FCDB343002A38CC /* PlayerLifeTableViewCell.swift in Sources */,
 				D236140A1FC1BD0C00563B8C /* RoleListViewController.swift in Sources */,
 				D2DFD1F41FCA80C100395713 /* VoteResultViewController.swift in Sources */,
 				D2D406541FC405CB00F10994 /* DiscussionViewController.swift in Sources */,
