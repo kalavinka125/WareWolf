@@ -36,25 +36,6 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.todayJob = false
-        /*
-        self.imageView.image = UIImage(named: "\(self.appDelegate.playerList[self.appDelegate.playerID].role.ID)")
-        self.roleLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.name
-        
-        if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .Villager {
-            self.roleLabel.backgroundColor = self.appDelegate.villagerColor
-            
-        }else if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .WereWolf {
-            self.roleLabel.backgroundColor = self.appDelegate.wereWolfColor
-            
-        }else if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .Fox {
-            self.roleLabel.backgroundColor = self.appDelegate.foxColor
-            
-        }else {
-            self.roleLabel.backgroundColor = UIColor.clear
-            
-        }
-        self.detailLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.detail
-        */
         self.updateRoleView()
         let player = self.appDelegate.playerList[self.appDelegate.playerID]
         // 初夜の場合、仕事は完了済みとする
