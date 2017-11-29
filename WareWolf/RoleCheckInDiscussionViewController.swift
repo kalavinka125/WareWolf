@@ -10,6 +10,7 @@ import UIKit
 
 class RoleCheckInDiscussionViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     private let DICTATOR_SEGUE = "GO_TO_DICTATOR"
+    private let DETECTIVE_SEGUE = "GO_TO_DETECTIVE"
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var selectRow = -1
     private let font = UIFont(name: "PixelMplus10-Regular", size: 24)
@@ -121,7 +122,8 @@ class RoleCheckInDiscussionViewController: UIViewController,UIPickerViewDelegate
                 }else if self.prev == .detective {
                     // 探偵
                     if self.appDelegate.playerList[self.selectRow].role.ID == 17 {
-                        self.performSegue(withIdentifier: self.DICTATOR_SEGUE, sender: self)
+                        self.appDelegate.detectiveID = self.selectRow
+                        self.performSegue(withIdentifier: self.DETECTIVE_SEGUE, sender: self)
                     }else{
                         self.showAlert(viewController: self, message: "あなたは、\n名探偵ではありません", buttonTitle: "OK")
                     }
