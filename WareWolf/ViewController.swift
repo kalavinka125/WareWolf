@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tappedNewGameButton(_ sender: Any) {
+        /*
         let player1 = Player(name: "Player1")
         let player2 = Player(name: "Player2")
         let player3 = Player(name: "Player3")
@@ -43,6 +44,8 @@ class ViewController: UIViewController {
         for player in self.appDelegate.playerList {
             player.role = nil
         }
+        */
+        self.appDelegate.gameRefresh()
         self.performSegue(withIdentifier: self.NEWGAME_SEGUE, sender: self)
     }
 
