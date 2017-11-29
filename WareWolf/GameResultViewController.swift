@@ -97,7 +97,9 @@ class GameResultViewController: UIViewController,UITableViewDelegate,UITableView
     @IBAction func tappedEndButton(_ sender: Any) {
         let next = self.storyboard?.instantiateViewController(withIdentifier: self.TOP_ID) as! ViewController
         next.modalTransitionStyle = .crossDissolve
-        present(next, animated: true, completion: nil)
+        present(next, animated: true, completion: {
+            self.appDelegate.gameRefresh()
+        })
     }
 
     /*

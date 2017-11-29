@@ -130,5 +130,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }catch{}
         }
     }
+    
+    func gameRefresh() {
+        let player1 = Player(name: "Player1")
+        let player2 = Player(name: "Player2")
+        let player3 = Player(name: "Player3")
+        let player4 = Player(name: "Player4")
+        self.playerList = [player1,player2,player3,player4]
+        self.joinRoleList = []
+        self.hintRoleList = [:]
+        self.wolfPointList = [:]
+        self.votePointList = [:]
+        self.turn = 0
+        self.playerID = 0
+        self.isPause = false
+        self.isBattleVote = false
+        self.isReborn = false
+        self.rebornList = []
+        self.dictatorID = -1
+    }
 }
 
