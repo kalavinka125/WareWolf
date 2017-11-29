@@ -66,15 +66,16 @@ class RoleCheckInDiscussionViewController: UIViewController,UIPickerViewDelegate
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let label = UILabel(frame: CGRect(x: 15, y: 0, width: self.pickerView.frame.size.width, height: self.pickerView.frame.size.height))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.pickerView.frame.size.width, height: self.pickerView.frame.size.height))
         label.font = font
         label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         if self.appDelegate.playerList[row].isLife {
             label.textColor = self.appDelegate.villagerColor
-            label.text = "　　" + self.appDelegate.playerList[row].name
+            label.text = self.appDelegate.playerList[row].name
         }else{
             label.textColor = self.appDelegate.wereWolfColor
-            label.text = "　　" + self.appDelegate.playerList[row].name + "（死亡）"
+            label.text = self.appDelegate.playerList[row].name + "（死亡）"
         }
         return label
     }
