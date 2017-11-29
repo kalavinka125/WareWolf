@@ -68,8 +68,10 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         cell.delegate = self
         
         cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name
+        cell.nameLabel.adjustsFontSizeToFitWidth = true
         cell.detailLabel.textColor = UIColor.black
         cell.detailLabel.text = "？？？"
+        cell.detailLabel.adjustsFontSizeToFitWidth = true
         cell.jobButton.isHidden = false
         cell.jobButton.isUserInteractionEnabled = true
         cell.jobButton.backgroundColor = self.appDelegate.wereWolfColor
@@ -82,6 +84,20 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         }
         
         let role = self.appDelegate.playerList[self.appDelegate.playerID].role
+        
+        if role?.uranaiResult[indexPath.row] != nil {
+            if role?.uranaiResult[indexPath.row] == .Villager {
+                cell.detailLabel.text = "人間"
+                cell.detailLabel.textColor = self.appDelegate.villagerColor
+            }else if role?.uranaiResult[indexPath.row] == .WereWolf {
+                cell.detailLabel.text = "人狼"
+                cell.detailLabel.textColor = self.appDelegate.wereWolfColor
+            }else if role?.uranaiResult[indexPath.row] == .Fox {
+                cell.detailLabel.text = "狐"
+                cell.detailLabel.textColor = self.appDelegate.foxColor
+            }
+        }
+        
         if role?.ID == 1{
             cell.jobButton.setTitle("殺害する", for: .normal)
             if self.appDelegate.wolfPointList[indexPath.row] != nil {

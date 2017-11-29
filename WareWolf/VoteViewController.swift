@@ -59,6 +59,11 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         // let target = self.appDelegate.playerList[indexPath.row]
         cell.indexPath = indexPath
         cell.delegate = self
+        cell.nameLabel.adjustsFontSizeToFitWidth = true
+        cell.detailLabel.text = "？？？"
+        cell.detailLabel.textColor = UIColor.black
+        cell.detailLabel.adjustsFontSizeToFitWidth = true
+        
         if indexPath.row == self.appDelegate.playerID {
             cell.isHidden = true
         }else{
@@ -79,21 +84,44 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         }else{
             cell.jobButton.isHidden = false
         }
-        // 投票ターゲット = 表示行
-        if player.voteTarget == indexPath.row {
-            cell.detailLabel.textColor = self.appDelegate.wereWolfColor
-            if self.isJob {
-                cell.detailLabel.text = "今回：投票した"
-            }else{
-                cell.detailLabel.text = "前回：投票した"
-            }
-        }else{
-            cell.detailLabel.textColor = UIColor.black
-            cell.detailLabel.text = "？？？"
-        }
         
-        if role?.ID == 1 {
-            
+        // 人狼が見える
+        if role?.ID == 1 || role?.ID == 7{
+            // 人狼
+            if self.appDelegate.playerList[indexPath.row].role.ID == 1 {
+                cell.detailLabel.text = "人狼"
+                cell.detailLabel.textColor = self.appDelegate.wereWolfColor
+            }
+        
+        }else if role?.ID == 2 || role?.ID == 8{
+            // 占い結果を見せる
+            if role?.uranaiResult[indexPath.row] != nil {
+                if role?.uranaiResult[indexPath.row] == .Villager {
+                    cell.detailLabel.text = "人間"
+                    cell.detailLabel.textColor = self.appDelegate.villagerColor
+                }else if role?.uranaiResult[indexPath.row] == .WereWolf {
+                    cell.detailLabel.text = "人狼"
+                    cell.detailLabel.textColor = self.appDelegate.wereWolfColor
+                }else if role?.uranaiResult[indexPath.row] == .Fox {
+                    cell.detailLabel.text = "狐"
+                    cell.detailLabel.textColor = self.appDelegate.foxColor
+                }
+            }
+        }else if role?.ID == 3 {
+            // 霊媒師
+            if !self.appDelegate.playerList[indexPath.row].isLife {
+                // 死んでいる場合
+                if self.appDelegate.playerList[indexPath.row].role.reibai == .Villager {
+                    cell.detailLabel.text = "人間"
+                    cell.detailLabel.textColor = self.appDelegate.villagerColor
+                }else if self.appDelegate.playerList[indexPath.row].role.reibai == .WereWolf {
+                    cell.detailLabel.text = "人狼"
+                    cell.detailLabel.textColor = self.appDelegate.wereWolfColor
+                }else if self.appDelegate.playerList[indexPath.row].role.reibai == .Fox {
+                    cell.detailLabel.text = "狐"
+                    cell.detailLabel.textColor = self.appDelegate.foxColor
+                }
+            }
         }
         
         cell.nameLabel.text = self.appDelegate.playerList[indexPath.row].name
@@ -107,6 +135,23 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.jobButton.backgroundColor = UIColor.lightGray
             cell.jobButton.setTitleColor(UIColor.black, for: .normal)
             cell.jobButton.setTitle("死亡", for: .normal)
+        }
+        
+        // 投票ターゲット = 表示行
+        if player.voteTarget == indexPath.row {
+            if self.isJob{
+                cell.nameLabel.text = cell.nameLabel.text! + "（今回：投票済み）"
+            }else{
+                cell.nameLabel.text = cell.nameLabel.text! + "（前回：投票済み）"
+            }
+            /*
+             cell.detailLabel.textColor = self.appDelegate.wereWolfColor
+             if self.isJob {
+             cell.detailLabel.text = "今回：投票した"
+             }else{
+             cell.detailLabel.text = "前回：投票した"
+             }
+             */
         }
         
         return cell
