@@ -35,6 +35,10 @@ class ViewController: UIViewController {
         self.appDelegate.turn = 0
         self.appDelegate.playerID = 0
         self.appDelegate.isPause = false
+        self.appDelegate.isBattleVote = false
+        self.appDelegate.isReborn = false
+        self.appDelegate.rebornList = []
+        self.appDelegate.dictatorID = -1
         // 初期化
         for player in self.appDelegate.playerList {
             player.role = nil
