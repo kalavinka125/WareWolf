@@ -26,6 +26,7 @@
 		D23F39E21FCDB343002A38CC /* PlayerLifeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F39E11FCDB343002A38CC /* PlayerLifeTableViewCell.swift */; };
 		D23F39E41FCE4536002A38CC /* DictatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F39E31FCE4536002A38CC /* DictatorViewController.swift */; };
 		D23F39E61FCE5138002A38CC /* DictatorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F39E51FCE5138002A38CC /* DictatorListViewController.swift */; };
+		D23F39E81FCE6F4B002A38CC /* Mozart-Requiem-Dies-Irae.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D23F39E71FCE6F4B002A38CC /* Mozart-Requiem-Dies-Irae.mp3 */; };
 		D28646AC1FC1E313002B14BD /* PlayerEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */; };
 		D28646AE1FC1E3AF002B14BD /* PlayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */; };
 		D28646B01FC1F124002B14BD /* RoleCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */; };
@@ -100,6 +101,7 @@
 		D23F39E11FCDB343002A38CC /* PlayerLifeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerLifeTableViewCell.swift; sourceTree = "<group>"; };
 		D23F39E31FCE4536002A38CC /* DictatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictatorViewController.swift; sourceTree = "<group>"; };
 		D23F39E51FCE5138002A38CC /* DictatorListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictatorListViewController.swift; sourceTree = "<group>"; };
+		D23F39E71FCE6F4B002A38CC /* Mozart-Requiem-Dies-Irae.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mozart-Requiem-Dies-Irae.mp3"; sourceTree = "<group>"; };
 		D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerEditTableViewCell.swift; sourceTree = "<group>"; };
 		D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerListViewController.swift; sourceTree = "<group>"; };
 		D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleCheckViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		D236140B1FC1BD1100563B8C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D23F39E71FCE6F4B002A38CC /* Mozart-Requiem-Dies-Irae.mp3 */,
 				D2DFD1FD1FCAD63D00395713 /* soundLogo.mp3 */,
 				D2DFD1FB1FCAD62200395713 /* win.mp3 */,
 				D2DFD1F91FCAD61600395713 /* buki.mp3 */,
@@ -395,6 +398,7 @@
 				D2DFD1FC1FCAD62200395713 /* win.mp3 in Resources */,
 				D23614031FC125D900563B8C /* PixelMplus12-Bold.ttf in Resources */,
 				D23614021FC125D900563B8C /* PixelMplus10-Regular.ttf in Resources */,
+				D23F39E81FCE6F4B002A38CC /* Mozart-Requiem-Dies-Irae.mp3 in Resources */,
 				D23613D31FC09EE200563B8C /* Main.storyboard in Resources */,
 				D23614001FC125D900563B8C /* Geotica_2012.otf in Resources */,
 				D2DFD1FE1FCAD63D00395713 /* soundLogo.mp3 in Resources */,
