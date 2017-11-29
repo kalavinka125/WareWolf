@@ -57,6 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // 独裁者のID
     // 使ったら初期化すること
     var dictatorID = -1
+    // 探偵のID
+    var detectiveID = -1
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
@@ -148,6 +150,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.isReborn = false
         self.rebornList = []
         self.dictatorID = -1
+        self.detectiveID = -1
     }
 }
 
