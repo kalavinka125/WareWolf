@@ -39,13 +39,16 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         self.updateRoleView()
         let player = self.appDelegate.playerList[self.appDelegate.playerID]
         // 初夜の場合、仕事は完了済みとする
-        if self.appDelegate.turn <= 0 && (player.role.ID == 1 || player.role.ID == 4 || player.role.ID == 11 || player.role.ID == 13 || player.role.ID == 14 || player.role.ID == 16 || player.role.ID == 17) {
+        if self.appDelegate.turn <= 0 && (player.role.ID == 1 || player.role.ID == 4 ||  player.role.ID == 13 || player.role.ID == 14 || player.role.ID == 16 || player.role.ID == 17) {
             self.todayJob = true
         }else if self.appDelegate.turn >= 1 && player.role.ID == 15{
             // 初夜以降、マジシャンは仕事できない
             self.todayJob = true
         }
         
+        if player.role.ID == 11 {
+            self.todayJob = true
+        }
         self.tableView.reloadData()
     }
 
@@ -579,8 +582,12 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     @IBAction func tappedNextButton(_ sender: Any) {
         if self.todayJob {
             // 独裁者の場合能力使用フラグ
-            if self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 11 {
-                let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+            if self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 11 && self.appDelegate.turn >= 1{
+                let cancel = UIAlertAction(title: "いいえ", style: .cancel, handler: { noAction in
+                    DispatchQueue.main.async {
+                        self.goToNext()
+                    }
+                })
                 cancel.setValue(UIColor.black, forKey: "titleTextColor")
                 let ok = UIAlertAction(title: "使う", style: .default, handler: { okAction in
                     DispatchQueue.main.async {
@@ -677,7 +684,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     /// 次の画面に遷移する処理
-    /// 各役職共通部分
+    /// 各役職共通部分 2 4
     private func goToNext() {
         // 次のプレイヤーがいるか
         if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1) {
