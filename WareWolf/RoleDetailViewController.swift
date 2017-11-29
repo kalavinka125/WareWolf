@@ -180,6 +180,11 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             }
             // 仕事は無い
             self.todayJob = true
+        }else if role?.ID == 11 {
+            if self.appDelegate.playerList[self.appDelegate.playerID].target == indexPath.row {
+                cell.detailLabel.text = "追放した"
+                cell.detailLabel.textColor = self.appDelegate.villagerColor
+            }
         }else if role?.ID == 13 {
             cell.jobButton.setTitle("守る", for: .normal)
             if self.appDelegate.playerList[self.appDelegate.playerID].target == indexPath.row {
