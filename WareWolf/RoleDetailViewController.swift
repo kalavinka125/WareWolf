@@ -46,7 +46,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             self.todayJob = true
         }
         
-        if player.role.ID == 11 {
+        if player.role.ID == 11 || player.role.ID == 17{
             self.todayJob = true
         }
         self.tableView.reloadData()
@@ -597,6 +597,9 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     
     @IBAction func tappedNextButton(_ sender: Any) {
         if self.todayJob {
+            self.goToNext()
+            
+            /*
             // 独裁者の場合能力使用フラグ
             if self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 11 && self.appDelegate.turn >= 1 && self.appDelegate.playerList[self.appDelegate.playerID].target == -1{
                 let cancel = UIAlertAction(title: "いいえ", style: .cancel, handler: { noAction in
@@ -625,6 +628,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             }else{
                 self.goToNext()
             }
+            */
             
             // 次のプレイヤーがいるか
             /*
@@ -700,7 +704,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     /// 次の画面に遷移する処理
-    /// 各役職共通部分 2 4
+    /// 各役職共通部分
     private func goToNext() {
         // 次のプレイヤーがいるか
         if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1) {
