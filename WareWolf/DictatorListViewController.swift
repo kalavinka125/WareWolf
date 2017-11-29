@@ -56,10 +56,15 @@ class DictatorListViewController: UIViewController, UITableViewDelegate, UITable
         cell.jobButton.backgroundColor = self.appDelegate.wereWolfColor
         cell.jobButton.setTitleColor(UIColor.white, for: .normal)
         
-        if indexPath.row == self.appDelegate.playerID {
+        if indexPath.row == self.appDelegate.dictatorID {
             cell.isHidden = true
         }else{
             cell.isHidden = false
+        }
+        
+        if self.appDelegate.playerList[self.appDelegate.dictatorID].target == indexPath.row {
+            cell.detailLabel.text = "追放した"
+            cell.detailLabel.textColor = self.appDelegate.villagerColor
         }
         
         // 仕事済みだったら
