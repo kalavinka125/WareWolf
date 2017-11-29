@@ -582,7 +582,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     @IBAction func tappedNextButton(_ sender: Any) {
         if self.todayJob {
             // 独裁者の場合能力使用フラグ
-            if self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 11 && self.appDelegate.turn >= 1{
+            if self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 11 && self.appDelegate.turn >= 1 && self.appDelegate.playerList[self.appDelegate.playerID].target == -1{
                 let cancel = UIAlertAction(title: "いいえ", style: .cancel, handler: { noAction in
                     DispatchQueue.main.async {
                         self.goToNext()

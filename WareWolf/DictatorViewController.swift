@@ -25,6 +25,10 @@ class DictatorViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.titleLabel.text = "\(self.appDelegate.playerList[self.appDelegate.dictatorID].name)の役職は"
+        if self.appDelegate.soundPlayer.isPlaying {
+            self.appDelegate.soundPlayer.stop()
+        }
+        self.appDelegate.soundPlay(fileName: "Mozart-Requiem-Dies-Irae", numberOfLoop: -1)
     }
 
     override func didReceiveMemoryWarning() {
