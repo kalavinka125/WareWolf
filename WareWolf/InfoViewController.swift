@@ -10,6 +10,7 @@ import UIKit
 class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let SEGUE_NAME = "GO_TO_DISCUSSION"
+    private let DICTATOR_SEGUE = "GO_TO_DICTATOR"
     private let CELL_ID = "VICTIM_CELL"
     private let GAME_RESULT_VC = "GameResultViewController"
     
@@ -135,7 +136,14 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
                 if self.appDelegate.soundPlayer.isPlaying {
                     self.appDelegate.soundPlayer.stop()
                 }
-                self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
+                // 独裁者の能力行使フラグがセットされているか
+                if self.appDelegate.dictatorID == -1 {
+                    // 通常
+                    self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
+                }else{
+                    // 独裁者の画面に
+                    self.performSegue(withIdentifier: self.DICTATOR_SEGUE, sender: self)
+                }
             }else{
                 let next = self.storyboard?.instantiateViewController(withIdentifier: self.GAME_RESULT_VC) as! GameResultViewController
                 next.side = side
