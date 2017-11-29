@@ -9,7 +9,11 @@
 import UIKit
 
 class DictatorListViewController: UIViewController {
-
+    private var isJob = false
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let CELL_ID = "ROLE_DICTATOR_CELL"
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,4 +36,11 @@ class DictatorListViewController: UIViewController {
     }
     */
 
+    @IBAction func tappedNextButton(_ sender: Any) {
+        if self.isJob {
+            
+        }else{
+            self.showAlert(viewController: self, message: "追放者を決めていません", buttonTitle: "OK")
+        }
+    }
 }
