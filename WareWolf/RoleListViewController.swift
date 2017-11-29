@@ -206,8 +206,11 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
             if ID == 9 {
                 self.roleList[ID] = (n + 2)
             }else{
+                // マジシャンと独裁者は１人まで
                 if n >= 1 && ID == 15 {
                     return
+                }else if n >= 1 && ID == 11 {
+                    return 
                 }else{
                     self.roleList[ID] = (n + 1)
                 }
