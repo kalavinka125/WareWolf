@@ -8,17 +8,26 @@
 
 import UIKit
 
+enum RoleCheckinDiscussion {
+    case none
+    case dictator
+    case detective
+}
+
 /// 議論中の画面
 class DiscussionViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private var lifeList : [Int] = []
     private let NEXT_VC = "RoleCheckViewController"
     private let SEGUE_NAME = "GO_TO_VOTE_TOP"
+    private let ROLE_CHECK_SEGUE = "ROLE_CHECK_IN_DISCUSSION"
     // private let DICTATOR_SEGUE = "GO_TO_DICTATOR"
     var time = 0
     var isLimit = false
     // タイマー
     var timer : Timer!
+    // 実行セグエ管理
+    var segue : RoleCheckinDiscussion = .none
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -37,17 +46,25 @@ class DiscussionViewController: UIViewController {
         super.viewWillAppear(animated)
         // 生存者を取得
         self.lifeList = self.appDelegate.roleManager.getList(target: true, players: self.appDelegate.playerList)
-        // 生存者の数に合わせて、議論時間を変える
-        if self.lifeList.count >= 5 {
-            self.time = (60 * 5)
-        }else{
-            self.time = (60 * self.lifeList.count)
-        }
-        self.timeLabel.textColor = UIColor.black
-        self.timeLabel.text = self.time2Text(time: self.time)
-        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
         
-        self.appDelegate.soundPlay(fileName: "bgm1", numberOfLoop: -1)
+        if self.time == 0 {
+            // 生存者の数に合わせて、議論時間を変える
+            if self.lifeList.count >= 5 {
+                self.time = (60 * 5)
+            }else{
+                self.time = (60 * self.lifeList.count)
+            }
+            self.timeLabel.textColor = UIColor.black
+            self.timeLabel.text = self.time2Text(time: self.time)
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+            self.appDelegate.soundPlay(fileName: "bgm1", numberOfLoop: -1)
+        }else{
+            self.timeLabel.textColor = UIColor.black
+            self.timeLabel.text = self.time2Text(time: self.time)
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+            self.appDelegate.soundPlay(fileName: "bgm1", numberOfLoop: -1)
+        }
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -58,6 +75,9 @@ class DiscussionViewController: UIViewController {
         if segue.identifier == self.SEGUE_NAME {
             let next = segue.destination as! VoteTopViewController
             next.flag = .normal
+        }else if segue.identifier == self.ROLE_CHECK_SEGUE {
+            let next = segue.destination as! RoleCheckInDiscussionViewController
+            next.prev = self.segue
         }
     }
     
@@ -96,7 +116,7 @@ class DiscussionViewController: UIViewController {
                 // BGMの再生を停止する
                 self.appDelegate.soundPlayer.stop()
                 self.appDelegate.isPause = false
-                // タイマーの停止 1 5
+                // タイマーの停止
                 self.timer.invalidate()
                 self.timer = nil
                 self.time = 0
@@ -116,6 +136,36 @@ class DiscussionViewController: UIViewController {
         alert.addAction(cancel)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func tappedDictationButton(_ sender: Any) {
+        self.segue = .dictator
+        self.timer.invalidate()
+        self.appDelegate.soundPlayer.stop()
+        self.appDelegate.isPause = false
+        // 1秒以下なら60秒足す
+        if self.time <= 1 {
+            self.isLimit = false
+            self.time += 60
+            self.timeLabel.textColor = UIColor.black
+            self.timeLabel.text = self.time2Text(time: self.time)
+        }
+        self.performSegue(withIdentifier: self.ROLE_CHECK_SEGUE, sender: self)
+    }
+    
+    @IBAction func tappedDetectiveButton(_ sender: Any) {
+        self.segue = .detective
+        self.timer.invalidate()
+        self.appDelegate.soundPlayer.stop()
+        self.appDelegate.isPause = false
+        // 1秒以下なら60秒足す
+        if self.time <= 1 {
+            self.isLimit = false
+            self.time += 60
+            self.timeLabel.textColor = UIColor.black
+            self.timeLabel.text = self.time2Text(time: self.time)
+        }
+        self.performSegue(withIdentifier: self.ROLE_CHECK_SEGUE, sender: self)
     }
     
     func update(timer : Timer) {
