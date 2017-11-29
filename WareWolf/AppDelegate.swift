@@ -54,6 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // 例：ヒロインなど
     var isReborn = false
     var rebornList : [Int] = []
+    // 独裁者のID
+    // 使ったら初期化すること
+    var dictatorID = -1
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
