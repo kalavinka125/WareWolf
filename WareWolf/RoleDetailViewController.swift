@@ -597,7 +597,33 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     
     @IBAction func tappedNextButton(_ sender: Any) {
         if self.todayJob {
+            // 独裁者の場合能力使用フラグ
+            if self.appDelegate.playerList[self.appDelegate.playerID].role.ID == 11 {
+                let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+                cancel.setValue(UIColor.black, forKey: "titleTextColor")
+                let ok = UIAlertAction(title: "使う", style: .default, handler: { okAction in
+                    DispatchQueue.main.async {
+                        self.appDelegate.dictatorID = self.appDelegate.playerID
+                        self.goToNext()
+                    }
+                })
+                ok.setValue(self.appDelegate.villagerColor, forKey: "titleTextColor")
+                let message = "独裁者の能力を\n使いますか？"
+                let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+                let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+                let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+                alert.setValue(attributedMessage, forKey: "attributedMessage")
+                alert.addAction(cancel)
+                alert.addAction(ok)
+                // アラートの表示
+                present(alert, animated: true, completion: nil)
+            }else{
+                self.goToNext()
+            }
+            
             // 次のプレイヤーがいるか
+            /*
             if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1) {
                 self.endRoleDetail()
             }else{
@@ -621,7 +647,8 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
                     self.endRoleDetail()
                 }
             }
-            
+            */
+
         }else{
             self.showAlert(viewController: self, message: "今夜、何もしていません", buttonTitle: "ゲームに戻る")
         }
@@ -674,5 +701,34 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             
         }
         self.detailLabel.text = role.detail
+    }
+    
+    /// 次の画面に遷移する処理
+    /// 各役職共通部分
+    private func goToNext() {
+        // 次のプレイヤーがいるか
+        if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1) {
+            self.endRoleDetail()
+        }else{
+            // 次のプレイヤーがいるので、そちらへ遷移
+            self.appDelegate.playerID += 1
+            var endFlag = false
+            for index in self.appDelegate.playerID..<self.appDelegate.playerList.count {
+                if self.appDelegate.playerList[index].isLife {
+                    self.appDelegate.playerID = index
+                    endFlag = true
+                    break
+                }
+            }
+            if endFlag {
+                // 端末渡しの画面に遷移
+                let next = self.storyboard?.instantiateViewController(withIdentifier: self.ROLE_CHECK_VC_ID) as! RoleCheckViewController
+                next.modalTransitionStyle = .crossDissolve
+                next.flag = self.flag
+                present(next, animated: true, completion: nil)
+            }else{
+                self.endRoleDetail()
+            }
+        }
     }
 }
