@@ -44,6 +44,7 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         if segue.identifier == self.VOTE_RESUL_SEGUE {
             let next = segue.destination as! VoteResultViewController
             next.voteTarget = self.voteTarget
+            next.prev = .normal
         }
     }
     
@@ -55,7 +56,7 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: self.CELL_ID, for: indexPath) as! RoleJobTableViewCell
         let player = self.appDelegate.playerList[self.appDelegate.playerID]
         let role = self.appDelegate.playerList[self.appDelegate.playerID].role
-        let target = self.appDelegate.playerList[indexPath.row]
+        // let target = self.appDelegate.playerList[indexPath.row]
         cell.indexPath = indexPath
         cell.delegate = self
         if indexPath.row == self.appDelegate.playerID {
