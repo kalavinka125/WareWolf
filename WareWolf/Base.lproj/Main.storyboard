@@ -1177,7 +1177,7 @@
         <!--Discussion View Controller-->
         <scene sceneID="bh0-Kj-puB">
             <objects>
-                <viewController id="dEv-dX-tEH" customClass="DiscussionViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscussionViewController" id="dEv-dX-tEH" customClass="DiscussionViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cSR-8p-fLQ"/>
                         <viewControllerLayoutGuide type="bottom" id="Xga-km-6f3"/>
@@ -1465,7 +1465,8 @@
                     <connections>
                         <outlet property="checkRoleLabel" destination="lZ8-GT-tVv" id="BFA-zS-T1s"/>
                         <outlet property="pickerView" destination="6te-Bm-osd" id="8Xp-5e-rP8"/>
-                        <segue destination="2vV-a0-nlE" kind="presentation" identifier="GO_TO_RESULT_IN_DISCUSSION" modalTransitionStyle="flipHorizontal" id="JIU-dm-1oB"/>
+                        <segue destination="2vV-a0-nlE" kind="presentation" identifier="GO_TO_DICTATOR" modalTransitionStyle="flipHorizontal" id="JIU-dm-1oB"/>
+                        <segue destination="aum-zP-TuY" kind="presentation" identifier="GO_TO_DETECTIVE" modalTransitionStyle="flipHorizontal" id="Ybp-qb-QCg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VI3-KF-Kf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1515,9 +1516,6 @@
                                 <state key="normal" title="次へ">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="tappedNextButton:" destination="2vV-a0-nlE" eventType="touchUpInside" id="LfJ-xI-7kf"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1544,7 +1542,81 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GT2-eC-fWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4959" y="-532"/>
+            <point key="canvasLocation" x="4967" y="-532"/>
+        </scene>
+        <!--Detective View Controller-->
+        <scene sceneID="fjP-bX-ECK">
+            <objects>
+                <viewController id="aum-zP-TuY" customClass="DetectiveViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MNh-hV-XLg"/>
+                        <viewControllerLayoutGuide type="bottom" id="q4m-wL-S2s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HpT-AM-p3v">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player1の役職は" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKU-S8-fAl">
+                                <rect key="frame" x="16" y="58" width="289" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="kxf-N2-eEx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名探偵" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNB-rs-JKv">
+                                <rect key="frame" x="16" y="90" width="289" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="wVG-XJ-ILf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="17" translatesAutoresizingMaskIntoConstraints="NO" id="Plm-cw-fub">
+                                <rect key="frame" x="32" y="156" width="256" height="256"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNO-cI-PqE">
+                                <rect key="frame" x="16" y="504" width="288" height="44"/>
+                                <color key="backgroundColor" red="0.38878055319999999" green="0.2301004857" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="hdD-UN-N8E"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                <state key="normal" title="次へ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedNextButton:" destination="aum-zP-TuY" eventType="touchUpInside" id="fax-qT-gc9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="NNO-cI-PqE" firstAttribute="top" secondItem="Plm-cw-fub" secondAttribute="bottom" constant="92" id="3b0-Xz-qgY"/>
+                            <constraint firstItem="HNB-rs-JKv" firstAttribute="leading" secondItem="HpT-AM-p3v" secondAttribute="leading" constant="16" id="3zl-FW-tPk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Plm-cw-fub" secondAttribute="trailing" constant="16" id="76t-un-jjf"/>
+                            <constraint firstAttribute="trailing" secondItem="HNB-rs-JKv" secondAttribute="trailing" constant="15" id="84F-kl-25j"/>
+                            <constraint firstItem="Plm-cw-fub" firstAttribute="leading" secondItem="HpT-AM-p3v" secondAttribute="leadingMargin" constant="16" id="D7y-9z-wtH"/>
+                            <constraint firstItem="Plm-cw-fub" firstAttribute="top" secondItem="HNB-rs-JKv" secondAttribute="bottom" constant="30" id="L98-Jt-ugn"/>
+                            <constraint firstItem="IKU-S8-fAl" firstAttribute="top" secondItem="MNh-hV-XLg" secondAttribute="bottom" constant="38" id="aC4-qM-lip"/>
+                            <constraint firstItem="NNO-cI-PqE" firstAttribute="leading" secondItem="HpT-AM-p3v" secondAttribute="leadingMargin" id="c48-z5-Vbk"/>
+                            <constraint firstItem="HNB-rs-JKv" firstAttribute="top" secondItem="IKU-S8-fAl" secondAttribute="bottom" constant="5" id="fr6-5h-VHT"/>
+                            <constraint firstAttribute="trailing" secondItem="IKU-S8-fAl" secondAttribute="trailing" constant="15" id="rsV-Ja-YSe"/>
+                            <constraint firstItem="IKU-S8-fAl" firstAttribute="leading" secondItem="HpT-AM-p3v" secondAttribute="leading" constant="16" id="tUN-hh-Fn4"/>
+                            <constraint firstItem="q4m-wL-S2s" firstAttribute="top" secondItem="NNO-cI-PqE" secondAttribute="bottom" constant="20" id="vmT-me-Qfc"/>
+                            <constraint firstItem="NNO-cI-PqE" firstAttribute="trailing" secondItem="HpT-AM-p3v" secondAttribute="trailingMargin" id="yiS-CG-gyf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="IKU-S8-fAl" id="KA6-EM-13f"/>
+                        <segue destination="eAl-QI-rKZ" kind="presentation" identifier="GO_TO_DETECTIVE_DETAIL" modalTransitionStyle="crossDissolve" id="VD7-fP-ZJj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Pz-Qs-W95" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4967" y="-1186"/>
         </scene>
         <!--Dictator List View Controller-->
         <scene sceneID="Idn-SJ-Qa5">
@@ -1693,7 +1765,157 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8H-XR-Nmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5655" y="-535"/>
+            <point key="canvasLocation" x="5666" y="-532"/>
+        </scene>
+        <!--Detective List View Controller-->
+        <scene sceneID="q8n-kT-6Od">
+            <objects>
+                <viewController id="eAl-QI-rKZ" customClass="DetectiveListViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6nI-i0-gWM"/>
+                        <viewControllerLayoutGuide type="bottom" id="tYa-aj-TKT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kwn-HS-Kwx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="17" translatesAutoresizingMaskIntoConstraints="NO" id="mlF-7N-V06">
+                                <rect key="frame" x="20" y="56" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="a2v-cR-Z6s"/>
+                                    <constraint firstAttribute="height" constant="64" id="xui-FM-wtF"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGR-k7-8A2">
+                                <rect key="frame" x="24" y="128" width="280" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="iF8-Mp-oA5"/>
+                                </constraints>
+                                <string key="text">市民プレイヤーです。
+ゲーム中に１度だけ議論を打ち切り、
+全ての役職を当てることができれば名探偵の勝利です。
+推理が外れた場合、死亡します。</string>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名探偵" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhp-jD-Xum">
+                                <rect key="frame" x="92" y="56" width="212" height="64"/>
+                                <color key="backgroundColor" red="0.0" green="0.87450980389999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="A0w-wu-Vwl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuM-VM-fYE">
+                                <rect key="frame" x="16" y="504" width="288" height="44"/>
+                                <color key="backgroundColor" red="0.38878055319999999" green="0.2301004857" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="26H-0W-bkN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                <state key="normal" title="次へ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedNextButton:" destination="eAl-QI-rKZ" eventType="touchUpInside" id="Tzu-vK-JXU"/>
+                                    <action selector="tappedNextButton:" destination="2vV-a0-nlE" eventType="touchUpInside" id="lpv-J8-zpJ"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qw8-op-m7S">
+                                <rect key="frame" x="16" y="197" width="288" height="299"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DETECTIVE_CELL" rowHeight="74" id="zyu-l2-qTO" customClass="RoleJobTableViewCell" customModule="WareWolf" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="288" height="74"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zyu-l2-qTO" id="r4L-9j-FPH">
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="73.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSA-1b-IDG">
+                                                    <rect key="frame" x="15" y="8" width="59.5" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="12h-Ne-fX0"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="？？？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YP-96-luZ">
+                                                    <rect key="frame" x="15" y="37" width="60" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29" id="Yx7-qX-fHu"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MG5-8R-5WY">
+                                                    <rect key="frame" x="180" y="8" width="100" height="58"/>
+                                                    <color key="backgroundColor" red="0.87450980389999999" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="58" id="0Nx-ei-VCc"/>
+                                                        <constraint firstAttribute="width" constant="100" id="RJg-x0-AJ2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
+                                                    <state key="normal" title="指定する">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="tappedJobButton:" destination="zyu-l2-qTO" eventType="touchUpInside" id="Jru-lQ-ccC"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="MG5-8R-5WY" secondAttribute="bottom" constant="7.5" id="2id-vP-NjA"/>
+                                                <constraint firstAttribute="trailing" secondItem="MG5-8R-5WY" secondAttribute="trailing" constant="8" id="HdV-YQ-SIP"/>
+                                                <constraint firstItem="MG5-8R-5WY" firstAttribute="top" secondItem="r4L-9j-FPH" secondAttribute="top" constant="8" id="IV1-6p-E40"/>
+                                                <constraint firstItem="iSA-1b-IDG" firstAttribute="leading" secondItem="r4L-9j-FPH" secondAttribute="leadingMargin" constant="7" id="NXU-bT-Tzu"/>
+                                                <constraint firstItem="3YP-96-luZ" firstAttribute="leading" secondItem="r4L-9j-FPH" secondAttribute="leading" constant="15" id="Qve-7m-cKh"/>
+                                                <constraint firstItem="iSA-1b-IDG" firstAttribute="top" secondItem="r4L-9j-FPH" secondAttribute="topMargin" id="ZQU-Ej-79H"/>
+                                                <constraint firstAttribute="bottom" secondItem="3YP-96-luZ" secondAttribute="bottom" constant="7.5" id="lZF-fd-bkY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="detailLabel" destination="3YP-96-luZ" id="Mcg-eH-s9A"/>
+                                            <outlet property="jobButton" destination="MG5-8R-5WY" id="jTg-5A-wkq"/>
+                                            <outlet property="nameLabel" destination="iSA-1b-IDG" id="30j-FA-3BV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tYa-aj-TKT" firstAttribute="top" secondItem="cuM-VM-fYE" secondAttribute="bottom" constant="20" id="27d-Lv-nca"/>
+                            <constraint firstItem="Qw8-op-m7S" firstAttribute="top" secondItem="yGR-k7-8A2" secondAttribute="bottom" constant="8" id="3sz-lF-mbX"/>
+                            <constraint firstItem="Qw8-op-m7S" firstAttribute="trailing" secondItem="Kwn-HS-Kwx" secondAttribute="trailingMargin" id="A7h-Ed-IaQ"/>
+                            <constraint firstItem="yGR-k7-8A2" firstAttribute="trailing" secondItem="Kwn-HS-Kwx" secondAttribute="trailingMargin" id="C3a-kw-PmT"/>
+                            <constraint firstItem="cuM-VM-fYE" firstAttribute="leading" secondItem="Kwn-HS-Kwx" secondAttribute="leadingMargin" id="Iyg-QO-WEh"/>
+                            <constraint firstItem="yGR-k7-8A2" firstAttribute="top" secondItem="Jhp-jD-Xum" secondAttribute="bottom" constant="8" id="JV0-Qa-tnZ"/>
+                            <constraint firstItem="cuM-VM-fYE" firstAttribute="trailing" secondItem="Kwn-HS-Kwx" secondAttribute="trailingMargin" id="S9W-dF-f2h"/>
+                            <constraint firstItem="mlF-7N-V06" firstAttribute="leading" secondItem="Kwn-HS-Kwx" secondAttribute="leadingMargin" constant="4" id="VQy-S6-etY"/>
+                            <constraint firstItem="Jhp-jD-Xum" firstAttribute="trailing" secondItem="Kwn-HS-Kwx" secondAttribute="trailingMargin" id="X82-6k-vNJ"/>
+                            <constraint firstItem="Jhp-jD-Xum" firstAttribute="leading" secondItem="mlF-7N-V06" secondAttribute="trailing" constant="8" id="dxq-XI-KzL"/>
+                            <constraint firstItem="cuM-VM-fYE" firstAttribute="top" secondItem="Qw8-op-m7S" secondAttribute="bottom" constant="8" id="dy5-Ia-Mjy"/>
+                            <constraint firstItem="Jhp-jD-Xum" firstAttribute="top" secondItem="6nI-i0-gWM" secondAttribute="bottom" constant="36" id="gPt-nZ-B7m"/>
+                            <constraint firstItem="yGR-k7-8A2" firstAttribute="leading" secondItem="Kwn-HS-Kwx" secondAttribute="leadingMargin" constant="8" id="hof-Vx-X0Z"/>
+                            <constraint firstItem="mlF-7N-V06" firstAttribute="top" secondItem="6nI-i0-gWM" secondAttribute="bottom" constant="36" id="kez-bo-NR0"/>
+                            <constraint firstItem="Qw8-op-m7S" firstAttribute="leading" secondItem="Kwn-HS-Kwx" secondAttribute="leadingMargin" id="sBO-gv-QXa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Qw8-op-m7S" id="45n-Fi-jc2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y1c-0x-Dhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5662.5" y="-1186.2676056338028"/>
         </scene>
         <!--Vote View Controller-->
         <scene sceneID="t38-I0-pZc">
@@ -2203,6 +2425,7 @@
         <image name="0" width="512" height="512"/>
         <image name="1" width="512" height="512"/>
         <image name="11" width="512" height="512"/>
+        <image name="17" width="512" height="512"/>
         <image name="finger2" width="512" height="512"/>
         <image name="hiru" width="400" height="370"/>
         <image name="trophy_gold" width="362" height="400"/>

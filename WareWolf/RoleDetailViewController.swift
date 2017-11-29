@@ -598,7 +598,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
     
     @IBAction func tappedNextButton(_ sender: Any) {
         if self.todayJob {
-            self.goToNext()
+            //self.goToNext()
             
             /*
             // 独裁者の場合能力使用フラグ
@@ -632,7 +632,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             */
             
             // 次のプレイヤーがいるか
-            /*
+            
             if self.appDelegate.playerID == (self.appDelegate.playerList.count - 1) {
                 self.endRoleDetail()
             }else{
@@ -656,7 +656,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
                     self.endRoleDetail()
                 }
             }
-            */
+ 
 
         }else{
             self.showAlert(viewController: self, message: "今夜、何もしていません", buttonTitle: "ゲームに戻る")

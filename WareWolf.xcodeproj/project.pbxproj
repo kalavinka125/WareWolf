@@ -30,6 +30,7 @@
 		D23F39EA1FCE9E5B002A38CC /* question.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D23F39E91FCE9E5B002A38CC /* question.mp3 */; };
 		D23F39EC1FCEDBF1002A38CC /* RoleCheckInDiscussionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F39EB1FCEDBF1002A38CC /* RoleCheckInDiscussionViewController.swift */; };
 		D23F39EE1FCF0BA6002A38CC /* DetectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F39ED1FCF0BA6002A38CC /* DetectiveViewController.swift */; };
+		D23F39F01FCF0FE2002A38CC /* DetectiveListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F39EF1FCF0FE2002A38CC /* DetectiveListViewController.swift */; };
 		D28646AC1FC1E313002B14BD /* PlayerEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */; };
 		D28646AE1FC1E3AF002B14BD /* PlayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */; };
 		D28646B01FC1F124002B14BD /* RoleCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */; };
@@ -108,6 +109,7 @@
 		D23F39E91FCE9E5B002A38CC /* question.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = question.mp3; sourceTree = "<group>"; };
 		D23F39EB1FCEDBF1002A38CC /* RoleCheckInDiscussionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleCheckInDiscussionViewController.swift; sourceTree = "<group>"; };
 		D23F39ED1FCF0BA6002A38CC /* DetectiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectiveViewController.swift; sourceTree = "<group>"; };
+		D23F39EF1FCF0FE2002A38CC /* DetectiveListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectiveListViewController.swift; sourceTree = "<group>"; };
 		D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerEditTableViewCell.swift; sourceTree = "<group>"; };
 		D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerListViewController.swift; sourceTree = "<group>"; };
 		D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleCheckViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				D23F39E31FCE4536002A38CC /* DictatorViewController.swift */,
 				D23F39E51FCE5138002A38CC /* DictatorListViewController.swift */,
 				D23F39ED1FCF0BA6002A38CC /* DetectiveViewController.swift */,
+				D23F39EF1FCF0FE2002A38CC /* DetectiveListViewController.swift */,
 				D28646B91FC30EF5002B14BD /* ExFileManager.swift */,
 				D2D4064B1FC3270F00F10994 /* RoleManager.swift */,
 			);
@@ -442,6 +445,7 @@
 				D2DFD1F41FCA80C100395713 /* VoteResultViewController.swift in Sources */,
 				D2D406541FC405CB00F10994 /* DiscussionViewController.swift in Sources */,
 				D28646BA1FC30EF5002B14BD /* ExFileManager.swift in Sources */,
+				D23F39F01FCF0FE2002A38CC /* DetectiveListViewController.swift in Sources */,
 				D2DFD2001FCAEAA900395713 /* TurnEndViewController.swift in Sources */,
 				D2DFD1F81FCAA9B300395713 /* GameRoleTableViewCell.swift in Sources */,
 				D28646AE1FC1E3AF002B14BD /* PlayerListViewController.swift in Sources */,
