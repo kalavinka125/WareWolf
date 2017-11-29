@@ -953,18 +953,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RH-aE-DRX">
-                                                    <rect key="frame" x="15" y="8" width="59.5" height="21"/>
+                                                    <rect key="frame" x="15" y="8" width="153" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="0t9-FA-Pwa"/>
+                                                        <constraint firstAttribute="height" constant="21" id="gV0-6x-fub"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="？？？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgn-C4-bOm">
-                                                    <rect key="frame" x="15" y="37" width="60" height="29"/>
+                                                    <rect key="frame" x="15" y="37" width="153" height="29"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="29" id="e5c-Sq-fL2"/>
+                                                        <constraint firstAttribute="height" constant="29" id="jus-mO-VbV"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -974,8 +974,8 @@
                                                     <rect key="frame" x="176" y="8" width="100" height="58"/>
                                                     <color key="backgroundColor" red="0.87450980389999999" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="58" id="5ge-KP-NFf"/>
-                                                        <constraint firstAttribute="width" constant="100" id="PJ4-sS-Q5z"/>
+                                                        <constraint firstAttribute="height" constant="58" id="kD3-A4-ubM"/>
+                                                        <constraint firstAttribute="width" constant="100" id="rRq-AL-n10"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
                                                     <state key="normal" title="蘇生させる">
@@ -987,13 +987,15 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="bSz-q3-mig" secondAttribute="bottom" constant="7.5" id="0aF-ED-TSV"/>
-                                                <constraint firstItem="bSz-q3-mig" firstAttribute="top" secondItem="MkW-24-DGn" secondAttribute="top" constant="8" id="OjE-9i-NTZ"/>
-                                                <constraint firstItem="2RH-aE-DRX" firstAttribute="leading" secondItem="MkW-24-DGn" secondAttribute="leadingMargin" constant="7" id="OzR-jg-QAL"/>
-                                                <constraint firstAttribute="bottom" secondItem="jgn-C4-bOm" secondAttribute="bottom" constant="7.5" id="PbH-r4-gDo"/>
-                                                <constraint firstItem="2RH-aE-DRX" firstAttribute="top" secondItem="MkW-24-DGn" secondAttribute="topMargin" id="QtV-LH-VxR"/>
-                                                <constraint firstItem="jgn-C4-bOm" firstAttribute="leading" secondItem="MkW-24-DGn" secondAttribute="leading" constant="15" id="Ylf-eU-MaQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="bSz-q3-mig" secondAttribute="trailing" constant="8" id="euo-Qw-uJK"/>
+                                                <constraint firstItem="bSz-q3-mig" firstAttribute="top" secondItem="MkW-24-DGn" secondAttribute="top" constant="8" id="94s-ai-FY1"/>
+                                                <constraint firstItem="bSz-q3-mig" firstAttribute="leading" secondItem="jgn-C4-bOm" secondAttribute="trailing" constant="8" id="DYc-jT-4PZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="bSz-q3-mig" secondAttribute="bottom" constant="7.5" id="KEu-LZ-iQq"/>
+                                                <constraint firstItem="bSz-q3-mig" firstAttribute="leading" secondItem="2RH-aE-DRX" secondAttribute="trailing" constant="8" id="ciP-jW-Azh"/>
+                                                <constraint firstAttribute="bottom" secondItem="jgn-C4-bOm" secondAttribute="bottom" constant="7.5" id="fat-hX-kX7"/>
+                                                <constraint firstAttribute="trailing" secondItem="bSz-q3-mig" secondAttribute="trailing" constant="8" id="fdR-Kd-OiX"/>
+                                                <constraint firstItem="2RH-aE-DRX" firstAttribute="top" secondItem="MkW-24-DGn" secondAttribute="topMargin" id="fvX-PF-gw8"/>
+                                                <constraint firstItem="jgn-C4-bOm" firstAttribute="leading" secondItem="MkW-24-DGn" secondAttribute="leading" constant="15" id="wRu-cn-teT"/>
+                                                <constraint firstItem="2RH-aE-DRX" firstAttribute="leading" secondItem="MkW-24-DGn" secondAttribute="leadingMargin" constant="7" id="xQ7-NY-Utx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -1615,10 +1617,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="284" height="73.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aJ-3d-75x">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aJ-3d-75x">
                                                     <rect key="frame" x="15" y="8" width="173" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="rvA-9D-jsm"/>
+                                                        <constraint firstAttribute="height" constant="21" id="jxB-cx-c9k"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1627,7 +1629,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="？？？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuL-si-Y7y">
                                                     <rect key="frame" x="15" y="37" width="173" height="29"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="29" id="HR0-8d-lFd"/>
+                                                        <constraint firstAttribute="height" constant="29" id="2n9-ux-cc4"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -1637,8 +1639,8 @@
                                                     <rect key="frame" x="196" y="8" width="80" height="58"/>
                                                     <color key="backgroundColor" red="0.87450980389999999" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="58" id="RIb-SN-3CO"/>
-                                                        <constraint firstAttribute="width" constant="80" id="rZY-qW-OzQ"/>
+                                                        <constraint firstAttribute="width" constant="80" id="DSH-z1-w4P"/>
+                                                        <constraint firstAttribute="height" constant="58" id="NP7-qk-3cr"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
                                                     <state key="normal" title="投票する">
@@ -1650,15 +1652,15 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="F0t-oq-wek" firstAttribute="top" secondItem="20W-vh-ceT" secondAttribute="top" constant="8" id="Hxd-Zu-i2N"/>
-                                                <constraint firstItem="fuL-si-Y7y" firstAttribute="leading" secondItem="20W-vh-ceT" secondAttribute="leading" constant="15" id="NBQ-aj-26L"/>
-                                                <constraint firstItem="6aJ-3d-75x" firstAttribute="top" secondItem="20W-vh-ceT" secondAttribute="topMargin" id="OEW-Ba-UD5"/>
-                                                <constraint firstItem="F0t-oq-wek" firstAttribute="leading" secondItem="fuL-si-Y7y" secondAttribute="trailing" constant="8" id="RFS-h1-LQ8"/>
-                                                <constraint firstAttribute="bottom" secondItem="F0t-oq-wek" secondAttribute="bottom" constant="7.5" id="XTg-V9-94D"/>
-                                                <constraint firstItem="F0t-oq-wek" firstAttribute="leading" secondItem="6aJ-3d-75x" secondAttribute="trailing" constant="8" id="nqw-Vj-0LS"/>
-                                                <constraint firstAttribute="bottom" secondItem="fuL-si-Y7y" secondAttribute="bottom" constant="7.5" id="pVi-6Q-M4i"/>
-                                                <constraint firstAttribute="trailing" secondItem="F0t-oq-wek" secondAttribute="trailing" constant="8" id="qvn-y5-bb3"/>
-                                                <constraint firstItem="6aJ-3d-75x" firstAttribute="leading" secondItem="20W-vh-ceT" secondAttribute="leadingMargin" constant="7" id="uIr-hR-QOc"/>
+                                                <constraint firstAttribute="trailing" secondItem="F0t-oq-wek" secondAttribute="trailing" constant="8" id="5aF-mj-Ely"/>
+                                                <constraint firstAttribute="bottom" secondItem="F0t-oq-wek" secondAttribute="bottom" constant="7.5" id="6j3-zN-X1Q"/>
+                                                <constraint firstItem="F0t-oq-wek" firstAttribute="leading" secondItem="fuL-si-Y7y" secondAttribute="trailing" constant="8" id="BBO-f2-fwD"/>
+                                                <constraint firstItem="F0t-oq-wek" firstAttribute="top" secondItem="20W-vh-ceT" secondAttribute="top" constant="8" id="BfN-LT-jNH"/>
+                                                <constraint firstItem="F0t-oq-wek" firstAttribute="leading" secondItem="6aJ-3d-75x" secondAttribute="trailing" constant="8" id="Jjt-XE-EGe"/>
+                                                <constraint firstItem="6aJ-3d-75x" firstAttribute="top" secondItem="20W-vh-ceT" secondAttribute="topMargin" id="Tg1-Xd-Zkc"/>
+                                                <constraint firstItem="fuL-si-Y7y" firstAttribute="leading" secondItem="20W-vh-ceT" secondAttribute="leading" constant="15" id="YRG-Da-JAU"/>
+                                                <constraint firstItem="6aJ-3d-75x" firstAttribute="leading" secondItem="20W-vh-ceT" secondAttribute="leadingMargin" constant="7" id="ZOO-Lg-jYb"/>
+                                                <constraint firstAttribute="bottom" secondItem="fuL-si-Y7y" secondAttribute="bottom" constant="7.5" id="dmd-Gf-pGi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
