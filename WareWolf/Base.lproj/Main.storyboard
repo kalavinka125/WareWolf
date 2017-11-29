@@ -1165,7 +1165,6 @@
                         <outlet property="timeLabel" destination="00y-WL-RbN" id="4Xw-zy-pds"/>
                         <outlet property="victimLabel" destination="Qyh-hc-Tnb" id="Phj-Lk-M4v"/>
                         <segue destination="dEv-dX-tEH" kind="presentation" identifier="GO_TO_DISCUSSION" modalTransitionStyle="crossDissolve" id="gtG-kr-dk5"/>
-                        <segue destination="2vV-a0-nlE" kind="presentation" identifier="GO_TO_DICTATOR" modalTransitionStyle="flipHorizontal" id="c5P-Gn-aMA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmU-Rk-Afk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1261,6 +1260,7 @@
                         <outlet property="timeLabel" destination="u08-Vj-YmT" id="wac-ts-fOL"/>
                         <outlet property="titleLabel" destination="EHp-bh-gWf" id="jcc-yl-moP"/>
                         <segue destination="c51-ta-A3J" kind="presentation" identifier="GO_TO_VOTE_TOP" modalTransitionStyle="crossDissolve" id="CRP-8K-WQ1"/>
+                        <segue destination="2vV-a0-nlE" kind="presentation" identifier="GO_TO_DICTATOR" modalTransitionStyle="flipHorizontal" id="mrY-1l-nQq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDb-lF-HWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1417,7 +1417,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GT2-eC-fWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3548" y="-559"/>
+            <point key="canvasLocation" x="4245" y="-533"/>
         </scene>
         <!--Dictator List View Controller-->
         <scene sceneID="Idn-SJ-Qa5">
@@ -1566,7 +1566,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8H-XR-Nmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4245" y="-560.91549295774644"/>
+            <point key="canvasLocation" x="4941" y="-535"/>
         </scene>
         <!--Vote View Controller-->
         <scene sceneID="t38-I0-pZc">
@@ -1765,6 +1765,7 @@
                     <connections>
                         <outlet property="imageView" destination="SA1-Vt-gyq" id="vAa-1W-KjD"/>
                         <outlet property="nameLabel" destination="XiI-6a-yEZ" id="Jk7-3m-mIv"/>
+                        <outlet property="titleLabel" destination="r5A-3x-LTD" id="D5N-yw-42L"/>
                         <segue destination="IBx-LH-Fsq" kind="presentation" identifier="GO_GAME_NIGHT" modalTransitionStyle="crossDissolve" id="AIU-sV-nPo"/>
                         <segue destination="wrG-Jd-3at" kind="presentation" identifier="GO_GAME_RESULT" modalTransitionStyle="flipHorizontal" id="mHo-3g-tJw"/>
                     </connections>
