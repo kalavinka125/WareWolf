@@ -36,10 +36,7 @@ class DictatorListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == self.VOTE_RESULT_VC_ID {
-            let next = segue.destination as! VoteResultViewController
-            next.voteTarget = self.voteTarget
-        }
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -126,6 +123,7 @@ class DictatorListViewController: UIViewController, UITableViewDelegate, UITable
             let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_RESULT_VC_ID) as! VoteResultViewController
             next.modalTransitionStyle = .crossDissolve
             next.voteTarget = self.voteTarget
+            present(next, animated: true, completion: nil)
         }else{
             self.showAlert(viewController: self, message: "追放者を決めていません", buttonTitle: "OK")
         }
