@@ -10,6 +10,8 @@ import UIKit
 
 class DetectiveViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let SEGUE_NAME = "GO_TO_DETECTIVE_DETAIL"
+
     @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
@@ -22,7 +24,7 @@ class DetectiveViewController: UIViewController {
         if self.appDelegate.soundPlayer.isPlaying {
             self.appDelegate.soundPlayer.stop()
         }
-        self.appDelegate.soundPlay(fileName: "Mozart-Requiem-Dies-Irae", numberOfLoop: -1)
+        self.appDelegate.soundPlay(fileName: "question", numberOfLoop: -1)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +33,7 @@ class DetectiveViewController: UIViewController {
     }
     
     @IBAction func tappedNextButton(_ sender: Any) {
+        self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
     }
 
     /*
