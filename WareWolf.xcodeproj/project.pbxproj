@@ -28,6 +28,7 @@
 		D23F39E61FCE5138002A38CC /* DictatorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F39E51FCE5138002A38CC /* DictatorListViewController.swift */; };
 		D23F39E81FCE6F4B002A38CC /* Mozart-Requiem-Dies-Irae.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D23F39E71FCE6F4B002A38CC /* Mozart-Requiem-Dies-Irae.mp3 */; };
 		D23F39EA1FCE9E5B002A38CC /* question.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D23F39E91FCE9E5B002A38CC /* question.mp3 */; };
+		D23F39EC1FCEDBF1002A38CC /* RoleCheckInDiscussionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F39EB1FCEDBF1002A38CC /* RoleCheckInDiscussionViewController.swift */; };
 		D28646AC1FC1E313002B14BD /* PlayerEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */; };
 		D28646AE1FC1E3AF002B14BD /* PlayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */; };
 		D28646B01FC1F124002B14BD /* RoleCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */; };
@@ -104,6 +105,7 @@
 		D23F39E51FCE5138002A38CC /* DictatorListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictatorListViewController.swift; sourceTree = "<group>"; };
 		D23F39E71FCE6F4B002A38CC /* Mozart-Requiem-Dies-Irae.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mozart-Requiem-Dies-Irae.mp3"; sourceTree = "<group>"; };
 		D23F39E91FCE9E5B002A38CC /* question.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = question.mp3; sourceTree = "<group>"; };
+		D23F39EB1FCEDBF1002A38CC /* RoleCheckInDiscussionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleCheckInDiscussionViewController.swift; sourceTree = "<group>"; };
 		D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerEditTableViewCell.swift; sourceTree = "<group>"; };
 		D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerListViewController.swift; sourceTree = "<group>"; };
 		D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleCheckViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				D23F39E51FCE5138002A38CC /* DictatorListViewController.swift */,
 				D28646B91FC30EF5002B14BD /* ExFileManager.swift */,
 				D2D4064B1FC3270F00F10994 /* RoleManager.swift */,
+				D23F39EB1FCEDBF1002A38CC /* RoleCheckInDiscussionViewController.swift */,
 			);
 			name = WereWolf;
 			path = WareWolf;
@@ -444,6 +447,7 @@
 				D28646BE1FC31412002B14BD /* Player.swift in Sources */,
 				D28646B21FC1F134002B14BD /* RoleResultViewController.swift in Sources */,
 				D2D406561FC417F800F10994 /* RoleJobTableViewCell.swift in Sources */,
+				D23F39EC1FCEDBF1002A38CC /* RoleCheckInDiscussionViewController.swift in Sources */,
 				D28646AC1FC1E313002B14BD /* PlayerEditTableViewCell.swift in Sources */,
 				D2D4064C1FC3270F00F10994 /* RoleManager.swift in Sources */,
 				D23F39E61FCE5138002A38CC /* DictatorListViewController.swift in Sources */,
