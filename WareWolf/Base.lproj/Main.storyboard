@@ -1199,8 +1199,7 @@
                                 <rect key="frame" x="116" y="314" width="88" height="88"/>
                                 <color key="backgroundColor" red="0.0" green="0.88627450980392153" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="88" id="dwf-Ms-rac"/>
-                                    <constraint firstAttribute="height" constant="88" id="lpK-er-1ht"/>
+                                    <constraint firstAttribute="height" constant="88" id="qgM-wp-QZG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="72"/>
                                 <state key="normal" title="+">
@@ -1240,22 +1239,56 @@
                                     <action selector="tappedDiscussionButton:" destination="dEv-dX-tEH" eventType="touchUpInside" id="iDM-ck-eIQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZm-lC-ngm">
+                                <rect key="frame" x="165" y="452" width="139" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Yva-88-SGW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                <state key="normal" title="名探偵">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedDetectiveButton:" destination="dEv-dX-tEH" eventType="touchUpInside" id="MgW-aS-xkG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9GS-HX-6FN">
+                                <rect key="frame" x="16" y="452" width="139" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="hY6-EW-q6L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                <state key="normal" title="独裁者">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedDictationButton:" destination="dEv-dX-tEH" eventType="touchUpInside" id="lcu-Me-BMt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="MTa-aa-fHo" secondAttribute="trailing" constant="100" id="0RH-nR-jds"/>
                             <constraint firstItem="zwM-2L-KcX" firstAttribute="top" secondItem="cSR-8p-fLQ" secondAttribute="bottom" constant="99" id="1Yb-8b-jZz"/>
+                            <constraint firstItem="9GS-HX-6FN" firstAttribute="leading" secondItem="Y4U-Rf-gn6" secondAttribute="leadingMargin" id="2pm-7r-6c9"/>
                             <constraint firstItem="7g7-aV-67d" firstAttribute="leading" secondItem="Y4U-Rf-gn6" secondAttribute="leadingMargin" id="3PI-hj-UkL"/>
-                            <constraint firstItem="MTa-aa-fHo" firstAttribute="leading" secondItem="Y4U-Rf-gn6" secondAttribute="leadingMargin" constant="100" id="6GT-hP-B84"/>
                             <constraint firstItem="u08-Vj-YmT" firstAttribute="trailing" secondItem="Y4U-Rf-gn6" secondAttribute="trailingMargin" id="9gI-D7-9D5"/>
                             <constraint firstItem="zwM-2L-KcX" firstAttribute="trailing" secondItem="Y4U-Rf-gn6" secondAttribute="trailingMargin" id="CT8-dZ-KFh"/>
+                            <constraint firstItem="eZm-lC-ngm" firstAttribute="leading" secondItem="9GS-HX-6FN" secondAttribute="trailing" constant="10" id="E4U-rN-lXG"/>
                             <constraint firstItem="EHp-bh-gWf" firstAttribute="top" secondItem="cSR-8p-fLQ" secondAttribute="bottom" constant="99" id="MAf-hJ-j29"/>
+                            <constraint firstItem="eZm-lC-ngm" firstAttribute="width" secondItem="9GS-HX-6FN" secondAttribute="width" id="NB9-fK-uuu"/>
                             <constraint firstItem="u08-Vj-YmT" firstAttribute="leading" secondItem="Y4U-Rf-gn6" secondAttribute="leadingMargin" id="Paw-Im-19Z"/>
                             <constraint firstItem="zwM-2L-KcX" firstAttribute="leading" secondItem="EHp-bh-gWf" secondAttribute="trailing" constant="8" id="SER-ph-Xra"/>
                             <constraint firstItem="Xga-km-6f3" firstAttribute="top" secondItem="7g7-aV-67d" secondAttribute="bottom" constant="20" id="TVs-Wb-lH1"/>
                             <constraint firstItem="7g7-aV-67d" firstAttribute="trailing" secondItem="Y4U-Rf-gn6" secondAttribute="trailingMargin" id="Xko-jy-ypu"/>
-                            <constraint firstItem="MTa-aa-fHo" firstAttribute="top" secondItem="u08-Vj-YmT" secondAttribute="bottom" constant="8" id="iHS-jS-mhp"/>
+                            <constraint firstItem="7g7-aV-67d" firstAttribute="top" secondItem="9GS-HX-6FN" secondAttribute="bottom" constant="8" id="dNL-l1-U2d"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MTa-aa-fHo" secondAttribute="trailing" constant="100" id="dog-b3-y7w"/>
+                            <constraint firstItem="MTa-aa-fHo" firstAttribute="top" secondItem="u08-Vj-YmT" secondAttribute="bottom" constant="8" id="fOK-9p-Zfe"/>
+                            <constraint firstItem="MTa-aa-fHo" firstAttribute="leading" secondItem="Y4U-Rf-gn6" secondAttribute="leadingMargin" constant="100" id="gax-u1-Zbr"/>
+                            <constraint firstItem="7g7-aV-67d" firstAttribute="top" secondItem="eZm-lC-ngm" secondAttribute="bottom" constant="8" id="pyr-wV-Co0"/>
                             <constraint firstItem="u08-Vj-YmT" firstAttribute="top" secondItem="EHp-bh-gWf" secondAttribute="bottom" constant="8" id="qk3-qH-Zoe"/>
+                            <constraint firstItem="eZm-lC-ngm" firstAttribute="trailing" secondItem="Y4U-Rf-gn6" secondAttribute="trailingMargin" id="tcl-ln-Ruc"/>
                             <constraint firstItem="EHp-bh-gWf" firstAttribute="leading" secondItem="Y4U-Rf-gn6" secondAttribute="leadingMargin" id="zWP-Vc-fEr"/>
                         </constraints>
                     </view>
@@ -1263,12 +1296,12 @@
                         <outlet property="timeLabel" destination="u08-Vj-YmT" id="wac-ts-fOL"/>
                         <outlet property="titleLabel" destination="EHp-bh-gWf" id="jcc-yl-moP"/>
                         <segue destination="c51-ta-A3J" kind="presentation" identifier="GO_TO_VOTE_TOP" modalTransitionStyle="crossDissolve" id="CRP-8K-WQ1"/>
-                        <segue destination="2vV-a0-nlE" kind="presentation" identifier="GO_TO_DICTATOR" modalTransitionStyle="flipHorizontal" id="mrY-1l-nQq"/>
+                        <segue destination="g2Z-Pa-OmM" kind="presentation" identifier="ROLE_CHECK_IN_DISCUSSION" id="067-p9-3C7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDb-lF-HWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3549" y="131"/>
+            <point key="canvasLocation" x="3547.5" y="130.98591549295776"/>
         </scene>
         <!--Vote Top View Controller-->
         <scene sceneID="u7W-rh-EFj">
@@ -1348,6 +1381,97 @@
             </objects>
             <point key="canvasLocation" x="4245" y="131"/>
         </scene>
+        <!--Role Check In Discussion View Controller-->
+        <scene sceneID="dbn-ur-Ce0">
+            <objects>
+                <viewController id="g2Z-Pa-OmM" customClass="RoleCheckInDiscussionViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eO7-th-GPP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mth-mX-kr3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Omq-m0-gA0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなたは誰？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWq-cm-hZg">
+                                <rect key="frame" x="16" y="58" width="289" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="8ok-dN-ItN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本当に、独裁者ですか？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZ8-GT-tVv">
+                                <rect key="frame" x="17" y="93" width="289" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="8nS-Pc-NCj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yl9-oh-agr">
+                                <rect key="frame" x="16" y="20" width="74" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="74" id="Exo-3w-Tq5"/>
+                                    <constraint firstAttribute="height" constant="31" id="jSu-5u-f9G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
+                                <state key="normal" title="&lt;&lt; 戻る">
+                                    <color key="titleColor" red="0.3655167433" green="0.20999244610000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedBackButton:" destination="g2Z-Pa-OmM" eventType="touchUpInside" id="jTL-2m-vHn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWq-rQ-7MG">
+                                <rect key="frame" x="17" y="504" width="288" height="44"/>
+                                <color key="backgroundColor" red="0.38878055319999999" green="0.2301004857" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3bD-zw-LqT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                <state key="normal" title="確認">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedCheckButton:" destination="g2Z-Pa-OmM" eventType="touchUpInside" id="pha-j0-lra"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6te-Bm-osd">
+                                <rect key="frame" x="0.0" y="176" width="320" height="216"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6te-Bm-osd" secondAttribute="trailing" id="5XY-ae-zLD"/>
+                            <constraint firstAttribute="trailing" secondItem="OWq-cm-hZg" secondAttribute="trailing" constant="15" id="6ez-dP-Cn0"/>
+                            <constraint firstItem="OWq-cm-hZg" firstAttribute="leading" secondItem="Omq-m0-gA0" secondAttribute="leading" constant="16" id="C8V-rQ-ybX"/>
+                            <constraint firstItem="6te-Bm-osd" firstAttribute="leading" secondItem="Omq-m0-gA0" secondAttribute="leading" id="G4Y-oH-6jG"/>
+                            <constraint firstItem="yl9-oh-agr" firstAttribute="top" secondItem="eO7-th-GPP" secondAttribute="bottom" id="MgY-IK-u2q"/>
+                            <constraint firstItem="yl9-oh-agr" firstAttribute="leading" secondItem="Omq-m0-gA0" secondAttribute="leadingMargin" id="SkY-Ju-J80"/>
+                            <constraint firstItem="wWq-rQ-7MG" firstAttribute="top" secondItem="6te-Bm-osd" secondAttribute="bottom" constant="112" id="ZSH-XN-QNv"/>
+                            <constraint firstItem="lZ8-GT-tVv" firstAttribute="top" secondItem="OWq-cm-hZg" secondAttribute="bottom" constant="8" id="aYM-Av-z6e"/>
+                            <constraint firstAttribute="trailing" secondItem="wWq-rQ-7MG" secondAttribute="trailing" constant="15" id="b5q-pa-rfr"/>
+                            <constraint firstItem="Mth-mX-kr3" firstAttribute="top" secondItem="wWq-rQ-7MG" secondAttribute="bottom" constant="20" id="bSs-Lh-kHu"/>
+                            <constraint firstItem="wWq-rQ-7MG" firstAttribute="leading" secondItem="Omq-m0-gA0" secondAttribute="leading" constant="17" id="ghf-VR-uB1"/>
+                            <constraint firstItem="OWq-cm-hZg" firstAttribute="top" secondItem="yl9-oh-agr" secondAttribute="bottom" constant="7" id="oTO-V5-ofS"/>
+                            <constraint firstItem="lZ8-GT-tVv" firstAttribute="leading" secondItem="Omq-m0-gA0" secondAttribute="leading" constant="17" id="qg2-VC-gAp"/>
+                            <constraint firstItem="6te-Bm-osd" firstAttribute="top" secondItem="lZ8-GT-tVv" secondAttribute="bottom" constant="56" id="rzA-BZ-7y0"/>
+                            <constraint firstAttribute="trailing" secondItem="lZ8-GT-tVv" secondAttribute="trailing" constant="14" id="voB-Ze-n8u"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="checkRoleLabel" destination="lZ8-GT-tVv" id="BFA-zS-T1s"/>
+                        <outlet property="pickerView" destination="6te-Bm-osd" id="8Xp-5e-rP8"/>
+                        <segue destination="2vV-a0-nlE" kind="presentation" identifier="GO_TO_RESULT_IN_DISCUSSION" modalTransitionStyle="flipHorizontal" id="JIU-dm-1oB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VI3-KF-Kf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4245" y="-532"/>
+        </scene>
         <!--Dictator View Controller-->
         <scene sceneID="CBD-AJ-4MO">
             <objects>
@@ -1420,7 +1544,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GT2-eC-fWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4245" y="-533"/>
+            <point key="canvasLocation" x="4959" y="-532"/>
         </scene>
         <!--Dictator List View Controller-->
         <scene sceneID="Idn-SJ-Qa5">
@@ -1569,7 +1693,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8H-XR-Nmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4941" y="-535"/>
+            <point key="canvasLocation" x="5655" y="-535"/>
         </scene>
         <!--Vote View Controller-->
         <scene sceneID="t38-I0-pZc">

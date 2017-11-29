@@ -205,6 +205,7 @@
 				D2D406511FC3FDC900F10994 /* RoleDetailViewController.swift */,
 				D2D406591FC7371000F10994 /* InfoViewController.swift */,
 				D2D406531FC405CB00F10994 /* DiscussionViewController.swift */,
+				D23F39EB1FCEDBF1002A38CC /* RoleCheckInDiscussionViewController.swift */,
 				D2EC1D861FC8043700F68F53 /* VoteTopViewController.swift */,
 				D2EC1D841FC7FA7900F68F53 /* VoteViewController.swift */,
 				D2DFD1F31FCA80C100395713 /* VoteResultViewController.swift */,
@@ -214,7 +215,6 @@
 				D23F39E51FCE5138002A38CC /* DictatorListViewController.swift */,
 				D28646B91FC30EF5002B14BD /* ExFileManager.swift */,
 				D2D4064B1FC3270F00F10994 /* RoleManager.swift */,
-				D23F39EB1FCEDBF1002A38CC /* RoleCheckInDiscussionViewController.swift */,
 			);
 			name = WereWolf;
 			path = WareWolf;
