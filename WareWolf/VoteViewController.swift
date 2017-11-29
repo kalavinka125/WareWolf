@@ -311,8 +311,6 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             // 投票結果のリセット
             self.appDelegate.votePointList = [:]
-            // ターンを増やす
-            self.appDelegate.turn += 1
             self.performSegue(withIdentifier: self.VOTE_RESUL_SEGUE, sender: self)
         }
     }
