@@ -18,6 +18,7 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
     @IBOutlet weak var victimLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     // @IBOutlet weak var doubtLabel: UILabel!
+    private let sections = [" 犠牲者 "," 復活者 "]
     
     private var victimList : [String] = []
     
@@ -112,8 +113,7 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
                 self.appDelegate.playerList[reborn].isLife = true
             }
             self.showAlert(viewController: self, message: "昨夜の間に\n蘇生されたユーザが\n存在します\n（\(self.appDelegate.rebornList.count)名）", buttonTitle: "OK")
-            // 復活者のリストをクリア
-            self.appDelegate.rebornList = []
+            self.tableView.reloadData()
         }
         
         // 全員の死亡フラグを元に戻す
@@ -131,6 +131,8 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
         let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
         cancel.setValue(UIColor.black, forKey: "titleTextColor")
         let ok = UIAlertAction(title: "はい", style: .default, handler: { okAction in
+            // 復活者のリストをクリア
+            self.appDelegate.rebornList = []
             let side = self.appDelegate.roleManager.isGameOver(players: self.appDelegate.playerList)
             if side == .None {
                 if self.appDelegate.soundPlayer.isPlaying {
@@ -157,8 +159,43 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
         present(alert, animated: true, completion: nil)
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.sections.count
+    }
+    
+    //この関数内でセクションの設定を行う
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        let font = UIFont(name: "PixelMplus10-Regular", size: 17.0)
+        label.font = font
+        label.textColor = UIColor.black
+        label.text = self.sections[section]
+        /*
+         >> 人狼：223, 86, 86
+         >> 村人：0, 223, 86
+         >> 狐：240, 240, 86
+         */
+        if section == 0 {
+            label.backgroundColor = UIColor.rgb(0, g: 223, b: 86, alpha: 1.0)
+        }else if section == 1 {
+            label.backgroundColor = UIColor.rgb(223, g: 86, b: 86, alpha: 1.0)
+        }else if section == 2 {
+            label.backgroundColor = UIColor.rgb(240, g: 240, b: 86, alpha: 1.0)
+        }
+        return label
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 32.0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.victimList.count
+        if section == 0 {
+            return self.victimList.count
+        }else if section == 1{
+            return self.appDelegate.rebornList.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -168,7 +205,13 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
         }else{
             cell.numberLabel.text = "\(indexPath.row + 1)."
         }
-        cell.nameLabel.text = self.victimList[indexPath.row]
+        if indexPath.section == 0 {
+            cell.nameLabel.text = self.victimList[indexPath.row]
+            cell.nameLabel.textColor = self.appDelegate.wereWolfColor
+        }else if indexPath.section == 1 {
+            cell.nameLabel.text = self.appDelegate.playerList[self.appDelegate.rebornList[indexPath.row]].name
+            cell.nameLabel.textColor = self.appDelegate.villagerColor
+        }
         return cell
     }
 
