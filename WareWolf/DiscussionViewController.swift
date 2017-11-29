@@ -14,6 +14,7 @@ class DiscussionViewController: UIViewController {
     private var lifeList : [Int] = []
     private let NEXT_VC = "RoleCheckViewController"
     private let SEGUE_NAME = "GO_TO_VOTE_TOP"
+    private let DICTATOR_SEGUE = "GO_TO_DICTATOR"
     var time = 0
     var isLimit = false
     // タイマー
@@ -95,11 +96,15 @@ class DiscussionViewController: UIViewController {
                 // BGMの再生を停止する
                 self.appDelegate.soundPlayer.stop()
                 self.appDelegate.isPause = false
-                // タイマーの停止
+                // タイマーの停止 1 5
                 self.timer.invalidate()
                 self.timer = nil
                 self.time = 0
-                self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
+                if self.appDelegate.dictatorID == -1 {
+                    self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
+                }else{
+                    self.performSegue(withIdentifier: self.DICTATOR_SEGUE, sender: self)
+                }
             }
         })
         action.setValue(UIColor.black, forKey: "titleTextColor")
