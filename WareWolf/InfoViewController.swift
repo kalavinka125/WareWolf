@@ -176,11 +176,9 @@ class InfoViewController: UIViewController , UITableViewDelegate, UITableViewDat
          >> 狐：240, 240, 86
          */
         if section == 0 {
-            label.backgroundColor = UIColor.rgb(0, g: 223, b: 86, alpha: 1.0)
+            label.backgroundColor = self.appDelegate.wereWolfColor
         }else if section == 1 {
-            label.backgroundColor = UIColor.rgb(223, g: 86, b: 86, alpha: 1.0)
-        }else if section == 2 {
-            label.backgroundColor = UIColor.rgb(240, g: 240, b: 86, alpha: 1.0)
+            label.backgroundColor = self.appDelegate.villagerColor
         }
         return label
     }
