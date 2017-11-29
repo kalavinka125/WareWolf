@@ -66,6 +66,7 @@ class VoteResultViewController: UIViewController {
     
     @IBAction func tappedNextButton(_ sender: Any) {
         self.side = self.appDelegate.roleManager.isGameOver(players: self.appDelegate.playerList)
+        self.appDelegate.turn += 1
         // 再生中なら停止
         if self.appDelegate.soundPlayer.isPlaying {
             self.appDelegate.soundPlayer.stop()
