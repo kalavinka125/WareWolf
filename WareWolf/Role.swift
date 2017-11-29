@@ -33,9 +33,6 @@ class Role: NSObject {
     var deadEndFlag = false
     // 防御フラグ
     var guardFlag = false
-    //
-    var wereWolfFlag = false
-    
     
     /// 初期化
     ///
@@ -60,8 +57,6 @@ class Role: NSObject {
         self.deadEndFlag = false
         // 防御フラグ
         self.guardFlag = false
-        //
-        self.wereWolfFlag = false
     }
     
     init(ID:Int,name:String,detail:String,side:Side,uranai:Side,reibai:Side){
@@ -78,8 +73,6 @@ class Role: NSObject {
         self.deadEndFlag = false
         // 防御フラグ
         self.guardFlag = false
-        //
-        self.wereWolfFlag = false
     }
     
     /// 何陣営かを判定する
