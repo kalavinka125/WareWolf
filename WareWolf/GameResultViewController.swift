@@ -20,6 +20,7 @@ class GameResultViewController: UIViewController,UITableViewDelegate,UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }

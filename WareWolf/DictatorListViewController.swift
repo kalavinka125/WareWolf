@@ -24,6 +24,7 @@ class DictatorListViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     override func viewWillAppear(_ animated: Bool) {

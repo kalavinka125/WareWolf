@@ -31,6 +31,7 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     override func viewWillAppear(_ animated: Bool) {
