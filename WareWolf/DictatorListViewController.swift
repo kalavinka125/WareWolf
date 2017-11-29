@@ -123,11 +123,6 @@ class DictatorListViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func tappedNextButton(_ sender: Any) {
         if self.isJob {
-            for index in 0..<self.appDelegate.playerList.count {
-                if index != self.appDelegate.dictatorID {
-                    self.appDelegate.playerList[index].role.uranaiResult[self.appDelegate.dictatorID] = Side.Villager
-                }
-            }
             // 独裁者IDを-1に
             self.appDelegate.dictatorID = -1
             // 投票完了画面に遷移
