@@ -10,10 +10,21 @@ import UIKit
 
 class DictatorViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let SEGUE_NAME = "GO_TO_DICTATOR_DETAIL"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.titleLabel.text = "\(self.appDelegate.playerList[self.appDelegate.dictatorID].name)の役職は"
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +32,9 @@ class DictatorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func tappedNextButton(_ sender: Any) {
+        self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
+    }
 
     /*
     // MARK: - Navigation
