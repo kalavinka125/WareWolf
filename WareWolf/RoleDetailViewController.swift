@@ -635,14 +635,6 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         }
     }
     
-    /// 役割画面のループを終わらせる処理
-    private func endRoleDetail() {
-        // 自分で最後、プレイヤーIDを0番に戻して、GO！
-        self.appDelegate.playerID = 0
-        // とりあえず議論へ
-        self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
-    }
-    
     /// 役職についての説明を表示するためのページ
     private func updateRoleView() {
         self.imageView.image = UIImage(named: "\(self.appDelegate.playerList[self.appDelegate.playerID].role.ID)")
@@ -711,5 +703,13 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
                 self.endRoleDetail()
             }
         }
+    }
+    
+    /// 役割画面のループを終わらせる処理
+    private func endRoleDetail() {
+        // 自分で最後、プレイヤーIDを0番に戻して、GO！
+        self.appDelegate.playerID = 0
+        // とりあえず議論へ
+        self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
     }
 }
