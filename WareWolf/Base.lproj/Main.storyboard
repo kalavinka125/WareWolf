@@ -1165,7 +1165,7 @@
                         <outlet property="timeLabel" destination="00y-WL-RbN" id="4Xw-zy-pds"/>
                         <outlet property="victimLabel" destination="Qyh-hc-Tnb" id="Phj-Lk-M4v"/>
                         <segue destination="dEv-dX-tEH" kind="presentation" identifier="GO_TO_DISCUSSION" modalTransitionStyle="crossDissolve" id="gtG-kr-dk5"/>
-                        <segue destination="2vV-a0-nlE" kind="presentation" identifier="GO_TO_" modalTransitionStyle="flipHorizontal" id="c5P-Gn-aMA"/>
+                        <segue destination="2vV-a0-nlE" kind="presentation" identifier="GO_TO_DICTATOR" modalTransitionStyle="flipHorizontal" id="c5P-Gn-aMA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmU-Rk-Afk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1698,7 +1698,7 @@
         <!--Vote Result View Controller-->
         <scene sceneID="p28-Sf-6OO">
             <objects>
-                <viewController id="sKu-Ja-3yv" customClass="VoteResultViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VOTE_RESULT_VC" id="sKu-Ja-3yv" customClass="VoteResultViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xhv-xT-JiJ"/>
                         <viewControllerLayoutGuide type="bottom" id="STS-Pp-8o6"/>

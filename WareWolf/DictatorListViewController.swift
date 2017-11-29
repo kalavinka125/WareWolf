@@ -13,7 +13,9 @@ class DictatorListViewController: UIViewController, UITableViewDelegate, UITable
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let CELL_ID = "ROLE_DICTATOR_CELL"
     
-    private let TURNEND_VC_ID = "TURN_END_VC"
+    private var voteTarget = -1
+    // private let TURNEND_VC_ID = "TURN_END_VC"
+    private let VOTE_RESULT_VC_ID = "VOTE_RESULT_VC"
     private let GAMEOVER_VC_ID = "GameResultViewController"
     
     @IBOutlet weak var tableView: UITableView!
@@ -31,6 +33,13 @@ class DictatorListViewController: UIViewController, UITableViewDelegate, UITable
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.VOTE_RESULT_VC_ID {
+            let next = segue.destination as! VoteResultViewController
+            next.voteTarget = self.voteTarget
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,15 +91,41 @@ class DictatorListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tappedRoleJobButton(indexPath: IndexPath) {
-        
+        let target = self.appDelegate.playerList[indexPath.row]
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        cancel.setValue(UIColor.black, forKey: "titleTextColor")
+        let ok = UIAlertAction(title: "追放する", style: .default, handler: { okAction in
+            DispatchQueue.main.async {
+                // 能力ターゲットを記憶する
+                self.appDelegate.playerList[self.appDelegate.dictatorID].target = indexPath.row
+                // 投票ターゲット扱い
+                self.voteTarget = indexPath.row
+                // 仕事を行なった
+                self.isJob = true
+                self.tableView.reloadData()
+            }
+        })
+        ok.setValue(self.appDelegate.villagerColor, forKey: "titleTextColor")
+        let message = target.name + "を\n追放しますか？"
+        let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+        let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+        let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        // アラートの表示
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func tappedNextButton(_ sender: Any) {
         if self.isJob {
-            //
-            
             // 独裁者IDを-1に
             self.appDelegate.dictatorID = -1
+            // 投票完了画面に遷移
+            let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_RESULT_VC_ID) as! VoteResultViewController
+            next.modalTransitionStyle = .crossDissolve
+            next.voteTarget = self.voteTarget
         }else{
             self.showAlert(viewController: self, message: "追放者を決めていません", buttonTitle: "OK")
         }
