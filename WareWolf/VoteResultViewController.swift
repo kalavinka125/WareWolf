@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum VoteResult {
+    case normal
+    case dictator
+}
+
 class VoteResultViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let NIGHT_SEGUE = "GO_GAME_NIGHT"
@@ -15,10 +20,12 @@ class VoteResultViewController: UIViewController {
     
     private var side : Side = .None
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
 
     var voteTarget = -1
+    var prev : VoteResult = .normal
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +35,13 @@ class VoteResultViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if self.prev == .normal {
+            self.titleLabel.text = "投票の結果\n処刑されるのは"
+        }else if self.prev == .dictator {
+            self.titleLabel.text = "独裁者が決断しました\n処刑されるのは"
+        }
+        
         // 投票で選ばれた人物を処刑
         self.appDelegate.playerList[self.voteTarget].isLife = false
         self.nameLabel.text = self.appDelegate.playerList[self.voteTarget].name

@@ -128,6 +128,7 @@ class DictatorListViewController: UIViewController, UITableViewDelegate, UITable
             let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_RESULT_VC_ID) as! VoteResultViewController
             next.modalTransitionStyle = .crossDissolve
             next.voteTarget = self.voteTarget
+            next.prev = .dictator
             present(next, animated: true, completion: nil)
         }else{
             self.showAlert(viewController: self, message: "追放者を決めていません", buttonTitle: "OK")
