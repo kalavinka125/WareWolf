@@ -142,8 +142,10 @@ class DiscussionViewController: UIViewController {
             if self.appDelegate.dictatorID == -1 {
                 self.segue = .dictator
                 self.timer.invalidate()
+                /*
                 self.appDelegate.soundPlayer.stop()
                 self.appDelegate.isPause = false
+                */
                 // 1秒以下なら60秒足す
                 if self.time <= 1 {
                     self.isLimit = false
@@ -165,8 +167,10 @@ class DiscussionViewController: UIViewController {
             if self.appDelegate.detectiveID == -1 {
                 self.segue = .detective
                 self.timer.invalidate()
+                /*
                 self.appDelegate.soundPlayer.stop()
                 self.appDelegate.isPause = false
+                */
                 // 1秒以下なら60秒足す
                 if self.time <= 1 {
                     self.isLimit = false
@@ -220,6 +224,12 @@ class DiscussionViewController: UIViewController {
         // タイマーを停止し、情報画面へ
         // BGMは再生しっぱなし
         self.timer.invalidate()
+        if self.time <= 1 {
+            self.isLimit = false
+            self.time += 60
+            self.timeLabel.textColor = UIColor.black
+            self.timeLabel.text = self.time2Text(time: self.time)
+        }
         self.performSegue(withIdentifier: self.INFO_SEGUE, sender: self)
     }
     
