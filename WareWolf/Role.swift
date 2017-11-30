@@ -13,6 +13,7 @@ enum Side {
     case Villager
     case WereWolf
     case Fox
+    case Detective
     case Etc
 }
 
@@ -87,6 +88,8 @@ class Role: NSObject {
         }else if number == 2 {
             return Side.Fox
         }else if number == 3 {
+            return Side.Detective
+        }else if number == 4 {
             return Side.Etc
         }
         return Side.None
