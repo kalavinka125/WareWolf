@@ -155,6 +155,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.rebornList = []
         self.dictatorID = -1
         self.detectiveID = -1
+        self.prevRoleList = [:]
     }
     
     /// ユーザデフォルトにゲームの状態を保存
