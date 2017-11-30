@@ -31,7 +31,14 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
         self.titleLabel.text = "役職（\(self.appDelegate.playerList.count)名まで）"
         // デフォルト役職一覧を取得
         if self.roleList.count == 0 {
-            self.roleList = self.appDelegate.roleManager.defaultRoleList(numberOfPlayer: self.appDelegate.playerList.count)
+            // 過去のデータがある場合
+            if self.appDelegate.prevRoleList.count > 0 {
+                for (key,value) in self.appDelegate.prevRoleList {
+                    self.roleList[key] = value
+                }
+            }else{
+                self.roleList = self.appDelegate.roleManager.defaultRoleList(numberOfPlayer: self.appDelegate.playerList.count)
+            }
         }
         self.tableView.reloadData()
         self.showSelectRoles()

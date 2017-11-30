@@ -50,7 +50,20 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tappedContinueButton(_ sender: Any) {
-        
+        self.appDelegate.gameRefresh()
+        // プレイヤー一覧は初期化
+        self.appDelegate.playerList = []
+        let names = self.appDelegate.userDefaults.array(forKey: "names") as! [String]
+        let keys = self.appDelegate.userDefaults.array(forKey: "roleKeys") as! [Int]
+        let values = self.appDelegate.userDefaults.array(forKey: "roleValues") as! [Int]
+        for name in names {
+            let player = Player(name: name)
+            self.appDelegate.playerList.append(player)
+        }
+        for index in 0..<keys.count {
+            self.appDelegate.prevRoleList[keys[index]] = values[index]
+        }
+        self.performSegue(withIdentifier: self.NEWGAME_SEGUE, sender: self)
     }
 }
 

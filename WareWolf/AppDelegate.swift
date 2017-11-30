@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let userDefaults = UserDefaults.standard
-    private var prevRoleList : [Int:Int] = [:]
+    var prevRoleList : [Int:Int] = [:]
     /*
      >> 村人：0, 223, 86
      >> 人狼：223, 86, 86
@@ -163,6 +163,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 名前の一覧（文字列の配列）
         // 役職の一覧（roleID:人数）
         var names : [String] = []
+        self.prevRoleList = [:]
         for player in self.playerList {
             names.append(player.name)
             if self.prevRoleList[player.role.ID] == nil {
