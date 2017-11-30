@@ -14,11 +14,13 @@ class CheckViewController: UIViewController {
     var villager = 0
     var wereWolf = 0
     var fox = 0
+    var detective = 0
     var roleList : [Int:Int] = [:]
     
     @IBOutlet weak var villagerLabel: UILabel!
     @IBOutlet weak var wereWolfLabel: UILabel!
     @IBOutlet weak var foxLabel: UILabel!
+    @IBOutlet weak var detectiveLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,8 @@ class CheckViewController: UIViewController {
                     self.wereWolf += value
                 }else if role!.side == .Fox {
                     self.fox += value
+                }else if role!.side == .Detective {
+                    self.detective += value
                 }
                 // 選択中役職を入れていく
                 for _ in 0..<value {
@@ -49,6 +53,7 @@ class CheckViewController: UIViewController {
         self.villagerLabel.text = "市民サイド：" + self.showNumberOfRoleText(number: self.villager)
         self.wereWolfLabel.text = "人狼サイド：" + self.showNumberOfRoleText(number: self.wereWolf)
         self.foxLabel.text = "　狐サイド：" + self.showNumberOfRoleText(number: self.fox)
+        self.detectiveLabel.text = "探偵サイド：" + self.showNumberOfRoleText(number: self.detective)
     }
 
     override func didReceiveMemoryWarning() {
