@@ -279,11 +279,24 @@ class RoleManager: NSObject {
         }
         // そのターゲットを殺害
         players[random].isLife = false
+        let result = isGameOver(players:players)
+        if result == .None {
+            if players[random].role.ID == 10 {
+                return nekomata(players: players)
+            }else{
+                return result
+            }
+        }else{
+            // 勝敗が決まっている場合は返す
+            return result
+        }
         // 次の殺害ターゲットになった役職が猫又だった場合
+        /*
         if players[random].role.ID == 10 {
             return nekomata(players: players)
         }else{
             return isGameOver(players:players)
         }
+        */
     }
 }
