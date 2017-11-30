@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let villagerColor = UIColor.rgb(0, g: 223, b: 86, alpha: 1.0)
     let wereWolfColor = UIColor.rgb(223, g: 86, b: 86, alpha: 1.0)
     let foxColor = UIColor.rgb(240, g: 240, b: 86, alpha: 1.0)
-    
+    let detectiveColor = UIColor.rgb(153, g: 102, b: 51, alpha: 1.0)
     // 参加者の一覧
     var playerList : [Player] = []
     // 役職の一覧
