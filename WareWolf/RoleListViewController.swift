@@ -12,7 +12,7 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let ROLL_CELL = "ROLL_CELL"
     private let SEGUE_NAME = "GO_TO_CHECK"
-    private let sections = [" 市民 "," 人狼 "," 狐 "]
+    private let sections = [" 市民 "," 人狼 "," 狐 "," 探偵 "]
     
     var roleList : [Int : Int] = [:]
     
@@ -137,6 +137,8 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
             label.backgroundColor = UIColor.rgb(223, g: 86, b: 86, alpha: 1.0)
         }else if section == 2 {
             label.backgroundColor = UIColor.rgb(240, g: 240, b: 86, alpha: 1.0)
+        }else if section == 3 {
+            label.backgroundColor = self.appDelegate.detectiveColor
         }
         return label
     }
@@ -152,6 +154,8 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
             return self.appDelegate.wereWolfRoles.count
         }else if section == 2 {
             return self.appDelegate.foxRoles.count
+        }else if section == 3 {
+            return self.appDelegate.detectiveRoles.count
         }
         return 0
     }
@@ -185,6 +189,14 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
             if let role = self.roleList[fox.ID] {
                 cell.numberOfRollLabel.text = "\(role)"
             }
+        }else if indexPath.section == 3 {
+            let detective = self.appDelegate.detectiveRoles[indexPath.row]
+            cell.nameLabel.text = detective.name
+            cell.rollImageView.image = UIImage(named: "\(detective.ID)")
+            cell.detailLabel.text = detective.detail
+            if let role = self.roleList[detective.ID] {
+                cell.numberOfRollLabel.text = "\(role)"
+            }
         }
         return cell
     }
@@ -200,6 +212,9 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
         }else if indexPath.section == 2 {
             // Fox
             ID = self.appDelegate.foxRoles[indexPath.row].ID
+        }else if indexPath.section == 3 {
+            // Detective
+            ID = self.appDelegate.detectiveRoles[indexPath.row].ID
         }
         // もともと設定されていた人数を取得
         if let n = self.roleList[ID] {
@@ -244,6 +259,9 @@ class RoleListViewController: UIViewController,UITableViewDataSource,UITableView
         }else if indexPath.section == 2 {
             // Fox
             ID = self.appDelegate.foxRoles[indexPath.row].ID
+        }else if indexPath.section == 3 {
+            // Detective
+            ID = self.appDelegate.detectiveRoles[indexPath.row].ID
         }
         // もともと設定されていた人数を取得
         if let n = self.roleList[ID] {
