@@ -31,11 +31,13 @@ class DetectiveResultViewController: UIViewController {
         super.viewWillAppear(animated)
         if self.isSuccess {
             self.titleLabel.text = "推理成功！"
+            self.titleLabel.textColor = self.appDelegate.detectiveColor
             self.imageView.image = maru
             self.detailLabel.textColor = self.appDelegate.detectiveColor
             self.detailLabel.text = "推理に成功したので、\n名探偵の勝利です"
         }else{
             self.titleLabel.text = "推理失敗！"
+            self.titleLabel.textColor = self.appDelegate.wereWolfColor
             self.imageView.image = batsu
             self.detailLabel.textColor = self.appDelegate.wereWolfColor
             self.detailLabel.text = "推理に失敗したので、\n名探偵は死亡します"
@@ -57,10 +59,20 @@ class DetectiveResultViewController: UIViewController {
         }else{
             // 探偵役職は死亡
             self.appDelegate.playerList[self.appDelegate.detectiveID].isLife = false
-            // 議論画面に遷移させる
-            let next = self.storyboard?.instantiateViewController(withIdentifier: self.DISCUSSION_VC_ID) as! DiscussionViewController
-            next.modalTransitionStyle = .crossDissolve
-            present(next, animated: true, completion: nil)
+            let result = self.appDelegate.roleManager.isGameOver(players: self.appDelegate.playerList)
+            if result == .None {
+                // 議論画面に遷移させる
+                let next = self.storyboard?.instantiateViewController(withIdentifier: self.DISCUSSION_VC_ID) as! DiscussionViewController
+                next.modalTransitionStyle = .crossDissolve
+                present(next, animated: true, completion: nil)
+            }else{
+                // 勝敗の決着が付いた場合
+                let next = self.storyboard?.instantiateViewController(withIdentifier: self.GAMEOVER_VC_ID) as! GameResultViewController
+                next.side = result
+                next.modalTransitionStyle = .crossDissolve
+                present(next, animated: true, completion: nil)
+            }
+
         }
     }
 }
