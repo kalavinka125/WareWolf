@@ -637,7 +637,7 @@
 		D23613F31FC09EE200563B8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				DEVELOPMENT_TEAM = 3BTZN69U72;
 				INFOPLIST_FILE = WareWolf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -646,13 +646,14 @@
 				PROVISIONING_PROFILE = "b77ca4c7-672e-4ef3-b495-0cfa350904d6";
 				PROVISIONING_PROFILE_SPECIFIER = "WereWolf-dev";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		D23613F41FC09EE200563B8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 3BTZN69U72;
 				INFOPLIST_FILE = WareWolf/Info.plist;
@@ -662,6 +663,7 @@
 				PROVISIONING_PROFILE = "d851bc41-e7de-4bc3-925c-f5104ed3bac7";
 				PROVISIONING_PROFILE_SPECIFIER = "WereWolf-dist";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
