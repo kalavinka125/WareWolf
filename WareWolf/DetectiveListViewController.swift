@@ -12,6 +12,7 @@ class DetectiveListViewController: UIViewController,UITableViewDelegate,UITableV
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let GAMEOVER_VC_ID = "GameResultViewController"
     private let DISCUSSION_VC_ID = "DiscussionViewController"
+    private let GO_TO_RESULT = "DETECTIVE_RESULT"
     private let CELL_ID = "DETECTIVE_CELL"
     private let font = UIFont(name: "PixelMplus10-Regular", size: 24)
     
@@ -22,6 +23,8 @@ class DetectiveListViewController: UIViewController,UITableViewDelegate,UITableV
     private var roles : [Role] = []
     private var detectiveList : [Int : String] = [:]
     private var alert : UIAlertController!
+    
+    var isSuccess = false
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -60,6 +63,13 @@ class DetectiveListViewController: UIViewController,UITableViewDelegate,UITableV
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
         self.pickerView.reloadAllComponents()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == self.GO_TO_RESULT {
+            let next = segue.destination as! DetectiveResultViewController
+            next.isSuccess = self.isSuccess
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -181,24 +191,41 @@ class DetectiveListViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     @IBAction func tappedNextButton(_ sender: Any) {
+        
         // 生存者の数と入力された役職
         let lifeList = self.appDelegate.roleManager.getList(target: true, players: self.appDelegate.playerList)
         if (lifeList.count - 1) == self.detectiveList.count {
-            var isSuccess = false
-            for (key , value) in self.detectiveList {
-               // PlayerID : RoleID
-                if self.appDelegate.playerList[key].role.name == value {
-                    isSuccess = true
-                }else{
-                    isSuccess = false
-                    break
+            let message = "答え合わせしますか？"
+            let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            
+            let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+            let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+            let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+            alert.setValue(attributedMessage, forKey: "attributedMessage")
+            let action : UIAlertAction = UIAlertAction(title: "はい", style: .default, handler: { okAction in
+                DispatchQueue.main.async {
+                    // 答え合わせ
+                    for (key , value) in self.detectiveList {
+                        // PlayerID : RoleID
+                        if self.appDelegate.playerList[key].role.name == value {
+                            self.isSuccess = true
+                        }else{
+                            self.isSuccess = false
+                            break
+                        }
+                    }
+                    alert.dismiss(animated: true, completion: {
+                        self.performSegue(withIdentifier: self.GO_TO_RESULT, sender: self)
+                    })
                 }
-            }
-            if isSuccess {
-                self.showAlert(viewController: self, message: "推理成功", buttonTitle: "OK")
-            }else{
-                self.showAlert(viewController: self, message: "推理失敗", buttonTitle: "OK")
-            }
+            })
+            action.setValue(self.appDelegate.detectiveColor, forKey: "titleTextColor")
+            let cancel = UIAlertAction(title: "いいえ", style: .cancel, handler: nil)
+            cancel.setValue(UIColor.black, forKey: "titleTextColor")
+            alert.addAction(cancel)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+            
         }else{
             self.showAlert(viewController: self, message: "全員の役職を\n推理して下さい", buttonTitle: "OK")
         }
