@@ -52,12 +52,21 @@ class DetectiveListViewController: UIViewController,UITableViewDelegate,UITableV
         super.viewWillAppear(animated)
         self.roles = []
         self.detectiveList = [:]
+        var isVillager = false
         for (key,_) in self.appDelegate.hintRoleList {
             // 名探偵以外を追加
             if key != 17 {
                 let role = self.appDelegate.roleManager.ID2Role(ID: key, roleList: self.appDelegate.roleList)
                 self.roles.append(role!)
+            }else if key == 0 {
+                // 市民がいるなら
+                isVillager = true
             }
+        }
+        // 市民の選択肢が無かったときに、市民の選択肢を追加
+        if !isVillager {
+            let role = self.appDelegate.roleManager.ID2Role(ID: 0, roleList: self.appDelegate.roleList)
+            self.roles.append(role!)
         }
         self.pickerView = UIPickerView()
         self.pickerView.delegate = self
