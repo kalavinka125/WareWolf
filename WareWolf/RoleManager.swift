@@ -229,6 +229,8 @@ class RoleManager: NSObject {
                     }else{
                         villager += 1
                     }
+                }else if player.role.side == .Detective {
+                    villager += 1
                 }
             }
         }
