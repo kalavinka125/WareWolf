@@ -49,5 +49,8 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: self.NEWGAME_SEGUE, sender: self)
     }
 
+    @IBAction func tappedContinueButton(_ sender: Any) {
+        
+    }
 }
 
