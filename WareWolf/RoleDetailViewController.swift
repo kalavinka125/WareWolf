@@ -677,9 +677,12 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
         }else if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .Fox {
             self.roleLabel.backgroundColor = self.appDelegate.foxColor
             
+        }else if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .Detective {
+            self.roleLabel.backgroundColor = self.appDelegate.detectiveColor
+            
         }else {
             self.roleLabel.backgroundColor = UIColor.clear
-            
+
         }
         self.detailLabel.text = self.appDelegate.playerList[self.appDelegate.playerID].role.detail
     }
@@ -696,6 +699,9 @@ class RoleDetailViewController: UIViewController,UITableViewDelegate,UITableView
             
         }else if role.side == .Fox {
             self.roleLabel.backgroundColor = self.appDelegate.foxColor
+            
+        }else if role.side == .Detective {
+            self.roleLabel.backgroundColor = self.appDelegate.detectiveColor
             
         }else {
             self.roleLabel.backgroundColor = UIColor.clear
