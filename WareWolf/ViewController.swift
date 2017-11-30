@@ -51,19 +51,27 @@ class ViewController: UIViewController {
 
     @IBAction func tappedContinueButton(_ sender: Any) {
         self.appDelegate.gameRefresh()
-        // プレイヤー一覧は初期化
-        self.appDelegate.playerList = []
-        let names = self.appDelegate.userDefaults.array(forKey: "names") as! [String]
-        let keys = self.appDelegate.userDefaults.array(forKey: "roleKeys") as! [Int]
-        let values = self.appDelegate.userDefaults.array(forKey: "roleValues") as! [Int]
-        for name in names {
-            let player = Player(name: name)
-            self.appDelegate.playerList.append(player)
+        if self.appDelegate.userDefaults.array(forKey: "names") != nil && self.appDelegate.userDefaults.array(forKey: "roleKeys") != nil && self.appDelegate.userDefaults.array(forKey: "roleValues") != nil {
+            // プレイヤー一覧は初期化
+            self.appDelegate.playerList = []
+            let names = self.appDelegate.userDefaults.array(forKey: "names") as! [String]
+            let keys = self.appDelegate.userDefaults.array(forKey: "roleKeys") as! [Int]
+            let values = self.appDelegate.userDefaults.array(forKey: "roleValues") as! [Int]
+            if names.count >= 4 && keys.count == values.count {
+                for name in names {
+                    let player = Player(name: name)
+                    self.appDelegate.playerList.append(player)
+                }
+                for index in 0..<keys.count {
+                    self.appDelegate.prevRoleList[keys[index]] = values[index]
+                }
+                self.performSegue(withIdentifier: self.NEWGAME_SEGUE, sender: self)
+            }else{
+                self.showAlert(viewController: self, message: "セーブデータが壊れてます", buttonTitle: "OK")
+            }
+        }else{
+            self.showAlert(viewController: self, message: "セーブデータがありません", buttonTitle: "OK")
         }
-        for index in 0..<keys.count {
-            self.appDelegate.prevRoleList[keys[index]] = values[index]
-        }
-        self.performSegue(withIdentifier: self.NEWGAME_SEGUE, sender: self)
     }
 }
 
