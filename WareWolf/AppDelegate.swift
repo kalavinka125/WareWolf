@@ -13,7 +13,8 @@ import AVFoundation
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+    let userDefaults = UserDefaults.standard
+    private var prevRoleList : [Int:Int] = [:]
     /*
      >> 村人：0, 223, 86
      >> 人狼：223, 86, 86
@@ -154,6 +155,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.rebornList = []
         self.dictatorID = -1
         self.detectiveID = -1
+    }
+    
+    /// ユーザデフォルトにゲームの状態を保存
+    func saveGame() {
+        // 名前の一覧（文字列の配列）
+        // 役職の一覧（roleID:人数）
+        var names : [String] = []
+        for player in self.playerList {
+            names.append(player.name)
+            if self.prevRoleList[player.role.ID] == nil {
+                self.prevRoleList[player.role.ID] = 1
+            }else{
+                self.prevRoleList[player.role.ID] = self.prevRoleList[player.role.ID]! + 1
+            }
+        }
+        var keys : [Int] = []
+        var values : [Int] = []
+        for (key , value) in self.prevRoleList {
+            keys.append(key)
+            values.append(value)
+        }
+        self.userDefaults.set(names, forKey: "names")
+        self.userDefaults.set(keys, forKey: "roleKeys")
+        self.userDefaults.set(values, forKey: "roleValues")
+        self.userDefaults.synchronize()
     }
 }
 

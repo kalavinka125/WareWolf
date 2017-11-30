@@ -84,6 +84,7 @@ class CheckViewController: UIViewController {
                 // 削除
                 self.appDelegate.joinRoleList.remove(at: random)
             }
+            self.appDelegate.saveGame()
             self.performSegue(withIdentifier: self.SEGUE_NAME, sender: self)
         }
     }
