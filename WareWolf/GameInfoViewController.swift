@@ -10,6 +10,9 @@ import UIKit
 
 class GameInfoViewController: UIViewController {
 
+    @IBOutlet weak var playerLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +24,10 @@ class GameInfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func tappedBackButton(_ sender: Any) {
+        // 戻る
+        self.dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
