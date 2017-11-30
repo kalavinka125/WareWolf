@@ -139,33 +139,49 @@ class DiscussionViewController: UIViewController {
     }
     
     @IBAction func tappedDictationButton(_ sender: Any) {
-        self.segue = .dictator
-        self.timer.invalidate()
-        self.appDelegate.soundPlayer.stop()
-        self.appDelegate.isPause = false
-        // 1秒以下なら60秒足す
-        if self.time <= 1 {
-            self.isLimit = false
-            self.time += 60
-            self.timeLabel.textColor = UIColor.black
-            self.timeLabel.text = self.time2Text(time: self.time)
+        if self.appDelegate.hintRoleList[11] != nil && self.appDelegate.hintRoleList[11]! > 0 {
+            if self.appDelegate.dictatorID == -1 {
+                self.segue = .dictator
+                self.timer.invalidate()
+                self.appDelegate.soundPlayer.stop()
+                self.appDelegate.isPause = false
+                // 1秒以下なら60秒足す
+                if self.time <= 1 {
+                    self.isLimit = false
+                    self.time += 60
+                    self.timeLabel.textColor = UIColor.black
+                    self.timeLabel.text = self.time2Text(time: self.time)
+                }
+                self.performSegue(withIdentifier: self.ROLE_CHECK_SEGUE, sender: self)
+            }else{
+                self.showAlert(viewController: self, message: "独裁者は\n既に能力を使いました", buttonTitle: "OK")
+            }
+        }else{
+            self.showAlert(viewController: self, message: "今回の参加者に\n独裁者はいません", buttonTitle: "OK")
         }
-        self.performSegue(withIdentifier: self.ROLE_CHECK_SEGUE, sender: self)
     }
     
     @IBAction func tappedDetectiveButton(_ sender: Any) {
-        self.segue = .detective
-        self.timer.invalidate()
-        self.appDelegate.soundPlayer.stop()
-        self.appDelegate.isPause = false
-        // 1秒以下なら60秒足す
-        if self.time <= 1 {
-            self.isLimit = false
-            self.time += 60
-            self.timeLabel.textColor = UIColor.black
-            self.timeLabel.text = self.time2Text(time: self.time)
+        if self.appDelegate.hintRoleList[17] != nil && self.appDelegate.hintRoleList[17]! > 0 {
+            if self.appDelegate.detectiveID == -1 {
+                self.segue = .detective
+                self.timer.invalidate()
+                self.appDelegate.soundPlayer.stop()
+                self.appDelegate.isPause = false
+                // 1秒以下なら60秒足す
+                if self.time <= 1 {
+                    self.isLimit = false
+                    self.time += 60
+                    self.timeLabel.textColor = UIColor.black
+                    self.timeLabel.text = self.time2Text(time: self.time)
+                }
+                self.performSegue(withIdentifier: self.ROLE_CHECK_SEGUE, sender: self)
+            }else{
+                self.showAlert(viewController: self, message: "名探偵は\n既に能力を使いました", buttonTitle: "OK")
+            }
+        }else{
+            self.showAlert(viewController: self, message: "今回の参加者に\n名探偵はいません", buttonTitle: "OK")
         }
-        self.performSegue(withIdentifier: self.ROLE_CHECK_SEGUE, sender: self)
     }
     
     func update(timer : Timer) {
