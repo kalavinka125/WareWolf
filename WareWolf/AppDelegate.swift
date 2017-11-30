@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var wereWolfRoles : [Role] = []
     var villagerRoles : [Role] = []
     var foxRoles : [Role] = []
+    var detectiveRoles : [Role] = []
     // 役職管理クラス
     let roleManager = RoleManager()
     
@@ -81,6 +82,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     self.wereWolfRoles.append(role)
                 }else if role.side == .Fox {
                     self.foxRoles.append(role)
+                }else if role.side == .Detective {
+                    self.detectiveRoles.append(role)
                 }
                 self.roleList.append(role)
             }
