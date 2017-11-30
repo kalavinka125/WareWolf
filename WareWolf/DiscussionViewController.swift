@@ -22,6 +22,7 @@ class DiscussionViewController: UIViewController {
     private let SEGUE_NAME = "GO_TO_VOTE_TOP"
     private let ROLE_CHECK_SEGUE = "ROLE_CHECK_IN_DISCUSSION"
     private let INFO_SEGUE = "GO_TO_INFO"
+    private let TOP_VC_ID = "VIEW_CONTROLLER"
     // private let DICTATOR_SEGUE = "GO_TO_DICTATOR"
     var time = 0
     var isLimit = false
@@ -88,18 +89,11 @@ class DiscussionViewController: UIViewController {
     
     @IBAction func tappedPlusTimeButton(_ sender: Any) {
         self.isLimit = false
-        self.time += 60
+        if self.time < (99 * 60) {
+            self.time += 60
+        }
         self.timeLabel.textColor = UIColor.black
         self.timeLabel.text = self.time2Text(time: self.time)
-        
-        /*
-        if self.appDelegate.soundPlayer.isPlaying{
-            // 停止
-            self.appDelegate.soundPlayer.stop()
-            // BGM再開
-            self.appDelegate.soundPlay(fileName: "bgm1", numberOfLoop: -1)
-        }
-        */
         // BGM停止中
         if self.appDelegate.isPause {
             self.appDelegate.isPause = false
@@ -190,6 +184,36 @@ class DiscussionViewController: UIViewController {
     }
     
     @IBAction func tappedTopPageButton(_ sender: Any) {
+        let cancel = UIAlertAction(title: "いいえ", style: .cancel, handler: nil)
+        cancel.setValue(UIColor.black, forKey: "titleTextColor")
+        let ok = UIAlertAction(title: "はい", style: .default, handler: { okAction in
+            DispatchQueue.main.async {
+                // BGMの再生を停止する
+                self.appDelegate.soundPlayer.stop()
+                self.appDelegate.isPause = false
+                // タイマーの停止
+                self.timer.invalidate()
+                self.timer = nil
+                self.time = 0
+                // ゲームの初期化
+                self.appDelegate.gameRefresh()
+                // トップページへ戻る
+                let next = self.storyboard?.instantiateViewController(withIdentifier: self.TOP_VC_ID) as! ViewController
+                next.modalTransitionStyle = .crossDissolve
+                self.present(next, animated: true, completion: nil)
+            }
+        })
+        ok.setValue(UIColor.black, forKey: "titleTextColor")
+        let message = "ゲームを終了し、\nトップページヘ戻りますか？"
+        let alert: UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let font = UIFont(name: "PixelMplus10-Regular", size: 18)
+        let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
+        let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        // アラートの表示
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func tappedInfoButton(_ sender: Any) {
