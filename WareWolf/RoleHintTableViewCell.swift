@@ -10,6 +10,9 @@ import UIKit
 
 class RoleHintTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var roleImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var sideLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
