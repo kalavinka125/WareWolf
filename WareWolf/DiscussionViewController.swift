@@ -21,6 +21,7 @@ class DiscussionViewController: UIViewController {
     private let NEXT_VC = "RoleCheckViewController"
     private let SEGUE_NAME = "GO_TO_VOTE_TOP"
     private let ROLE_CHECK_SEGUE = "ROLE_CHECK_IN_DISCUSSION"
+    private let INFO_SEGUE = "GO_TO_INFO"
     // private let DICTATOR_SEGUE = "GO_TO_DICTATOR"
     var time = 0
     var isLimit = false
@@ -57,12 +58,16 @@ class DiscussionViewController: UIViewController {
             self.timeLabel.textColor = UIColor.black
             self.timeLabel.text = self.time2Text(time: self.time)
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
-            self.appDelegate.soundPlay(fileName: "bgm1", numberOfLoop: -1)
+            if !self.appDelegate.soundPlayer.isPlaying {
+                self.appDelegate.soundPlay(fileName: "bgm1", numberOfLoop: -1)
+            }
         }else{
             self.timeLabel.textColor = UIColor.black
             self.timeLabel.text = self.time2Text(time: self.time)
             self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
-            self.appDelegate.soundPlay(fileName: "bgm1", numberOfLoop: -1)
+            if !self.appDelegate.soundPlayer.isPlaying {
+                self.appDelegate.soundPlay(fileName: "bgm1", numberOfLoop: -1)
+            }
         }
 
     }
@@ -182,6 +187,16 @@ class DiscussionViewController: UIViewController {
         }else{
             self.showAlert(viewController: self, message: "今回の参加者に\n名探偵はいません", buttonTitle: "OK")
         }
+    }
+    
+    @IBAction func tappedTopPageButton(_ sender: Any) {
+    }
+    
+    @IBAction func tappedInfoButton(_ sender: Any) {
+        // タイマーを停止し、情報画面へ
+        // BGMは再生しっぱなし
+        self.timer.invalidate()
+        self.performSegue(withIdentifier: self.INFO_SEGUE, sender: self)
     }
     
     func update(timer : Timer) {
