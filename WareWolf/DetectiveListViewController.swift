@@ -58,9 +58,10 @@ class DetectiveListViewController: UIViewController,UITableViewDelegate,UITableV
             if key != 17 {
                 let role = self.appDelegate.roleManager.ID2Role(ID: key, roleList: self.appDelegate.roleList)
                 self.roles.append(role!)
-            }else if key == 0 {
-                // 市民がいるなら
-                isVillager = true
+                if key == 0 {
+                    // 市民がいるなら
+                    isVillager = true
+                }
             }
         }
         // 市民の選択肢が無かったときに、市民の選択肢を追加
