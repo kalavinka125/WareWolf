@@ -288,27 +288,41 @@ class VoteViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         // １人より多く居た場合
         if keys.count > 1 {
-            // TODO:決戦投票
             self.appDelegate.playerID = 0
             self.appDelegate.votePointList = [:]
-            let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_TOP) as! VoteTopViewController
-            next.modalTransitionStyle = .crossDissolve
-            next.flag = .battle
-            // 投票ターゲットを初期化
-            for index in 0..<self.appDelegate.playerList.count {
-                if keys.contains(index) {
-                    self.appDelegate.playerList[index].isBattleVote = true
+            // 決選投票3回完了したら（投票4回完了）
+            if self.appDelegate.battleVoteCount == 3 {
+                let targetIndex = Int(arc4random_uniform(UInt32(keys.count)))
+                self.voteTarget = keys[targetIndex]
+                // 決選投票のフラグを戻す
+                for player in self.appDelegate.playerList {
+                    player.isBattleVote = false
                 }
-                // self.appDelegate.playerList[index].voteTarget = -1
+                // 投票結果のリセット
+                self.appDelegate.battleVoteCount = 0
+                // 投票リザルトへ
+                self.performSegue(withIdentifier: self.VOTE_RESUL_SEGUE, sender: self)
+            }else{
+                // 投票ターゲットを初期化
+                for index in 0..<self.appDelegate.playerList.count {
+                    if keys.contains(index) {
+                        self.appDelegate.playerList[index].isBattleVote = true
+                    }
+                }
+                self.appDelegate.battleVoteCount += 1
+                let next = self.storyboard?.instantiateViewController(withIdentifier: self.VOTE_TOP) as! VoteTopViewController
+                next.modalTransitionStyle = .crossDissolve
+                next.flag = .battle
+                present(next, animated: true, completion: nil)
             }
-            present(next, animated: true, completion: nil)
+
         }else{
             self.voteTarget = maxKey
             // 決選投票のフラグを戻す
             for player in self.appDelegate.playerList {
                 player.isBattleVote = false
-                // player.voteTarget = -1
             }
+            self.appDelegate.battleVoteCount = 0
             // 投票結果のリセット
             self.appDelegate.votePointList = [:]
             self.performSegue(withIdentifier: self.VOTE_RESUL_SEGUE, sender: self)

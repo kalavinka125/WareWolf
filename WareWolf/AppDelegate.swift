@@ -51,7 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // 音楽再生クラス
     var soundPlayer : AVAudioPlayer!
     var isPause = false
-    var isBattleVote = false
+    // var isBattleVote = false
+    var battleVoteCount = 0
     // 復活した人がいる場合
     // 例：ヒロインなど
     var isReborn = false
@@ -150,7 +151,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.turn = 0
         self.playerID = 0
         self.isPause = false
-        self.isBattleVote = false
+        // self.isBattleVote = false
+        self.battleVoteCount = 0
         self.isReborn = false
         self.rebornList = []
         self.dictatorID = -1
