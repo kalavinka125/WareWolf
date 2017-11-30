@@ -46,9 +46,26 @@ class VoteResultViewController: UIViewController {
         self.appDelegate.playerList[self.voteTarget].isLife = false
         self.nameLabel.text = self.appDelegate.playerList[self.voteTarget].name
         // self.appDelegate.soundPlay(fileName: "buki", numberOfLoop: 0)
-        // 猫又の場合
-        if self.appDelegate.playerList[self.voteTarget].role.ID == 10 {
-            self.side = self.appDelegate.roleManager.nekomata(players: self.appDelegate.playerList)
+        self.side = self.appDelegate.roleManager.isGameOver(players: self.appDelegate.playerList)
+        if self.side == .None {
+            self.nextPage()
+            // 猫又の場合
+            if self.appDelegate.playerList[self.voteTarget].role.ID == 10 {
+                // 猫又の結果
+                let nekomata = self.appDelegate.roleManager.nekomata(players: self.appDelegate.playerList)
+                self.side = nekomata
+                if nekomata == .None{
+                    self.performSegue(withIdentifier: self.NIGHT_SEGUE, sender: self)
+                }else{
+                    self.performSegue(withIdentifier: self.RESULT_SEGUE, sender: self)
+                }
+            }else{
+                self.performSegue(withIdentifier: self.NIGHT_SEGUE, sender: self)
+            }
+        }else{
+            self.nextPage()
+            // ゲームの勝敗が決まっているので、リザルトへ
+            self.performSegue(withIdentifier: self.RESULT_SEGUE, sender: self)
         }
     }
 
@@ -65,16 +82,14 @@ class VoteResultViewController: UIViewController {
     }
     
     @IBAction func tappedNextButton(_ sender: Any) {
-        self.side = self.appDelegate.roleManager.isGameOver(players: self.appDelegate.playerList)
+        self.nextPage()
+    }
+    
+    private func nextPage() {
         self.appDelegate.turn += 1
         // 再生中なら停止
         if self.appDelegate.soundPlayer.isPlaying {
             self.appDelegate.soundPlayer.stop()
-        }
-        if self.side == .None {
-            self.performSegue(withIdentifier: self.NIGHT_SEGUE, sender: self)
-        }else{
-            self.performSegue(withIdentifier: self.RESULT_SEGUE, sender: self)
         }
     }
 
