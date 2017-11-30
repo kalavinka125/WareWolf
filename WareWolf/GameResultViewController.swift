@@ -44,6 +44,11 @@ class GameResultViewController: UIViewController,UITableViewDelegate,UITableView
             self.sideLabel.text = "　狐サイド"
             self.imageView.image = UIImage(named: "18")!
             self.appDelegate.soundPlay(fileName: "soundLogo", numberOfLoop: 0)
+        }else if self.side == .Detective {
+            self.sideLabel.backgroundColor = self.appDelegate.detectiveColor
+            self.sideLabel.text = "探偵サイド"
+            self.imageView.image = UIImage(named: "17")!
+            self.appDelegate.soundPlay(fileName: "win", numberOfLoop: 0)
         }
         self.tableView.reloadData()
     }
