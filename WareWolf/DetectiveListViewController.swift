@@ -69,6 +69,8 @@ class DetectiveListViewController: UIViewController,UITableViewDelegate,UITableV
         if segue.identifier == self.GO_TO_RESULT {
             let next = segue.destination as! DetectiveResultViewController
             next.isSuccess = self.isSuccess
+            // BGM停止
+            self.appDelegate.soundPlayer.stop()
         }
     }
     
@@ -196,35 +198,37 @@ class DetectiveListViewController: UIViewController,UITableViewDelegate,UITableV
         let lifeList = self.appDelegate.roleManager.getList(target: true, players: self.appDelegate.playerList)
         if (lifeList.count - 1) == self.detectiveList.count {
             let message = "答え合わせしますか？"
-            let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let answerAlert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
             
             let font = UIFont(name: "PixelMplus10-Regular", size: 18)
             let messageFont : [String : AnyObject] = [NSFontAttributeName : font!]
             let attributedMessage = NSMutableAttributedString(string: message, attributes: messageFont)
-            alert.setValue(attributedMessage, forKey: "attributedMessage")
+            answerAlert.setValue(attributedMessage, forKey: "attributedMessage")
             let action : UIAlertAction = UIAlertAction(title: "はい", style: .default, handler: { okAction in
-                DispatchQueue.main.async {
-                    // 答え合わせ
-                    for (key , value) in self.detectiveList {
-                        // PlayerID : RoleID
-                        if self.appDelegate.playerList[key].role.name == value {
-                            self.isSuccess = true
-                        }else{
-                            self.isSuccess = false
-                            break
-                        }
+                // 答え合わせ
+                for (key , value) in self.detectiveList {
+                    // PlayerID : RoleID
+                    if self.appDelegate.playerList[key].role.name == value {
+                        self.isSuccess = true
+                    }else{
+                        self.isSuccess = false
+                        break
                     }
-                    alert.dismiss(animated: true, completion: {
-                        self.performSegue(withIdentifier: self.GO_TO_RESULT, sender: self)
-                    })
+                }
+                /*
+                answerAlert.dismiss(animated: true, completion: {
+                })
+                */
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: self.GO_TO_RESULT, sender: self)
                 }
             })
             action.setValue(self.appDelegate.detectiveColor, forKey: "titleTextColor")
             let cancel = UIAlertAction(title: "いいえ", style: .cancel, handler: nil)
             cancel.setValue(UIColor.black, forKey: "titleTextColor")
-            alert.addAction(cancel)
-            alert.addAction(action)
-            present(alert, animated: true, completion: nil)
+            answerAlert.addAction(cancel)
+            answerAlert.addAction(action)
+            present(answerAlert, animated: true, completion: nil)
             
         }else{
             self.showAlert(viewController: self, message: "全員の役職を\n推理して下さい", buttonTitle: "OK")
