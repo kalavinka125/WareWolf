@@ -181,7 +181,28 @@ class DetectiveListViewController: UIViewController,UITableViewDelegate,UITableV
     }
     
     @IBAction func tappedNextButton(_ sender: Any) {
-        
+        // 生存者の数と入力された役職
+        let lifeList = self.appDelegate.roleManager.getList(target: true, players: self.appDelegate.playerList)
+        if (lifeList.count - 1) == self.detectiveList.count {
+            var isSuccess = false
+            for (key , value) in self.detectiveList {
+               // PlayerID : RoleID
+                if self.appDelegate.playerList[key].role.name == value {
+                    isSuccess = true
+                }else{
+                    isSuccess = false
+                    break
+                }
+            }
+            if isSuccess {
+                self.showAlert(viewController: self, message: "推理成功", buttonTitle: "OK")
+            }else{
+                self.showAlert(viewController: self, message: "推理失敗", buttonTitle: "OK")
+            }
+        }else{
+            self.showAlert(viewController: self, message: "全員の役職を\n推理して下さい", buttonTitle: "OK")
+        }
+
     }
     
     func tappedDoneToolbarButton(sender: UIBarButtonItem){
