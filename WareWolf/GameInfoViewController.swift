@@ -63,6 +63,9 @@ class GameInfoViewController: UIViewController , UITableViewDelegate,UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: self.LIFE_CELL, for: indexPath) as! PlayerLifeTableViewCell
+            cell.nameLabel.adjustsFontSizeToFitWidth = true
+            cell.statusLabel.adjustsFontSizeToFitWidth = true
+            cell.numberLabel.adjustsFontSizeToFitWidth = true
             if (indexPath.row + 1) < 10 {
                 cell.numberLabel.text = " \(indexPath.row + 1)."
 
@@ -84,6 +87,8 @@ class GameInfoViewController: UIViewController , UITableViewDelegate,UITableView
             let role = self.appDelegate.roleManager.ID2Role(ID: self.keys[indexPath.row], roleList: self.appDelegate.roleList)
             cell.roleImageView.image = UIImage(named: String(role!.ID))!
             cell.nameLabel.text = (role?.name)! + "：\(self.roleList[self.keys[indexPath.row]]!)名"
+            cell.sideLabel.adjustsFontSizeToFitWidth = true
+            cell.nameLabel.adjustsFontSizeToFitWidth = true
             if role?.side == .Villager {
                 cell.sideLabel.textColor = self.appDelegate.villagerColor
                 cell.sideLabel.text = "市民"
@@ -109,11 +114,11 @@ class GameInfoViewController: UIViewController , UITableViewDelegate,UITableView
         label.font = font
         label.textColor = UIColor.black
         label.backgroundColor = UIColor.rgb(255, g: 111, b: 207, alpha: 1.0)
-        
+        label.adjustsFontSizeToFitWidth = true
         if section == 0 {
             label.text = "プレイヤー数：\(self.appDelegate.playerList.count)名"
         }else if section == 1 {
-            label.text = "参加している役職"
+            label.text = "参加している役職：\(self.roleList.count)種類"
         }
         return label
     }
