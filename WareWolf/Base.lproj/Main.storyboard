@@ -570,6 +570,16 @@
                                     <action selector="tappedGameStartButton:" destination="TRF-VI-e9x" eventType="touchUpInside" id="MUE-z4-Cbw"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="探偵サイド：10名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFI-8X-9Cf">
+                                <rect key="frame" x="15" y="317" width="288" height="49"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="34y-ge-buU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="32"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -582,6 +592,7 @@
                             <constraint firstItem="7fz-SH-bBn" firstAttribute="top" secondItem="5a8-vw-1WY" secondAttribute="bottom" constant="20" id="T3H-CR-gJs"/>
                             <constraint firstItem="YyH-4z-jHB" firstAttribute="top" secondItem="s84-uv-kBp" secondAttribute="bottom" id="UhC-Bv-M8M"/>
                             <constraint firstItem="vIg-uc-TR7" firstAttribute="leading" secondItem="iQe-cC-Ixb" secondAttribute="leadingMargin" id="Ut8-79-hLd"/>
+                            <constraint firstAttribute="trailing" secondItem="OFI-8X-9Cf" secondAttribute="trailing" constant="17" id="bFx-5f-ck6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mDC-Vh-Vzc" secondAttribute="trailing" constant="1" id="fKb-xQ-YOG"/>
                             <constraint firstItem="U8E-kz-GIi" firstAttribute="trailing" secondItem="iQe-cC-Ixb" secondAttribute="trailingMargin" id="g1M-vt-TqG"/>
                             <constraint firstItem="mDC-Vh-Vzc" firstAttribute="top" secondItem="U8E-kz-GIi" secondAttribute="bottom" constant="8" id="jXY-qR-Ucg"/>
@@ -589,10 +600,13 @@
                             <constraint firstItem="5a8-vw-1WY" firstAttribute="trailing" secondItem="iQe-cC-Ixb" secondAttribute="trailingMargin" id="mTD-Hw-sg6"/>
                             <constraint firstItem="U8E-kz-GIi" firstAttribute="leading" secondItem="iQe-cC-Ixb" secondAttribute="leadingMargin" id="npq-eE-iTa"/>
                             <constraint firstItem="YyH-4z-jHB" firstAttribute="leading" secondItem="iQe-cC-Ixb" secondAttribute="leadingMargin" id="oVn-ZM-aKM"/>
+                            <constraint firstItem="OFI-8X-9Cf" firstAttribute="leading" secondItem="iQe-cC-Ixb" secondAttribute="leading" constant="15" id="vkf-er-nj2"/>
                             <constraint firstItem="vIg-uc-TR7" firstAttribute="trailing" secondItem="iQe-cC-Ixb" secondAttribute="trailingMargin" id="xi9-sJ-iDY"/>
+                            <constraint firstItem="OFI-8X-9Cf" firstAttribute="top" secondItem="mDC-Vh-Vzc" secondAttribute="bottom" constant="8" id="zqb-ug-LaB"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="detectiveLabel" destination="OFI-8X-9Cf" id="KfI-Ze-iZo"/>
                         <outlet property="foxLabel" destination="mDC-Vh-Vzc" id="nZa-EI-6Qm"/>
                         <outlet property="villagerLabel" destination="vIg-uc-TR7" id="Eg6-xG-qQs"/>
                         <outlet property="wereWolfLabel" destination="U8E-kz-GIi" id="ieq-cP-LAQ"/>
@@ -1803,7 +1817,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名探偵" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhp-jD-Xum">
                                 <rect key="frame" x="92" y="56" width="212" height="64"/>
-                                <color key="backgroundColor" red="0.0" green="0.87450980389999999" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="A0w-wu-Vwl"/>
                                 </constraints>
@@ -1913,11 +1927,86 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Qw8-op-m7S" id="45n-Fi-jc2"/>
+                        <segue destination="rQq-lB-gGd" kind="presentation" identifier="DETECTIVE_RESULT" modalTransitionStyle="flipHorizontal" id="Wuy-1u-3ha"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1c-0x-Dhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5662.5" y="-1186.2676056338028"/>
+        </scene>
+        <!--Detective Result View Controller-->
+        <scene sceneID="miL-hs-IbK">
+            <objects>
+                <viewController id="rQq-lB-gGd" customClass="DetectiveResultViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XHz-Az-D2k"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ks2-mC-h00"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N9s-y9-AOW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推理成功！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILo-x0-3FD">
+                                <rect key="frame" x="16" y="90" width="289" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="5r4-9U-0Su"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="maru" translatesAutoresizingMaskIntoConstraints="NO" id="7NC-dh-5Dl">
+                                <rect key="frame" x="32" y="156" width="256" height="256"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EyT-Cd-ozL">
+                                <rect key="frame" x="16" y="504" width="288" height="44"/>
+                                <color key="backgroundColor" red="0.38878055319999999" green="0.2301004857" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7qf-xg-482"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                <state key="normal" title="次へ">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedNextButton:" destination="rQq-lB-gGd" eventType="touchUpInside" id="FWo-W5-Hbo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="763-jN-37s">
+                                <rect key="frame" x="15" y="429" width="289" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="TYA-Bm-h3S"/>
+                                </constraints>
+                                <string key="text">推理に成功したので、
+名探偵の勝利です</string>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EyT-Cd-ozL" firstAttribute="trailing" secondItem="N9s-y9-AOW" secondAttribute="trailingMargin" id="7Vc-Sw-sji"/>
+                            <constraint firstItem="EyT-Cd-ozL" firstAttribute="leading" secondItem="N9s-y9-AOW" secondAttribute="leadingMargin" id="8Ux-1l-jsK"/>
+                            <constraint firstAttribute="trailing" secondItem="763-jN-37s" secondAttribute="trailing" constant="16" id="9Nh-NC-PEd"/>
+                            <constraint firstItem="763-jN-37s" firstAttribute="leading" secondItem="N9s-y9-AOW" secondAttribute="leading" constant="15" id="EXY-ii-PyT"/>
+                            <constraint firstAttribute="trailing" secondItem="ILo-x0-3FD" secondAttribute="trailing" constant="15" id="F7M-81-0FM"/>
+                            <constraint firstItem="ILo-x0-3FD" firstAttribute="leading" secondItem="N9s-y9-AOW" secondAttribute="leading" constant="16" id="Nvd-bx-ZnW"/>
+                            <constraint firstItem="Ks2-mC-h00" firstAttribute="top" secondItem="EyT-Cd-ozL" secondAttribute="bottom" constant="20" id="axT-SJ-5er"/>
+                            <constraint firstItem="ILo-x0-3FD" firstAttribute="top" secondItem="XHz-Az-D2k" secondAttribute="bottom" constant="70" id="dpe-yN-MId"/>
+                            <constraint firstItem="EyT-Cd-ozL" firstAttribute="top" secondItem="763-jN-37s" secondAttribute="bottom" constant="8" id="tDW-l5-440"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailLabel" destination="763-jN-37s" id="emU-6w-aB5"/>
+                        <outlet property="imageView" destination="7NC-dh-5Dl" id="GDb-ya-x84"/>
+                        <outlet property="titleLabel" destination="ILo-x0-3FD" id="6sQ-dO-2Lw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EbP-Zt-Tfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6369.375" y="-1186.2676056338028"/>
         </scene>
         <!--Vote View Controller-->
         <scene sceneID="t38-I0-pZc">
@@ -2430,6 +2519,7 @@
         <image name="17" width="512" height="512"/>
         <image name="finger2" width="512" height="512"/>
         <image name="hiru" width="400" height="370"/>
+        <image name="maru" width="400" height="400"/>
         <image name="trophy_gold" width="362" height="400"/>
         <image name="warewolf-logo" width="662" height="1024"/>
     </resources>
