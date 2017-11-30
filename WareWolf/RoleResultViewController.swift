@@ -56,6 +56,10 @@ class RoleResultViewController: UIViewController {
             self.roleLabel.backgroundColor = UIColor.rgb(240, g: 240, b: 86, alpha: 1.0)
             self.sideLabel.textColor = UIColor.rgb(240, g: 240, b: 86, alpha: 1.0)
             self.sideLabel.text = "狐サイド"
+        }else if self.appDelegate.playerList[self.appDelegate.playerID].role.side == .Detective {
+            self.roleLabel.backgroundColor = self.appDelegate.detectiveColor
+            self.sideLabel.textColor = self.appDelegate.detectiveColor
+            self.sideLabel.text = "探偵サイド"
         }
     }
     
