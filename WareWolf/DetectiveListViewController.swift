@@ -52,6 +52,25 @@ class DetectiveListViewController: UIViewController,UITableViewDelegate,UITableV
         super.viewWillAppear(animated)
         self.roles = []
         self.detectiveList = [:]
+        var roleIDList : [Int] = []
+        for index in 0..<self.appDelegate.playerList.count {
+            let player = self.appDelegate.playerList[index]
+            // 名探偵以外
+            if self.appDelegate.detectiveID != index {
+                // IDリストに未追加なら
+                if !roleIDList.contains(player.role.ID) {
+                    // IDの追加
+                    roleIDList.append(player.role.ID)
+                }
+            }
+        }
+        // IDリストのソート
+        roleIDList = roleIDList.sorted()
+        for rID in roleIDList {
+            let role = self.appDelegate.roleManager.ID2Role(ID: rID, roleList: self.appDelegate.roleList)
+            self.roles.append(role!)
+        }
+        /*
         var isVillager = false
         for (key,_) in self.appDelegate.hintRoleList {
             // 名探偵以外を追加
@@ -69,6 +88,7 @@ class DetectiveListViewController: UIViewController,UITableViewDelegate,UITableV
             let role = self.appDelegate.roleManager.ID2Role(ID: 0, roleList: self.appDelegate.roleList)
             self.roles.append(role!)
         }
+        */
         self.pickerView = UIPickerView()
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
