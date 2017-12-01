@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     private let NEWGAME_SEGUE = "GO_TO_NEWGAME"
-    
+    private let OTHERS_SEGUE = "GO_TO_OTHERS"
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -72,6 +72,10 @@ class ViewController: UIViewController {
         }else{
             self.showAlert(viewController: self, message: "セーブデータがありません", buttonTitle: "OK")
         }
+    }
+    
+    @IBAction func tappedOthersButton(_ sender: Any) {
+        self.performSegue(withIdentifier: self.OTHERS_SEGUE, sender: self)
     }
 }
 
