@@ -1,8 +1,7 @@
 {
     "Day": 0,
-    "Time": "Night",
-    "Phase":"Action",
-    "LastUpdate" : "2017-04-01T09:30:00.000Z",
+    "Time": "夜",
+    "LastUpdate" : "2017/04/01 09:30:00",
 
     "Players": [
         {
