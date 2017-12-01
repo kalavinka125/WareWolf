@@ -10,7 +10,7 @@ import UIKit
 
 class OtherTopViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    private let list = ["ゲームオプション","クレジット","このアプリについて"]
+    private let list = ["ゲームのルール","役職について","オプション","クレジット","このアプリについて"]
     private let CELL_ID = "OTHER_CELL"
     @IBOutlet weak var tableView: UITableView!
     
@@ -40,6 +40,19 @@ class OtherTopViewController: UIViewController,UITableViewDelegate,UITableViewDa
         cell.numberLabel.text = "□"
         cell.nameLabel.text = list[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            
+        }else if indexPath.row == 1 {
+            
+        }else if indexPath.row == 2 {
+            self.showAlert(viewController: self, message: "設定できるオプションは\n現在ありません", buttonTitle: "OK")
+        }else if indexPath.row == 3 {
+        }else if indexPath.row == 4 {
+            
+        }
     }
     
     @IBAction func tappedBackButton(_ sender: Any) {
