@@ -35,6 +35,7 @@
 		D23F39F41FD0546F002A38CC /* GameInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F39F31FD0546F002A38CC /* GameInfoViewController.swift */; };
 		D23F39F61FD061E7002A38CC /* RoleHintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F39F51FD061E7002A38CC /* RoleHintTableViewCell.swift */; };
 		D23F39F81FD10DB8002A38CC /* Others.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D23F39F71FD10DB8002A38CC /* Others.storyboard */; };
+		D23F39FA1FD113B5002A38CC /* OtherTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F39F91FD113B5002A38CC /* OtherTopViewController.swift */; };
 		D28646AC1FC1E313002B14BD /* PlayerEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */; };
 		D28646AE1FC1E3AF002B14BD /* PlayerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */; };
 		D28646B01FC1F124002B14BD /* RoleCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */; };
@@ -118,6 +119,7 @@
 		D23F39F31FD0546F002A38CC /* GameInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameInfoViewController.swift; sourceTree = "<group>"; };
 		D23F39F51FD061E7002A38CC /* RoleHintTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleHintTableViewCell.swift; sourceTree = "<group>"; };
 		D23F39F71FD10DB8002A38CC /* Others.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Others.storyboard; sourceTree = "<group>"; };
+		D23F39F91FD113B5002A38CC /* OtherTopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherTopViewController.swift; sourceTree = "<group>"; };
 		D28646AB1FC1E313002B14BD /* PlayerEditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerEditTableViewCell.swift; sourceTree = "<group>"; };
 		D28646AD1FC1E3AF002B14BD /* PlayerListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerListViewController.swift; sourceTree = "<group>"; };
 		D28646AF1FC1F124002B14BD /* RoleCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleCheckViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				D23F39ED1FCF0BA6002A38CC /* DetectiveViewController.swift */,
 				D23F39EF1FCF0FE2002A38CC /* DetectiveListViewController.swift */,
 				D23F39F11FCFCC75002A38CC /* DetectiveResultViewController.swift */,
+				D23F39FB1FD113E2002A38CC /* Others */,
 				D28646B91FC30EF5002B14BD /* ExFileManager.swift */,
 				D2D4064B1FC3270F00F10994 /* RoleManager.swift */,
 			);
@@ -274,6 +277,14 @@
 				D23613FF1FC125D900563B8C /* PixelMplus12-Regular.ttf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		D23F39FB1FD113E2002A38CC /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				D23F39F91FD113B5002A38CC /* OtherTopViewController.swift */,
+			);
+			name = Others;
 			sourceTree = "<group>";
 		};
 		D28646B31FC2A6DE002B14BD /* Cell */ = {
@@ -481,6 +492,7 @@
 				D2DFD1F61FCAA3E300395713 /* GameResultViewController.swift in Sources */,
 				D2EC1D851FC7FA7900F68F53 /* VoteViewController.swift in Sources */,
 				D2D406501FC3DE3F00F10994 /* CheckViewController.swift in Sources */,
+				D23F39FA1FD113B5002A38CC /* OtherTopViewController.swift in Sources */,
 				D236140D1FC1CB3B00563B8C /* PlayerTableViewCell.swift in Sources */,
 				D23613CE1FC09EE200563B8C /* AppDelegate.swift in Sources */,
 				D23F39F21FCFCC75002A38CC /* DetectiveResultViewController.swift in Sources */,

@@ -6,13 +6,22 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="PixelMplus10-Regular.ttf">
+            <string>PixelMplus10-Regular</string>
+        </array>
+        <array key="PixelMplus12-Bold.ttf">
+            <string>PixelMplus12-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Other Top View Controller-->
         <scene sceneID="lgb-t2-1HN">
             <objects>
-                <viewController id="4Ds-Sg-7PA" sceneMemberID="viewController">
+                <viewController id="4Ds-Sg-7PA" customClass="OtherTopViewController" customModule="WareWolf" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PcA-o9-5rQ"/>
                         <viewControllerLayoutGuide type="bottom" id="5GX-Cf-Wy7"/>
@@ -20,12 +29,101 @@
                     <view key="view" contentMode="scaleToFill" id="Hx5-5F-eoE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you a WereWolf!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfV-tI-WNg">
+                                <rect key="frame" x="0.0" y="20" width="320" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="GbW-0R-dcj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus12-Bold" family="PixelMplus12" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MsF-oW-VcR">
+                                <rect key="frame" x="16" y="99" width="288" height="392"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="OTHER_CELL" id="0pd-KX-flE" customClass="PlayerTableViewCell" customModule="WareWolf" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0pd-KX-flE" id="Eyo-WB-Uue">
+                                            <rect key="frame" x="0.0" y="0.0" width="255" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="□" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve2-aS-3M3">
+                                                    <rect key="frame" x="8" y="12" width="25.5" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25.5" id="Ab4-pg-oXZ"/>
+                                                        <constraint firstAttribute="height" constant="21" id="vm3-97-XIR"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0J-8h-c94">
+                                                    <rect key="frame" x="41" y="12" width="206" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="i2R-Z6-RlQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="n0J-8h-c94" secondAttribute="bottom" constant="2.5" id="9Dj-Pv-i7w"/>
+                                                <constraint firstItem="n0J-8h-c94" firstAttribute="leading" secondItem="Ve2-aS-3M3" secondAttribute="trailing" constant="7.5" id="AGW-wb-TmZ"/>
+                                                <constraint firstItem="Ve2-aS-3M3" firstAttribute="top" secondItem="Eyo-WB-Uue" secondAttribute="topMargin" constant="4" id="Ho5-ON-x9z"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Ve2-aS-3M3" secondAttribute="bottom" constant="2.5" id="LIm-Qm-mHq"/>
+                                                <constraint firstItem="Ve2-aS-3M3" firstAttribute="leading" secondItem="Eyo-WB-Uue" secondAttribute="leadingMargin" id="LVb-ts-tX3"/>
+                                                <constraint firstItem="n0J-8h-c94" firstAttribute="trailing" secondItem="Eyo-WB-Uue" secondAttribute="trailingMargin" id="YOZ-vw-cMH"/>
+                                                <constraint firstItem="n0J-8h-c94" firstAttribute="top" secondItem="Eyo-WB-Uue" secondAttribute="topMargin" constant="4" id="u1H-TV-2Wy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="n0J-8h-c94" id="enI-hY-nZe"/>
+                                            <outlet property="numberLabel" destination="Ve2-aS-3M3" id="sz2-Nu-XZZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8j-Mr-Tv3">
+                                <rect key="frame" x="16" y="504" width="288" height="44"/>
+                                <color key="backgroundColor" red="0.3655167433" green="0.20999244610000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="C7c-x8-VkZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PixelMplus10-Regular" family="PixelMplus10" pointSize="24"/>
+                                <state key="normal" title="戻る">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedBackButton:" destination="4Ds-Sg-7PA" eventType="touchUpInside" id="CHf-wp-npt"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f8j-Mr-Tv3" firstAttribute="leading" secondItem="Hx5-5F-eoE" secondAttribute="leadingMargin" id="8St-34-32g"/>
+                            <constraint firstItem="f8j-Mr-Tv3" firstAttribute="trailing" secondItem="Hx5-5F-eoE" secondAttribute="trailingMargin" id="8U4-YZ-3wP"/>
+                            <constraint firstItem="MsF-oW-VcR" firstAttribute="leading" secondItem="Hx5-5F-eoE" secondAttribute="leadingMargin" id="dw9-55-TpD"/>
+                            <constraint firstItem="f8j-Mr-Tv3" firstAttribute="top" secondItem="MsF-oW-VcR" secondAttribute="bottom" constant="13" id="fBb-LG-WN7"/>
+                            <constraint firstItem="tfV-tI-WNg" firstAttribute="top" secondItem="PcA-o9-5rQ" secondAttribute="bottom" id="gCj-qi-MfL"/>
+                            <constraint firstAttribute="trailing" secondItem="tfV-tI-WNg" secondAttribute="trailing" id="jFk-a6-1wb"/>
+                            <constraint firstItem="MsF-oW-VcR" firstAttribute="trailing" secondItem="Hx5-5F-eoE" secondAttribute="trailingMargin" id="oRs-Hq-hbU"/>
+                            <constraint firstItem="tfV-tI-WNg" firstAttribute="leading" secondItem="Hx5-5F-eoE" secondAttribute="leading" id="ugT-Gb-fMX"/>
+                            <constraint firstItem="5GX-Cf-Wy7" firstAttribute="top" secondItem="f8j-Mr-Tv3" secondAttribute="bottom" constant="20" id="y9b-xU-uU9"/>
+                            <constraint firstItem="MsF-oW-VcR" firstAttribute="top" secondItem="tfV-tI-WNg" secondAttribute="bottom" constant="5" id="zfM-oP-i2k"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="MsF-oW-VcR" id="DaJ-Ov-FYW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2bR-Dz-JhH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-489" y="45"/>
+            <point key="canvasLocation" x="-489.375" y="44.366197183098592"/>
         </scene>
     </scenes>
 </document>
