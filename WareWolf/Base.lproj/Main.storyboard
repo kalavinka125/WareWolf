@@ -1917,7 +1917,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GY-IL-IKf">
-                                                    <rect key="frame" x="22" y="11" width="59.5" height="21"/>
+                                                    <rect key="frame" x="22" y="11" width="57" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="9qW-Kg-PB6"/>
                                                     </constraints>
@@ -2067,7 +2067,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSA-1b-IDG">
-                                                    <rect key="frame" x="22" y="11" width="59.5" height="21"/>
+                                                    <rect key="frame" x="22" y="11" width="57" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="12h-Ne-fX0"/>
                                                     </constraints>
