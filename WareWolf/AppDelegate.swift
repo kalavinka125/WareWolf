@@ -8,10 +8,14 @@
 
 import UIKit
 import AVFoundation
+import MultipeerConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    //MultipeerConnectivyのセッション
+    var session:MCSession?
+    
     var window: UIWindow?
     let userDefaults = UserDefaults.standard
     var prevRoleList : [Int:Int] = [:]
