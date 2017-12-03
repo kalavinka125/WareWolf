@@ -1,40 +1,45 @@
 {
-    "Day": 0,
-    "Time": "夜",
-    "LastUpdate" : "2017/04/01 09:30:00",
-
-    "Players": [
-        {
-            "ID":0,
-            "Name": "るーじ",
-            "Alive":1,
-            "RoleID": 1,
-            "TargetID":-1,
-            "KillVote":-1
-        },
-        {
-            "ID":1,
-            "Name":"うざきち",
-            "Alive":1,
-            "RoleID":2,
-            "TargetID":0,
-            "KillVote":-1
-        },
-        {
-          "ID":2,
-          "Name":"せおっしー",
-          "Alive":1,
-          "RoleID":0,
-          "TargetID":-1,
-          "KillVote":-1
-        },
-        {
-          "ID":3,
-          "Name":"あきやま",
-          "Alive":1,
-          "RoleID":0,
-          "TargetID":-1,
-          "KillVote":-1
-        }
-    ]
+    "day": 1,
+    "time": "夜",
+    "updated" : "2017/04/01 09:30:00",
+    
+    "players": [
+                {
+                "id":0,
+                "name": "るーじ",
+                "isAlive":1,
+                "roleID": 1,
+                "targetID":1,
+                "killVote":2,
+                "isWin":0
+                },
+                {
+                "id":1,
+                "name":"うざきち",
+                "isAlive":1,
+                "roleID":2,
+                "targetID":2,
+                "killVote":-1,
+                "isWin":0
+                },
+                {
+                "id":2,
+                "name":"せおっしー",
+                "isAlive":1,
+                "roleID":0,
+                "targetID":-1,
+                "killVote":-1,
+                "isWin":0
+                },
+                {
+                "id":3,
+                "name":"あきやま",
+                "isAlive":0,
+                "roleID":0,
+                "targetID":-1,
+                "killVote":-1,
+                "isWin":1
+                }
+                ]
 }
+
